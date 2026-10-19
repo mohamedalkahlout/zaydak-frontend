@@ -1,0 +1,229 @@
+{
+  "title": "Abandoned carts",
+  "subtitle": "Remind customers who left items in their cart before the sale goes cold.",
+  "banner": {
+    "title": "Abandoned cart list",
+    "headline": "Ready-to-close sales already in your store",
+    "body": "Follow customers who left items in the cart. Send a reminder and an offer that helps them come back and finish the order.",
+    "more": "A cart shows up here once a signed-in customer has left items for 24 hours, or the recovery sweep has already marked it abandoned. Guests are not listed — there is no email on those carts. Hide removes a row from this list only; it does not empty the shopper's cart.",
+    "learnMore": "Learn more",
+    "less": "Show less",
+    "dismiss": "Dismiss"
+  },
+  "searchPlaceholder": "Search name or product",
+  "guest": "Customer",
+  "chatWhatsApp": "Message on WhatsApp",
+  "daysAgo": "{days, plural, =0 {Today} =1 {1 day ago} other {# days ago}}",
+  "error": "Could not load abandoned carts.",
+  "openCount": "{count, plural, one {# cart} other {# carts}}",
+  "draftNote": "Created from an abandoned cart",
+  "rowActions": "Cart actions",
+  "kpi": {
+    "heading": "Abandoned cart performance",
+    "subheading": "These figures are for the selected period. Recovered means the shopper checked out after abandoning, not that a reminder was sent.",
+    "total": "Abandoned in this period",
+    "recovered": "Recovery rate",
+    "average": "Average cart in this period"
+  },
+  "columns": {
+    "customer": "Customer",
+    "products": "Products",
+    "total": "Total",
+    "updated": "Last update",
+    "status": "Cart status",
+    "actions": "Actions",
+    "country": "Country",
+    "created": "Created",
+    "product": "Product",
+    "carts": "Carts",
+    "lost": "Lost revenue",
+    "lastLeft": "Last left"
+  },
+  "status": {
+    "READY": "Ready to remind",
+    "SENT": "Reminder sent",
+    "RETURNED": "Returned to store",
+    "FAILED": "Failed to send",
+    "COMPLETED": "Completed order"
+  },
+  "filter": {
+    "customer": "Customer",
+    "status": "Status",
+    "hidden": "Visibility",
+    "showHidden": "Show hidden carts",
+    "value": "Cart value",
+    "created": "Created date",
+    "valueBand": {
+      "lt_100": "Under 100",
+      "100_500": "100 – 500",
+      "500_1000": "500 – 1,000",
+      "gte_1000": "≥ 1,000"
+    },
+    "createdPreset": {
+      "last_7_days": "Last 7 days",
+      "last_30_days": "Last 30 days",
+      "this_month": "This month"
+    }
+  },
+  "range": {
+    "last7": "Last 7 days",
+    "last30": "Last 30 days",
+    "thisMonth": "This month",
+    "allTime": "All time",
+    "apply": "Apply"
+  },
+  "actions": {
+    "remind": "Send reminder",
+    "hide": "Hide cart",
+    "show": "Show cart",
+    "createOrder": "Create order"
+  },
+  "view": {
+    "customer": "Customer",
+    "product": "Product"
+  },
+  "chrome": {
+    "addFilter": "Add Filter…",
+    "display": "Display",
+    "views": "List views",
+    "noFiltersLeft": "Every filter is already applied"
+  },
+  "viewOptions": {
+    "columns": "Columns",
+    "sort": "Sort",
+    "exportOps": "Export activity log"
+  },
+  "sort": {
+    "LAST_ACTIVITY": "Last update",
+    "ITEM_COUNT": "Product count",
+    "TOTAL": "Cart value",
+    "CREATED_AT": "Created date",
+    "ASC": "Asc",
+    "DESC": "Desc"
+  },
+  "bulk": {
+    "selected": "selected",
+    "export": "Export",
+    "clear": "Clear"
+  },
+  "pageSize": "Rows",
+  "productCount": "{count, plural, one {# product} other {# products}}",
+  "items": {
+    "title": "Products left in cart",
+    "close": "Close",
+    "qty": "Qty {count}"
+  },
+  "statusDetail": {
+    "title": "Reminder status",
+    "sentOn": "Sent on {channels}.",
+    "failedOn": "Failed on {channels}.",
+    "noSend": "No reminder has been sent yet."
+  },
+  "timeline": {
+    "abandoned": "Left the cart",
+    "sent": "Reminder sent",
+    "failed": "Send failed",
+    "opened": "Opened reminder link",
+    "returned": "Returned to the cart",
+    "completed": "Order completed"
+  },
+  "empty": {
+    "title": "No abandoned carts",
+    "body": "When a signed-in customer leaves items for 24 hours, the cart appears here so you can send a reminder.",
+    "noMatch": "No carts matching the filters",
+    "noMatchHint": "Clear search or filters to see every abandoned cart.",
+    "hiddenByFilters": "{count, plural, one {# cart hidden by filters} other {# carts hidden by filters}}",
+    "clearFilters": "Clear Filters"
+  },
+  "channels": {
+    "EMAIL": "Email",
+    "SMS": "SMS",
+    "WHATSAPP": "WhatsApp"
+  },
+  "tags": {
+    "name": "Customer name",
+    "discount_amount": "Discount",
+    "date": "Expiry date",
+    "shop_name": "Shop name",
+    "cart_url": "Cart link",
+    "discount_code": "Discount code"
+  },
+  "reminder": {
+    "title": "Send reminder",
+    "titleMany": "Send reminder to {count} customers",
+    "description": "Message this customer now on the channels this shop can actually send.",
+    "close": "Close",
+    "incentive": "Incentive",
+    "discount": "Order discount",
+    "withDiscount": "Include a discount",
+    "withDiscountHint": "Optional. Leave off to remind without an offer.",
+    "discountType": "Discount type",
+    "percentType": "Percentage",
+    "percent": "Discount percent",
+    "expiry": "Discount expiry date",
+    "expiryPlaceholder": "Set expiry date",
+    "freeShipping": "Free shipping",
+    "freeShippingHint": "Give the customer free shipping when they complete the order.",
+    "channels": "Channels",
+    "channelsHint": "Unavailable channels are missing a customer address or a connected shop sender.",
+    "sendWhen": "Send time",
+    "sendNow": "Send now",
+    "messageTitle": "Message title",
+    "titlePlaceholder": "Your cart is waiting",
+    "body": "Message",
+    "preview": "Message preview",
+    "send": "Execute action",
+    "sending": "Sending…",
+    "sendingProgress": "Sending {done, number} of {total, number}…"
+  },
+  "savedViews": {
+    "label": "Saved views",
+    "empty": "No saved views yet",
+    "saveCurrent": "Save current view",
+    "name": "View name",
+    "save": "Save",
+    "delete": "Delete {name}",
+    "limit": "Maximum saved views reached"
+  },
+  "toasts": {
+    "sent": "Reminder sent",
+    "sentMany": "{count, plural, one {Reminder sent} other {# reminders sent}}",
+    "sentPartial": "Sent {ok}, failed {fail}",
+    "sendFailed": "Could not send the reminder",
+    "hidden": "Cart hidden from this list",
+    "shown": "Cart is visible again",
+    "hiddenMany": "{count, plural, one {Cart hidden} other {# carts hidden}}",
+    "shownMany": "{count, plural, one {Cart shown} other {# carts shown}}",
+    "hideFailed": "Could not update this cart",
+    "draftCreated": "Draft order created",
+    "draftFailed": "Could not create a draft order",
+    "draftCustomerDeleted": "This customer's account has been deleted",
+    "draftCustomerDeletedHint": "A draft order can't be created for them from this cart. Create one without a customer from Orders → Drafts, or hide this cart.",
+    "opsExportEmpty": "No reminders sent or carts hidden in this date range",
+    "opsExportCapped": "Exported the latest {count, number} entries. Narrow the date range to reach older ones.",
+    "opsExportFailed": "Could not export the activity log",
+    "selectionLoadFailed": "Could not load the selected carts",
+    "selectionMissing": "{count, plural, one {# selected cart is no longer in this list and was left out} other {# selected carts are no longer in this list and were left out}}",
+    "remindNone": "None of the selected carts can be sent a reminder. Hidden and completed carts are left out.",
+    "remindSkipped": "{count, plural, one {# hidden or completed cart was left out of the reminder} other {# hidden or completed carts were left out of the reminder}}",
+    "bulkPartial": "{done, number} of {total, number} carts were updated. The rest could not be updated; try again.",
+    "sendStopped": "Stopped. Sent {ok, number}, failed {fail, number}, not sent {left, number}."
+  },
+  "selection": {
+    "selectAll": "Select all",
+    "selectRow": "Select row",
+    "pageSelected": "{count, plural, one {The # cart on this page is selected.} other {All # carts on this page are selected.}}",
+    "selectMatching": "{total, plural, one {Select the # cart in this list} other {Select all # carts in this list}}",
+    "selectMatchingCut": "Select the first {limit, number} of {total, number} carts in this list",
+    "selecting": "Selecting…",
+    "allSelected": "{count, plural, one {The # cart in this list is selected.} other {All # carts in this list are selected.}}",
+    "cutSelected": "The first {count, number} of {total, number} carts in this list are selected. One selection holds {count, number} at most; narrow the filters to reach the rest.",
+    "clear": "Clear selection",
+    "failed": "Could not select the carts in this list"
+  },
+  "step": {
+    "days": "{count}d",
+    "hours": "{count}h",
+    "minutes": "{count}m"
+  }
+}

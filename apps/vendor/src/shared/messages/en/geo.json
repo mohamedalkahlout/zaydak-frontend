@@ -1,0 +1,15 @@
+{
+  "selectCountry": "Select a country",
+  "searchCountry": "Search countries",
+  "noCountry": "No country found",
+  "selectRegion": "Select a region",
+  "searchRegion": "Search regions",
+  "noRegion": "No region found",
+  "selectCity": "Select a city",
+  "searchCity": "Search cities",
+  "noCity": "No city found",
+  "selectDistrict": "Select a district",
+  "searchDistrict": "Search districts",
+  "noDistrict": "No district found",
+  "moreResults": "{count} more — keep typing to narrow the list"
+}

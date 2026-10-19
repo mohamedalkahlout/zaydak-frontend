@@ -1,0 +1,1108 @@
+{
+  "toasts": {
+    "created": "Product created",
+    "stockPlaced": "Stock placed",
+    "stockNotMoved": "Product created, stock not moved",
+    "updated": "Product updated",
+    "createFailed": "Could not create product",
+    "updateFailed": "Could not update product",
+    "tryAgain": "Please try again"
+  },
+  "title": "Products",
+  "addProduct": "Add product",
+  "editProduct": "Edit product",
+  "addAssembled": "Add assembled product",
+  "editAssembled": "Edit assembled product",
+  "categoryMetafields": "Category metafields",
+  "connectToOption": "Connect to option",
+  "disconnect": "Disconnect",
+  "viewMetafield": "View metafield",
+  "picker": {
+    "create": "Add \"{query}\"",
+    "adding": "Adding…",
+    "remove": "Remove {name}",
+    "clearSearch": "Clear search",
+    "noResults": "No results",
+    "empty": "Nothing to show yet",
+    "selectOrAdd": "Select or add",
+    "searchOrAdd": "Search or add"
+  },
+  "tags": {
+    "label": "Tags",
+    "add": "Add tags",
+    "search": "Search or add tags",
+    "frequentlyUsed": "Frequently used",
+    "other": "Other tags",
+    "createFailed": "Could not create tag",
+    "tryAgain": "Please try again"
+  },
+  "collections": {
+    "label": "Collections",
+    "add": "Add collections",
+    "search": "Search or add collections",
+    "addNew": "Add new collection"
+  },
+  "shipping": {
+    "title": "Shipping",
+    "physical": "Physical product",
+    "notPhysical": "Customers won't enter a shipping address at checkout for this product.",
+    "weight": "Product weight",
+    "weightUnit": "Weight unit",
+    "moreDetails": "More details",
+    "originChip": "Country of origin",
+    "hsCodeChip": "HS code",
+    "origin": "Country/Region of origin",
+    "originHintLabel": "About the country of origin",
+    "originHint": "Where the product was manufactured or assembled. Customs reads it to assess duty.",
+    "hsCode": "Harmonized System (HS) code",
+    "hsCodeHintLabel": "About the Harmonized System code",
+    "hsCodeHint": "The classification carriers and customs use to work out duties on an international shipment.",
+    "hsCodePlaceholder": "Enter a 6-digit code, e.g. 6109.10",
+    "dimensions": "Package dimensions",
+    "dimensionsHintLabel": "About package dimensions",
+    "dimensionsHint": "Length, width, and height in centimetres (cm). Used by carriers to calculate volumetric weight.",
+    "length": "Length",
+    "width": "Width",
+    "height": "Height",
+    "lengthCaption": "L (cm)",
+    "widthCaption": "W (cm)",
+    "heightCaption": "H (cm)"
+  },
+  "organization": {
+    "title": "Product organization",
+    "type": "Type",
+    "typeLabel": "Product type",
+    "typePlaceholder": "Select or add product type",
+    "typeSearch": "Search or add product type",
+    "vendor": "Vendor",
+    "vendorPlaceholder": "Select or add vendor",
+    "vendorSearch": "Search or add vendor",
+    "sellingMethod": "Selling method",
+    "saleType": {
+      "FIXED_PRICE": "Fixed price",
+      "NEGOTIABLE": "Negotiable",
+      "AUCTION": "Auction"
+    }
+  },
+  "metafields": {
+    "in": "in",
+    "none": "This category has no metafields yet.",
+    "required": "Required",
+    "outdated": "Outdated",
+    "managedByVariants": "Managed as a variant option. Edit values in the Variants section below, or disconnect to edit here.",
+    "clearOption": "— Clear —",
+    "enabled": "Enabled",
+    "addValue": "Add {name}",
+    "unsupported": "Unsupported attribute type: {type}",
+    "disconnectFromVariants": "Disconnect from variants",
+    "types": {
+      "TEXT": "Text",
+      "NUMBER": "Number",
+      "NUMBER_UNIT": "Number ({unit})",
+      "BOOLEAN": "Yes / No",
+      "SELECT": "Option",
+      "MULTI_SELECT": "Multiple options"
+    },
+    "suggestions": {
+      "looking": "Looking at this product…",
+      "unavailable": "Suggestions are unavailable right now.",
+      "quotaExhausted": "AI suggestions are paused for today. They resume at midnight UTC.",
+      "tryAgain": "Try again",
+      "available": "{count, plural, one {# suggestion available} other {# suggestions available}}",
+      "acceptAll": "Accept all",
+      "dismissAll": "Dismiss all suggestions",
+      "accept": "Accept",
+      "dismiss": "Dismiss suggestion for {name}"
+    },
+    "booleanYes": "Yes",
+    "booleanNo": "No"
+  },
+  "unsavedChanges": "Unsaved changes",
+  "unsavedProduct": "Unsaved product",
+  "status": {
+    "PUBLISH": "Active",
+    "DRAFT": "Draft",
+    "UNLISTED": "Unlisted"
+  },
+  "header": {
+    "untitled": "Untitled product",
+    "backToList": "Back to products",
+    "preview": "Preview",
+    "share": "Share",
+    "shareTitle": "Share product",
+    "draftNotice": "Drafts are not visible on your storefront.",
+    "productLink": "Product link",
+    "copyLink": "Copy",
+    "linkCopied": "Link copied",
+    "copyFailed": "Could not copy the link",
+    "shareTargets": {
+      "whatsapp": "WhatsApp",
+      "x": "X",
+      "facebook": "Facebook",
+      "email": "Email"
+    },
+    "more": "More actions",
+    "duplicate": "Duplicate product",
+    "duplicating": "Duplicating...",
+    "duplicated": "Product duplicated",
+    "duplicateFailed": "Could not duplicate product",
+    "tryAgain": "Please try again",
+    "setAsDraft": "Set as draft",
+    "viewReviews": "View reviews",
+    "delete": "Delete product",
+    "previous": "Previous product",
+    "next": "Next product",
+    "stepTo": "{label}: {name}"
+  },
+  "delete": {
+    "title": "Delete product?",
+    "thisProduct": "This product",
+    "body": "<b>{name}</b> will be removed from your shop. Orders that already contain it keep their line items.",
+    "deleting": "Deleting…",
+    "deleted": "Product deleted",
+    "failed": "Could not delete product",
+    "rejected": "The server rejected the request.",
+    "tryAgain": "Please try again"
+  },
+  "duplicate": {
+    "title": "Duplicate without saving?",
+    "thisProduct": "This product",
+    "body": "<b>{name}</b> has unsaved changes. The copy is made from the last saved version, and leaving for it will discard what you changed here.",
+    "confirm": "Duplicate anyway",
+    "confirming": "Duplicating…"
+  },
+  "categoryPicker": {
+    "label": "Category",
+    "placeholder": "Select a category",
+    "loading": "Loading taxonomy…",
+    "searchPlaceholder": "Search taxonomy (e.g. shirts, electronics)",
+    "hint": "Determines tax rates and adds metafields to improve search, filters, and cross-channel sales.",
+    "metafieldCount": "{count, plural, one {# metafield} other {# metafields}}",
+    "goToMetafields": "Go to category metafields",
+    "backOneLevel": "Back one level",
+    "all": "All",
+    "use": "Use <b>{name}</b>",
+    "emptyLevel": "Nothing under this category.",
+    "noMatches": "No matches.",
+    "browseHere": "Browse here",
+    "clearSelection": "Clear selection",
+    "breadcrumb": "{leaf} in {parent}",
+    "aiSuggest": "Suggest a category",
+    "categoryNoSuggestion": "AI could not place this product in a category.",
+    "aiFailed": "Could not suggest a category.",
+    "aiNotInPlan": "Your plan does not include AI suggestions.",
+    "aiQuota": "AI quota reached. Please upgrade your plan or try again later.",
+    "aiRateLimited": "Too many AI requests just now. Wait a little and try again.",
+    "suggestionsLabel": "Category suggestions"
+  },
+  "kinds": {
+    "title": "What kind of product?",
+    "description": "This sets up the right fields for you. You can change it later.",
+    "mostCommon": "Most common",
+    "SIMPLE": {
+      "label": "Simple product",
+      "description": "One item with a single price, SKU and stock count"
+    },
+    "VARIABLE": {
+      "label": "Product with options",
+      "description": "Sizes, colours or bundles — each with its own price and stock"
+    },
+    "DIGITAL": {
+      "label": "Digital product",
+      "description": "A download or licence key, delivered without shipping"
+    },
+    "SERVICE": {
+      "label": "Service",
+      "description": "Work you deliver, like installation or a consultation"
+    },
+    "ASSEMBLED": {
+      "label": "Assembled product",
+      "description": "The shopper builds it from other products, and the price follows what they choose"
+    }
+  },
+  "list": {
+    "export": "Export",
+    "import": "Import",
+    "moreActions": "More actions",
+    "bulkEditInventory": "Bulk edit inventory",
+    "exportFailed": "Export failed",
+    "tryAgain": "Please try again",
+    "empty": {
+      "noMatch": "No matching products",
+      "noMatchHint": "Try clearing filters or searching by a different name.",
+      "title": "Add your products",
+      "body": "Add products one at a time, or import your whole catalogue from a CSV file or another store."
+    },
+    "statusAria": "Product status",
+    "search": "Search products",
+    "sortAndColumns": "Sort and columns",
+    "sortBy": "Sort by",
+    "compactRows": "Compact rows",
+    "columns": "Columns",
+    "moveColumn": "Move {label}",
+    "hideColumn": "Hide {label}",
+    "showColumn": "Show {label}",
+    "statusSetTo": "Status set to {label}",
+    "changeFailed": "Could not change status",
+    "notUpdated": "This product was not updated",
+    "statusCard": "Status",
+    "views": {
+      "ALL": "All",
+      "PUBLISH": "Active",
+      "DRAFT": "Draft",
+      "UNLISTED": "Unlisted"
+    },
+    "sort": {
+      "NEWEST": "Created",
+      "OLDEST": "Oldest",
+      "PRICE_LOW": "Price: low to high",
+      "PRICE_HIGH": "Price: high to low",
+      "MOST_VIEWED": "Most viewed"
+    },
+    "column": {
+      "name": "Product",
+      "status": "Status",
+      "inventory": "Inventory",
+      "category": "Category",
+      "collections": "Collections",
+      "product_type": "Product type",
+      "price": "Price",
+      "negotiation": "Negotiation",
+      "brand": "Brand",
+      "created_at": "Created",
+      "updated_at": "Updated"
+    }
+  },
+  "statusDesc": {
+    "PUBLISH": "Listed in your shop and available to buy",
+    "DRAFT": "Hidden from your shop and not for sale",
+    "UNLISTED": "Not listed or searchable — sells by direct link"
+  },
+  "formLang": {
+    "editingIn": "Editing in:",
+    "aria": "Form language"
+  },
+  "import": {
+    "title": "Import products",
+    "back": "Back",
+    "cancel": "Cancel",
+    "next": "Next",
+    "close": "Close",
+    "source": {
+      "description": "How do you want to import your products?",
+      "csv": "Upload a CSV file",
+      "csvHelp": "A Shopify product export — either column vocabulary — or one of ours. <sample>Download sample CSV</sample>",
+      "store": "Import from your old online store",
+      "storeHelp": "We read the catalogue at its address and show you what is there. Nothing is written until you approve it.",
+      "product": "Import a single product",
+      "productHelp": "Paste the link to one product page. We read that page and nothing else on the site, and nothing is written until you approve it."
+    },
+    "csv": {
+      "title": "Import products by CSV",
+      "description": "Rows sharing a handle become one product with its variants, so a Shopify export lands as the products it describes rather than a listing per line.",
+      "addFile": "Add file",
+      "addFileHint": "CSV, up to 5 MB",
+      "replaceFile": "Replace file",
+      "upload": "Upload and continue",
+      "continue": "Continue",
+      "import": "Import products",
+      "tooLarge": "File is too large",
+      "tooLargeBody": "CSV imports are capped at 5 MB. Split the file and retry.",
+      "readFailed": "Could not read the file",
+      "failed": "Import failed",
+      "tryAgain": "Please try again",
+      "finished": "Import finished",
+      "finishedBody": "{created} created, {updated} updated, {skipped} skipped.",
+      "conflictTitle": "Some of these products already exist",
+      "conflictDescription": "{conflicts} of the {total} products in this file already exist in your catalogue.",
+      "conflictHeading": "{count, plural, one {One handle in this file is already yours} other {# handles in this file are already yours}}",
+      "andMore": "…and {count} more.",
+      "skip": "Skip them",
+      "skipHelp": "Import only the products you don't have yet. Nothing you already sell changes.",
+      "overwrite": "Overwrite them with this file",
+      "overwriteHelp": "Replace the fields the file provides on the matching products. Fields it leaves out stay as they are, and variants it doesn't mention are kept.",
+      "previewTitle": "Preview your first product",
+      "previewDescription": "Nothing has been written yet. Check this product read the way you meant it, then import.",
+      "summary": "You will be importing <b>{products}</b> products with a total of <b>{skus}</b> SKUs and <b>{images}</b> images — {created} created, {updated} updated, {skipped} skipped.",
+      "invalidHeading": "{count, plural, one {One product cannot be imported} other {# products cannot be imported}}",
+      "invalidRow": "Row {row} — {message}",
+      "invalidRowNamed": "Row {row} ({slug}) — {message}",
+      "rowSkipped": "skipped",
+      "row": "row {row}",
+      "unmapped": "Columns we don't read: {columns}.",
+      "nothingReadable": "Nothing in this file could be read as a product.",
+      "publishNew": "{count, plural, one {Publish the product this creates} other {Publish the # products this creates}}",
+      "publishNewHelp": "They go live regardless of the file's status column. Products you already have are never re-published.",
+      "fieldTitle": "Title",
+      "fieldDescription": "Description",
+      "fieldStatus": "Status",
+      "fieldKind": "Kind",
+      "fieldCategory": "Category",
+      "fieldVendor": "Vendor",
+      "variant": "Variant",
+      "sku": "SKU",
+      "weight": "Weight",
+      "price": "Price",
+      "moreVariants": "…and {count} more variants."
+    },
+    "url": {
+      "title": "Import from your old store",
+      "description": "Give us the address and we read its catalogue. This writes nothing — you see what we found and approve it afterwards.",
+      "urlLabel": "Store address",
+      "urlPlaceholder": "https://old-store.com",
+      "urlHelp": "The storefront a customer would visit. Public http or https only.",
+      "platformLabel": "Platform",
+      "platformHelp": "Leave it on detect. Naming one only helps when detection has already got it wrong.",
+      "platformAuto": "Detect automatically",
+      "platformShopify": "Shopify",
+      "platformWoocommerce": "WooCommerce",
+      "platformGeneric": "Another store",
+      "attest": "I own this store, or I am authorised to move its data.",
+      "attestHelp": "Nothing can check this for us, so we ask. Your answer is recorded with your account, the address and the time.",
+      "attestRequired": "Confirm you may move this store's data before scanning.",
+      "submit": "Scan the store",
+      "submitting": "Starting…"
+    },
+    "product": {
+      "title": "Import a single product",
+      "description": "Give us the product's own page and we read that one page. This writes nothing — you see what we found and approve it afterwards.",
+      "urlLabel": "Product page address",
+      "urlPlaceholder": "https://old-store.com/products/blue-mug",
+      "urlHelp": "The product's own page — not a category, search or home page. Public http or https only. We follow no links from it.",
+      "urlIsHome": "That is a store's home page. Paste the address of the product's own page.",
+      "attest": "This product's content is mine — it is my own listing, for example on another platform I sell on — or I have the rights holder's permission to use it.",
+      "attestHelp": "Importing someone else's listing without their permission, such as a competitor's product page, is not allowed. We can't verify this ourselves, so we ask. Your answer is recorded with your account, the address and the time.",
+      "attestRequired": "Confirm that this product's content is yours, or that you have the rights holder's permission, before importing it.",
+      "submit": "Read the product"
+    },
+    "progress": {
+      "title": "Store import",
+      "titleProduct": "Product import",
+      "reading": "Reading {host}",
+      "backToProducts": "Back to products",
+      "detected": "Read as {platform}",
+      "requested": "You picked {platform}",
+      "notFound": "That import could not be found.",
+      "loading": "Loading this import…",
+      "steps": {
+        "QUEUED": "Queued",
+        "DISCOVERING": "Finding products",
+        "EXTRACTING": "Reading products",
+        "NORMALIZING": "Tidying the data",
+        "READY": "Ready to review",
+        "IMPORTING": "Writing to your catalogue",
+        "DONE": "Done"
+      },
+      "stoppedTitle": "This import stopped",
+      "cancelledTitle": "You stopped this import",
+      "cancelledBody": "Anything already written stays in your catalogue.",
+      "stop": "Stop this import",
+      "stopping": "Stopping…",
+      "stopFailed": "Could not stop this import",
+      "scanAgain": "Scan again",
+      "scanAgainTitle": "Start a new scan?",
+      "scanAgainBody": "A new scan is a new job, and your edits stay on this one. Once the new scan is ready you can bring them over. Each edit follows its product by your old store's own product id, so an edit whose product the new scan doesn't find is listed rather than moved onto a different product.",
+      "scanAgainConfirm": "Scan again",
+      "scanAgainCancel": "Keep this scan",
+      "scanAgainStarting": "Starting…",
+      "carry": {
+        "title": "{count, plural, one {Your previous scan has edits on # product} other {Your previous scan has edits on # products}}",
+        "body": "Bring them over to this scan. Each edit follows its product by your old store's own product id, so it lands on the right product even if the product's address changed. Photos you dropped come along too, wherever this scan still has them. Anything this scan doesn't have is listed rather than guessed at, and any field you've already changed here keeps your new value.",
+        "bring": "{count, plural, one {Bring over edits for # product} other {Bring over edits for # products}}",
+        "bringing": "Bringing edits over…",
+        "dismiss": "Not now",
+        "doneTitle": "Edits from the previous scan",
+        "matched": "{count, plural, =0 {No edits matched a product in this scan.} one {Brought over edits for # product.} other {Brought over edits for # products.}}",
+        "unmatched": "{count, plural, one {# product from the previous scan couldn't be matched to one in this scan, so its edits stayed behind:} other {# products from the previous scan couldn't be matched to any in this scan, so their edits stayed behind:}}",
+        "dropsNotCarried": "{count, plural, one {# photo you dropped on the previous scan isn't in this scan at the same address, so it wasn't dropped here. If your old store now serves it at a new address, drop it again.} other {# photos you dropped on the previous scan aren't in this scan at the same addresses, so they weren't dropped here. If your old store now serves them at new addresses, drop them again.}}",
+        "unmatchedMore": "…and {count} more.",
+        "close": "Close"
+      },
+      "counts": {
+        "title": "What the scan found",
+        "urls": "Pages read",
+        "products": "Products",
+        "skus": "SKUs",
+        "new": "New to this shop",
+        "matched": "Imported before",
+        "matchedHelp": "Products you imported from this store before. Approving updates them in place rather than creating a second copy."
+      },
+      "images": {
+        "title": "Images",
+        "found": "Found",
+        "pending": "In transfer",
+        "transferred": "On your storage",
+        "failed": "Failed",
+        "help": "An image in transfer is not a failed one. Products stay usable while images move; failed or stuck ones need a retry or a drop.",
+        "issuesTitle": "Images that need attention",
+        "issuesBody": "Each of these is still at your old store. Retry one, or drop it so the product no longer waits on that URL.",
+        "retry": "Retry",
+        "retrying": "Retrying…",
+        "retried": "Queued again",
+        "retryFailed": "Could not retry that image",
+        "skip": "Drop",
+        "skipping": "Dropping…",
+        "skipped": "Dropped",
+        "statusFailed": "Failed",
+        "statusStuck": "Stuck in transfer",
+        "statusSkipped": "Dropped",
+        "attempts": "{count, plural, one {# attempt} other {# attempts}}",
+        "position": "Image {position}"
+      },
+      "review": {
+        "title": "Review before importing",
+        "body": "Nothing has been written yet. This is what approving does.",
+        "willCreate": "{count, plural, one {Create # product} other {Create # products}}",
+        "willUpdate": "{count, plural, one {Update # product imported from this store before} other {Update # products imported from this store before}}",
+        "willCreateUpTo": "{count, plural, one {Create up to # product} other {Create up to # products}}",
+        "willUpdateUpTo": "{count, plural, one {Update up to # product imported from this store before} other {Update up to # products imported from this store before}}",
+        "willTransfer": "{count, plural, one {Move up to # image onto your storage} other {Move up to # images onto your storage}}",
+        "draftNote": "Every product lands as a draft, and nothing you already have is deleted.",
+        "approve": "Import these products",
+        "approving": "Starting the import…",
+        "failed": "Could not start the import",
+        "reviewAndEdit": "Review & edit"
+      },
+      "currency": {
+        "title": "That store prices in {source}. You trade in {shop}.",
+        "body": "This import cannot continue. Prices are not converted, and there is no way to import the numbers as written.",
+        "blocked": "This import cannot continue while the currencies differ."
+      },
+      "missing": {
+        "title": "{count, plural, one {# product this scan did not find} other {# products this scan did not find}}",
+        "body": "You imported these from this store before and this scan did not return them. They are listed so you know. Nothing here has been changed or removed, and nothing on this screen removes them — a scan that half-failed looks exactly like a store that dropped a product.",
+        "truncated": "Showing {shown} of {total}."
+      },
+      "done": {
+        "title": "Import finished",
+        "body": "{created} created, {updated} updated, {skipped} skipped.",
+        "draftNote": "Every product landed as a draft. Publish the ones you want live.",
+        "viewProducts": "View products"
+      },
+      "trace": {
+        "title": "What we tried",
+        "body": "Each way of reading this store, in the order we tried it, and what it answered.",
+        "strategies": {
+          "shopifyProductsJson": "Shopify product feed",
+          "shopifySitemap": "Shopify sitemap",
+          "wooStoreApi": "WooCommerce Store API",
+          "genericSitemap": "Sitemap and product pages",
+          "genericCrawl": "Links from the home page",
+          "renderedPages": "Paid page reading"
+        },
+        "reasons": {
+          "found": "{count, plural, one {Found # product} other {Found # products}}",
+          "noProducts": "Answered, but listed no products",
+          "blocked": "Access was refused",
+          "timeout": "Took too long to answer",
+          "unreachable": "Could not reach the store",
+          "cancelled": "Stopped before it ran",
+          "failed": "Failed",
+          "providerUnavailable": "Skipped: not available right now"
+        }
+      },
+      "running": "An import from {host} is running.",
+      "ready": "An import from {host} is waiting for your approval.",
+      "open": "Open it"
+    },
+    "errors": {
+      "urlBlocked": "That address can't be imported from. Check the store's URL, and use its public address rather than an admin or staging one.",
+      "ownershipNotAttested": "Confirm that you own this store, or are authorised to move its data, before scanning.",
+      "rateLimited": "Too many scans for now. Wait a little and try again — this ceiling protects the store you are reading as much as us.",
+      "platformUnsupported": "We can't read that platform yet. Export a CSV from it and upload that instead.",
+      "noProducts": "We reached that store, but it publishes no readable product data (no structured catalog or public feed). You can export your products as a CSV from your current store and upload the file directly instead.",
+      "sourceUnreachable": "We couldn't reach that store. Check it is online and open to the public, then try again.",
+      "importFailed": "The import stopped because of a problem on our side, not with your store. Try again.",
+      "currencyMismatch": "That store prices in a different currency from yours. This import cannot continue — prices are not converted.",
+      "tooLarge": "That catalogue is too large to import in one run.",
+      "invalidState": "This import isn't at a stage where that is possible. Reload the page.",
+      "artifactExpired": "The previous scan has expired, and its edits are no longer kept. They can't be brought over.",
+      "providerNotConfigured": "Importing from that store is unavailable right now.",
+      "planQuota": "Your plan's store imports for this period are used up.",
+      "featureNotAvailable": "Store import isn't included in your current plan. Moving to a larger plan enables it — retrying will not.",
+      "generic": "Something went wrong. Please try again."
+    },
+    "review": {
+      "title": "Review before importing",
+      "exit": "Exit review",
+      "close": "Close review",
+      "retention": "Draft saved until {date}",
+      "subtitle": "Check what we read from your old store, and fill in what it could not tell us.",
+      "saveInvalid": "One of your edits can't be saved. Check that prices are amounts, stock is a whole number and text is within its length limit, then save again.",
+      "loading": "Loading products…",
+      "noMatches": "No products match.",
+      "searchPlaceholder": "Search products",
+      "showing": "Showing {shown} of {total, plural, one {# item} other {# items}}",
+      "needsAttention": "{count} need attention",
+      "filterIncomplete": "Only products that need attention ({count})",
+      "needed": "Needed to sell",
+      "cleared": "Cleared — will import empty",
+      "notInSource": "Not in your old store",
+      "fromSource": "From your old store",
+      "sourceEnglish": "Source: English",
+      "sourceEmpty": "Nothing found",
+      "scannedTranslation": "Arabic we read",
+      "keepSource": "Keep what we read",
+      "addValue": "Add a value",
+      "addTranslation": "Add a translation",
+      "revert": "Revert",
+      "revertField": "Revert {field} to what we read",
+      "aiAssist": "Improve {field} with AI",
+      "aiAssistShort": "AI",
+      "aiProposal": "AI suggests",
+      "aiUseThis": "Use this",
+      "aiKeepMine": "Keep mine",
+      "aiNoSource": "There is nothing here yet for AI to work from.",
+      "aiEmpty": "AI had nothing to add to this field.",
+      "aiFailed": "That AI request failed. Try again in a moment.",
+      "aiNotInPlan": "AI writing is not included in your current plan.",
+      "aiQuota": "Your plan’s AI writing for this period is used up.",
+      "aiRateLimited": "Too many AI requests just now. Wait a little and try again.",
+      "aiActions": {
+        "improve": "Improve",
+        "shorten": "Shorten",
+        "extend": "Expand",
+        "simplify": "Simplify",
+        "translate-ar": "Translate to Arabic",
+        "translate-en": "Translate to English",
+        "custom": "Ask AI"
+      },
+      "categorySuggest": "Suggest a category",
+      "categoryNoSuggestion": "AI could not place this product in a category.",
+      "charactersUsed": "{used} of {max} characters used",
+      "columnScanned": "What we read",
+      "columnImported": "What will be imported",
+      "columnEnglish": "English",
+      "columnArabic": "Arabic",
+      "excludeProduct": "Don't import this product",
+      "includeNamed": "Include {title}",
+      "excludedBody": "This product will be skipped. Its images will not be downloaded either.",
+      "variantNote": "This product has {count} variants. Its price and stock here belong to the first one too.",
+      "images": {
+        "title": "Images",
+        "kept": "{kept} of {total} will be imported",
+        "hint": "Drop any photo you don't want in your catalogue, and put the rest in the order you want: the first is the main photo. A dropped photo is left out of the import and never downloaded. Photos can't be added here.",
+        "primary": "Main",
+        "dropped": "Dropped",
+        "drop": "Drop image {position}",
+        "restore": "Restore image {position}",
+        "makeMain": "Make image {position} the main photo",
+        "moveEarlier": "Move image {position} earlier",
+        "moveLater": "Move image {position} later",
+        "drag": "Drag image {position} to reorder",
+        "variantOnly": "Variant photo",
+        "noneKept": "Every photo is dropped. This product will be imported without images.",
+        "noMain": "No product photo is kept, so this product will be imported without a main photo. The photos still kept belong to its variants."
+      },
+      "previous": "Previous",
+      "next": "Next",
+      "pageOf": "Page {page} of {total}",
+      "bulkFill": {
+        "open": "Fill stock and category",
+        "saveFirst": "Save or discard your edits before filling in bulk.",
+        "title": "Fill stock and category",
+        "scopeAll": "{count, plural, one {This fills the # product in this import.} other {This fills the # products in this import.}}",
+        "scopeFiltered": "{count, plural, one {This fills the # product in the current view.} other {This fills the # products in the current view.}}",
+        "excludedSkipped": "Products you left out are skipped.",
+        "keepPlaceholder": "Leave empty to keep as it is",
+        "overwrite": "Replace values that are already there",
+        "overwriteOff": "Off: only empty cells are filled. Your own edits and what we read from your old store are kept.",
+        "overwriteOn": "On: your own edits and what we read from your old store are replaced too.",
+        "variantNote": "On a product with variants, the stock goes to its first variant only, not to each variant. Set the other variants' stock after importing.",
+        "cancel": "Cancel",
+        "confirm": "{count, plural, one {Fill # product} other {Fill # products}}",
+        "done": "{count, plural, =0 {Nothing was filled.} one {Filled # product.} other {Filled # products.}}",
+        "doneKept": "{count, plural, one {# product was kept as it was: it already had a value or is left out.} other {# products were kept as they were: they already had a value or are left out.}}",
+        "invalid": "Check the values: stock must be a whole number, and the category must be one from the list.",
+        "dismiss": "Dismiss"
+      },
+      "aiFill": {
+        "open": "Suggest categories",
+        "title": "Suggest categories for this page",
+        "intro": "AI reads each product's title, description and brand, and picks its category from the same list you choose from.",
+        "estimateProducts": "{count, plural, one {# product on this page has no category yet.} other {# products on this page have no category yet.}}",
+        "estimateCalls": "{calls, plural, one {This sends # AI request, with up to {size} products in it.} other {This sends # AI requests, one after another, with up to {size} products in each.}}",
+        "estimateLimit": "Each request counts toward the {limit} AI requests your account can make in an hour, shared with every other AI action.",
+        "estimateRemaining": "You have {remaining} of {limit} of these AI requests left this hour.",
+        "estimateFree": "Suggesting categories is free on every plan. It uses none of your plan's AI allowance.",
+        "skipped": "{count, plural, one {# product on this page is skipped: it already has a category, is left out, or has no title.} other {# products on this page are skipped: they already have a category, are left out, or have no title.}}",
+        "capped": "{count, plural, one {# more product is past the limit for one run. Run it again for the rest.} other {# more products are past the limit for one run. Run it again for the rest.}}",
+        "nothing": "Every product on this page already has a category, is left out, or has no title. There is nothing to ask about.",
+        "staged": "Categories are added as unsaved edits, and only where AI is sure. Nothing is saved until you press Save.",
+        "cancel": "Cancel",
+        "confirm": "{count, plural, one {Suggest for # product} other {Suggest for # products}}",
+        "running": "Sending request {current} of {calls}…",
+        "stop": "Stop",
+        "stopping": "Stopping after this request…",
+        "resultFilled": "{count, plural, =0 {No category was filled in.} one {Filled in # category.} other {Filled in # categories.}}",
+        "resultAmbiguous": "{count, plural, one {# product could go in more than one category. Open it and use Suggest a category to choose.} other {# products could go in more than one category. Open each one and use Suggest a category to choose.}}",
+        "resultUnplaced": "{count, plural, one {AI could not place # product.} other {AI could not place # products.}}",
+        "resultStopped": "{count, plural, one {You stopped it before # product was asked about.} other {You stopped it before # products were asked about.}}",
+        "resultNotAsked": "{count, plural, one {# product was not asked about.} other {# products were not asked about.}}",
+        "resultSave": "Check the new categories, then press Save.",
+        "close": "Close"
+      },
+      "groups": {
+        "product": "Product",
+        "pricing": "Pricing",
+        "inventory": "Inventory",
+        "organization": "Organization",
+        "translation": "Arabic",
+        "seo": "Search engine listing"
+      },
+      "fields": {
+        "name_en": {
+          "label": "Title"
+        },
+        "description_en": {
+          "label": "Description"
+        },
+        "brand": {
+          "label": "Brand"
+        },
+        "price_cents": {
+          "label": "Price"
+        },
+        "sale_price_cents": {
+          "label": "Sale price"
+        },
+        "cost_per_item_cents": {
+          "label": "Cost per item"
+        },
+        "quantity": {
+          "label": "Stock"
+        },
+        "sku": {
+          "label": "SKU"
+        },
+        "barcode": {
+          "label": "Barcode"
+        },
+        "system_category_id": {
+          "label": "Category"
+        },
+        "name_ar": {
+          "label": "Title"
+        },
+        "description_ar": {
+          "label": "Description"
+        },
+        "seo_title_en": {
+          "label": "Page title (English)"
+        },
+        "seo_description_en": {
+          "label": "Meta description (English)"
+        },
+        "seo_title_ar": {
+          "label": "Page title (Arabic)"
+        },
+        "seo_description_ar": {
+          "label": "Meta description (Arabic)"
+        }
+      }
+    }
+  },
+  "variantsTable": {
+    "groupBy": "Group by",
+    "search": "Search variants",
+    "filter": "Filter variants",
+    "clearFilters": "Clear filters",
+    "stockLocation": "Stock location",
+    "allLocations": "All locations",
+    "selectedCount": "{count, plural, one {# variant selected} other {# variants selected}}",
+    "deselectAll": "Deselect all",
+    "editPrice": "Edit price",
+    "setPriceFor": "Set price for {count, plural, one {# variant} other {# variants}}",
+    "appliesToSelected": "Applies to all selected variants.",
+    "apply": "Apply",
+    "negotiationPolicy": "Negotiation policy",
+    "bulkPolicyTitle": "Bulk negotiation policy",
+    "bulkPolicyBody": "Configure AI negotiation for {count, plural, one {# selected variant} other {# selected variants}}.",
+    "status": "Status",
+    "enable": "Enable",
+    "disable": "Disable",
+    "floorMode": "Floor Mode",
+    "floorMaxDiscount": "Max Discount (%)",
+    "floorMinPrice": "Minimum Price (SAR)",
+    "maxDiscountLabel": "Max discount percentage",
+    "minFloorLabel": "Minimum floor price",
+    "saving": "Saving...",
+    "applyToSelected": "Apply to selected",
+    "selectAll": "Select all",
+    "selectNamed": "Select {name}",
+    "selectVariant": "Select variant",
+    "showing": "Showing {visible} of {total, plural, one {# variant} other {# variants}}",
+    "expandAll": "Expand all",
+    "collapseAll": "Collapse all",
+    "noMatch": "No variants match",
+    "variantCount": "{count, plural, one {# variant} other {# variants}}",
+    "mixed": "Mixed",
+    "priceUpdated": "Price updated to {price} SAR for {count, plural, one {# variant} other {# variants}}",
+    "policyApplied": "Negotiation policy applied to {count, plural, one {# variant} other {# variants}}",
+    "policyFailed": "Could not apply negotiation policy",
+    "tryAgain": "Please try again",
+    "openingStockHint": "Opening stock. Lands at the shop's default location when you save.",
+    "tracking": {
+      "inherit": "Inherit",
+      "tracked": "Track",
+      "untracked": "Untracked"
+    },
+    "column": {
+      "variant": "Variant",
+      "price": "Price",
+      "available": "Available",
+      "availableAllHint": "Stock across every location. Pick one location to edit it.",
+      "tracking": "Tracking",
+      "trackingHint": "Override the parent product's inventory tracking for this variant. Inherit = use the product's policy."
+    },
+    "footer": {
+      "notStocked": "Inventory is not stocked at {location}",
+      "totalAll": "Total inventory across all locations: <b>{total}</b> available",
+      "totalAt": "Total inventory at {location}: <b>{total}</b> available",
+      "totalDefault": "Total inventory at your default location: <b>{total}</b> available"
+    }
+  },
+  "optionAxisRow": {
+    "nameRequired": "Option name is required.",
+    "optionName": "Option name",
+    "namePlaceholder": "Size",
+    "optionValues": "Option values",
+    "valuesPlaceholder": "Medium"
+  },
+  "constrainedValues": {
+    "placeholder": "Select a value",
+    "search": "Search options",
+    "noMatches": "No matches."
+  },
+  "imageEditor": {
+    "aspect": {
+      "original": "Original",
+      "square": "Square",
+      "freeform": "Freeform"
+    },
+    "exit": "Exit editor",
+    "editTitle": "Image settings — crop, resize, draw, focal point",
+    "editLocked": "Resolve the AI result on the canvas first",
+    "aiStudio": "AI Studio",
+    "aiStudioTitle": "Restyle this image with AI",
+    "aiStudioSubtitle": "Generate a studio-quality version",
+    "undo": "Undo",
+    "redo": "Redo",
+    "discard": "Discard",
+    "moreSaveOptions": "More save options",
+    "fallbackName": "image",
+    "section": {
+      "info": "Information",
+      "crop": "Crop and transform",
+      "resize": "Resize",
+      "draw": "Draw",
+      "focal": "Focal point"
+    },
+    "focalHint": "Click the image to set the focal point — storefronts keep it in frame when cropping to cards and thumbnails.",
+    "focalCurrent": "Current: {x}%, {y}%.",
+    "resetFocal": "Reset to center",
+    "name": "Name",
+    "altText": "Alt text",
+    "suggestAlt": "Suggest with AI",
+    "altPlaceholder": "Describe the image for screen readers and Google Image Search.",
+    "suggestion": "Suggestion",
+    "useSuggestion": "Use suggestion",
+    "dismissSuggestion": "Dismiss suggestion",
+    "details": "Details",
+    "added": "Added {date}",
+    "usedIn": "Used in",
+    "usedInCount": "{count, plural, one {# product} other {# products}}",
+    "usedInNamed": "{count, plural, one {# product} other {# products}} — {names}",
+    "notReferenced": "Not referenced in your store",
+    "applyCrop": "Apply crop",
+    "flip": "Flip",
+    "flipHorizontal": "Flip horizontal",
+    "flipVertical": "Flip vertical",
+    "rotate": "Rotate",
+    "rotateLeft": "Rotate left",
+    "rotateRight": "Rotate right",
+    "width": "W",
+    "height": "H",
+    "lockAspect": "Lock aspect ratio",
+    "apply": "Apply",
+    "colour": "Colour",
+    "colourSwatch": "Colour {color}",
+    "brushSize": "Brush size — {size}px",
+    "drawHint": "Draw directly on the image. Undo reverts your last stroke."
+  },
+  "mediaManager": {
+    "selectedCount": "{count, plural, one {# file selected} other {# files selected}}",
+    "remove": "Remove",
+    "title": "Media",
+    "selectExisting": "Select existing",
+    "uploadNew": "Upload new",
+    "selectExistingMedia": "Select existing media",
+    "dropToUpload": "Drop to upload",
+    "accepts": "Accepts images, videos, or 3D models",
+    "uploading": "Uploading {progress}%",
+    "processing": "Processing…",
+    "addMedia": "Add media",
+    "editMedia": "Edit media",
+    "mediaAlt": "Product media",
+    "primary": "Primary",
+    "setPrimary": "Set primary",
+    "noUploads": "No uploaded media yet. Use “Upload new” to add your first file.",
+    "added": "Added",
+    "add": "Add",
+    "addCount": "Add {count}"
+  },
+  "basicsCard": {
+    "title": "Title",
+    "titlePlaceholder": "Short sleeve t-shirt",
+    "description": "Description",
+    "descriptionPlaceholder": "Describe the product"
+  },
+  "pricingCard": {
+    "title": "Pricing",
+    "price": "Price",
+    "compareAtPrice": "Compare-at price",
+    "costPerItem": "Cost per item",
+    "costHint": "Customers don't see this.",
+    "profit": "Profit",
+    "margin": "Margin"
+  },
+  "compositionCard": {
+    "priceTitle": "Price",
+    "priceHint": "This is what the shopper pays for the main choice. Raise the maximum to charge a different price for each count.",
+    "extrasTitle": "More choices",
+    "extrasHint": "Optional groups. A fixed extra costs the same whichever product they pick, or each product can carry its own price.",
+    "extrasEmpty": "Add a group when the shopper can pick something else, like a size or an extra.",
+    "addGroup": "Add a choice",
+    "choiceName": "Name",
+    "choiceNamePlaceholder": "Size, flavor, extras",
+    "removeGroup": "Remove",
+    "atLeast": "At least",
+    "atMost": "At most",
+    "price": "Price",
+    "priceFor": "Price for {count}",
+    "extraPrice": "Extra",
+    "flat": "Same extra",
+    "each": "Price per product",
+    "emptyChoices": "Add the products a shopper can pick.",
+    "optionPrice": "Extra",
+    "cutout": "Cut-out photo",
+    "cutoutPlaceholder": "https://…",
+    "remove": "Remove",
+    "search": "Add a product",
+    "noResults": "No products match."
+  },
+  "auctionCard": {
+    "title": "Auction",
+    "minBid": "Minimum bid",
+    "maxBid": "Maximum bid",
+    "maxIncrement": "Max increment %"
+  },
+  "inventoryCard": {
+    "title": "Inventory",
+    "tracked": "Inventory tracked",
+    "notTracked": "Inventory not tracked",
+    "notTrackedHint": "Still a physical product that ships. Quantity is not limited — use this for always-available goods like a café menu.",
+    "quantity": "Quantity",
+    "shopLocation": "Shop location",
+    "moreDetails": "More details",
+    "skuChip": "SKU",
+    "barcodeChip": "Barcode",
+    "sellWhenOutOfStock": "Sell when out of stock",
+    "on": "On",
+    "off": "Off",
+    "sku": "SKU (Stock Keeping Unit)",
+    "barcode": "Barcode (ISBN, UPC, GTIN, etc.)"
+  },
+  "inventoryHistory": {
+    "title": "Inventory history",
+    "hide": "Hide",
+    "show": "Show",
+    "loadFailed": "Couldn't load history: {message}",
+    "empty": "No adjustments yet. Stock changes from sales, refunds, manual edits, and transfers will appear here.",
+    "when": "When",
+    "reason": "Reason",
+    "delta": "Delta",
+    "available": "Available",
+    "note": "Note",
+    "pageSummary": "Page {page} of {totalPages} · {total} total",
+    "prev": "Prev",
+    "next": "Next",
+    "reasons": {
+      "SALE": "Sale",
+      "RETURN": "Return",
+      "DAMAGE": "Damage",
+      "QUALITY_CONTROL": "QC hold",
+      "MANUAL_ADJUSTMENT": "Manual",
+      "TRANSFER_IN": "Transfer in",
+      "TRANSFER_OUT": "Transfer out",
+      "RECEIPT": "Received",
+      "CORRECTION": "Correction"
+    }
+  },
+  "multiLocation": {
+    "invalidQuantity": "Quantity must be a number >= 0",
+    "stockUpdated": "Stock updated",
+    "saveFailed": "Failed to save",
+    "quantity": "Quantity",
+    "available": "Available",
+    "default": "Default",
+    "total": "Total"
+  },
+  "seoCard": {
+    "title": "Search engine listing",
+    "previewTitle": "Page title",
+    "previewDescription": "Falls back to the product description on the storefront.",
+    "urlHandle": "URL handle",
+    "handlePlaceholder": "auto-generated",
+    "pageTitle": "Page title",
+    "pageTitlePlaceholder": "Override storefront {tag}",
+    "pageTitleHint": "Recommended: under 70 characters. Leave blank to use the product name.",
+    "metaDescription": "Meta description",
+    "metaDescriptionPlaceholder": "One sentence pitch for search engines",
+    "metaDescriptionHint": "Recommended: under 160 characters. Leave blank to use the description."
+  },
+  "variantsCard": {
+    "title": "Variants",
+    "addOptions": "Add options like size or color",
+    "addAnother": "Add another option"
+  },
+  "draft": {
+    "restored": "Draft restored",
+    "restoredBody": "Picked up where you left off",
+    "startFresh": "Start fresh"
+  },
+  "editView": {
+    "notFound": "Product not found."
+  },
+  "submit": {
+    "negotiationFailed": "Failed to save negotiation policy",
+    "compositionFailed": "Failed to save how this product is assembled",
+    "compositionParts": "Each group needs at least one product",
+    "compositionName": "Name each group",
+    "negotiationOptionsFailed": "Failed to save which options negotiate",
+    "negotiationFloorsFailed": "Failed to save the options' own minimum prices",
+    "openingStockNote": "Opening stock, placed from the assistant",
+    "unknownError": "Unknown error",
+    "levelsNotSaved": "{count, plural, one {Product saved, # stock level was not} other {Product saved, # stock levels were not}}",
+    "fixForm": "Please fix the form",
+    "fieldsNeedAttention": "Some fields need attention",
+    "invalid": "Invalid"
+  },
+  "validation": {
+    "required": "Required",
+    "mustBeNonNegative": "Must be ≥ 0",
+    "atLeastOneValue": "At least one value",
+    "slugFormat": "lowercase letters, digits and - only",
+    "tooLong": "Too long",
+    "variableNeedsVariation": "Variable products need at least one variation",
+    "requiredForAuctions": "Required for auctions",
+    "maxBelowMin": "Must be ≥ min bid",
+    "saleNotLessThanPrice": "Must be less than price",
+    "missingOption": "Missing option \"{name}\"",
+    "unknownOption": "Unknown option \"{name}\"",
+    "undeclaredValue": "\"{value}\" is not a declared value for \"{name}\"",
+    "duplicateCombination": "Duplicate option combination"
+  },
+  "productTypes": {
+    "SIMPLE": "Simple",
+    "VARIABLE": "Variable",
+    "DIGITAL": "Digital",
+    "SERVICE": "Service"
+  },
+  "stockStatus": {
+    "IN_STOCK": "In stock",
+    "LOW_STOCK": "Low stock",
+    "OUT_OF_STOCK": "Out of stock"
+  },
+  "filters": {
+    "keys": {
+      "tag": {
+        "label": "Tag",
+        "empty": "No tags yet",
+        "noMatch": "No tags match “{query}”"
+      },
+      "category": {
+        "label": "Category",
+        "empty": "No categories yet",
+        "noMatch": "No categories match “{query}”"
+      },
+      "collection": {
+        "label": "Collection",
+        "empty": "No collections yet",
+        "noMatch": "No collections match “{query}”"
+      },
+      "product_type": {
+        "label": "Type",
+        "empty": "No types yet",
+        "noMatch": "No types match “{query}”"
+      },
+      "sale_type": {
+        "label": "Selling method",
+        "empty": "No selling methods yet",
+        "noMatch": "No selling methods match “{query}”"
+      },
+      "stock": {
+        "label": "Stock",
+        "empty": "No stock levels yet",
+        "noMatch": "No stock levels match “{query}”"
+      }
+    },
+    "noKeysMatch": "No filters match",
+    "placeholder": "Search and filter",
+    "inputLabel": "Search and filter products",
+    "clearAll": "Clear search and filters",
+    "selectedCount": "{count} selected",
+    "chipKey": "{label} is",
+    "chipSentence": "{label} is {values}",
+    "editChip": "Edit {label} filter",
+    "removeChip": "Remove {label} filter",
+    "valuesLabel": "{label} values",
+    "filterBy": "Filter by",
+    "loading": "Loading",
+    "typeToNarrow": "Type to narrow {count} more",
+    "searchFor": "Search for “{text}”",
+    "enterHint": "⏎ Enter"
+  },
+  "bulkActions": {
+    "selected": "<b>{count}</b> selected",
+    "open": "Bulk actions",
+    "setAs": {
+      "PUBLISH": "Set as active",
+      "DRAFT": "Set as draft",
+      "UNLISTED": "Set as unlisted"
+    },
+    "setTo": "Set to {status}",
+    "updated": "{count, plural, one {# product updated} other {# products updated}}",
+    "partial": "{updated} of {total} updated — the rest are no longer yours to edit.",
+    "failed": "Bulk update failed",
+    "tryAgain": "Please try again",
+    "clearSelection": "Clear selection"
+  },
+  "table": {
+    "showing": "Showing <b>{start}</b>–<b>{end}</b> of {total, plural, one {<b>{total}</b> product} other {<b>{total}</b> products}}"
+  },
+  "columns": {
+    "notTracked": "Inventory not tracked",
+    "outOfStock": "Out of stock",
+    "inStock": "{count} in stock",
+    "forVariants": "{count, plural, one {for # variant} other {for # variants}}",
+    "selectAll": "Select all",
+    "selectRow": "Select {name}"
+  },
+  "rowActions": {
+    "preview": "Preview {name} in the store"
+  },
+  "negotiationCell": {
+    "enabled": "Enabled",
+    "disabled": "Disabled",
+    "partial": "{enabled} of {total} variants",
+    "updateFailed": "Failed to update negotiation policy",
+    "enabledToast": "Negotiation enabled",
+    "disabledToast": "Negotiation disabled",
+    "toggleFailed": "Could not update negotiation",
+    "tryAgain": "Please try again",
+    "clickToDisable": "Click to disable negotiation",
+    "clickToEnable": "Click to enable negotiation",
+    "toggle": "Toggle negotiation for {name}"
+  }
+}

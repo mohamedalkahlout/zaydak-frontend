@@ -1,0 +1,18 @@
+بيتي  ymin=-0.537em ymax=0.707em
+    [('yehAr.fina.yeh', -0.537, 0.444), ('tehAr.medi.calt', 0.0, 0.707), ('uniFEF4', -0.254, 0.364), ('behAr.init.wide', -0.282, 0.468)]
+مجوهرات الراقي  ymin=-0.474em ymax=1.005em
+    [('yehAr.fina.calt2', -0.474, 0.324), ('qafAr.init.calt', 0.145, 1.005), ('alefAr.reh', 0.0, 0.756), ('uniFEAE', -0.253, 0.383), ('uniFEDF', 0.0, 0.756), ('uni0627', 0.0, 0.756), ('uni062A', 0.0, 0.623), ('alefAr.reh', 0.0, 0.756), ('uniFEAE', -0.253, 0.383), ('uniFEEB', 0.0, 0.572), ('uniFEEE', -0.287, 0.45), ('uniFEA0', -0.282, 0.51), ('uniFEE3', 0.0, 0.462)]
+ي  ymin=-0.422em ymax=0.583em
+    [('uni064A', -0.422, 0.583)]
+م  ymin=-0.366em ymax=0.511em
+    [('uni0645', -0.366, 0.511)]
+ج  ymin=-0.341em ymax=0.525em
+    [('uni062C', -0.341, 0.525)]
+متجر  ymin=-0.282em ymax=0.627em
+    [('uniFEAE', -0.253, 0.383), ('uniFEA0', -0.282, 0.51), ('uniFE98', 0.0, 0.627), ('uniFEE3', 0.0, 0.462)]
+الراقي  ymin=-0.474em ymax=1.005em
+    [('yehAr.fina.calt2', -0.474, 0.324), ('qafAr.init.calt', 0.145, 1.005), ('alefAr.reh', 0.0, 0.756), ('uniFEAE', -0.253, 0.383), ('uniFEDF', 0.0, 0.756), ('uni0627', 0.0, 0.756)]
+سوق  ymin=-0.287em ymax=0.743em
+    [('uni0642', -0.245, 0.743), ('uniFEEE', -0.287, 0.45), ('uniFEB3', 0.0, 0.431)]
+نجمة  ymin=-0.282em ymax=0.844em
+    [('uniFE94', 0.0, 0.844), ('uniFEE4', 0.0, 0.45), ('uniFEA0', -0.282, 0.51), ('uniFEE7', 0.0, 0.759)]

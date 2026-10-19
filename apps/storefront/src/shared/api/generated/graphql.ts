@@ -1,0 +1,15510 @@
+/* eslint-disable */
+import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
+export type Maybe<T> = T | null;
+export type InputMaybe<T> = T | null | undefined;
+export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
+export type MakeEmpty<T extends { [key: string]: unknown }, K extends keyof T> = { [_ in K]?: never };
+export type Incremental<T> = T | { [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never };
+/** All built-in and custom scalars, mapped to their actual values */
+export type Scalars = {
+  ID: { input: string; output: string; }
+  String: { input: string; output: string; }
+  Boolean: { input: boolean; output: boolean; }
+  Int: { input: number; output: number; }
+  Float: { input: number; output: number; }
+  /** A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format. */
+  DateTime: { input: any; output: any; }
+  /** The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf). */
+  JSON: { input: any; output: any; }
+};
+
+export type AbandonedCartChannel =
+  | 'EMAIL'
+  | 'SMS'
+  | 'WHATSAPP';
+
+export type AbandonedCartChannels = {
+  __typename?: 'AbandonedCartChannels';
+  email: Scalars['Boolean']['output'];
+  sms: Scalars['Boolean']['output'];
+  whatsapp: Scalars['Boolean']['output'];
+};
+
+export type AbandonedCartCustomer = {
+  __typename?: 'AbandonedCartCustomer';
+  country?: Maybe<Scalars['String']['output']>;
+  email?: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  name?: Maybe<Scalars['String']['output']>;
+  phone?: Maybe<Scalars['String']['output']>;
+};
+
+export type AbandonedCartEntry = {
+  __typename?: 'AbandonedCartEntry';
+  abandoned_at?: Maybe<Scalars['String']['output']>;
+  channels: AbandonedCartChannels;
+  created_at: Scalars['String']['output'];
+  currency: Scalars['String']['output'];
+  customer?: Maybe<AbandonedCartCustomer>;
+  hidden: Scalars['Boolean']['output'];
+  id: Scalars['String']['output'];
+  item_count: Scalars['Int']['output'];
+  items: Array<AbandonedCartLine>;
+  last_activity_at?: Maybe<Scalars['String']['output']>;
+  last_reminder_at?: Maybe<Scalars['String']['output']>;
+  last_reminder_channels?: Maybe<Scalars['JSON']['output']>;
+  last_reminder_failed_at?: Maybe<Scalars['String']['output']>;
+  marketing_draft_order_id?: Maybe<Scalars['String']['output']>;
+  marketing_hidden_at?: Maybe<Scalars['String']['output']>;
+  reminder_link_opened_at?: Maybe<Scalars['String']['output']>;
+  reminder_status: AbandonedCartReminderStatus;
+  status: Scalars['String']['output'];
+  total_cents?: Maybe<Scalars['Int']['output']>;
+};
+
+export type AbandonedCartIdsResponse = {
+  __typename?: 'AbandonedCartIdsResponse';
+  data: Array<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  total: Scalars['Int']['output'];
+};
+
+export type AbandonedCartLine = {
+  __typename?: 'AbandonedCartLine';
+  id: Scalars['String']['output'];
+  image?: Maybe<Scalars['JSON']['output']>;
+  name: Scalars['String']['output'];
+  product_id: Scalars['String']['output'];
+  quantity: Scalars['Int']['output'];
+  slug?: Maybe<Scalars['String']['output']>;
+  total_cents?: Maybe<Scalars['Int']['output']>;
+  unit_price_cents?: Maybe<Scalars['Int']['output']>;
+  variation_option_id?: Maybe<Scalars['String']['output']>;
+};
+
+export type AbandonedCartOpEntry = {
+  __typename?: 'AbandonedCartOpEntry';
+  actor_email?: Maybe<Scalars['String']['output']>;
+  actor_name?: Maybe<Scalars['String']['output']>;
+  cart_id?: Maybe<Scalars['String']['output']>;
+  cart_ids?: Maybe<Array<Scalars['String']['output']>>;
+  channels?: Maybe<Array<AbandonedCartChannel>>;
+  coupon_code?: Maybe<Scalars['String']['output']>;
+  created_at: Scalars['String']['output'];
+  failed_channels?: Maybe<Array<AbandonedCartChannel>>;
+  id: Scalars['String']['output'];
+  op: AbandonedCartOpKind;
+};
+
+export type AbandonedCartOpKind =
+  | 'BULK_HIDE'
+  | 'BULK_UNHIDE'
+  | 'HIDE'
+  | 'SEND'
+  | 'UNHIDE';
+
+export type AbandonedCartOpsResponse = {
+  __typename?: 'AbandonedCartOpsResponse';
+  data: Array<AbandonedCartOpEntry>;
+  meta: AbandonedCartsPaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type AbandonedCartProductEntry = {
+  __typename?: 'AbandonedCartProductEntry';
+  cart_count: Scalars['Int']['output'];
+  currency: Scalars['String']['output'];
+  image?: Maybe<Scalars['JSON']['output']>;
+  last_left_at?: Maybe<Scalars['String']['output']>;
+  lost_revenue_cents?: Maybe<Scalars['Int']['output']>;
+  name: Scalars['String']['output'];
+  product_id: Scalars['String']['output'];
+  slug?: Maybe<Scalars['String']['output']>;
+};
+
+export type AbandonedCartReminderResponse = {
+  __typename?: 'AbandonedCartReminderResponse';
+  data?: Maybe<AbandonedCartReminderResult>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type AbandonedCartReminderResult = {
+  __typename?: 'AbandonedCartReminderResult';
+  cart_id: Scalars['String']['output'];
+  coupon_code?: Maybe<Scalars['String']['output']>;
+  failed_channels: Array<AbandonedCartChannel>;
+  preview_body?: Maybe<Scalars['String']['output']>;
+  sent_channels: Array<AbandonedCartChannel>;
+};
+
+export type AbandonedCartReminderStatus =
+  | 'COMPLETED'
+  | 'FAILED'
+  | 'READY'
+  | 'RETURNED'
+  | 'SENT';
+
+export type AbandonedCartSortDir =
+  | 'ASC'
+  | 'DESC';
+
+export type AbandonedCartSortField =
+  | 'CREATED_AT'
+  | 'ITEM_COUNT'
+  | 'LAST_ACTIVITY'
+  | 'TOTAL';
+
+export type AbandonedCartStatusCount = {
+  __typename?: 'AbandonedCartStatusCount';
+  count: Scalars['Int']['output'];
+  status: AbandonedCartReminderStatus;
+};
+
+export type AbandonedCartStatusCountsResponse = {
+  __typename?: 'AbandonedCartStatusCountsResponse';
+  data: Array<AbandonedCartStatusCount>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type AbandonedCartsBulkResponse = {
+  __typename?: 'AbandonedCartsBulkResponse';
+  success: Scalars['Boolean']['output'];
+  updated: Scalars['Int']['output'];
+};
+
+export type AbandonedCartsByProductResponse = {
+  __typename?: 'AbandonedCartsByProductResponse';
+  data: Array<AbandonedCartProductEntry>;
+  meta: AbandonedCartsPaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type AbandonedCartsPaginationMeta = {
+  __typename?: 'AbandonedCartsPaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type AbandonedCartsResponse = {
+  __typename?: 'AbandonedCartsResponse';
+  data: Array<AbandonedCartEntry>;
+  meta: AbandonedCartsPaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type AbandonedCartsSummary = {
+  __typename?: 'AbandonedCartsSummary';
+  average_cart_cents: Scalars['Int']['output'];
+  by_status: Array<AbandonedCartStatusCount>;
+  currency: Scalars['String']['output'];
+  recovered: Scalars['Int']['output'];
+  recovery_rate: Scalars['Float']['output'];
+  total_abandoned: Scalars['Int']['output'];
+};
+
+export type AbandonedCartsSummaryResponse = {
+  __typename?: 'AbandonedCartsSummaryResponse';
+  data?: Maybe<AbandonedCartsSummary>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type AbcBreakdown = {
+  __typename?: 'AbcBreakdown';
+  a_count: Scalars['Int']['output'];
+  a_revenue_cents: Scalars['Int']['output'];
+  b_count: Scalars['Int']['output'];
+  b_revenue_cents: Scalars['Int']['output'];
+  c_count: Scalars['Int']['output'];
+  c_revenue_cents: Scalars['Int']['output'];
+};
+
+export type AbusiveReportEntry = {
+  __typename?: 'AbusiveReportEntry';
+  created_at: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  message?: Maybe<Scalars['String']['output']>;
+  model_id: Scalars['String']['output'];
+  model_type: Scalars['String']['output'];
+  user_id: Scalars['String']['output'];
+};
+
+export type AbusiveReportPaginationMeta = {
+  __typename?: 'AbusiveReportPaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type AbusiveReportResponse = {
+  __typename?: 'AbusiveReportResponse';
+  data?: Maybe<AbusiveReportEntry>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type AbusiveReportsResponse = {
+  __typename?: 'AbusiveReportsResponse';
+  data: Array<AbusiveReportEntry>;
+  meta: AbusiveReportPaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type AcceptNegotiationInput = {
+  quantity?: InputMaybe<Scalars['Int']['input']>;
+  session_id: Scalars['String']['input'];
+};
+
+export type AdSpend = {
+  __typename?: 'AdSpend';
+  campaign?: Maybe<Scalars['String']['output']>;
+  channel: AttributionChannel;
+  clicks?: Maybe<Scalars['Int']['output']>;
+  created_at: Scalars['DateTime']['output'];
+  currency: Scalars['String']['output'];
+  date: Scalars['DateTime']['output'];
+  exchange_rate_bps: Scalars['Int']['output'];
+  id: Scalars['ID']['output'];
+  impressions?: Maybe<Scalars['Int']['output']>;
+  normalized_spend_cents: Scalars['Int']['output'];
+  source: Scalars['String']['output'];
+  source_kind: AdSpendSourceKind;
+  spend_cents: Scalars['Int']['output'];
+};
+
+export type AdSpendInput = {
+  ad_account?: InputMaybe<Scalars['String']['input']>;
+  ad_id?: InputMaybe<Scalars['String']['input']>;
+  adset_id?: InputMaybe<Scalars['String']['input']>;
+  campaign?: InputMaybe<Scalars['String']['input']>;
+  campaign_id?: InputMaybe<Scalars['String']['input']>;
+  channel: AttributionChannel;
+  clicks?: InputMaybe<Scalars['Int']['input']>;
+  currency?: InputMaybe<Scalars['String']['input']>;
+  date: Scalars['DateTime']['input'];
+  exchange_rate_bps?: InputMaybe<Scalars['Int']['input']>;
+  external_id?: InputMaybe<Scalars['String']['input']>;
+  impressions?: InputMaybe<Scalars['Int']['input']>;
+  source: Scalars['String']['input'];
+  spend_cents: Scalars['Int']['input'];
+};
+
+export type AdSpendResponse = {
+  __typename?: 'AdSpendResponse';
+  data: AdSpend;
+  success: Scalars['Boolean']['output'];
+};
+
+export type AdSpendSourceKind =
+  | 'CONNECTOR'
+  | 'MANUAL';
+
+export type AdSpendsResponse = {
+  __typename?: 'AdSpendsResponse';
+  data: Array<AdSpend>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type AddNegotiatedOfferToCartInput = {
+  offer_id: Scalars['String']['input'];
+  quantity?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type AddProductRelationInput = {
+  /** Display order within (source, type). Lower = earlier. */
+  position?: InputMaybe<Scalars['Int']['input']>;
+  source_product_id: Scalars['String']['input'];
+  target_product_id: Scalars['String']['input'];
+  type?: InputMaybe<ProductRelationType>;
+};
+
+export type AddStaffRecipientInput = {
+  email: Scalars['String']['input'];
+  events?: InputMaybe<Array<Scalars['String']['input']>>;
+};
+
+export type AddToCartInput = {
+  composition?: InputMaybe<Scalars['JSON']['input']>;
+  custom_options?: InputMaybe<Scalars['JSON']['input']>;
+  negotiated_offer_id?: InputMaybe<Scalars['String']['input']>;
+  product_id: Scalars['String']['input'];
+  quantity?: Scalars['Int']['input'];
+  variation_option_id?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type AddTransferCommentInput = {
+  body: Scalars['String']['input'];
+  transfer_id: Scalars['String']['input'];
+};
+
+export type AddressDetail = {
+  __typename?: 'AddressDetail';
+  city?: Maybe<Scalars['String']['output']>;
+  country?: Maybe<Scalars['String']['output']>;
+  state?: Maybe<Scalars['String']['output']>;
+  street_address?: Maybe<Scalars['String']['output']>;
+  zip?: Maybe<Scalars['String']['output']>;
+};
+
+export type AddressDetailInput = {
+  city?: InputMaybe<Scalars['String']['input']>;
+  country?: InputMaybe<Scalars['String']['input']>;
+  state?: InputMaybe<Scalars['String']['input']>;
+  street_address?: InputMaybe<Scalars['String']['input']>;
+  zip?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type AddressEntry = {
+  __typename?: 'AddressEntry';
+  address: Scalars['JSON']['output'];
+  created_at: Scalars['String']['output'];
+  customer_id: Scalars['String']['output'];
+  default: Scalars['Boolean']['output'];
+  id: Scalars['String']['output'];
+  location?: Maybe<Scalars['JSON']['output']>;
+  title: Scalars['String']['output'];
+  type: Scalars['String']['output'];
+  updated_at: Scalars['String']['output'];
+};
+
+export type AddressPaginationMeta = {
+  __typename?: 'AddressPaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type AddressResponse = {
+  __typename?: 'AddressResponse';
+  data?: Maybe<AddressEntry>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type AddressType =
+  | 'billing'
+  | 'shipping';
+
+export type AddressesResponse = {
+  __typename?: 'AddressesResponse';
+  data: Array<AddressEntry>;
+  meta: AddressPaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type AdjustInventoryInput = {
+  delta: Scalars['Int']['input'];
+  location_id: Scalars['String']['input'];
+  note?: InputMaybe<Scalars['String']['input']>;
+  product_id?: InputMaybe<Scalars['String']['input']>;
+  reason: InventoryAdjustmentReason;
+  variation_option_id?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type AdminCountryProfileEntry = {
+  __typename?: 'AdminCountryProfileEntry';
+  allowed_currencies: Array<Scalars['String']['output']>;
+  allowed_delivery_channels: Array<CountryDeliveryChannel>;
+  allowed_payments: Array<CountryPaymentMethod>;
+  bank_account_mode: BankAccountMode;
+  country_code: Scalars['String']['output'];
+  default_currency: Scalars['String']['output'];
+  enabled: Scalars['Boolean']['output'];
+  shipping_match: ShippingMatchMode;
+};
+
+export type AdminCountryProfileResponse = {
+  __typename?: 'AdminCountryProfileResponse';
+  data: AdminCountryProfileEntry;
+  success: Scalars['Boolean']['output'];
+};
+
+export type AdminCountryProfilesResponse = {
+  __typename?: 'AdminCountryProfilesResponse';
+  data: Array<AdminCountryProfileEntry>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type AdminCreateShopInput = {
+  description?: InputMaybe<Scalars['String']['input']>;
+  home_country: Scalars['String']['input'];
+  is_active?: InputMaybe<Scalars['Boolean']['input']>;
+  is_approved?: InputMaybe<Scalars['Boolean']['input']>;
+  name: Scalars['String']['input'];
+  owner_id: Scalars['ID']['input'];
+  slug?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type AdminShopDomainsResponse = {
+  __typename?: 'AdminShopDomainsResponse';
+  custom_domains_enabled: Scalars['Boolean']['output'];
+  data: Array<ShopDomainEntry>;
+  shop: ShopDomainShop;
+  success: Scalars['Boolean']['output'];
+};
+
+export type AdminUpdateUserInput = {
+  email?: InputMaybe<Scalars['String']['input']>;
+  email_verified?: InputMaybe<Scalars['Boolean']['input']>;
+  id: Scalars['ID']['input'];
+  name?: InputMaybe<Scalars['String']['input']>;
+  permissions?: InputMaybe<Array<Scalars['String']['input']>>;
+  phone?: InputMaybe<Scalars['String']['input']>;
+  role?: InputMaybe<UserRole>;
+};
+
+export type AiContentHourlyAllowance = {
+  __typename?: 'AiContentHourlyAllowance';
+  limit: Scalars['Int']['output'];
+  remaining?: Maybe<Scalars['Int']['output']>;
+};
+
+/** Which transformation the rich-text editor asked for. */
+export type AiEditorAction =
+  | 'CUSTOM'
+  | 'EXTEND'
+  | 'IMPROVE'
+  | 'SHORTEN'
+  | 'SIMPLIFY'
+  | 'TRANSLATE_AR'
+  | 'TRANSLATE_EN';
+
+export type AiEditorInput = {
+  action: AiEditorAction;
+  document_html?: InputMaybe<Scalars['String']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  max_length?: InputMaybe<Scalars['Int']['input']>;
+  prompt?: InputMaybe<Scalars['String']['input']>;
+  selected_text?: InputMaybe<Scalars['String']['input']>;
+  target?: InputMaybe<AiEditorTarget>;
+};
+
+export type AiEditorResponse = {
+  __typename?: 'AiEditorResponse';
+  html?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+/** Whether the answer should be editor HTML (default) or one plain line. */
+export type AiEditorTarget =
+  | 'PLAIN_LINE'
+  | 'RICH_TEXT';
+
+export type AiImageGenerationEntry = {
+  __typename?: 'AiImageGenerationEntry';
+  cost_cents: Scalars['Int']['output'];
+  created_at: Scalars['String']['output'];
+  error?: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  mode: ImageGenMode;
+  model: Scalars['String']['output'];
+  params?: Maybe<Scalars['JSON']['output']>;
+  product_id?: Maybe<Scalars['String']['output']>;
+  prompt: Scalars['String']['output'];
+  provider: ImageProviderType;
+  reference_attachment_id?: Maybe<Scalars['String']['output']>;
+  results: Array<AiImageResultEntry>;
+  run_id?: Maybe<Scalars['String']['output']>;
+  shot?: Maybe<Scalars['String']['output']>;
+  status: ImageGenStatus;
+};
+
+export type AiImageGenerationResponse = {
+  __typename?: 'AiImageGenerationResponse';
+  data?: Maybe<AiImageGenerationEntry>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type AiImageGenerationsResponse = {
+  __typename?: 'AiImageGenerationsResponse';
+  data: Array<AiImageGenerationEntry>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type AiImageResultEntry = {
+  __typename?: 'AiImageResultEntry';
+  attachment_id: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  seed?: Maybe<Scalars['String']['output']>;
+  selected: Scalars['Boolean']['output'];
+  thumbnail?: Maybe<Scalars['String']['output']>;
+  url: Scalars['String']['output'];
+};
+
+export type AiImageResultsResponse = {
+  __typename?: 'AiImageResultsResponse';
+  data: Array<AiImageResultEntry>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type AiInsightType = {
+  __typename?: 'AiInsightType';
+  body: Scalars['JSON']['output'];
+  created_at: Scalars['DateTime']['output'];
+  data: Scalars['JSON']['output'];
+  expires_at?: Maybe<Scalars['DateTime']['output']>;
+  id: Scalars['String']['output'];
+  is_read: Scalars['Boolean']['output'];
+  severity: Scalars['String']['output'];
+  suggested_actions?: Maybe<Scalars['JSON']['output']>;
+  title: Scalars['JSON']['output'];
+  type: Scalars['String']['output'];
+};
+
+export type AiRecommendationItem = {
+  __typename?: 'AiRecommendationItem';
+  image?: Maybe<Scalars['JSON']['output']>;
+  in_stock: Scalars['Boolean']['output'];
+  max_price?: Maybe<Scalars['Float']['output']>;
+  min_price?: Maybe<Scalars['Float']['output']>;
+  name?: Maybe<Scalars['JSON']['output']>;
+  price?: Maybe<Scalars['Float']['output']>;
+  product_id: Scalars['String']['output'];
+  reason?: Maybe<Scalars['String']['output']>;
+  sale_price?: Maybe<Scalars['Float']['output']>;
+  score: Scalars['Float']['output'];
+  slug: Scalars['String']['output'];
+};
+
+export type AiRecommendationsInput = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  /** Product ID for "similar products" mode */
+  product_id?: InputMaybe<Scalars['String']['input']>;
+  shop_id?: InputMaybe<Scalars['String']['input']>;
+  strategy?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type AiRecommendationsResponse = {
+  __typename?: 'AiRecommendationsResponse';
+  products: Array<AiRecommendationItem>;
+  strategy?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type AiSearchInput = {
+  in_stock?: InputMaybe<Scalars['Boolean']['input']>;
+  language?: InputMaybe<Scalars['String']['input']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  max_price?: InputMaybe<Scalars['Float']['input']>;
+  min_price?: InputMaybe<Scalars['Float']['input']>;
+  query: Scalars['String']['input'];
+  shop_id?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type AiSearchIntent = {
+  __typename?: 'AiSearchIntent';
+  category?: Maybe<Scalars['String']['output']>;
+  features?: Maybe<Array<Scalars['String']['output']>>;
+  language?: Maybe<Scalars['String']['output']>;
+  max_price?: Maybe<Scalars['Float']['output']>;
+  min_price?: Maybe<Scalars['Float']['output']>;
+  query_text?: Maybe<Scalars['String']['output']>;
+};
+
+export type AiSearchResponse = {
+  __typename?: 'AiSearchResponse';
+  intent?: Maybe<AiSearchIntent>;
+  products: Array<AiSearchResultItem>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type AiSearchResultItem = {
+  __typename?: 'AiSearchResultItem';
+  explanation?: Maybe<Scalars['String']['output']>;
+  image?: Maybe<Scalars['JSON']['output']>;
+  in_stock: Scalars['Boolean']['output'];
+  max_price?: Maybe<Scalars['Float']['output']>;
+  min_price?: Maybe<Scalars['Float']['output']>;
+  name?: Maybe<Scalars['JSON']['output']>;
+  price?: Maybe<Scalars['Float']['output']>;
+  product_id: Scalars['String']['output'];
+  sale_price?: Maybe<Scalars['Float']['output']>;
+  similarity: Scalars['Float']['output'];
+  slug: Scalars['String']['output'];
+};
+
+export type AiSpendByPlanEntry = {
+  __typename?: 'AiSpendByPlanEntry';
+  customer_bot_cents: Scalars['Int']['output'];
+  images_cents: Scalars['Int']['output'];
+  other_cents: Scalars['Int']['output'];
+  plan_code?: Maybe<Scalars['String']['output']>;
+  plan_id?: Maybe<Scalars['String']['output']>;
+  plan_name?: Maybe<Scalars['String']['output']>;
+  shop_count: Scalars['Int']['output'];
+  sidekick_cents: Scalars['Int']['output'];
+  total_cents: Scalars['Int']['output'];
+  total_cost_usd?: Maybe<Scalars['Float']['output']>;
+};
+
+export type AiSpendByPlanResponse = {
+  __typename?: 'AiSpendByPlanResponse';
+  data?: Maybe<Array<AiSpendByPlanEntry>>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type AiSpendByShopEntry = {
+  __typename?: 'AiSpendByShopEntry';
+  customer_bot_cents: Scalars['Int']['output'];
+  images_cents: Scalars['Int']['output'];
+  other_cents: Scalars['Int']['output'];
+  plan_id?: Maybe<Scalars['String']['output']>;
+  plan_name?: Maybe<Scalars['String']['output']>;
+  shop_id: Scalars['String']['output'];
+  shop_name?: Maybe<Scalars['String']['output']>;
+  shop_slug: Scalars['String']['output'];
+  sidekick_cents: Scalars['Int']['output'];
+  total_cents: Scalars['Int']['output'];
+  total_cost_usd?: Maybe<Scalars['Float']['output']>;
+};
+
+export type AiSpendByShopResponse = {
+  __typename?: 'AiSpendByShopResponse';
+  data?: Maybe<Array<AiSpendByShopEntry>>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type AnalyticsEntry = {
+  __typename?: 'AnalyticsEntry';
+  new_customers: Scalars['Int']['output'];
+  todays_revenue_cents: Scalars['Int']['output'];
+  total_orders: Scalars['Int']['output'];
+  total_refunds: Scalars['Int']['output'];
+  total_revenue_cents: Scalars['Int']['output'];
+  total_shops: Scalars['Int']['output'];
+  total_vendors?: Maybe<Scalars['Int']['output']>;
+};
+
+export type AnalyticsResponse = {
+  __typename?: 'AnalyticsResponse';
+  data: AnalyticsEntry;
+  success: Scalars['Boolean']['output'];
+};
+
+export type AnswerQuestionInput = {
+  answer: Scalars['String']['input'];
+  id: Scalars['String']['input'];
+};
+
+export type AppliedCouponEntry = {
+  __typename?: 'AppliedCouponEntry';
+  amount_cents?: Maybe<Scalars['Int']['output']>;
+  code: Scalars['String']['output'];
+  discount_cents: Scalars['Int']['output'];
+  id: Scalars['String']['output'];
+  percent_bps?: Maybe<Scalars['Int']['output']>;
+  product_ids?: Maybe<Array<Scalars['String']['output']>>;
+  type: Scalars['String']['output'];
+};
+
+export type AskAssistantInput = {
+  history?: InputMaybe<Array<AssistantTurnInput>>;
+  message: Scalars['String']['input'];
+  page_product_slug?: InputMaybe<Scalars['String']['input']>;
+  page_variation_option_id?: InputMaybe<Scalars['String']['input']>;
+  session_id?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type AssignShopPlanInput = {
+  interval?: InputMaybe<SubscriptionInterval>;
+  note?: InputMaybe<Scalars['String']['input']>;
+  period_days?: InputMaybe<Scalars['Int']['input']>;
+  plan_id: Scalars['String']['input'];
+  shop_id: Scalars['String']['input'];
+  trial_days?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type AssistantAnswer = {
+  __typename?: 'AssistantAnswer';
+  additions: Array<AssistantCartAddition>;
+  escalated: Scalars['Boolean']['output'];
+  negotiation_offers: Array<AssistantNegotiationOffer>;
+  products: Array<AssistantProduct>;
+  searched_for: Array<Scalars['String']['output']>;
+  text: Scalars['String']['output'];
+};
+
+export type AssistantCartAddition = {
+  __typename?: 'AssistantCartAddition';
+  name: Scalars['JSON']['output'];
+  product_id: Scalars['String']['output'];
+  quantity: Scalars['Int']['output'];
+};
+
+export type AssistantNegotiationOffer = {
+  __typename?: 'AssistantNegotiationOffer';
+  allowed_price_cents: Scalars['Int']['output'];
+  can_accept: Scalars['Boolean']['output'];
+  currency: Scalars['String']['output'];
+  decision: Scalars['String']['output'];
+  list_price_cents: Scalars['Int']['output'];
+  product_title: Scalars['String']['output'];
+  session_id: Scalars['String']['output'];
+};
+
+export type AssistantProduct = {
+  __typename?: 'AssistantProduct';
+  compare_at_price_cents?: Maybe<Scalars['Int']['output']>;
+  continue_selling_when_out_of_stock: Scalars['Boolean']['output'];
+  id: Scalars['String']['output'];
+  image?: Maybe<Scalars['JSON']['output']>;
+  in_stock: Scalars['Boolean']['output'];
+  max_price_cents?: Maybe<Scalars['Int']['output']>;
+  min_price_cents?: Maybe<Scalars['Int']['output']>;
+  name: Scalars['JSON']['output'];
+  price_cents?: Maybe<Scalars['Int']['output']>;
+  product_type: Scalars['String']['output'];
+  quantity: Scalars['Int']['output'];
+  selling_price_cents?: Maybe<Scalars['Int']['output']>;
+  slug: Scalars['String']['output'];
+  track_quantity: Scalars['Boolean']['output'];
+};
+
+export type AssistantTurnInput = {
+  content: Scalars['String']['input'];
+  role: Scalars['String']['input'];
+};
+
+export type AttachmentAltSuggestion = {
+  __typename?: 'AttachmentAltSuggestion';
+  alt: Scalars['String']['output'];
+  success: Scalars['Boolean']['output'];
+};
+
+export type AttachmentEntry = {
+  __typename?: 'AttachmentEntry';
+  alt?: Maybe<Scalars['String']['output']>;
+  context: Scalars['String']['output'];
+  created_at: Scalars['String']['output'];
+  filename: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  mime_type: Scalars['String']['output'];
+  original_name: Scalars['String']['output'];
+  shop_id?: Maybe<Scalars['String']['output']>;
+  size: Scalars['Int']['output'];
+  thumbnail?: Maybe<Scalars['String']['output']>;
+  updated_at: Scalars['String']['output'];
+  url: Scalars['String']['output'];
+};
+
+export type AttachmentPaginationMeta = {
+  __typename?: 'AttachmentPaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type AttachmentResponse = {
+  __typename?: 'AttachmentResponse';
+  data?: Maybe<AttachmentEntry>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type AttachmentUsage = {
+  __typename?: 'AttachmentUsage';
+  count: Scalars['Int']['output'];
+  product_names: Array<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type AttachmentsResponse = {
+  __typename?: 'AttachmentsResponse';
+  data: Array<AttachmentEntry>;
+  meta: AttachmentPaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type AttributeDefinitionEntry = {
+  __typename?: 'AttributeDefinitionEntry';
+  description?: Maybe<Scalars['JSON']['output']>;
+  filterable: Scalars['Boolean']['output'];
+  id: Scalars['String']['output'];
+  key: Scalars['String']['output'];
+  name: Scalars['JSON']['output'];
+  options: Array<AttributeOptionEntry>;
+  required: Scalars['Boolean']['output'];
+  sort_order: Scalars['Int']['output'];
+  system_category_id: Scalars['String']['output'];
+  type: AttributeType;
+  unit?: Maybe<Scalars['String']['output']>;
+  version: Scalars['Int']['output'];
+};
+
+export type AttributeDefinitionResponse = {
+  __typename?: 'AttributeDefinitionResponse';
+  data?: Maybe<AttributeDefinitionEntry>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type AttributeDefinitionsResponse = {
+  __typename?: 'AttributeDefinitionsResponse';
+  data: Array<AttributeDefinitionEntry>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type AttributeEntry = {
+  __typename?: 'AttributeEntry';
+  created_at: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  name: Scalars['JSON']['output'];
+  shop_id?: Maybe<Scalars['String']['output']>;
+  slug: Scalars['String']['output'];
+  updated_at: Scalars['String']['output'];
+  values?: Maybe<Array<AttributeValueEntry>>;
+};
+
+export type AttributeFilterInputGql = {
+  key: Scalars['String']['input'];
+  operator: Scalars['String']['input'];
+  values: Array<Scalars['String']['input']>;
+};
+
+export type AttributeOptionEntry = {
+  __typename?: 'AttributeOptionEntry';
+  id: Scalars['String']['output'];
+  label: Scalars['JSON']['output'];
+  sort_order: Scalars['Int']['output'];
+  value: Scalars['String']['output'];
+};
+
+export type AttributePaginationMeta = {
+  __typename?: 'AttributePaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type AttributeResponse = {
+  __typename?: 'AttributeResponse';
+  data?: Maybe<AttributeEntry>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type AttributeSuggestionEntry = {
+  __typename?: 'AttributeSuggestionEntry';
+  key: Scalars['String']['output'];
+  type: AttributeType;
+  value_boolean?: Maybe<Scalars['Boolean']['output']>;
+  value_number?: Maybe<Scalars['Float']['output']>;
+  value_option?: Maybe<Scalars['String']['output']>;
+  value_options?: Maybe<Array<Scalars['String']['output']>>;
+  value_text?: Maybe<Scalars['String']['output']>;
+};
+
+export type AttributeSuggestionsResponse = {
+  __typename?: 'AttributeSuggestionsResponse';
+  data: Array<AttributeSuggestionEntry>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  generated: Scalars['Boolean']['output'];
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type AttributeType =
+  | 'BOOLEAN'
+  | 'MULTI_SELECT'
+  | 'NUMBER'
+  | 'SELECT'
+  | 'TEXT';
+
+export type AttributeValueEntry = {
+  __typename?: 'AttributeValueEntry';
+  id: Scalars['String']['output'];
+  meta?: Maybe<Scalars['String']['output']>;
+  value: Scalars['JSON']['output'];
+};
+
+export type AttributeValueInput = {
+  meta?: InputMaybe<Scalars['String']['input']>;
+  value: Scalars['JSON']['input'];
+};
+
+export type AttributesResponse = {
+  __typename?: 'AttributesResponse';
+  data: Array<AttributeEntry>;
+  meta: AttributePaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type AttributionChannel =
+  | 'AFFILIATE'
+  | 'DIRECT'
+  | 'EMAIL'
+  | 'ORGANIC_SEARCH'
+  | 'OTHER'
+  | 'PAID_SEARCH'
+  | 'PAID_SOCIAL'
+  | 'REFERRAL'
+  | 'SOCIAL';
+
+export type AttributionDimension =
+  | 'CAMPAIGN'
+  | 'CHANNEL'
+  | 'MEDIUM'
+  | 'SOURCE';
+
+export type AttributionModel =
+  | 'FIRST_TOUCH'
+  | 'LAST_TOUCH'
+  | 'LINEAR'
+  | 'POSITION_BASED'
+  | 'TIME_DECAY';
+
+export type AttributionReport = {
+  __typename?: 'AttributionReport';
+  currency: Scalars['String']['output'];
+  group_by: AttributionDimension;
+  model: AttributionModel;
+  rows: Array<AttributionRow>;
+  totals: AttributionRow;
+};
+
+export type AttributionReportInput = {
+  end: Scalars['DateTime']['input'];
+  groupBy?: InputMaybe<AttributionDimension>;
+  model?: InputMaybe<AttributionModel>;
+  start: Scalars['DateTime']['input'];
+};
+
+export type AttributionReportResponse = {
+  __typename?: 'AttributionReportResponse';
+  data: AttributionReport;
+  success: Scalars['Boolean']['output'];
+};
+
+export type AttributionRow = {
+  __typename?: 'AttributionRow';
+  aov_cents: Scalars['Int']['output'];
+  cac_cents?: Maybe<Scalars['Int']['output']>;
+  channel?: Maybe<AttributionChannel>;
+  conversion_rate_bps?: Maybe<Scalars['Int']['output']>;
+  key: Scalars['String']['output'];
+  new_customers: Scalars['Int']['output'];
+  orders: Scalars['Int']['output'];
+  returning_customers: Scalars['Int']['output'];
+  revenue_cents: Scalars['Int']['output'];
+  roas_bps?: Maybe<Scalars['Int']['output']>;
+  units: Scalars['Int']['output'];
+};
+
+/** Type of audited action */
+export type AuditAction =
+  | 'ACCESS'
+  | 'ACCOUNT_LOCKED'
+  | 'COMMENT'
+  | 'CONFLICT_DETECTED'
+  | 'CREATE'
+  | 'DELETE'
+  | 'EMAIL_VERIFIED'
+  | 'EXPORT'
+  | 'LOGIN'
+  | 'LOGIN_FAILED'
+  | 'LOGOUT'
+  | 'OTP_FAILED'
+  | 'OTP_LOCKED'
+  | 'OTP_SENT'
+  | 'PASSWORD_CHANGE'
+  | 'PERMISSION_CHANGE'
+  | 'TOKEN_REUSE_DETECTED'
+  | 'TOKEN_REVOKE'
+  | 'UPDATE';
+
+export type AuditAnomaliesInput = {
+  hours_back?: InputMaybe<Scalars['Int']['input']>;
+  spike_multiplier?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type AuditAnomaliesResponse = {
+  __typename?: 'AuditAnomaliesResponse';
+  data: AuditAnomaliesSummary;
+  success: Scalars['Boolean']['output'];
+};
+
+export type AuditAnomaliesSummary = {
+  __typename?: 'AuditAnomaliesSummary';
+  hours_back: Scalars['Int']['output'];
+  recent_critical: Array<AuditSensitiveEntry>;
+  sensitive_events: Array<AuditSensitiveEntry>;
+  sensitive_events_count: Scalars['Int']['output'];
+  spikes: Array<AuditUserSpike>;
+  top_users: Array<AuditUserActivity>;
+  total_events: Scalars['Int']['output'];
+  window_from: Scalars['String']['output'];
+  window_to: Scalars['String']['output'];
+};
+
+export type AuditLogEntry = {
+  __typename?: 'AuditLogEntry';
+  action: AuditAction;
+  created_at: Scalars['String']['output'];
+  customer_id?: Maybe<Scalars['String']['output']>;
+  entity: Scalars['String']['output'];
+  entity_id?: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  ip?: Maybe<Scalars['String']['output']>;
+  new_values?: Maybe<Scalars['JSON']['output']>;
+  old_values?: Maybe<Scalars['JSON']['output']>;
+  user?: Maybe<AuditLogUser>;
+  user_agent?: Maybe<Scalars['String']['output']>;
+};
+
+export type AuditLogFilterInput = {
+  action?: InputMaybe<AuditAction>;
+  /** ISO date string (e.g. 2026-01-01) */
+  date_from?: InputMaybe<Scalars['String']['input']>;
+  /** ISO date string (e.g. 2026-12-31) */
+  date_to?: InputMaybe<Scalars['String']['input']>;
+  entity?: InputMaybe<Scalars['String']['input']>;
+  entity_id?: InputMaybe<Scalars['String']['input']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+  user_id?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type AuditLogPaginationMeta = {
+  __typename?: 'AuditLogPaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type AuditLogResponse = {
+  __typename?: 'AuditLogResponse';
+  data?: Maybe<AuditLogEntry>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type AuditLogUser = {
+  __typename?: 'AuditLogUser';
+  email?: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  name: Scalars['String']['output'];
+};
+
+export type AuditLogsResponse = {
+  __typename?: 'AuditLogsResponse';
+  data: Array<AuditLogEntry>;
+  meta: AuditLogPaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type AuditSensitiveEntry = {
+  __typename?: 'AuditSensitiveEntry';
+  action: Scalars['String']['output'];
+  created_at: Scalars['String']['output'];
+  entity: Scalars['String']['output'];
+  entity_id?: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  ip?: Maybe<Scalars['String']['output']>;
+  new_values?: Maybe<Scalars['JSON']['output']>;
+  user_id?: Maybe<Scalars['String']['output']>;
+  user_name?: Maybe<Scalars['String']['output']>;
+};
+
+export type AuditUserActivity = {
+  __typename?: 'AuditUserActivity';
+  action_count: Scalars['Int']['output'];
+  user_id?: Maybe<Scalars['String']['output']>;
+  user_name?: Maybe<Scalars['String']['output']>;
+};
+
+export type AuditUserSpike = {
+  __typename?: 'AuditUserSpike';
+  baseline_count: Scalars['Int']['output'];
+  recent_count: Scalars['Int']['output'];
+  spike_ratio: Scalars['Float']['output'];
+  user_id?: Maybe<Scalars['String']['output']>;
+  user_name?: Maybe<Scalars['String']['output']>;
+};
+
+export type AuthData = {
+  __typename?: 'AuthData';
+  access_token: Scalars['String']['output'];
+  access_token_expires_at: Scalars['String']['output'];
+  email_verified: Scalars['Boolean']['output'];
+  permissions: Array<Scalars['String']['output']>;
+  refresh_token: Scalars['String']['output'];
+  refresh_token_expires_at: Scalars['String']['output'];
+  role: Scalars['String']['output'];
+  token_type: Scalars['String']['output'];
+};
+
+export type AuthResponse = {
+  __typename?: 'AuthResponse';
+  data?: Maybe<AuthData>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type AuthorEntry = {
+  __typename?: 'AuthorEntry';
+  bio?: Maybe<Scalars['JSON']['output']>;
+  born?: Maybe<Scalars['String']['output']>;
+  cover_image?: Maybe<Scalars['JSON']['output']>;
+  created_at: Scalars['String']['output'];
+  death?: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  image?: Maybe<Scalars['JSON']['output']>;
+  is_approved: Scalars['Boolean']['output'];
+  name: Scalars['JSON']['output'];
+  quote?: Maybe<Scalars['JSON']['output']>;
+  shop_id?: Maybe<Scalars['String']['output']>;
+  slug: Scalars['String']['output'];
+  socials?: Maybe<Scalars['JSON']['output']>;
+  updated_at: Scalars['String']['output'];
+};
+
+export type AuthorPaginationMeta = {
+  __typename?: 'AuthorPaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type AuthorResponse = {
+  __typename?: 'AuthorResponse';
+  data?: Maybe<AuthorEntry>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type AuthorsResponse = {
+  __typename?: 'AuthorsResponse';
+  data: Array<AuthorEntry>;
+  meta: AuthorPaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type Avatar = {
+  __typename?: 'Avatar';
+  id: Scalars['String']['output'];
+  original: Scalars['String']['output'];
+  thumbnail: Scalars['String']['output'];
+};
+
+export type AvatarInput = {
+  id: Scalars['String']['input'];
+  original: Scalars['String']['input'];
+  thumbnail: Scalars['String']['input'];
+};
+
+export type BalanceEntry = {
+  __typename?: 'BalanceEntry';
+  admin_commission_bps: Scalars['Int']['output'];
+  current_balance_cents: Scalars['Int']['output'];
+  id: Scalars['String']['output'];
+  is_custom_commission: Scalars['Boolean']['output'];
+  payment_info?: Maybe<PaymentInfo>;
+  total_earnings_cents: Scalars['Int']['output'];
+  withdrawn_amount_cents: Scalars['Int']['output'];
+};
+
+export type BalanceInput = {
+  payment_info?: InputMaybe<PaymentInfoInput>;
+};
+
+export type BalanceTransactionEntry = {
+  __typename?: 'BalanceTransactionEntry';
+  /** Signed delta to current_balance, in cents. */
+  amount_cents: Scalars['Int']['output'];
+  created_at: Scalars['String']['output'];
+  currency: Scalars['String']['output'];
+  description?: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  /** current_balance after this entry, in cents. */
+  running_balance_cents: Scalars['Int']['output'];
+  shop_id: Scalars['String']['output'];
+  source_id?: Maybe<Scalars['String']['output']>;
+  source_type?: Maybe<Scalars['String']['output']>;
+  /** sale | refund | dispute | dispute_reversal | dispute_lost | payout | adjustment */
+  type: Scalars['String']['output'];
+};
+
+export type BalanceTransactionPaginationMeta = {
+  __typename?: 'BalanceTransactionPaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type BalanceTransactionsResponse = {
+  __typename?: 'BalanceTransactionsResponse';
+  data: Array<BalanceTransactionEntry>;
+  meta: BalanceTransactionPaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type BankAccountMode =
+  | 'FREEFORM'
+  | 'SAUDI_IBAN';
+
+/** Frozen beneficiary instructions. Account edits never change this snapshot. */
+export type BankAccountSnapshot = {
+  __typename?: 'BankAccountSnapshot';
+  account_holder_name: Scalars['String']['output'];
+  account_number?: Maybe<Scalars['String']['output']>;
+  /** Saudi catalogue code when bank_account_mode is SAUDI_IBAN. */
+  bank_code?: Maybe<Scalars['String']['output']>;
+  bank_name?: Maybe<Scalars['String']['output']>;
+  currency: Scalars['String']['output'];
+  /** IBAN when present; optional under FREEFORM. */
+  iban?: Maybe<Scalars['String']['output']>;
+  /** Original shop bank account identifier. */
+  id: Scalars['String']['output'];
+  notes?: Maybe<Scalars['String']['output']>;
+  swift_code?: Maybe<Scalars['String']['output']>;
+};
+
+/** A bank in the Saudi beneficiary bank catalogue. */
+export type BankEntry = {
+  __typename?: 'BankEntry';
+  /** Stable bank code. */
+  code: Scalars['String']['output'];
+  /** Optional logo path. */
+  icon?: Maybe<Scalars['String']['output']>;
+  /** Localized bank name. */
+  name: Scalars['String']['output'];
+  /** Suggested verified BIC, when known. */
+  swift?: Maybe<Scalars['String']['output']>;
+};
+
+export type BankTransferPaginationMeta = {
+  __typename?: 'BankTransferPaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type BankTransferResponse = {
+  __typename?: 'BankTransferResponse';
+  data: OrderBankTransferEntry;
+  success: Scalars['Boolean']['output'];
+};
+
+/** The merchant decision on a bank transfer claim. */
+export type BankTransferStatus =
+  | 'APPROVED'
+  | 'PENDING'
+  | 'REJECTED';
+
+export type BankTransfersResponse = {
+  __typename?: 'BankTransfersResponse';
+  data: Array<OrderBankTransferEntry>;
+  meta: BankTransferPaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+/** Saudi bank catalogue response. */
+export type BanksResponse = {
+  __typename?: 'BanksResponse';
+  data: Array<BankEntry>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type BannerEntry = {
+  __typename?: 'BannerEntry';
+  created_at: Scalars['String']['output'];
+  description?: Maybe<Scalars['JSON']['output']>;
+  id: Scalars['String']['output'];
+  image?: Maybe<Scalars['JSON']['output']>;
+  shop_id?: Maybe<Scalars['String']['output']>;
+  title: Scalars['JSON']['output'];
+  updated_at: Scalars['String']['output'];
+};
+
+export type BannerPaginationMeta = {
+  __typename?: 'BannerPaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type BannerResponse = {
+  __typename?: 'BannerResponse';
+  data?: Maybe<BannerEntry>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type BannersResponse = {
+  __typename?: 'BannersResponse';
+  data: Array<BannerEntry>;
+  meta: BannerPaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type BaseResponse = {
+  __typename?: 'BaseResponse';
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type BecameSellerEntry = {
+  __typename?: 'BecameSellerEntry';
+  created_at: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  message?: Maybe<Scalars['String']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
+  phone?: Maybe<Scalars['String']['output']>;
+  status: Scalars['String']['output'];
+  updated_at: Scalars['String']['output'];
+  url?: Maybe<Scalars['String']['output']>;
+  user_id: Scalars['String']['output'];
+};
+
+export type BecameSellerListResponse = {
+  __typename?: 'BecameSellerListResponse';
+  data: Array<BecameSellerEntry>;
+  meta: BecameSellerPaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type BecameSellerPaginationMeta = {
+  __typename?: 'BecameSellerPaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type BecameSellerResponse = {
+  __typename?: 'BecameSellerResponse';
+  data?: Maybe<BecameSellerEntry>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type BillingRedirectEntry = {
+  __typename?: 'BillingRedirectEntry';
+  url: Scalars['String']['output'];
+};
+
+export type BillingRedirectResponse = {
+  __typename?: 'BillingRedirectResponse';
+  data?: Maybe<BillingRedirectEntry>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type BillingUnit =
+  | 'character'
+  | 'collection'
+  | 'coupon'
+  | 'document'
+  | 'image'
+  | 'megabyte'
+  | 'none'
+  | 'product'
+  | 'request'
+  | 'seat'
+  | 'token'
+  | 'variant'
+  | 'video';
+
+export type BlockCustomerFromAiInput = {
+  conversation_id: Scalars['String']['input'];
+  reason?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type BogoDiscountType =
+  | 'AMOUNT'
+  | 'FREE'
+  | 'PERCENT';
+
+export type BulkDeleteSegmentsResponse = {
+  __typename?: 'BulkDeleteSegmentsResponse';
+  deletedCount: Scalars['Int']['output'];
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type BulkFillStoreImportOverridesInput = {
+  /** The value to fill, per column. Only `quantity` and `system_category_id` are accepted — the two fields no scan can fill that also block a sale — and each needs a non-empty value. Validated exactly as a typed edit is. */
+  fields: Scalars['JSON']['input'];
+  id: Scalars['ID']['input'];
+  /** Fill only the products still missing something to sell, as the needs-attention filter selects them. */
+  only_incomplete?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Replace a value that is already there — a merchant’s own edit or a scanned value. Defaults to false: only empty cells are filled. */
+  overwrite?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Fill only products whose title or handle contains this, case-insensitively — the screen’s search. */
+  search?: InputMaybe<Scalars['String']['input']>;
+};
+
+/** Bulk price action. ADJUST_PERCENT_BPS for per-row math, SET_PRICE/SET_SALE_PRICE for uniform writes, CLEAR_SALE_PRICE to end a sale. */
+export type BulkPriceOperation =
+  | 'ADJUST_PERCENT_BPS'
+  | 'CLEAR_SALE_PRICE'
+  | 'SET_PRICE'
+  | 'SET_SALE_PRICE';
+
+export type BulkUpdatePriceInput = {
+  /** When ADJUST_PERCENT_BPS, also shift sale_price by the same delta. Default true. */
+  adjust_sale_price?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Required for SET_PRICE / SET_SALE_PRICE. Non-negative cents. */
+  amount_cents?: InputMaybe<Scalars['Int']['input']>;
+  /** Required for ADJUST_PERCENT_BPS. Capped ±9000bps (±90%) per call. */
+  delta_bps?: InputMaybe<Scalars['Int']['input']>;
+  /** Preview only — return the matched count without writing. Default false. */
+  dry_run?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Filter expression. Same filters as the products query — shop_ids / tag_ids / collection_ids / product_types / sale_types. */
+  filters?: InputMaybe<ProductFilterInput>;
+  /** Explicit product ids. Mutually exclusive with `filters`. */
+  ids?: InputMaybe<Array<Scalars['String']['input']>>;
+  operation: BulkPriceOperation;
+};
+
+export type BulkUpdatePriceResponse = {
+  __typename?: 'BulkUpdatePriceResponse';
+  /** True when dry_run=true was passed — counts only, no DB writes. */
+  dry_run: Scalars['Boolean']['output'];
+  /** Total products that matched the filter/ids selection. */
+  matched: Scalars['Int']['output'];
+  success: Scalars['Boolean']['output'];
+  /** Products actually written. Equals `matched` for real runs, 0 for dry_run. */
+  updated: Scalars['Int']['output'];
+};
+
+export type BulkUpdateProductsResponse = {
+  __typename?: 'BulkUpdateProductsResponse';
+  success: Scalars['Boolean']['output'];
+  /** Number of products actually updated. */
+  updated: Scalars['Int']['output'];
+};
+
+export type BulkUpdateTagsInput = {
+  add_tag_ids?: InputMaybe<Array<Scalars['String']['input']>>;
+  dry_run?: InputMaybe<Scalars['Boolean']['input']>;
+  ids: Array<Scalars['String']['input']>;
+  remove_tag_ids?: InputMaybe<Array<Scalars['String']['input']>>;
+};
+
+export type BulkUpdateTagsResponse = {
+  __typename?: 'BulkUpdateTagsResponse';
+  /** ProductTag pivot rows inserted. */
+  added: Scalars['Int']['output'];
+  dry_run: Scalars['Boolean']['output'];
+  matched: Scalars['Int']['output'];
+  /** ProductTag pivot rows deleted. */
+  removed: Scalars['Int']['output'];
+  success: Scalars['Boolean']['output'];
+};
+
+export type BulkUpsertNegotiationPolicyInput = {
+  policies: Array<UpsertNegotiationPolicyInput>;
+};
+
+export type CapabilityEntry = {
+  __typename?: 'CapabilityEntry';
+  billing_unit: BillingUnit;
+  config_schema?: Maybe<Scalars['JSON']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  description_ar?: Maybe<Scalars['String']['output']>;
+  group: Scalars['String']['output'];
+  is_active: Scalars['Boolean']['output'];
+  is_estimated: Scalars['Boolean']['output'];
+  key: Scalars['String']['output'];
+  kind: CapabilityKind;
+  name: Scalars['String']['output'];
+  name_ar?: Maybe<Scalars['String']['output']>;
+  period: QuotaPeriod;
+  sort_order: Scalars['Int']['output'];
+};
+
+export type CapabilityKind =
+  | 'BOOLEAN'
+  | 'LIMIT'
+  | 'QUOTA';
+
+export type CarrierPickupResponse = {
+  __typename?: 'CarrierPickupResponse';
+  created: Scalars['Boolean']['output'];
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type CarryStoreImportOverridesInput = {
+  /** The job the edits come from — the previous scan. Same shop, same source_host, a finished scan whose artefacts have not expired. */
+  from_job_id: Scalars['ID']['input'];
+  /** The job receiving the edits — the new scan. Must be READY and still hold its file. */
+  id: Scalars['ID']['input'];
+};
+
+export type CartEnvelope = {
+  __typename?: 'CartEnvelope';
+  id: Scalars['String']['output'];
+  items: Array<CartItemEntry>;
+  shop: CartShopInfo;
+  summary: CartSummary;
+};
+
+export type CartItemEntry = {
+  __typename?: 'CartItemEntry';
+  composition?: Maybe<Scalars['JSON']['output']>;
+  custom_options?: Maybe<Scalars['JSON']['output']>;
+  discount_cents: Scalars['Int']['output'];
+  id: Scalars['String']['output'];
+  image?: Maybe<Scalars['JSON']['output']>;
+  is_ai_negotiated?: Maybe<Scalars['Boolean']['output']>;
+  is_digital: Scalars['Boolean']['output'];
+  is_variation: Scalars['Boolean']['output'];
+  name: Scalars['String']['output'];
+  negotiated_expires_at?: Maybe<Scalars['DateTime']['output']>;
+  negotiated_offer_id?: Maybe<Scalars['String']['output']>;
+  price_cents: Scalars['Int']['output'];
+  product_id: Scalars['String']['output'];
+  /** SIMPLE | VARIABLE | DIGITAL — what the product fundamentally IS. This, not `is_digital`, is what decides whether the line needs delivering; the storefront must mirror the server and key its address/fee gating on it. */
+  product_type: Scalars['String']['output'];
+  quantity: Scalars['Int']['output'];
+  requires_shipping: Scalars['Boolean']['output'];
+  sale_price_cents?: Maybe<Scalars['Int']['output']>;
+  slug?: Maybe<Scalars['String']['output']>;
+  status: CartItemStatus;
+  stock_status: Scalars['String']['output'];
+  suggested_replacement_variation_id?: Maybe<Scalars['String']['output']>;
+  total_price_cents: Scalars['Int']['output'];
+  unavailable_reason?: Maybe<Scalars['String']['output']>;
+  unit_price_cents: Scalars['Int']['output'];
+  variation_name?: Maybe<Scalars['String']['output']>;
+  variation_option_id?: Maybe<Scalars['String']['output']>;
+};
+
+export type CartItemStatus =
+  | 'AVAILABLE'
+  | 'OUT_OF_STOCK'
+  | 'UNAVAILABLE';
+
+export type CartLinkOpenResponse = {
+  __typename?: 'CartLinkOpenResponse';
+  recorded: Scalars['Boolean']['output'];
+  success: Scalars['Boolean']['output'];
+};
+
+export type CartResponse = {
+  __typename?: 'CartResponse';
+  data?: Maybe<CartEnvelope>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type CartShopInfo = {
+  __typename?: 'CartShopInfo';
+  id: Scalars['String']['output'];
+  logo?: Maybe<Scalars['JSON']['output']>;
+  name: Scalars['String']['output'];
+  slug: Scalars['String']['output'];
+};
+
+export type CartSummary = {
+  __typename?: 'CartSummary';
+  coupons: Array<AppliedCouponEntry>;
+  currency: Scalars['String']['output'];
+  discount_cents: Scalars['Int']['output'];
+  subtotal_price_cents: Scalars['Int']['output'];
+  tax_bps: Scalars['Int']['output'];
+  total_items: Scalars['Int']['output'];
+  total_price_cents: Scalars['Int']['output'];
+  total_tax_amount_cents: Scalars['Int']['output'];
+};
+
+export type CategorySale = {
+  __typename?: 'CategorySale';
+  category_id: Scalars['String']['output'];
+  name: Scalars['JSON']['output'];
+  product_count: Scalars['Int']['output'];
+  slug: Scalars['String']['output'];
+  total_quantity_sold: Scalars['Int']['output'];
+};
+
+export type CategorySalesResponse = {
+  __typename?: 'CategorySalesResponse';
+  data: Array<CategorySale>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type ChangePasswordInput = {
+  old_password: Scalars['String']['input'];
+  password: Scalars['String']['input'];
+  password_confirmation: Scalars['String']['input'];
+};
+
+export type CheckoutFulfillmentPlan = {
+  __typename?: 'CheckoutFulfillmentPlan';
+  /** True when every shippable line can be placed at some combination of locations. False means the order must be amended before it can be paid for — the offending lines appear in `unavailable_products` with reason `unfulfillable_online`. */
+  feasible: Scalars['Boolean']['output'];
+  /** How many locations the order would ship from. 0 when nothing needs shipping (a fully digital order) or when nothing could be placed. */
+  location_count: Scalars['Int']['output'];
+  /** location_count > 1 — the order cannot come from one place, so the shopper should be told it arrives in more than one delivery. It does NOT imply the same number of parcels; that is decided later, when shipments are created. */
+  requires_split: Scalars['Boolean']['output'];
+};
+
+export type CheckoutProductInput = {
+  composition?: InputMaybe<Scalars['JSON']['input']>;
+  product_id: Scalars['String']['input'];
+  quantity: Scalars['Int']['input'];
+  variation_option_id?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CheckoutShippingOptionEntry = {
+  __typename?: 'CheckoutShippingOptionEntry';
+  /** Absolute https URL of the carrier's logo. Display only. */
+  carrier_logo?: Maybe<Scalars['String']['output']>;
+  /** The carrier's own trading name, on `carrier` options only. This is what the customer recognises; the `id` is not human-readable. */
+  carrier_name?: Maybe<Scalars['String']['output']>;
+  /** Who delivers if this option is chosen: `merchant` (the shop, priced by its own zone rule) or `carrier` (a shipping company, priced live by that company and passed through untouched). The customer is choosing between two different services, not two labels for one. */
+  channel: Scalars['String']['output'];
+  /** What this option would charge for the current cart, in cents. Already reflects the free-shipping threshold. */
+  fee_cents: Scalars['Int']['output'];
+  id: Scalars['String']['output'];
+  /** Maximum cash-on-delivery order amount allowed by this carrier option, in cents. Null when unlimited or not a carrier option. */
+  max_cod_cents?: Maybe<Scalars['Int']['output']>;
+  /** Delivery estimate upper bound, in days. Null = no promise. */
+  max_delivery_days?: Maybe<Scalars['Int']['output']>;
+  /** Delivery estimate lower bound, in days. Null when the merchant made no promise — show nothing rather than a guessed window. */
+  min_delivery_days?: Maybe<Scalars['Int']['output']>;
+  /** Localized display name, e.g. { en: "Standard", ar: "قياسي" }. */
+  name: Scalars['JSON']['output'];
+  /** How many parcels this option would create. Above 1 the fee is the SUM of them, and checkout must say so — a customer who is told one price and receives two boxes was not told the truth about their order. */
+  package_count: Scalars['Int']['output'];
+  /** fixed | percentage | free | weight_based */
+  type: Scalars['String']['output'];
+};
+
+export type CheckoutVerifyEntry = {
+  __typename?: 'CheckoutVerifyEntry';
+  /** Why no carrier prices are shown, when the shop offers them but none came back. Null when carrier options ARE present or the shop does not offer them at all. `location_has_no_city` — a warehouse the order would ship from has no city, so it cannot be quoted; `no_location` — the shop has no active location that fulfils online orders; `not_connected` — the platform has no carrier integration configured or enabled; `no_carriers_enabled` — the merchant's carrier selection excludes every company on offer for this lane; `destination_not_covered` — the carrier answered and nobody it contracts with serves this address; `carrier_unavailable` — the carrier did not answer in time; `no_destination`/`nothing_to_quote` — there was no lane to price yet. Silence here was the first failure mode this replaced; the second was `destination_not_covered` standing in for all of the above, which reads as "fix your address" when the fix is a platform integration nobody had connected. */
+  carrier_unavailable_reason?: Maybe<Scalars['String']['output']>;
+  coupon_applied: Scalars['Boolean']['output'];
+  discount_cents: Scalars['Int']['output'];
+  /** Fulfillment feasibility for this cart, computed by the allocation engine. Availability here is fulfillment feasibility, not a stock total: a product whose units are spread thin across locations can have enough on paper and still be unplaceable. */
+  fulfillment: CheckoutFulfillmentPlan;
+  /** The option `shipping_fee_cents` was priced from. Echoes the request’s `shipping_rule_id` when it resolved, else the default (first) option; null when nothing ships or no rate exists. If this differs from what was sent, the choice no longer exists and the quote fell back. */
+  selected_shipping_rule_id?: Maybe<Scalars['String']['output']>;
+  shipping_available: Scalars['Boolean']['output'];
+  shipping_fee_cents: Scalars['Int']['output'];
+  /** Every shipping method the shop offers for this destination, priced for this cart, newest first. Empty when nothing on the order ships or when the shop has no rate for the address. One entry is still a list — the shopper is being told what the method is called, not just what it costs. */
+  shipping_options: Array<CheckoutShippingOptionEntry>;
+  /** Why `shipping_available` is false, when it is. `destination_excluded` = the shop has zones and none matches this address — a wall the merchant built, and `createOrder` will refuse the order. `not_configured` = the shop has no shipping set up at all — the default state of a new shop; ordering proceeds with fee 0 and a warning. Null while shipping is available. */
+  shipping_unavailable_reason?: Maybe<Scalars['String']['output']>;
+  subtotal_cents: Scalars['Int']['output'];
+  tax_cents: Scalars['Int']['output'];
+  total_cents: Scalars['Int']['output'];
+  unavailable_products: Array<UnavailableProductEntry>;
+  /** Amount in cents covered by wallet / store credit when requested. */
+  wallet_applied_cents?: Maybe<Scalars['Int']['output']>;
+};
+
+export type CheckoutVerifyResponse = {
+  __typename?: 'CheckoutVerifyResponse';
+  data: CheckoutVerifyEntry;
+  success: Scalars['Boolean']['output'];
+};
+
+export type CitiesPaginationMeta = {
+  __typename?: 'CitiesPaginationMeta';
+  current_page: Scalars['Int']['output'];
+  from?: Maybe<Scalars['Int']['output']>;
+  last_page: Scalars['Int']['output'];
+  per_page: Scalars['Int']['output'];
+  to?: Maybe<Scalars['Int']['output']>;
+  total: Scalars['Int']['output'];
+};
+
+export type CitiesResponse = {
+  __typename?: 'CitiesResponse';
+  data: Array<CityItem>;
+  message: Scalars['String']['output'];
+  meta: CitiesPaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type CityItem = {
+  __typename?: 'CityItem';
+  created_at: Scalars['String']['output'];
+  deleted_at?: Maybe<Scalars['String']['output']>;
+  id: Scalars['Int']['output'];
+  name: Scalars['String']['output'];
+  updated_at: Scalars['String']['output'];
+};
+
+export type CohortRow = {
+  __typename?: 'CohortRow';
+  cohort: Scalars['String']['output'];
+  retention_bps: Array<Scalars['Int']['output']>;
+  size: Scalars['Int']['output'];
+};
+
+export type CollectionEntry = {
+  __typename?: 'CollectionEntry';
+  created_at: Scalars['String']['output'];
+  description?: Maybe<Scalars['JSON']['output']>;
+  id: Scalars['String']['output'];
+  image?: Maybe<Scalars['JSON']['output']>;
+  is_published: Scalars['Boolean']['output'];
+  name: Scalars['JSON']['output'];
+  pinned_product_ids: Array<Scalars['String']['output']>;
+  product_count: Scalars['Int']['output'];
+  rules?: Maybe<Scalars['JSON']['output']>;
+  rules_version: Scalars['Int']['output'];
+  seo_description?: Maybe<Scalars['JSON']['output']>;
+  seo_title?: Maybe<Scalars['JSON']['output']>;
+  shop_id: Scalars['String']['output'];
+  slug: Scalars['String']['output'];
+  sort: CollectionSort;
+  sort_order: Scalars['Int']['output'];
+  type: CollectionType;
+  updated_at: Scalars['String']['output'];
+};
+
+export type CollectionItemEntry = {
+  __typename?: 'CollectionItemEntry';
+  id: Scalars['String']['output'];
+  image?: Maybe<Scalars['JSON']['output']>;
+  in_stock: Scalars['Boolean']['output'];
+  name: Scalars['JSON']['output'];
+  pinned: Scalars['Boolean']['output'];
+  position: Scalars['Int']['output'];
+  price_cents?: Maybe<Scalars['Int']['output']>;
+  quantity: Scalars['Int']['output'];
+  sale_price_cents?: Maybe<Scalars['Int']['output']>;
+  slug: Scalars['String']['output'];
+  status: ProductStatus;
+};
+
+export type CollectionItemsResponse = {
+  __typename?: 'CollectionItemsResponse';
+  data: Array<CollectionItemEntry>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  meta: CollectionsListMeta;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type CollectionPreviewInput = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+  product_ids?: InputMaybe<Array<Scalars['String']['input']>>;
+  rules?: InputMaybe<Scalars['JSON']['input']>;
+  sort?: InputMaybe<CollectionSort>;
+};
+
+export type CollectionResponse = {
+  __typename?: 'CollectionResponse';
+  data?: Maybe<CollectionEntry>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+/** Storefront ordering for the products in a collection. MANUAL reads collection_products.position. */
+export type CollectionSort =
+  | 'BEST_SELLING'
+  | 'CREATED_ASC'
+  | 'CREATED_DESC'
+  | 'MANUAL'
+  | 'MOST_RELEVANT'
+  | 'PRICE_ASC'
+  | 'PRICE_DESC'
+  | 'TITLE_ASC'
+  | 'TITLE_DESC';
+
+export type CollectionType =
+  | 'AUTOMATED'
+  | 'MANUAL';
+
+export type CollectionsListMeta = {
+  __typename?: 'CollectionsListMeta';
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type CollectionsResponse = {
+  __typename?: 'CollectionsResponse';
+  data: Array<CollectionEntry>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  meta: CollectionsListMeta;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type CommissionEntry = {
+  __typename?: 'CommissionEntry';
+  commission_bps: Scalars['Int']['output'];
+  created_at: Scalars['String']['output'];
+  description?: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  image?: Maybe<Scalars['JSON']['output']>;
+  language: Scalars['String']['output'];
+  level: Scalars['String']['output'];
+  max_balance_cents?: Maybe<Scalars['Int']['output']>;
+  min_balance_cents: Scalars['Int']['output'];
+  shop_id?: Maybe<Scalars['String']['output']>;
+  sub_level?: Maybe<Scalars['String']['output']>;
+  updated_at: Scalars['String']['output'];
+};
+
+export type CommissionPaginationMeta = {
+  __typename?: 'CommissionPaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type CommissionResponse = {
+  __typename?: 'CommissionResponse';
+  data?: Maybe<CommissionEntry>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type CommissionsResponse = {
+  __typename?: 'CommissionsResponse';
+  data: Array<CommissionEntry>;
+  meta: CommissionPaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type CommitStoreImportInput = {
+  id: Scalars['ID']['input'];
+};
+
+export type CompleteVendorSignupInput = {
+  category?: InputMaybe<Scalars['String']['input']>;
+  city?: InputMaybe<Scalars['String']['input']>;
+  country?: InputMaybe<Scalars['String']['input']>;
+  home_country: Scalars['String']['input'];
+  store_name: Scalars['String']['input'];
+  store_slug?: InputMaybe<Scalars['String']['input']>;
+  token: Scalars['String']['input'];
+};
+
+export type ConfirmPaymentInput = {
+  id: Scalars['String']['input'];
+  payment_info: Scalars['JSON']['input'];
+};
+
+export type ConnectShopTelegramBotInput = {
+  bot_token: Scalars['String']['input'];
+};
+
+export type ContactEntry = {
+  __typename?: 'ContactEntry';
+  created_at: Scalars['String']['output'];
+  customer_id?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  email?: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  meta?: Maybe<Scalars['JSON']['output']>;
+  name: Scalars['String']['output'];
+  notes?: Maybe<Scalars['String']['output']>;
+  overall_score?: Maybe<Scalars['JSON']['output']>;
+  phone_number?: Maybe<Scalars['String']['output']>;
+  shop_id?: Maybe<Scalars['String']['output']>;
+  status: Scalars['String']['output'];
+  updated_at: Scalars['String']['output'];
+};
+
+export type ContactPaginationMeta = {
+  __typename?: 'ContactPaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type ContactResponse = {
+  __typename?: 'ContactResponse';
+  data?: Maybe<ContactEntry>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type ContactsResponse = {
+  __typename?: 'ContactsResponse';
+  data: Array<ContactEntry>;
+  meta: ContactPaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type ConversationShop = {
+  __typename?: 'ConversationShop';
+  id: Scalars['String']['output'];
+  logo?: Maybe<Scalars['JSON']['output']>;
+  name: Scalars['JSON']['output'];
+  slug: Scalars['String']['output'];
+};
+
+export type ConvertDraftOrderInput = {
+  id: Scalars['String']['input'];
+  /** Payment gateway for the created order: CASH (paid, recorded by the merchant), INVOICE (payment due later) or CASH_ON_DELIVERY (any case). Omitted: INVOICE when the draft has payment_due_later, otherwise CASH. CASH_ON_DELIVERY still needs the shop to have cash on delivery switched on. */
+  payment_gateway?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CountryDeliveryChannel =
+  | 'CARRIER'
+  | 'MERCHANT';
+
+export type CountryPaymentMethod =
+  | 'BANK_TRANSFER'
+  | 'CARD'
+  | 'COD';
+
+export type CountryProfileEntry = {
+  __typename?: 'CountryProfileEntry';
+  allowed_currencies: Array<Scalars['String']['output']>;
+  allowed_delivery_channels: Array<CountryDeliveryChannel>;
+  allowed_payments: Array<CountryPaymentMethod>;
+  bank_account_mode: BankAccountMode;
+  country_code: Scalars['String']['output'];
+  default_currency: Scalars['String']['output'];
+  shipping_match: ShippingMatchMode;
+};
+
+export type CouponClass =
+  | 'ORDER'
+  | 'PRODUCT'
+  | 'SHIPPING';
+
+export type CouponCombinations = {
+  __typename?: 'CouponCombinations';
+  allow_order: Scalars['Boolean']['output'];
+  allow_product: Scalars['Boolean']['output'];
+  allow_shipping: Scalars['Boolean']['output'];
+};
+
+export type CouponConflictRef = {
+  __typename?: 'CouponConflictRef';
+  class: CouponClass;
+  code?: Maybe<Scalars['String']['output']>;
+  coupon_id?: Maybe<Scalars['String']['output']>;
+  message: Scalars['String']['output'];
+  reason: Scalars['String']['output'];
+};
+
+export type CouponCustomerRef = {
+  __typename?: 'CouponCustomerRef';
+  email?: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  name?: Maybe<Scalars['String']['output']>;
+};
+
+export type CouponDiscountPreview = {
+  __typename?: 'CouponDiscountPreview';
+  cart_hash?: Maybe<Scalars['String']['output']>;
+  order_cents: Scalars['Int']['output'];
+  product_cents: Scalars['Int']['output'];
+  shipping_cents: Scalars['Int']['output'];
+  total_cents: Scalars['Int']['output'];
+};
+
+export type CouponEligibility =
+  | 'ALL_CUSTOMERS'
+  | 'SEGMENT'
+  | 'SPECIFIC_CUSTOMERS';
+
+export type CouponEntry = {
+  __typename?: 'CouponEntry';
+  active_from: Scalars['String']['output'];
+  amount_cents?: Maybe<Scalars['Int']['output']>;
+  buy_collection_ids: Array<Scalars['String']['output']>;
+  buy_product_ids: Array<Scalars['String']['output']>;
+  buy_quantity?: Maybe<Scalars['Int']['output']>;
+  class: CouponClass;
+  code?: Maybe<Scalars['String']['output']>;
+  collection_ids: Array<Scalars['String']['output']>;
+  combinations?: Maybe<CouponCombinations>;
+  countries: Array<Scalars['String']['output']>;
+  created_at: Scalars['String']['output'];
+  currency: Scalars['String']['output'];
+  customer_ids: Array<Scalars['String']['output']>;
+  customers: Array<CouponCustomerRef>;
+  description?: Maybe<Scalars['String']['output']>;
+  eligibility: CouponEligibility;
+  engine_version: Scalars['Int']['output'];
+  exclude_shipping_rates_over_cents?: Maybe<Scalars['Int']['output']>;
+  expire_at?: Maybe<Scalars['String']['output']>;
+  get_collection_ids: Array<Scalars['String']['output']>;
+  get_discount_amount_cents?: Maybe<Scalars['Int']['output']>;
+  get_discount_percent_bps?: Maybe<Scalars['Int']['output']>;
+  get_discount_type?: Maybe<BogoDiscountType>;
+  get_product_ids: Array<Scalars['String']['output']>;
+  get_quantity?: Maybe<Scalars['Int']['output']>;
+  id: Scalars['String']['output'];
+  image?: Maybe<Scalars['JSON']['output']>;
+  is_active: Scalars['Boolean']['output'];
+  is_exclusive: Scalars['Boolean']['output'];
+  /** @deprecated Reflects active window only; use `is_valid_for_me` for per-user validity or `is_active` for the same semantic under a clearer name. */
+  is_valid: Scalars['Boolean']['output'];
+  is_valid_for_me?: Maybe<Scalars['Boolean']['output']>;
+  language?: Maybe<Scalars['String']['output']>;
+  max_discount_cents?: Maybe<Scalars['Int']['output']>;
+  max_uses?: Maybe<Scalars['Int']['output']>;
+  max_uses_per_order?: Maybe<Scalars['Int']['output']>;
+  max_uses_per_user?: Maybe<Scalars['Int']['output']>;
+  method: CouponMethod;
+  minimum_cart_amount_cents: Scalars['Int']['output'];
+  minimum_quantity?: Maybe<Scalars['Int']['output']>;
+  percent_bps?: Maybe<Scalars['Int']['output']>;
+  priority: Scalars['Int']['output'];
+  product_ids: Array<Scalars['String']['output']>;
+  products: Array<CouponProductRef>;
+  segment_ids: Array<Scalars['String']['output']>;
+  segments: Array<CouponSegmentRef>;
+  shop_id?: Maybe<Scalars['String']['output']>;
+  target?: Maybe<Scalars['String']['output']>;
+  times_used: Scalars['Int']['output'];
+  timezone?: Maybe<Scalars['String']['output']>;
+  type: CouponType;
+  updated_at: Scalars['String']['output'];
+  user_id?: Maybe<Scalars['String']['output']>;
+  value_type?: Maybe<CouponValueType>;
+};
+
+export type CouponMethod =
+  | 'AUTOMATIC'
+  | 'CODE';
+
+export type CouponPaginationMeta = {
+  __typename?: 'CouponPaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type CouponPerformance = {
+  __typename?: 'CouponPerformance';
+  avg_order_value_cents: Scalars['Int']['output'];
+  coupon_id: Scalars['String']['output'];
+  first_used_at?: Maybe<Scalars['String']['output']>;
+  last_used_at?: Maybe<Scalars['String']['output']>;
+  times_used: Scalars['Int']['output'];
+  total_discount_given_cents: Scalars['Int']['output'];
+  total_revenue_attributed_cents: Scalars['Int']['output'];
+};
+
+export type CouponPerformanceResponse = {
+  __typename?: 'CouponPerformanceResponse';
+  data?: Maybe<CouponPerformance>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type CouponProductRef = {
+  __typename?: 'CouponProductRef';
+  id: Scalars['String']['output'];
+  image?: Maybe<Scalars['JSON']['output']>;
+  name: Scalars['JSON']['output'];
+  slug: Scalars['String']['output'];
+};
+
+export type CouponResponse = {
+  __typename?: 'CouponResponse';
+  data?: Maybe<CouponEntry>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type CouponScopeFilter =
+  | 'GENERAL'
+  | 'SCOPED';
+
+export type CouponSegmentRef = {
+  __typename?: 'CouponSegmentRef';
+  id: Scalars['String']['output'];
+  name: Scalars['String']['output'];
+};
+
+export type CouponStats = {
+  __typename?: 'CouponStats';
+  top_coupons: Array<CouponStatsTopEntry>;
+  total_discount_cents: Scalars['Int']['output'];
+  total_redemptions: Scalars['Int']['output'];
+  unique_users: Scalars['Int']['output'];
+};
+
+export type CouponStatsRangeInput = {
+  from?: InputMaybe<Scalars['String']['input']>;
+  to?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CouponStatsResponse = {
+  __typename?: 'CouponStatsResponse';
+  data?: Maybe<CouponStats>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type CouponStatsTopEntry = {
+  __typename?: 'CouponStatsTopEntry';
+  code?: Maybe<Scalars['String']['output']>;
+  coupon_id: Scalars['String']['output'];
+  times_used: Scalars['Int']['output'];
+  total_discount_cents: Scalars['Int']['output'];
+};
+
+export type CouponStatusFilter =
+  | 'ACTIVE'
+  | 'EXPIRED'
+  | 'SCHEDULED';
+
+export type CouponType =
+  | 'AMOUNT_OFF_ORDER'
+  | 'AMOUNT_OFF_PRODUCTS'
+  | 'BUY_X_GET_Y'
+  | 'FREE_SHIPPING';
+
+export type CouponValueType =
+  | 'FIXED'
+  | 'PERCENTAGE';
+
+export type CouponsResponse = {
+  __typename?: 'CouponsResponse';
+  data: Array<CouponEntry>;
+  meta: CouponPaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type CreateAbusiveReportInput = {
+  message?: InputMaybe<Scalars['String']['input']>;
+  model_id: Scalars['String']['input'];
+  model_type: Scalars['String']['input'];
+};
+
+export type CreateAddressInput = {
+  address: Scalars['JSON']['input'];
+  default?: InputMaybe<Scalars['Boolean']['input']>;
+  location?: InputMaybe<Scalars['JSON']['input']>;
+  title: Scalars['String']['input'];
+  type: Scalars['String']['input'];
+};
+
+export type CreateAttributeDefinitionInput = {
+  description?: InputMaybe<Scalars['JSON']['input']>;
+  filterable?: InputMaybe<Scalars['Boolean']['input']>;
+  key: Scalars['String']['input'];
+  name: Scalars['JSON']['input'];
+  required?: InputMaybe<Scalars['Boolean']['input']>;
+  sort_order?: InputMaybe<Scalars['Int']['input']>;
+  system_category_id: Scalars['String']['input'];
+  type: AttributeType;
+  unit?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CreateAttributeInput = {
+  name: Scalars['JSON']['input'];
+  slug?: InputMaybe<Scalars['String']['input']>;
+  values?: InputMaybe<Array<AttributeValueInput>>;
+};
+
+export type CreateAttributeOptionInput = {
+  attribute_definition_id: Scalars['String']['input'];
+  label: Scalars['JSON']['input'];
+  sort_order?: InputMaybe<Scalars['Int']['input']>;
+  value: Scalars['String']['input'];
+};
+
+export type CreateAuthorInput = {
+  bio?: InputMaybe<Scalars['JSON']['input']>;
+  born?: InputMaybe<Scalars['String']['input']>;
+  cover_image?: InputMaybe<Scalars['JSON']['input']>;
+  death?: InputMaybe<Scalars['String']['input']>;
+  image?: InputMaybe<Scalars['JSON']['input']>;
+  name: Scalars['JSON']['input'];
+  quote?: InputMaybe<Scalars['JSON']['input']>;
+  slug?: InputMaybe<Scalars['String']['input']>;
+  socials?: InputMaybe<Scalars['JSON']['input']>;
+};
+
+export type CreateBannerInput = {
+  description?: InputMaybe<Scalars['JSON']['input']>;
+  image?: InputMaybe<Scalars['JSON']['input']>;
+  title: Scalars['JSON']['input'];
+};
+
+export type CreateCollectionInput = {
+  description?: InputMaybe<Scalars['JSON']['input']>;
+  image?: InputMaybe<Scalars['JSON']['input']>;
+  /** Visible on the storefront. Defaults to true. */
+  is_published?: InputMaybe<Scalars['Boolean']['input']>;
+  /** { en: "...", ar: "..." } */
+  name: Scalars['JSON']['input'];
+  product_ids?: InputMaybe<Array<Scalars['String']['input']>>;
+  rules?: InputMaybe<Scalars['JSON']['input']>;
+  /** Search engine listing description — { en, ar }. */
+  seo_description?: InputMaybe<Scalars['JSON']['input']>;
+  /** Search engine listing title — { en, ar }. */
+  seo_title?: InputMaybe<Scalars['JSON']['input']>;
+  slug?: InputMaybe<Scalars['String']['input']>;
+  /** How the storefront orders this collection. */
+  sort?: InputMaybe<CollectionSort>;
+  sort_order?: InputMaybe<Scalars['Int']['input']>;
+  /** Deprecated and ignored — derived from `rules` on write. A collection with any condition reads as AUTOMATED. */
+  type?: InputMaybe<CollectionType>;
+};
+
+export type CreateCommissionInput = {
+  commission_bps: Scalars['Int']['input'];
+  description?: InputMaybe<Scalars['String']['input']>;
+  image?: InputMaybe<Scalars['JSON']['input']>;
+  language: Scalars['String']['input'];
+  level: Scalars['String']['input'];
+  max_balance_cents?: InputMaybe<Scalars['Int']['input']>;
+  min_balance_cents: Scalars['Int']['input'];
+  shop_id?: InputMaybe<Scalars['String']['input']>;
+  sub_level?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CreateContactInput = {
+  /** Link to one of this shop's customers (customers.id). Must be a live customer of the contact's shop; otherwise VALIDATION_ERROR (field customer_id, code invalid_customer). Omit to match the shop's customer by phone. */
+  customer_id?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  email?: InputMaybe<Scalars['String']['input']>;
+  meta?: InputMaybe<Scalars['JSON']['input']>;
+  name: Scalars['String']['input'];
+  notes?: InputMaybe<Scalars['String']['input']>;
+  overall_score?: InputMaybe<Scalars['JSON']['input']>;
+  phone_number?: InputMaybe<Scalars['String']['input']>;
+  status?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CreateCouponInput = {
+  active_from: Scalars['String']['input'];
+  amount_cents?: InputMaybe<Scalars['Int']['input']>;
+  buy_collection_ids?: InputMaybe<Array<Scalars['String']['input']>>;
+  buy_product_ids?: InputMaybe<Array<Scalars['String']['input']>>;
+  buy_quantity?: InputMaybe<Scalars['Int']['input']>;
+  code?: InputMaybe<Scalars['String']['input']>;
+  collection_ids?: InputMaybe<Array<Scalars['String']['input']>>;
+  combinations?: InputMaybe<Scalars['JSON']['input']>;
+  countries?: InputMaybe<Array<Scalars['String']['input']>>;
+  customer_ids?: InputMaybe<Array<Scalars['String']['input']>>;
+  eligibility?: InputMaybe<CouponEligibility>;
+  exclude_shipping_rates_over_cents?: InputMaybe<Scalars['Int']['input']>;
+  expire_at?: InputMaybe<Scalars['String']['input']>;
+  get_collection_ids?: InputMaybe<Array<Scalars['String']['input']>>;
+  get_discount_amount_cents?: InputMaybe<Scalars['Int']['input']>;
+  get_discount_percent_bps?: InputMaybe<Scalars['Int']['input']>;
+  get_discount_type?: InputMaybe<BogoDiscountType>;
+  get_product_ids?: InputMaybe<Array<Scalars['String']['input']>>;
+  get_quantity?: InputMaybe<Scalars['Int']['input']>;
+  image?: InputMaybe<Scalars['JSON']['input']>;
+  is_exclusive?: InputMaybe<Scalars['Boolean']['input']>;
+  language?: InputMaybe<Scalars['String']['input']>;
+  max_discount_cents?: InputMaybe<Scalars['Int']['input']>;
+  max_uses?: InputMaybe<Scalars['Int']['input']>;
+  max_uses_per_order?: InputMaybe<Scalars['Int']['input']>;
+  max_uses_per_user?: InputMaybe<Scalars['Int']['input']>;
+  method?: InputMaybe<CouponMethod>;
+  minimum_cart_amount_cents?: Scalars['Int']['input'];
+  minimum_quantity?: InputMaybe<Scalars['Int']['input']>;
+  percent_bps?: InputMaybe<Scalars['Int']['input']>;
+  priority?: InputMaybe<Scalars['Int']['input']>;
+  product_ids?: InputMaybe<Array<Scalars['String']['input']>>;
+  segment_ids?: InputMaybe<Array<Scalars['String']['input']>>;
+  target?: InputMaybe<Scalars['String']['input']>;
+  timezone?: InputMaybe<Scalars['String']['input']>;
+  type: CouponType;
+  value_type?: InputMaybe<CouponValueType>;
+};
+
+export type CreateCustomerSegmentInput = {
+  description?: InputMaybe<Scalars['String']['input']>;
+  name: Scalars['String']['input'];
+  query?: InputMaybe<Scalars['String']['input']>;
+  rules?: InputMaybe<Scalars['JSON']['input']>;
+};
+
+export type CreateDeliveryTimeInput = {
+  description?: InputMaybe<Scalars['JSON']['input']>;
+  icon?: InputMaybe<Scalars['String']['input']>;
+  slug: Scalars['String']['input'];
+  title: Scalars['JSON']['input'];
+};
+
+export type CreateDigitalFileInput = {
+  attachment_id?: InputMaybe<Scalars['String']['input']>;
+  file_name: Scalars['String']['input'];
+  product_id: Scalars['String']['input'];
+  url: Scalars['String']['input'];
+};
+
+export type CreateDraftOrderInput = {
+  billing_address?: InputMaybe<Scalars['JSON']['input']>;
+  /** Ids of this shop’s coupons (the values CreateOrderInput.coupons takes), at most 5. Stored on the draft and priced by createOrder when the draft converts, against the draft’s customer rather than the merchant. Each must be a live coupon of this shop. A coupon that targets customers or caps uses per customer needs a customer on the draft. */
+  coupon_ids?: InputMaybe<Array<Scalars['String']['input']>>;
+  customer_contact?: InputMaybe<Scalars['String']['input']>;
+  /** Account id (users.id, not a CRM contact id) of a customer of this shop: linked by a shop contact, or owning a cart or order in the shop. Omit or null for a guest draft. */
+  customer_id?: InputMaybe<Scalars['String']['input']>;
+  customer_name?: InputMaybe<Scalars['String']['input']>;
+  lines: Array<DraftOrderLineInput>;
+  /** Flat manual discount in cents. */
+  manual_discount_cents?: InputMaybe<Scalars['Int']['input']>;
+  note?: InputMaybe<Scalars['String']['input']>;
+  /** Payment due later. When true, converting without a payment_gateway creates an INVOICE order (order and payment pending) instead of a CASH one (recorded as paid). Defaults to false. */
+  payment_due_later?: InputMaybe<Scalars['Boolean']['input']>;
+  /** One of due_on_receipt, net_7, net_15, net_30. Sets the invoice due date of an INVOICE conversion. Null or omitted is due on receipt. */
+  payment_terms?: InputMaybe<Scalars['String']['input']>;
+  shipping_address?: InputMaybe<Scalars['JSON']['input']>;
+  /** Merchant-facing display label for the chosen method. */
+  shipping_method_name?: InputMaybe<Scalars['String']['input']>;
+  /** Merchant-set delivery fee in cents for the converted order. Absent/null → conversion prices shipping from the shop’s zones like any storefront order. 0 is a real value: free delivery on purpose. This is what lets a phone order carry a negotiated fee without touching the shop-wide zones. */
+  shipping_override_cents?: InputMaybe<Scalars['Int']['input']>;
+  /** The shipping option the merchant picked in the draft modal. Either a ShippingRule id or the carrier composite carrier:<company>:<deliveryOptionId> — the same value CreateOrderInput.shipping_rule_id accepts. When set it WINS over shipping_override_cents at conversion, so the fee is re-quoted server-side and the created order freezes the carrier identity that OTO booking needs. */
+  shipping_rule_id?: InputMaybe<Scalars['String']['input']>;
+  /** Vendor-facing tags (Shopify pattern) for custom views / filtering. */
+  tags?: InputMaybe<Array<Scalars['String']['input']>>;
+};
+
+export type CreateFaqInput = {
+  faq_description: Scalars['String']['input'];
+  faq_title: Scalars['JSON']['input'];
+  status?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CreateFlashSaleInput = {
+  description?: InputMaybe<Scalars['JSON']['input']>;
+  end_date: Scalars['String']['input'];
+  image?: InputMaybe<Scalars['JSON']['input']>;
+  is_active?: Scalars['Boolean']['input'];
+  product_ids?: InputMaybe<Array<Scalars['String']['input']>>;
+  rate: Scalars['Float']['input'];
+  sale_type: Scalars['String']['input'];
+  slug: Scalars['String']['input'];
+  start_date: Scalars['String']['input'];
+  title: Scalars['JSON']['input'];
+};
+
+export type CreateInventoryTransferInput = {
+  barcode?: InputMaybe<Scalars['String']['input']>;
+  destination_location_id?: InputMaybe<Scalars['String']['input']>;
+  expected_arrival?: InputMaybe<Scalars['String']['input']>;
+  lines: Array<TransferLineInput>;
+  note?: InputMaybe<Scalars['String']['input']>;
+  reference?: InputMaybe<Scalars['String']['input']>;
+  shipment_cost_cents?: InputMaybe<Scalars['Int']['input']>;
+  shipping_carrier?: InputMaybe<Scalars['String']['input']>;
+  source_location_id?: InputMaybe<Scalars['String']['input']>;
+  tags?: InputMaybe<Array<Scalars['String']['input']>>;
+  tracking_number?: InputMaybe<Scalars['String']['input']>;
+  tracking_url?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CreateLanguageInput = {
+  direction?: InputMaybe<Scalars['String']['input']>;
+  flag?: InputMaybe<Scalars['String']['input']>;
+  is_default?: InputMaybe<Scalars['Boolean']['input']>;
+  language_code: Scalars['String']['input'];
+  language_name: Scalars['String']['input'];
+};
+
+export type CreateLocationInput = {
+  address_line1?: InputMaybe<Scalars['String']['input']>;
+  address_line2?: InputMaybe<Scalars['String']['input']>;
+  city?: InputMaybe<Scalars['String']['input']>;
+  country?: InputMaybe<Scalars['String']['input']>;
+  fulfills_online_orders?: InputMaybe<Scalars['Boolean']['input']>;
+  is_active?: InputMaybe<Scalars['Boolean']['input']>;
+  name: Scalars['String']['input'];
+  national_address_code?: InputMaybe<Scalars['String']['input']>;
+  phone?: InputMaybe<Scalars['String']['input']>;
+  state?: InputMaybe<Scalars['String']['input']>;
+  zip?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CreateManufacturerInput = {
+  cover_image?: InputMaybe<Scalars['JSON']['input']>;
+  description?: InputMaybe<Scalars['JSON']['input']>;
+  image?: InputMaybe<Scalars['JSON']['input']>;
+  name: Scalars['JSON']['input'];
+  slug?: InputMaybe<Scalars['String']['input']>;
+  socials?: InputMaybe<Scalars['JSON']['input']>;
+  type?: InputMaybe<Scalars['String']['input']>;
+  website?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CreateMenuInput = {
+  items?: InputMaybe<Scalars['JSON']['input']>;
+  name: Scalars['JSON']['input'];
+  slug?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CreateOrderInput = {
+  attribution?: InputMaybe<OrderAttributionInput>;
+  /** Receiving account for BANK_TRANSFER */
+  bank_account_id?: InputMaybe<Scalars['String']['input']>;
+  billing_address?: InputMaybe<Scalars['JSON']['input']>;
+  cart_id?: InputMaybe<Scalars['String']['input']>;
+  coupon_id?: InputMaybe<Scalars['String']['input']>;
+  coupons?: InputMaybe<Array<Scalars['String']['input']>>;
+  customer_contact?: InputMaybe<Scalars['String']['input']>;
+  customer_name?: InputMaybe<Scalars['String']['input']>;
+  delivery_fee?: InputMaybe<Scalars['Float']['input']>;
+  delivery_time?: InputMaybe<Scalars['String']['input']>;
+  /** The verifyCheckout total_cents the shopper confirmed. An order that would cost more is refused with CHECKOUT_EXPECTATION_FAILED instead of charged. */
+  expected_total_cents?: InputMaybe<Scalars['Int']['input']>;
+  is_full_wallet_payment?: InputMaybe<Scalars['Boolean']['input']>;
+  language?: InputMaybe<Scalars['String']['input']>;
+  note?: InputMaybe<Scalars['String']['input']>;
+  /** One of CASH_ON_DELIVERY, STRIPE, BANK_TRANSFER or FULL_WALLET_PAYMENT (any case). Defaults to CASH_ON_DELIVERY. The shop must also offer it. */
+  payment_gateway?: InputMaybe<Scalars['String']['input']>;
+  products: Array<OrderProductInput>;
+  shipping_address?: InputMaybe<Scalars['JSON']['input']>;
+  shipping_rule_id?: InputMaybe<Scalars['String']['input']>;
+  use_wallet_points?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type CreatePageInput = {
+  content?: InputMaybe<Scalars['JSON']['input']>;
+  image?: InputMaybe<Scalars['JSON']['input']>;
+  slug?: InputMaybe<Scalars['String']['input']>;
+  title: Scalars['JSON']['input'];
+};
+
+export type CreatePaymentIntentInput = {
+  order_id: Scalars['String']['input'];
+  payment_gateway: Scalars['String']['input'];
+};
+
+export type CreatePlanInput = {
+  code: Scalars['String']['input'];
+  currency?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  description_ar?: InputMaybe<Scalars['String']['input']>;
+  is_public?: InputMaybe<Scalars['Boolean']['input']>;
+  monthly_price_cents: Scalars['Int']['input'];
+  name: Scalars['String']['input'];
+  name_ar?: InputMaybe<Scalars['String']['input']>;
+  sort_order?: InputMaybe<Scalars['Int']['input']>;
+  trial_days?: InputMaybe<Scalars['Int']['input']>;
+  yearly_price_cents: Scalars['Int']['input'];
+};
+
+export type CreateProductInput = {
+  ai_keywords?: InputMaybe<Scalars['JSON']['input']>;
+  /** Category metafield values. */
+  attribute_values?: InputMaybe<Array<ProductAttributeValueInput>>;
+  /** UPC / EAN / ISBN */
+  barcode?: InputMaybe<Scalars['String']['input']>;
+  brand?: InputMaybe<Scalars['String']['input']>;
+  /** Collection ids (curation). */
+  collection_ids?: InputMaybe<Array<Scalars['String']['input']>>;
+  /** When true, allow oversell / backorder. */
+  continue_selling_when_out_of_stock?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Vendor sourcing cost per unit (cents). Drives margin/profit. */
+  cost_per_item_cents?: InputMaybe<Scalars['Int']['input']>;
+  /** ISO-3166-1 alpha-2 country code. */
+  country_of_origin?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['JSON']['input']>;
+  gallery?: InputMaybe<Scalars['JSON']['input']>;
+  /** Package height in millimeters. */
+  height_mm?: InputMaybe<Scalars['Int']['input']>;
+  /** Harmonized System code (intl shipping). */
+  hs_code?: InputMaybe<Scalars['String']['input']>;
+  image?: InputMaybe<Scalars['JSON']['input']>;
+  in_stock?: InputMaybe<Scalars['Boolean']['input']>;
+  is_digital?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Package length in millimeters. */
+  length_mm?: InputMaybe<Scalars['Int']['input']>;
+  /** Maximum bid (integer cents) */
+  max_bid_price_cents?: InputMaybe<Scalars['Int']['input']>;
+  /** Max percentage in basis points (1bp = 0.01%, 10000 = 100%) */
+  max_percentage_bps?: InputMaybe<Scalars['Int']['input']>;
+  /** Minimum bid (integer cents) */
+  min_bid_price_cents?: InputMaybe<Scalars['Int']['input']>;
+  name: Scalars['JSON']['input'];
+  /** Variant grid schema. When set, enables strict variant validation. */
+  option_definitions?: InputMaybe<Array<ProductOptionDefinitionInput>>;
+  /** Shop package ID used for parcel sizing. Null uses store default. */
+  package_id?: InputMaybe<Scalars['String']['input']>;
+  price_cents?: InputMaybe<Scalars['Int']['input']>;
+  product_type?: InputMaybe<ProductType>;
+  /** When set, status flips to PUBLISH on this timestamp (UTC). Use with status=DRAFT to schedule a launch. */
+  published_at?: InputMaybe<Scalars['DateTime']['input']>;
+  quantity?: InputMaybe<Scalars['Int']['input']>;
+  /** Shopify "physical product" toggle. Defaults true. Set false for digital/service. */
+  requires_shipping?: InputMaybe<Scalars['Boolean']['input']>;
+  sale_price_cents?: InputMaybe<Scalars['Int']['input']>;
+  sale_type?: InputMaybe<SaleType>;
+  /** SEO meta-description override, multilang { en, ar }. */
+  seo_description?: InputMaybe<Scalars['JSON']['input']>;
+  /** SEO `<title>` override, multilang { en, ar }. */
+  seo_title?: InputMaybe<Scalars['JSON']['input']>;
+  shop_id?: InputMaybe<Scalars['String']['input']>;
+  sku?: InputMaybe<Scalars['String']['input']>;
+  slug?: InputMaybe<Scalars['String']['input']>;
+  status?: InputMaybe<ProductStatus>;
+  /** SystemCategory id (classification). */
+  system_category_id?: InputMaybe<Scalars['String']['input']>;
+  tag_ids?: InputMaybe<Array<Scalars['String']['input']>>;
+  target_audience?: InputMaybe<TargetAudience>;
+  /** TaxClass id (per-product tax override). When null, the order falls back to shop default class then to Shop.tax_bps. */
+  tax_class_id?: InputMaybe<Scalars['String']['input']>;
+  /** When false, stock-reservation engine bypasses qty checks (digital/service/MTO). */
+  track_quantity?: InputMaybe<Scalars['Boolean']['input']>;
+  type_name?: InputMaybe<Scalars['String']['input']>;
+  /** When set, status flips to DRAFT on this timestamp. Use to end a sale window automatically. */
+  unpublished_at?: InputMaybe<Scalars['DateTime']['input']>;
+  variation_options?: InputMaybe<Array<CreateVariationInput>>;
+  video?: InputMaybe<Scalars['JSON']['input']>;
+  /** Weight in grams (canonical storage unit). */
+  weight_grams?: InputMaybe<Scalars['Int']['input']>;
+  /** Vendor display preference (KG | LB | G | OZ). */
+  weight_unit_display?: InputMaybe<WeightUnit>;
+  /** Package width in millimeters. */
+  width_mm?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type CreatePurchaseOrderInput = {
+  currency_code?: InputMaybe<Scalars['String']['input']>;
+  destination_location_id: Scalars['String']['input'];
+  expected_at?: InputMaybe<Scalars['DateTime']['input']>;
+  lines: Array<PurchaseOrderLineInput>;
+  note?: InputMaybe<Scalars['String']['input']>;
+  payment_terms?: InputMaybe<PurchaseOrderPaymentTerms>;
+  reference?: InputMaybe<Scalars['String']['input']>;
+  shipping_carrier?: InputMaybe<Scalars['String']['input']>;
+  shipping_cents?: InputMaybe<Scalars['Int']['input']>;
+  supplier_id?: InputMaybe<Scalars['String']['input']>;
+  tags?: InputMaybe<Array<Scalars['String']['input']>>;
+  tax_cents?: InputMaybe<Scalars['Int']['input']>;
+  tracking_number?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CreateQuestionInput = {
+  product_id: Scalars['String']['input'];
+  question: Scalars['String']['input'];
+};
+
+export type CreateReferralEarningInput = {
+  amount_cents: Scalars['Int']['input'];
+  metadata?: InputMaybe<Scalars['JSON']['input']>;
+  referral_coupon_id: Scalars['String']['input'];
+  subscriber_user_id: Scalars['String']['input'];
+  subscription_shop_id?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CreateRefundInput = {
+  amount_cents?: InputMaybe<Scalars['Int']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  images?: InputMaybe<Scalars['JSON']['input']>;
+  is_partial?: InputMaybe<Scalars['Boolean']['input']>;
+  lines?: InputMaybe<Array<RefundLineInput>>;
+  order_id: Scalars['String']['input'];
+  product_id?: InputMaybe<Scalars['String']['input']>;
+  refund_quantity?: InputMaybe<Scalars['Int']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CreateRefundPolicyInput = {
+  description?: InputMaybe<Scalars['JSON']['input']>;
+  slug: Scalars['String']['input'];
+  status?: Scalars['String']['input'];
+  target?: Scalars['String']['input'];
+  title: Scalars['JSON']['input'];
+};
+
+export type CreateReturnInput = {
+  lines: Array<CreateReturnLineInput>;
+  note?: InputMaybe<Scalars['String']['input']>;
+  order_id: Scalars['String']['input'];
+  reason?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CreateReturnLineInput = {
+  order_product_id: Scalars['String']['input'];
+  quantity: Scalars['Int']['input'];
+  reason?: InputMaybe<Scalars['String']['input']>;
+  /** Whether to restock this line back into inventory when the refund settles. Defaults to true. */
+  restock?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type CreateReviewInput = {
+  comment: Scalars['String']['input'];
+  order_id: Scalars['String']['input'];
+  photos?: InputMaybe<Array<Scalars['Int']['input']>>;
+  product_id: Scalars['String']['input'];
+  rating: Scalars['Int']['input'];
+  variation_option_id?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CreateShipmentInput = {
+  /** Display name only, and only honoured for merchant-managed shipping. A shipment booked through a carrier takes this name from the provider registry, so it cannot drift from the provider that actually carried it. */
+  delivery_company?: InputMaybe<Scalars['String']['input']>;
+  /** The Fulfillment this shipment executes. A shipment always ships a fulfillment — the decision of what leaves which location — so this is required; the order is derived from it. */
+  fulfillment_id: Scalars['String']['input'];
+  /** Ignored when it disagrees with the fulfillment. Kept for callers written before shipments were re-parented; the order is always taken from the fulfillment. */
+  order_id?: InputMaybe<Scalars['String']['input']>;
+  /** The physical boxes in this shipment. Optional — omitting it books a single unmeasured package, which is what every caller written before packages existed does. */
+  packages?: InputMaybe<Array<ShipmentPackageInput>>;
+  tracking_number?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CreateShippingRuleInput = {
+  /** Rate in basis points (250 = 2.5%). Use for percentage rules. */
+  amount_bps?: InputMaybe<Scalars['Int']['input']>;
+  /** Flat rate in cents. Use for fixed / weight_based rules. */
+  amount_cents?: InputMaybe<Scalars['Int']['input']>;
+  is_global?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Delivery estimate upper bound, in days. Null = no promise. */
+  max_delivery_days?: InputMaybe<Scalars['Int']['input']>;
+  /** Delivery estimate lower bound, in days. Shown beside the option at checkout; null = no promise made. */
+  min_delivery_days?: InputMaybe<Scalars['Int']['input']>;
+  min_order_cents?: InputMaybe<Scalars['Int']['input']>;
+  name: Scalars['JSON']['input'];
+  /** Per-kilogram cost in cents (weight_based rules only). Engine adds this × ceil(total_grams / 1000) to amount_cents. */
+  per_kg_cents?: InputMaybe<Scalars['Int']['input']>;
+  /** fixed | percentage | free | weight_based */
+  type?: InputMaybe<Scalars['String']['input']>;
+  /** Attach this rule to a ShippingZone (rate band). When a shop has zones, only zoned rules are charged — the destination selects the zone. */
+  zone_id?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CreateShippingZoneInput = {
+  /** Stable city codes (e.g. PS-GZA). Empty matches every city in the listed countries. */
+  city_codes?: InputMaybe<Array<Scalars['String']['input']>>;
+  /** ISO-3166-1 alpha-2 country codes this zone covers. Empty = catch-all (rest of world). */
+  countries?: InputMaybe<Array<Scalars['String']['input']>>;
+  is_global?: InputMaybe<Scalars['Boolean']['input']>;
+  name: Scalars['JSON']['input'];
+  /** Tie-break when two zones are equally specific; lower wins. */
+  priority?: InputMaybe<Scalars['Int']['input']>;
+  /** Optional states/regions to refine within the listed countries. Empty matches every state. */
+  states?: InputMaybe<Array<Scalars['String']['input']>>;
+};
+
+export type CreateShopBankAccountInput = {
+  account_holder_name: Scalars['String']['input'];
+  account_number?: InputMaybe<Scalars['String']['input']>;
+  bank_code?: InputMaybe<Scalars['String']['input']>;
+  bank_name?: InputMaybe<Scalars['String']['input']>;
+  currency?: InputMaybe<Scalars['String']['input']>;
+  iban?: InputMaybe<Scalars['String']['input']>;
+  is_active?: Scalars['Boolean']['input'];
+  notes?: InputMaybe<Scalars['String']['input']>;
+  sort_order?: Scalars['Int']['input'];
+  swift_code?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CreateShopInput = {
+  address?: InputMaybe<Scalars['JSON']['input']>;
+  balance?: InputMaybe<BalanceInput>;
+  cover_image?: InputMaybe<ImageInput>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  home_country: Scalars['String']['input'];
+  logo?: InputMaybe<ImageInput>;
+  name: Scalars['String']['input'];
+  notifications?: InputMaybe<Scalars['JSON']['input']>;
+  settings?: InputMaybe<ShopSettingsInput>;
+  shipping?: InputMaybe<Scalars['JSON']['input']>;
+  slug?: InputMaybe<Scalars['String']['input']>;
+  socials?: InputMaybe<Array<ShopSocialInput>>;
+};
+
+export type CreateShopPackageInput = {
+  /** Empty package tare weight in grams */
+  empty_weight_grams?: InputMaybe<Scalars['Int']['input']>;
+  /** Height in mm */
+  height_mm: Scalars['Int']['input'];
+  is_default?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Length in mm */
+  length_mm: Scalars['Int']['input'];
+  name: Scalars['String']['input'];
+  package_type?: PackageType;
+  /** Width in mm */
+  width_mm: Scalars['Int']['input'];
+};
+
+export type CreateShortLinkInput = {
+  destination_id?: InputMaybe<Scalars['String']['input']>;
+  destination_type: Scalars['String']['input'];
+  destination_url: Scalars['String']['input'];
+};
+
+export type CreateStoreImportInput = {
+  /** The merchant states that they own the source store (or, for a PRODUCT scope, that product listing) or are authorised to use its data. Required, always — no code can prove it, so the attestation and the audit row are what the answer rests on. */
+  attested_owner: Scalars['Boolean']['input'];
+  /** Leave unset (or AUTO) to let the detector decide. A named platform wins over detection; the disagreement is recorded on the job as a diagnostic. */
+  requested_platform?: InputMaybe<StoreImportPlatform>;
+  /** STORE (the default) scans the whole catalogue. PRODUCT reads only the single product page at source_url: it discovers nothing, follows no link, and books no store-import quota unit. The ownership attestation is required either way. */
+  scope?: InputMaybe<StoreImportScope>;
+  /** The merchant's old storefront. Checked against the SSRF guard before it is stored, and stored in the guard's spelling with any credential and fragment removed. */
+  source_url: Scalars['String']['input'];
+};
+
+export type CreateStoreNoticeInput = {
+  description?: InputMaybe<Scalars['String']['input']>;
+  expire_at?: InputMaybe<Scalars['String']['input']>;
+  notice: Scalars['String']['input'];
+  priority?: Scalars['String']['input'];
+  type?: Scalars['String']['input'];
+};
+
+export type CreateSupplierInput = {
+  address_line1?: InputMaybe<Scalars['String']['input']>;
+  address_line2?: InputMaybe<Scalars['String']['input']>;
+  city?: InputMaybe<Scalars['String']['input']>;
+  contact_name?: InputMaybe<Scalars['String']['input']>;
+  country?: InputMaybe<Scalars['String']['input']>;
+  email?: InputMaybe<Scalars['String']['input']>;
+  name: Scalars['String']['input'];
+  note?: InputMaybe<Scalars['String']['input']>;
+  phone?: InputMaybe<Scalars['String']['input']>;
+  state?: InputMaybe<Scalars['String']['input']>;
+  zip?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CreateTagInput = {
+  details?: InputMaybe<Scalars['JSON']['input']>;
+  icon?: InputMaybe<Scalars['String']['input']>;
+  image?: InputMaybe<Scalars['JSON']['input']>;
+  name: Scalars['JSON']['input'];
+  shop_id?: InputMaybe<Scalars['String']['input']>;
+  slug?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CreateTargetInput = {
+  activate?: InputMaybe<Scalars['Boolean']['input']>;
+  anchor?: InputMaybe<Scalars['DateTime']['input']>;
+  end?: InputMaybe<Scalars['DateTime']['input']>;
+  metric: TargetMetric;
+  name: Scalars['String']['input'];
+  period: TargetPeriod;
+  start?: InputMaybe<Scalars['DateTime']['input']>;
+  targetValue: Scalars['Int']['input'];
+};
+
+export type CreateTaxClassInput = {
+  /** Basis points. 1500 = 15.00%. Range 0–10000. */
+  bps: Scalars['Int']['input'];
+  description?: InputMaybe<Scalars['String']['input']>;
+  /** If true, promotes this class to default (demotes the prior default in the same tx). First class is auto-default. */
+  is_default?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Localized name, e.g. { en: "Food (zero-rated)", ar: "..." } */
+  name: Scalars['JSON']['input'];
+};
+
+export type CreateTaxInput = {
+  city?: InputMaybe<Scalars['String']['input']>;
+  country?: InputMaybe<Scalars['String']['input']>;
+  is_global?: InputMaybe<Scalars['Boolean']['input']>;
+  name: Scalars['JSON']['input'];
+  on_shipping?: InputMaybe<Scalars['Boolean']['input']>;
+  priority?: InputMaybe<Scalars['Int']['input']>;
+  rate: Scalars['Float']['input'];
+  state?: InputMaybe<Scalars['String']['input']>;
+  status?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CreateTermsConditionsInput = {
+  description?: InputMaybe<Scalars['JSON']['input']>;
+  is_approved?: Scalars['Boolean']['input'];
+  shop_id?: InputMaybe<Scalars['String']['input']>;
+  slug: Scalars['String']['input'];
+  title: Scalars['JSON']['input'];
+  type?: Scalars['String']['input'];
+};
+
+export type CreateUserInput = {
+  email?: InputMaybe<Scalars['String']['input']>;
+  email_verified?: InputMaybe<Scalars['Boolean']['input']>;
+  name: Scalars['String']['input'];
+  password: Scalars['String']['input'];
+  permissions?: InputMaybe<Array<Scalars['String']['input']>>;
+  phone?: InputMaybe<Scalars['String']['input']>;
+  role?: InputMaybe<UserRole>;
+};
+
+export type CreateVariationInput = {
+  /** Per-variant sourcing cost (falls back to product-level when null). */
+  cost_per_item_cents?: InputMaybe<Scalars['Int']['input']>;
+  image?: InputMaybe<Scalars['JSON']['input']>;
+  options: Scalars['JSON']['input'];
+  /** Display order within the variant grid (0-based). */
+  position?: InputMaybe<Scalars['Int']['input']>;
+  price_cents: Scalars['Int']['input'];
+  quantity?: InputMaybe<Scalars['Int']['input']>;
+  sale_price_cents?: InputMaybe<Scalars['Int']['input']>;
+  sku?: InputMaybe<Scalars['String']['input']>;
+  title: Scalars['JSON']['input'];
+  /** Per-variant tracking override. NULL = inherit parent product. FALSE = always in stock for this variant (digital / license-key). */
+  track_quantity?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type CreateWebhookSubscriptionInput = {
+  description?: InputMaybe<Scalars['String']['input']>;
+  events: Array<WebhookEventType>;
+  /** HTTPS URL that will receive the POST. */
+  url: Scalars['String']['input'];
+};
+
+export type CreateWithdrawalInput = {
+  amount_cents: Scalars['Int']['input'];
+  details?: InputMaybe<Scalars['String']['input']>;
+  note?: InputMaybe<Scalars['String']['input']>;
+  payment_method?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CsvImportPreviewType = {
+  __typename?: 'CsvImportPreviewType';
+  brand?: Maybe<Scalars['String']['output']>;
+  category?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  image_url?: Maybe<Scalars['String']['output']>;
+  product_type: Scalars['String']['output'];
+  status: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+  variants: Array<CsvImportPreviewVariantType>;
+};
+
+export type CsvImportPreviewVariantType = {
+  __typename?: 'CsvImportPreviewVariantType';
+  price_cents?: Maybe<Scalars['Int']['output']>;
+  sku?: Maybe<Scalars['String']['output']>;
+  title: Scalars['String']['output'];
+  weight_grams?: Maybe<Scalars['Int']['output']>;
+};
+
+export type CsvImportRowResultType = {
+  __typename?: 'CsvImportRowResultType';
+  action: Scalars['String']['output'];
+  errors?: Maybe<Scalars['JSON']['output']>;
+  product_id?: Maybe<Scalars['String']['output']>;
+  /** First CSV line this product was assembled from (header = 1). */
+  row_number: Scalars['Int']['output'];
+  slug?: Maybe<Scalars['String']['output']>;
+  /** Variants the product’s rows added up to. 0 = simple product. */
+  variants?: Maybe<Scalars['Int']['output']>;
+};
+
+export type CustomerAnalytics = {
+  __typename?: 'CustomerAnalytics';
+  cohorts: Array<CohortRow>;
+  currency: Scalars['String']['output'];
+  summary: CustomerSummary;
+  timezone: Scalars['String']['output'];
+  top_customers: Array<TopCustomer>;
+};
+
+export type CustomerAnalyticsInput = {
+  cohortMonths?: InputMaybe<Scalars['Int']['input']>;
+  end: Scalars['DateTime']['input'];
+  start: Scalars['DateTime']['input'];
+  topLimit?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type CustomerAnalyticsResponse = {
+  __typename?: 'CustomerAnalyticsResponse';
+  data: CustomerAnalytics;
+  success: Scalars['Boolean']['output'];
+};
+
+export type CustomerProfile = {
+  __typename?: 'CustomerProfile';
+  created_at: Scalars['DateTime']['output'];
+  /** For receipts and updates only; never a sign-in. */
+  email?: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  /** Null until the customer gives one. */
+  name?: Maybe<Scalars['String']['output']>;
+  /** E.164: the number the customer signed in with. Null only on a customer carried over from an account whose number nobody proved. */
+  phone_e164?: Maybe<Scalars['String']['output']>;
+};
+
+export type CustomerProfileResponse = {
+  __typename?: 'CustomerProfileResponse';
+  data?: Maybe<CustomerProfile>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type CustomerSegmentEntry = {
+  __typename?: 'CustomerSegmentEntry';
+  coupons_count: Scalars['Int']['output'];
+  created_at: Scalars['String']['output'];
+  description?: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  name: Scalars['String']['output'];
+  query?: Maybe<Scalars['String']['output']>;
+  rules: Scalars['JSON']['output'];
+  shop_id?: Maybe<Scalars['String']['output']>;
+  updated_at: Scalars['String']['output'];
+};
+
+export type CustomerSegmentPaginationMeta = {
+  __typename?: 'CustomerSegmentPaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type CustomerSegmentResponse = {
+  __typename?: 'CustomerSegmentResponse';
+  data?: Maybe<CustomerSegmentEntry>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type CustomerSegmentsResponse = {
+  __typename?: 'CustomerSegmentsResponse';
+  data: Array<CustomerSegmentEntry>;
+  meta: CustomerSegmentPaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type CustomerSessionResponse = {
+  __typename?: 'CustomerSessionResponse';
+  data?: Maybe<CustomerSessionTokens>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type CustomerSessionTokens = {
+  __typename?: 'CustomerSessionTokens';
+  /** Bearer token for this shop only (`typ: customer`). */
+  access_token: Scalars['String']['output'];
+  access_token_expires_at: Scalars['String']['output'];
+  /** Single use: every refresh rotates it. */
+  refresh_token: Scalars['String']['output'];
+  refresh_token_expires_at: Scalars['String']['output'];
+  token_type: Scalars['String']['output'];
+};
+
+export type CustomerSignInCodeData = {
+  __typename?: 'CustomerSignInCodeData';
+  /** Digits in the code. */
+  code_length: Scalars['Int']['output'];
+  /** Seconds the code stays valid. */
+  expires_in_seconds: Scalars['Int']['output'];
+  /** The number the code was texted to, in E.164. */
+  phone_e164: Scalars['String']['output'];
+  /** Seconds before another code can be asked for. */
+  resend_after_seconds: Scalars['Int']['output'];
+};
+
+export type CustomerSignInCodeResponse = {
+  __typename?: 'CustomerSignInCodeResponse';
+  data?: Maybe<CustomerSignInCodeData>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type CustomerSignInData = {
+  __typename?: 'CustomerSignInData';
+  /** Bearer token for this shop only (`typ: customer`). */
+  access_token: Scalars['String']['output'];
+  access_token_expires_at: Scalars['String']['output'];
+  /** A new customer of this shop, made by this sign-in: the client asks for a name. */
+  created: Scalars['Boolean']['output'];
+  customer: CustomerProfile;
+  /** Single use: every refresh rotates it. */
+  refresh_token: Scalars['String']['output'];
+  refresh_token_expires_at: Scalars['String']['output'];
+  token_type: Scalars['String']['output'];
+};
+
+export type CustomerSignInResponse = {
+  __typename?: 'CustomerSignInResponse';
+  data?: Maybe<CustomerSignInData>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type CustomerSummary = {
+  __typename?: 'CustomerSummary';
+  active_customers: Scalars['Int']['output'];
+  avg_ltv_cents: Scalars['Int']['output'];
+  avg_orders_per_customer_x100: Scalars['Int']['output'];
+  new_customers: Scalars['Int']['output'];
+  one_time_customers: Scalars['Int']['output'];
+  repeat_customers: Scalars['Int']['output'];
+  repeat_rate_bps: Scalars['Int']['output'];
+  returning_customers: Scalars['Int']['output'];
+  total_customers: Scalars['Int']['output'];
+  total_orders: Scalars['Int']['output'];
+  total_revenue_cents: Scalars['Int']['output'];
+  window_orders: Scalars['Int']['output'];
+  window_revenue_cents: Scalars['Int']['output'];
+};
+
+export type DeliveryTimeEntry = {
+  __typename?: 'DeliveryTimeEntry';
+  created_at: Scalars['String']['output'];
+  description?: Maybe<Scalars['JSON']['output']>;
+  icon?: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  shop_id?: Maybe<Scalars['String']['output']>;
+  slug: Scalars['String']['output'];
+  title: Scalars['JSON']['output'];
+  updated_at: Scalars['String']['output'];
+};
+
+export type DeliveryTimePaginationMeta = {
+  __typename?: 'DeliveryTimePaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type DeliveryTimeResponse = {
+  __typename?: 'DeliveryTimeResponse';
+  data?: Maybe<DeliveryTimeEntry>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type DeliveryTimesResponse = {
+  __typename?: 'DeliveryTimesResponse';
+  data: Array<DeliveryTimeEntry>;
+  meta: DeliveryTimePaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type DigitalFileEntry = {
+  __typename?: 'DigitalFileEntry';
+  created_at: Scalars['String']['output'];
+  file_name: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  product_id: Scalars['String']['output'];
+  url: Scalars['String']['output'];
+};
+
+export type DigitalFilePaginationMeta = {
+  __typename?: 'DigitalFilePaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type DigitalFileResponse = {
+  __typename?: 'DigitalFileResponse';
+  data?: Maybe<DigitalFileEntry>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type DirectConversationEntry = {
+  __typename?: 'DirectConversationEntry';
+  created_at: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  latest_message?: Maybe<DirectMessageEntry>;
+  messages: Array<DirectMessageEntry>;
+  participants: Array<ParticipantEntry>;
+  shop?: Maybe<ConversationShop>;
+  shop_id: Scalars['String']['output'];
+  unseen_count: Scalars['Int']['output'];
+};
+
+export type DirectConversationPaginationMeta = {
+  __typename?: 'DirectConversationPaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type DirectConversationResponse = {
+  __typename?: 'DirectConversationResponse';
+  data?: Maybe<DirectConversationEntry>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type DirectConversationsResponse = {
+  __typename?: 'DirectConversationsResponse';
+  data: Array<DirectConversationEntry>;
+  meta: DirectConversationPaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type DirectMessageEntry = {
+  __typename?: 'DirectMessageEntry';
+  body: Scalars['String']['output'];
+  created_at: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  sender: Scalars['String']['output'];
+  user_id?: Maybe<Scalars['String']['output']>;
+};
+
+export type DirectMessageResponse = {
+  __typename?: 'DirectMessageResponse';
+  data?: Maybe<DirectMessageEntry>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type DisputeEntry = {
+  __typename?: 'DisputeEntry';
+  amount_cents: Scalars['Int']['output'];
+  charge_id?: Maybe<Scalars['String']['output']>;
+  created_at: Scalars['String']['output'];
+  currency: Scalars['String']['output'];
+  evidence_due_by?: Maybe<Scalars['String']['output']>;
+  gateway: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  opened_at: Scalars['String']['output'];
+  order_id?: Maybe<Scalars['String']['output']>;
+  reason?: Maybe<Scalars['String']['output']>;
+  resolved_at?: Maybe<Scalars['String']['output']>;
+  shop_id?: Maybe<Scalars['String']['output']>;
+  status: Scalars['String']['output'];
+};
+
+export type DisputePaginationMeta = {
+  __typename?: 'DisputePaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type DisputeResponse = {
+  __typename?: 'DisputeResponse';
+  data?: Maybe<DisputeEntry>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type DisputesResponse = {
+  __typename?: 'DisputesResponse';
+  data: Array<DisputeEntry>;
+  meta: DisputePaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type DownloadLinkResponse = {
+  __typename?: 'DownloadLinkResponse';
+  download_url?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  token?: Maybe<Scalars['String']['output']>;
+};
+
+export type DraftOrderCouponEntry = {
+  __typename?: 'DraftOrderCouponEntry';
+  /** False when the coupon has been deleted since it was added. Conversion refuses a draft that still carries it. */
+  available: Scalars['Boolean']['output'];
+  /** The code a customer would type. Null for an automatic coupon. */
+  code?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  /** True when the coupon targets specific customers or a segment, or caps uses per customer. Conversion refuses it on a draft with no customer (coupon_requires_customer). */
+  requires_customer: Scalars['Boolean']['output'];
+};
+
+export type DraftOrderEntry = {
+  __typename?: 'DraftOrderEntry';
+  billing_address?: Maybe<Scalars['JSON']['output']>;
+  /** Ids of the coupons stored on the draft (the values CreateOrderInput.coupons takes). Conversion passes them to createOrder, which prices them. */
+  coupon_ids: Array<Scalars['String']['output']>;
+  /** coupon_ids resolved for display, in the same order. No discount figure: the coupons are priced when the draft converts. */
+  coupons: Array<DraftOrderCouponEntry>;
+  created_at: Scalars['String']['output'];
+  currency: Scalars['String']['output'];
+  customer_contact?: Maybe<Scalars['String']['output']>;
+  customer_id?: Maybe<Scalars['String']['output']>;
+  customer_name?: Maybe<Scalars['String']['output']>;
+  /** subtotal − manual discount (excludes tax + shipping). */
+  estimated_total_cents: Scalars['Int']['output'];
+  id: Scalars['String']['output'];
+  line_items: Array<DraftOrderLineEntry>;
+  manual_discount_cents: Scalars['Int']['output'];
+  note?: Maybe<Scalars['String']['output']>;
+  /** The Order created when this draft was converted. */
+  order_id?: Maybe<Scalars['String']['output']>;
+  /** Payment due later. A conversion that names no gateway creates an INVOICE order (payment pending) when true, a CASH order (paid) when false. */
+  payment_due_later: Scalars['Boolean']['output'];
+  /** due_on_receipt | net_7 | net_15 | net_30, or null. Sets the invoice due date of an INVOICE conversion. */
+  payment_terms?: Maybe<Scalars['String']['output']>;
+  shipping_address?: Maybe<Scalars['JSON']['output']>;
+  /** Display label for the chosen method. */
+  shipping_method_name?: Maybe<Scalars['String']['output']>;
+  /** Merchant-set delivery fee in cents applied when the draft converts. Null = no override (zones price it); 0 = free delivery on purpose. */
+  shipping_override_cents?: Maybe<Scalars['Int']['output']>;
+  /** The shipping option frozen on the draft — a ShippingRule id or a carrier composite. Wins over shipping_override_cents at conversion. */
+  shipping_rule_id?: Maybe<Scalars['String']['output']>;
+  shop_id: Scalars['String']['output'];
+  status: Scalars['String']['output'];
+  subtotal_cents: Scalars['Int']['output'];
+  /** Vendor-facing tags (Shopify pattern) for custom views / filtering. */
+  tags: Array<Scalars['String']['output']>;
+  updated_at: Scalars['String']['output'];
+};
+
+export type DraftOrderLineEntry = {
+  __typename?: 'DraftOrderLineEntry';
+  id: Scalars['String']['output'];
+  /** Product image ({ id, original, thumbnail }). */
+  image?: Maybe<Scalars['JSON']['output']>;
+  product_id: Scalars['String']['output'];
+  /** Product name snapshot ({ en, ar }) for display. */
+  product_name?: Maybe<Scalars['JSON']['output']>;
+  quantity: Scalars['Int']['output'];
+  /** Product slug for linking. */
+  slug?: Maybe<Scalars['String']['output']>;
+  subtotal_cents: Scalars['Int']['output'];
+  /** Effective unit price (sale ?? price) in cents. */
+  unit_price_cents: Scalars['Int']['output'];
+  /** Chosen variant title ({ en, ar }), when a variation is set. */
+  variant_title?: Maybe<Scalars['JSON']['output']>;
+  variation_option_id?: Maybe<Scalars['String']['output']>;
+};
+
+export type DraftOrderLineInput = {
+  product_id: Scalars['String']['input'];
+  quantity: Scalars['Int']['input'];
+  variation_option_id?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type DraftOrderPaginationMeta = {
+  __typename?: 'DraftOrderPaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type DraftOrderResponse = {
+  __typename?: 'DraftOrderResponse';
+  data?: Maybe<DraftOrderEntry>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type DraftOrdersResponse = {
+  __typename?: 'DraftOrdersResponse';
+  data: Array<DraftOrderEntry>;
+  meta: DraftOrderPaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type EditOrderInput = {
+  /** Optional override for the delivery fee in integer cents. If omitted, retains current fee. */
+  delivery_fee_cents?: InputMaybe<Scalars['Int']['input']>;
+  /** ID of the order to edit */
+  id: Scalars['String']['input'];
+  /** The updated list of line items on the order */
+  lines: Array<EditOrderLineInput>;
+  /** Optional merchant explanation or audit reason for editing this order. */
+  reason?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type EditOrderLineInput = {
+  /** ID of the existing OrderProduct row when adjusting an existing line */
+  order_product_id?: InputMaybe<Scalars['String']['input']>;
+  /** Desired total quantity for this line. Setting to 0 removes the line if unfulfilled. */
+  order_quantity: Scalars['Int']['input'];
+  /** ID of the product being ordered or adjusted */
+  product_id: Scalars['String']['input'];
+  /** Unit price in integer cents. If omitted, uses the existing line unit price or catalog price. */
+  unit_price_cents?: InputMaybe<Scalars['Int']['input']>;
+  /** ID of the variation option if this is a variant line */
+  variation_option_id?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type EditStockInput = {
+  bucket: StockBucket;
+  location_id: Scalars['String']['input'];
+  mode: StockEditMode;
+  note?: InputMaybe<Scalars['String']['input']>;
+  product_id?: InputMaybe<Scalars['String']['input']>;
+  reason?: InputMaybe<InventoryAdjustmentReason>;
+  value: Scalars['Int']['input'];
+  variation_option_id?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type EnableCarrierPickupInput = {
+  /** The shop's own InventoryLocation. */
+  location_id: Scalars['String']['input'];
+};
+
+export type EnabledCountryProfilesResponse = {
+  __typename?: 'EnabledCountryProfilesResponse';
+  data: Array<CountryProfileEntry>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type EnhanceDesignEntry = {
+  __typename?: 'EnhanceDesignEntry';
+  id: Scalars['String']['output'];
+  name: Scalars['String']['output'];
+};
+
+export type EnhanceImageOptionsInput = {
+  aspectRatio?: InputMaybe<Scalars['String']['input']>;
+  backgroundHex?: InputMaybe<Scalars['String']['input']>;
+  customScene?: InputMaybe<Scalars['String']['input']>;
+  lightDirection?: InputMaybe<Scalars['String']['input']>;
+  lightSoftness?: InputMaybe<Scalars['String']['input']>;
+  occasion?: InputMaybe<Scalars['String']['input']>;
+  socialDesign?: InputMaybe<Scalars['String']['input']>;
+  style?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type EnhanceImageShotsInput = {
+  attachmentId: Scalars['String']['input'];
+  caption?: InputMaybe<Scalars['String']['input']>;
+  options?: InputMaybe<EnhanceImageOptionsInput>;
+  productId?: InputMaybe<Scalars['String']['input']>;
+  referenceAttachmentIds?: InputMaybe<Array<Scalars['String']['input']>>;
+  requestId: Scalars['String']['input'];
+  runId?: InputMaybe<Scalars['String']['input']>;
+  shots: Array<Scalars['String']['input']>;
+  variationCount?: InputMaybe<Scalars['Float']['input']>;
+};
+
+export type EnhanceOccasionEntry = {
+  __typename?: 'EnhanceOccasionEntry';
+  id: Scalars['String']['output'];
+  name: Scalars['String']['output'];
+};
+
+export type EnhancePresetEntry = {
+  __typename?: 'EnhancePresetEntry';
+  created_at: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  name: Scalars['String']['output'];
+  options?: Maybe<EnhancePresetOptionsEntry>;
+  shots: Array<Scalars['String']['output']>;
+  variation_count: Scalars['Int']['output'];
+};
+
+export type EnhancePresetOptionsEntry = {
+  __typename?: 'EnhancePresetOptionsEntry';
+  aspectRatio?: Maybe<Scalars['String']['output']>;
+  backgroundHex?: Maybe<Scalars['String']['output']>;
+  customScene?: Maybe<Scalars['String']['output']>;
+  lightDirection?: Maybe<Scalars['String']['output']>;
+  lightSoftness?: Maybe<Scalars['String']['output']>;
+  occasion?: Maybe<Scalars['String']['output']>;
+  socialDesign?: Maybe<Scalars['String']['output']>;
+  style?: Maybe<Scalars['String']['output']>;
+};
+
+export type EnhancePresetResponse = {
+  __typename?: 'EnhancePresetResponse';
+  data?: Maybe<EnhancePresetEntry>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type EnhancePresetsResponse = {
+  __typename?: 'EnhancePresetsResponse';
+  data: Array<EnhancePresetEntry>;
+  max_presets: Scalars['Int']['output'];
+  success: Scalars['Boolean']['output'];
+};
+
+export type EnhanceRunSummary = {
+  __typename?: 'EnhanceRunSummary';
+  created_at: Scalars['String']['output'];
+  failed: Scalars['Int']['output'];
+  pending: Scalars['Int']['output'];
+  run_id: Scalars['String']['output'];
+  source_ids: Array<Scalars['String']['output']>;
+  succeeded: Scalars['Int']['output'];
+  thumbnails: Array<Scalars['String']['output']>;
+  total: Scalars['Int']['output'];
+};
+
+export type EnhanceRunsResponse = {
+  __typename?: 'EnhanceRunsResponse';
+  data: Array<EnhanceRunSummary>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type EnhanceShotEntry = {
+  __typename?: 'EnhanceShotEntry';
+  accepts_caption: Scalars['Boolean']['output'];
+  aspect_ratio?: Maybe<Scalars['String']['output']>;
+  cost_cents: Scalars['Int']['output'];
+  description: Scalars['String']['output'];
+  designs: Array<EnhanceDesignEntry>;
+  honours_lighting: Scalars['Boolean']['output'];
+  id: Scalars['String']['output'];
+  name: Scalars['String']['output'];
+  requires_human: Scalars['Boolean']['output'];
+  uses_style_options: Scalars['Boolean']['output'];
+};
+
+export type EnhanceStyleEntry = {
+  __typename?: 'EnhanceStyleEntry';
+  description: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  name: Scalars['String']['output'];
+  occasions: Array<EnhanceOccasionEntry>;
+  supports_background: Scalars['Boolean']['output'];
+  supports_custom_scene: Scalars['Boolean']['output'];
+  supports_occasion: Scalars['Boolean']['output'];
+};
+
+export type EnhanceStylesResponse = {
+  __typename?: 'EnhanceStylesResponse';
+  data: Array<EnhanceStyleEntry>;
+  max_shots_per_run: Scalars['Int']['output'];
+  monthly_usage: MonthlyUsageEntry;
+  shots: Array<EnhanceShotEntry>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type EntitlementEntry = {
+  __typename?: 'EntitlementEntry';
+  billing_unit: BillingUnit;
+  config: Scalars['JSON']['output'];
+  enabled: Scalars['Boolean']['output'];
+  group: Scalars['String']['output'];
+  key: Scalars['String']['output'];
+  kind: CapabilityKind;
+  limit_value?: Maybe<Scalars['Int']['output']>;
+  name: Scalars['String']['output'];
+  name_ar?: Maybe<Scalars['String']['output']>;
+  period: QuotaPeriod;
+  source: EntitlementSource;
+};
+
+export type EntitlementSource =
+  | 'DENIED'
+  | 'OVERRIDE'
+  | 'PLAN';
+
+export type ExplainSuggestion = {
+  __typename?: 'ExplainSuggestion';
+  label: Scalars['String']['output'];
+  refinement: Scalars['String']['output'];
+};
+
+export type ExportOrdersCsvResponse = {
+  __typename?: 'ExportOrdersCsvResponse';
+  csv: Scalars['String']['output'];
+  rows: Scalars['Int']['output'];
+  success: Scalars['Boolean']['output'];
+  truncated: Scalars['Boolean']['output'];
+};
+
+export type ExportProductsCsvInput = {
+  /** Restrict export to these product ids. Empty = all products in the current shop. */
+  product_ids?: InputMaybe<Array<Scalars['String']['input']>>;
+};
+
+export type ExportProductsCsvResponse = {
+  __typename?: 'ExportProductsCsvResponse';
+  csv: Scalars['String']['output'];
+  success: Scalars['Boolean']['output'];
+};
+
+export type FaqEntry = {
+  __typename?: 'FaqEntry';
+  created_at: Scalars['String']['output'];
+  faq_description: Scalars['String']['output'];
+  faq_title: Scalars['JSON']['output'];
+  id: Scalars['String']['output'];
+  shop_id: Scalars['String']['output'];
+  status: Scalars['String']['output'];
+  updated_at: Scalars['String']['output'];
+};
+
+export type FaqPaginationMeta = {
+  __typename?: 'FaqPaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type FaqResponse = {
+  __typename?: 'FaqResponse';
+  data?: Maybe<FaqEntry>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type FaqsResponse = {
+  __typename?: 'FaqsResponse';
+  data: Array<FaqEntry>;
+  meta: FaqPaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type FeatureCatalogResponse = {
+  __typename?: 'FeatureCatalogResponse';
+  data?: Maybe<Array<CapabilityEntry>>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type FeedbackEntry = {
+  __typename?: 'FeedbackEntry';
+  created_at: Scalars['String']['output'];
+  customer_id: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  model_id: Scalars['String']['output'];
+  model_type: Scalars['String']['output'];
+  positive: Scalars['Boolean']['output'];
+  question_id?: Maybe<Scalars['String']['output']>;
+  review_id?: Maybe<Scalars['String']['output']>;
+  shop_id?: Maybe<Scalars['String']['output']>;
+  updated_at: Scalars['String']['output'];
+};
+
+export type FeedbackResponse = {
+  __typename?: 'FeedbackResponse';
+  data?: Maybe<FeedbackEntry>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type FilterCatalogEntry = {
+  __typename?: 'FilterCatalogEntry';
+  allowedOperators: Array<Scalars['String']['output']>;
+  cost: Scalars['String']['output'];
+  description: LocalizedText;
+  enumValues: Array<Scalars['String']['output']>;
+  field: Scalars['String']['output'];
+  valueKind: Scalars['String']['output'];
+};
+
+export type FilterCatalogResponse = {
+  __typename?: 'FilterCatalogResponse';
+  aiAvailable: Scalars['Boolean']['output'];
+  filters: Array<FilterCatalogEntry>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type FilterOrdersInput = {
+  as_customer?: InputMaybe<Scalars['Boolean']['input']>;
+  channel?: InputMaybe<Scalars['String']['input']>;
+  created_from?: InputMaybe<Scalars['DateTime']['input']>;
+  created_to?: InputMaybe<Scalars['DateTime']['input']>;
+  customer_id?: InputMaybe<Scalars['String']['input']>;
+  customer_name?: InputMaybe<Scalars['String']['input']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  order_status?: InputMaybe<Scalars['String']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+  payment_status?: InputMaybe<Scalars['String']['input']>;
+  shop_id?: InputMaybe<Scalars['String']['input']>;
+  sort_by?: InputMaybe<Scalars['String']['input']>;
+  sort_order?: InputMaybe<Scalars['String']['input']>;
+  tracking_number?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type FlashSaleEntry = {
+  __typename?: 'FlashSaleEntry';
+  created_at: Scalars['String']['output'];
+  description?: Maybe<Scalars['JSON']['output']>;
+  end_date: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  image?: Maybe<Scalars['JSON']['output']>;
+  is_active: Scalars['Boolean']['output'];
+  products?: Maybe<Array<FlashSaleProductEntry>>;
+  rate: Scalars['Float']['output'];
+  sale_type: Scalars['String']['output'];
+  shop_id?: Maybe<Scalars['String']['output']>;
+  slug: Scalars['String']['output'];
+  start_date: Scalars['String']['output'];
+  title: Scalars['JSON']['output'];
+  updated_at: Scalars['String']['output'];
+};
+
+export type FlashSalePaginationMeta = {
+  __typename?: 'FlashSalePaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type FlashSaleProductEntry = {
+  __typename?: 'FlashSaleProductEntry';
+  flash_sale_id: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  product_id: Scalars['String']['output'];
+};
+
+export type FlashSaleResponse = {
+  __typename?: 'FlashSaleResponse';
+  data?: Maybe<FlashSaleEntry>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type FlashSalesResponse = {
+  __typename?: 'FlashSalesResponse';
+  data: Array<FlashSaleEntry>;
+  meta: FlashSalePaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type ForgetPasswordInput = {
+  identifier: Scalars['String']['input'];
+};
+
+export type FulfillOrderInput = {
+  /** Lines (and quantities) to ship. Omit to fulfill every remaining quantity on the order. */
+  lines?: InputMaybe<Array<FulfillOrderLineInput>>;
+  order_id: Scalars['String']['input'];
+  tracking_company?: InputMaybe<Scalars['String']['input']>;
+  tracking_number?: InputMaybe<Scalars['String']['input']>;
+  tracking_url?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type FulfillOrderLineInput = {
+  order_product_id: Scalars['String']['input'];
+  quantity: Scalars['Int']['input'];
+};
+
+export type GenerateImageInput = {
+  aspectRatio?: InputMaybe<Scalars['String']['input']>;
+  caption?: InputMaybe<Scalars['String']['input']>;
+  count?: Scalars['Int']['input'];
+  mode?: ImageGenMode;
+  model?: InputMaybe<Scalars['String']['input']>;
+  productId?: InputMaybe<Scalars['String']['input']>;
+  prompt: Scalars['String']['input'];
+  referenceAttachmentIds?: InputMaybe<Array<Scalars['String']['input']>>;
+};
+
+export type GenerateSegmentInput = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+  prompt: Scalars['String']['input'];
+  seedQuery?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type GenerateSegmentResponse = {
+  __typename?: 'GenerateSegmentResponse';
+  data?: Maybe<GeneratedSegment>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type GeneratedSegment = {
+  __typename?: 'GeneratedSegment';
+  canonical: Scalars['String']['output'];
+  outOfScope?: Maybe<GeneratedSegmentOutOfScope>;
+  query: Scalars['String']['output'];
+  retried: Scalars['Boolean']['output'];
+};
+
+export type GeneratedSegmentOutOfScope = {
+  __typename?: 'GeneratedSegmentOutOfScope';
+  reason: Scalars['String']['output'];
+  suggestion?: Maybe<Scalars['String']['output']>;
+};
+
+export type HideAbandonedCartsInput = {
+  hidden: Scalars['Boolean']['input'];
+  ids: Array<Scalars['String']['input']>;
+};
+
+export type ImageGenMode =
+  | 'BACKGROUND_REMOVE'
+  | 'EDIT'
+  | 'IMAGE_TO_IMAGE'
+  | 'TEXT_TO_IMAGE'
+  | 'UPSCALE';
+
+export type ImageGenStatus =
+  | 'CANCELED'
+  | 'FAILED'
+  | 'MODERATED_OUT'
+  | 'QUEUED'
+  | 'RUNNING'
+  | 'SUCCEEDED';
+
+export type ImageInput = {
+  id: Scalars['String']['input'];
+  original: Scalars['String']['input'];
+  thumbnail: Scalars['String']['input'];
+};
+
+export type ImageProviderType =
+  | 'FAL'
+  | 'OPENAI'
+  | 'REPLICATE'
+  | 'STABILITY';
+
+export type ImportProductsCsvInput = {
+  /** Full CSV file body as a string. UTF-8, headers in row 1. */
+  csv: Scalars['String']['input'];
+  /** Validate without writing. Returns the same per-row report so the UI can render errors before commit. */
+  dry_run?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Write to products whose handle already exists in this shop. Default false — matching handles are reported as `skip` and left untouched. */
+  overwrite_existing?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Publish newly created products regardless of the file's Status column. Never re-publishes an existing product. */
+  publish_new?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type ImportProductsCsvResponse = {
+  __typename?: 'ImportProductsCsvResponse';
+  created: Scalars['Int']['output'];
+  dry_run: Scalars['Boolean']['output'];
+  errors: Scalars['Int']['output'];
+  /** Distinct image URLs across every row. */
+  images: Scalars['Int']['output'];
+  preview?: Maybe<CsvImportPreviewType>;
+  /** Distinct products the rows grouped into, by handle. */
+  products: Scalars['Int']['output'];
+  rows: Array<CsvImportRowResultType>;
+  skipped: Scalars['Int']['output'];
+  /** Sellable units: one per variant, or one per simple product. */
+  skus: Scalars['Int']['output'];
+  success: Scalars['Boolean']['output'];
+  /** Data rows in the file, header excluded. */
+  total_rows: Scalars['Int']['output'];
+  /** Columns present in the file that the importer does not read. */
+  unmapped_headers: Array<Scalars['String']['output']>;
+  updated: Scalars['Int']['output'];
+};
+
+export type InsightsHistoryPoint = {
+  __typename?: 'InsightsHistoryPoint';
+  cumulative: Scalars['Int']['output'];
+  date: Scalars['String']['output'];
+};
+
+export type InsightsResponse = {
+  __typename?: 'InsightsResponse';
+  data: Array<AiInsightType>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type InsightsValueCount = {
+  __typename?: 'InsightsValueCount';
+  count: Scalars['Int']['output'];
+  value: Scalars['String']['output'];
+};
+
+export type IntegrationEntry = {
+  __typename?: 'IntegrationEntry';
+  created_at: Scalars['DateTime']['output'];
+  id: Scalars['String']['output'];
+  is_enabled: Scalars['Boolean']['output'];
+  last_verified_at?: Maybe<Scalars['DateTime']['output']>;
+  last_verify_error?: Maybe<Scalars['String']['output']>;
+  provider: Scalars['String']['output'];
+  type: IntegrationType;
+  updated_at: Scalars['DateTime']['output'];
+  values: Array<IntegrationValueEntry>;
+};
+
+export type IntegrationFieldEntry = {
+  __typename?: 'IntegrationFieldEntry';
+  help?: Maybe<Scalars['String']['output']>;
+  help_ar?: Maybe<Scalars['String']['output']>;
+  input_type: Scalars['String']['output'];
+  key: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+  label_ar: Scalars['String']['output'];
+  options: Array<IntegrationFieldOptionEntry>;
+  placeholder?: Maybe<Scalars['String']['output']>;
+  required: Scalars['Boolean']['output'];
+  secret: Scalars['Boolean']['output'];
+};
+
+export type IntegrationFieldOptionEntry = {
+  __typename?: 'IntegrationFieldOptionEntry';
+  label: Scalars['String']['output'];
+  label_ar: Scalars['String']['output'];
+  value: Scalars['String']['output'];
+};
+
+export type IntegrationProviderEntry = {
+  __typename?: 'IntegrationProviderEntry';
+  description: Scalars['String']['output'];
+  description_ar: Scalars['String']['output'];
+  fields: Array<IntegrationFieldEntry>;
+  is_dev_sink: Scalars['Boolean']['output'];
+  name: Scalars['String']['output'];
+  name_ar: Scalars['String']['output'];
+  provider: Scalars['String']['output'];
+  type: IntegrationType;
+};
+
+export type IntegrationProvidersResponse = {
+  __typename?: 'IntegrationProvidersResponse';
+  data?: Maybe<Array<IntegrationProviderEntry>>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type IntegrationResponse = {
+  __typename?: 'IntegrationResponse';
+  data?: Maybe<IntegrationEntry>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type IntegrationSource =
+  | 'DATABASE'
+  | 'ENVIRONMENT'
+  | 'NONE'
+  | 'UNUSABLE';
+
+export type IntegrationStatusEntry = {
+  __typename?: 'IntegrationStatusEntry';
+  is_dev_sink: Scalars['Boolean']['output'];
+  not_in_use_reason?: Maybe<Scalars['String']['output']>;
+  provider?: Maybe<Scalars['String']['output']>;
+  source: IntegrationSource;
+  type: IntegrationType;
+  unusable_reason?: Maybe<Scalars['String']['output']>;
+};
+
+export type IntegrationStatusResponse = {
+  __typename?: 'IntegrationStatusResponse';
+  data?: Maybe<Array<IntegrationStatusEntry>>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type IntegrationType =
+  | 'AI_CHAT'
+  | 'AI_MEDIA'
+  | 'EMAIL'
+  | 'MONITORING'
+  | 'PAYMENT'
+  | 'SCRAPING'
+  | 'SHIPPING'
+  | 'SMS'
+  | 'STORAGE'
+  | 'TELEGRAM'
+  | 'WHATSAPP';
+
+export type IntegrationValueEntry = {
+  __typename?: 'IntegrationValueEntry';
+  is_secret: Scalars['Boolean']['output'];
+  key: Scalars['String']['output'];
+  value: Scalars['String']['output'];
+};
+
+export type IntegrationVerifyEntry = {
+  __typename?: 'IntegrationVerifyEntry';
+  error?: Maybe<Scalars['String']['output']>;
+  ok: Scalars['Boolean']['output'];
+};
+
+export type IntegrationVerifyResponse = {
+  __typename?: 'IntegrationVerifyResponse';
+  data?: Maybe<IntegrationVerifyEntry>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type IntegrationsResponse = {
+  __typename?: 'IntegrationsResponse';
+  data?: Maybe<Array<IntegrationEntry>>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type InventoryAdjustmentEntry = {
+  __typename?: 'InventoryAdjustmentEntry';
+  actor_user_id?: Maybe<Scalars['String']['output']>;
+  available_after: Scalars['Int']['output'];
+  available_before: Scalars['Int']['output'];
+  created_at: Scalars['DateTime']['output'];
+  delta: Scalars['Int']['output'];
+  id: Scalars['String']['output'];
+  level_id: Scalars['String']['output'];
+  location_id: Scalars['String']['output'];
+  note?: Maybe<Scalars['String']['output']>;
+  product_id?: Maybe<Scalars['String']['output']>;
+  reason: InventoryAdjustmentReason;
+  reference_id?: Maybe<Scalars['String']['output']>;
+  reference_type?: Maybe<Scalars['String']['output']>;
+  variation_option_id?: Maybe<Scalars['String']['output']>;
+};
+
+export type InventoryAdjustmentMeta = {
+  __typename?: 'InventoryAdjustmentMeta';
+  limit: Scalars['Int']['output'];
+  low_stock_count?: Maybe<Scalars['Int']['output']>;
+  out_of_stock_count?: Maybe<Scalars['Int']['output']>;
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+/** Shopify-parity reason taxonomy for InventoryAdjustment rows — drives the "why did this stock change?" history view. */
+export type InventoryAdjustmentReason =
+  | 'CORRECTION'
+  | 'DAMAGE'
+  | 'FULFILLMENT'
+  | 'MANUAL_ADJUSTMENT'
+  | 'OTHER'
+  | 'QUALITY_CONTROL'
+  | 'RECEIPT'
+  | 'RETURN'
+  | 'SAFETY_STOCK'
+  | 'SALE'
+  | 'TRANSFER_IN'
+  | 'TRANSFER_OUT';
+
+export type InventoryAdjustmentResponse = {
+  __typename?: 'InventoryAdjustmentResponse';
+  data?: Maybe<InventoryAdjustmentEntry>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type InventoryAnalytics = {
+  __typename?: 'InventoryAnalytics';
+  abc: AbcBreakdown;
+  currency: Scalars['String']['output'];
+  dead_stock: Array<StockRow>;
+  slow_movers: Array<StockRow>;
+  summary: InventorySummary;
+  top_movers: Array<StockRow>;
+};
+
+export type InventoryAnalyticsInput = {
+  end: Scalars['DateTime']['input'];
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  lowStockThreshold?: InputMaybe<Scalars['Int']['input']>;
+  start: Scalars['DateTime']['input'];
+};
+
+export type InventoryAnalyticsResponse = {
+  __typename?: 'InventoryAnalyticsResponse';
+  data: InventoryAnalytics;
+  success: Scalars['Boolean']['output'];
+};
+
+export type InventoryHistoryResponse = {
+  __typename?: 'InventoryHistoryResponse';
+  data: Array<InventoryAdjustmentEntry>;
+  meta: InventoryAdjustmentMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type InventoryItemEntry = {
+  __typename?: 'InventoryItemEntry';
+  available: Scalars['Int']['output'];
+  committed: Scalars['Int']['output'];
+  image?: Maybe<Scalars['JSON']['output']>;
+  incoming: Scalars['Int']['output'];
+  is_low_stock: Scalars['Boolean']['output'];
+  is_out_of_stock: Scalars['Boolean']['output'];
+  low_stock_threshold?: Maybe<Scalars['Int']['output']>;
+  name: Scalars['JSON']['output'];
+  on_hand: Scalars['Int']['output'];
+  product_id: Scalars['String']['output'];
+  product_slug: Scalars['String']['output'];
+  safety_stock: Scalars['Int']['output'];
+  sku?: Maybe<Scalars['String']['output']>;
+  unavailable: Scalars['Int']['output'];
+  unavailable_damaged: Scalars['Int']['output'];
+  unavailable_other: Scalars['Int']['output'];
+  unavailable_quality_control: Scalars['Int']['output'];
+  unavailable_safety_stock: Scalars['Int']['output'];
+  variant_title?: Maybe<Scalars['JSON']['output']>;
+  variation_option_id?: Maybe<Scalars['String']['output']>;
+};
+
+export type InventoryItemsResponse = {
+  __typename?: 'InventoryItemsResponse';
+  data: Array<InventoryItemEntry>;
+  meta: InventoryAdjustmentMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type InventoryLevelEntry = {
+  __typename?: 'InventoryLevelEntry';
+  available: Scalars['Int']['output'];
+  committed: Scalars['Int']['output'];
+  created_at: Scalars['DateTime']['output'];
+  id: Scalars['String']['output'];
+  location_id: Scalars['String']['output'];
+  product_id?: Maybe<Scalars['String']['output']>;
+  updated_at: Scalars['DateTime']['output'];
+  variation_option_id?: Maybe<Scalars['String']['output']>;
+};
+
+export type InventoryLevelsResponse = {
+  __typename?: 'InventoryLevelsResponse';
+  data: Array<InventoryLevelEntry>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type InventoryLocationEntry = {
+  __typename?: 'InventoryLocationEntry';
+  address_line1?: Maybe<Scalars['String']['output']>;
+  address_line2?: Maybe<Scalars['String']['output']>;
+  city?: Maybe<Scalars['String']['output']>;
+  country?: Maybe<Scalars['String']['output']>;
+  created_at: Scalars['DateTime']['output'];
+  fulfills_online_orders: Scalars['Boolean']['output'];
+  id: Scalars['String']['output'];
+  is_active: Scalars['Boolean']['output'];
+  is_default: Scalars['Boolean']['output'];
+  name: Scalars['String']['output'];
+  national_address_code?: Maybe<Scalars['String']['output']>;
+  phone?: Maybe<Scalars['String']['output']>;
+  shop_id: Scalars['String']['output'];
+  state?: Maybe<Scalars['String']['output']>;
+  updated_at: Scalars['DateTime']['output'];
+  zip?: Maybe<Scalars['String']['output']>;
+};
+
+export type InventoryLocationResponse = {
+  __typename?: 'InventoryLocationResponse';
+  data?: Maybe<InventoryLocationEntry>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type InventoryLocationsResponse = {
+  __typename?: 'InventoryLocationsResponse';
+  data: Array<InventoryLocationEntry>;
+  success: Scalars['Boolean']['output'];
+};
+
+/** Filter inventory items by stock availability level. */
+export type InventoryStockStatus =
+  | 'ALL'
+  | 'IN_STOCK'
+  | 'LOW_STOCK'
+  | 'OUT_OF_STOCK';
+
+export type InventorySummary = {
+  __typename?: 'InventorySummary';
+  dead_stock_count: Scalars['Int']['output'];
+  inventory_cost_cents: Scalars['Int']['output'];
+  inventory_retail_cents: Scalars['Int']['output'];
+  low_stock: Scalars['Int']['output'];
+  out_of_stock: Scalars['Int']['output'];
+  sell_through_bps: Scalars['Int']['output'];
+  total_products: Scalars['Int']['output'];
+  total_units: Scalars['Int']['output'];
+  units_sold_window: Scalars['Int']['output'];
+};
+
+export type InventoryTransferEntry = {
+  __typename?: 'InventoryTransferEntry';
+  barcode?: Maybe<Scalars['String']['output']>;
+  cancelled_at?: Maybe<Scalars['DateTime']['output']>;
+  created_at: Scalars['DateTime']['output'];
+  destination_location_id?: Maybe<Scalars['String']['output']>;
+  expected_arrival?: Maybe<Scalars['DateTime']['output']>;
+  id: Scalars['String']['output'];
+  lines: Array<InventoryTransferLineEntry>;
+  note?: Maybe<Scalars['String']['output']>;
+  number?: Maybe<Scalars['Int']['output']>;
+  ready_at?: Maybe<Scalars['DateTime']['output']>;
+  received_at?: Maybe<Scalars['DateTime']['output']>;
+  reference?: Maybe<Scalars['String']['output']>;
+  sent_at?: Maybe<Scalars['DateTime']['output']>;
+  shipment_cost_cents?: Maybe<Scalars['Int']['output']>;
+  shipping_carrier?: Maybe<Scalars['String']['output']>;
+  source_location_id?: Maybe<Scalars['String']['output']>;
+  status: InventoryTransferStatus;
+  tags: Array<Scalars['String']['output']>;
+  tracking_number?: Maybe<Scalars['String']['output']>;
+  tracking_url?: Maybe<Scalars['String']['output']>;
+  updated_at: Scalars['DateTime']['output'];
+};
+
+export type InventoryTransferLineEntry = {
+  __typename?: 'InventoryTransferLineEntry';
+  available_at_destination?: Maybe<Scalars['Int']['output']>;
+  available_at_source?: Maybe<Scalars['Int']['output']>;
+  created_at: Scalars['DateTime']['output'];
+  id: Scalars['String']['output'];
+  image?: Maybe<Scalars['JSON']['output']>;
+  product_id?: Maybe<Scalars['String']['output']>;
+  product_name?: Maybe<Scalars['JSON']['output']>;
+  quantity: Scalars['Int']['output'];
+  received_quantity: Scalars['Int']['output'];
+  rejected_quantity: Scalars['Int']['output'];
+  sku?: Maybe<Scalars['String']['output']>;
+  transfer_id: Scalars['String']['output'];
+  variant_title?: Maybe<Scalars['JSON']['output']>;
+  variation_option_id?: Maybe<Scalars['String']['output']>;
+};
+
+export type InventoryTransferMeta = {
+  __typename?: 'InventoryTransferMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type InventoryTransferResponse = {
+  __typename?: 'InventoryTransferResponse';
+  data?: Maybe<InventoryTransferEntry>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type InventoryTransferStats = {
+  __typename?: 'InventoryTransferStats';
+  acceptance_rate: Scalars['Float']['output'];
+  total_ordered: Scalars['Int']['output'];
+  total_received: Scalars['Int']['output'];
+  total_rejected: Scalars['Int']['output'];
+  total_shipped: Scalars['Int']['output'];
+  unique_skus: Scalars['Int']['output'];
+  window_days: Scalars['Int']['output'];
+};
+
+export type InventoryTransferStatsResponse = {
+  __typename?: 'InventoryTransferStatsResponse';
+  data: InventoryTransferStats;
+  success: Scalars['Boolean']['output'];
+};
+
+/** Lifecycle of an InventoryTransfer header. DRAFT is editable; READY_TO_SHIP reserved the source (available → committed); SENT decremented the source and bumped destination incoming; PARTIAL means some lines were received; RECEIVED applied everything at the destination; CANCELLED rolled back. */
+export type InventoryTransferStatus =
+  | 'CANCELLED'
+  | 'DRAFT'
+  | 'PARTIAL'
+  | 'READY_TO_SHIP'
+  | 'RECEIVED'
+  | 'SENT';
+
+export type InventoryTransfersResponse = {
+  __typename?: 'InventoryTransfersResponse';
+  data: Array<InventoryTransferEntry>;
+  meta: InventoryTransferMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type InvoiceEntry = {
+  __typename?: 'InvoiceEntry';
+  amount_cents: Scalars['Int']['output'];
+  created_at: Scalars['DateTime']['output'];
+  currency: Scalars['String']['output'];
+  hosted_url?: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  number?: Maybe<Scalars['String']['output']>;
+  pdf_url?: Maybe<Scalars['String']['output']>;
+  status?: Maybe<Scalars['String']['output']>;
+};
+
+export type LanguageBaseResponse = {
+  __typename?: 'LanguageBaseResponse';
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type LanguageEntry = {
+  __typename?: 'LanguageEntry';
+  created_at: Scalars['String']['output'];
+  direction: Scalars['String']['output'];
+  flag?: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  is_default: Scalars['Boolean']['output'];
+  language_code: Scalars['String']['output'];
+  language_name: Scalars['String']['output'];
+  updated_at: Scalars['String']['output'];
+};
+
+export type LanguagePaginationMeta = {
+  __typename?: 'LanguagePaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type LanguageResponse = {
+  __typename?: 'LanguageResponse';
+  data?: Maybe<LanguageEntry>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type LanguagesResponse = {
+  __typename?: 'LanguagesResponse';
+  data: Array<LanguageEntry>;
+  meta: LanguagePaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type LocaleEntry = {
+  __typename?: 'LocaleEntry';
+  code: Scalars['String']['output'];
+  direction: Scalars['String']['output'];
+  is_default: Scalars['Boolean']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type LocalizedText = {
+  __typename?: 'LocalizedText';
+  ar: Scalars['String']['output'];
+  en: Scalars['String']['output'];
+};
+
+export type LoginInput = {
+  identifier: Scalars['String']['input'];
+  password: Scalars['String']['input'];
+};
+
+export type LookupData = {
+  __typename?: 'LookupData';
+  enums: Scalars['JSON']['output'];
+  locales: Array<LocaleEntry>;
+};
+
+export type LookupNationalAddressInput = {
+  /** Saudi National Address short code, e.g. RGUC8214. */
+  code: Scalars['String']['input'];
+};
+
+export type LookupResponse = {
+  __typename?: 'LookupResponse';
+  data: LookupData;
+  message: Scalars['String']['output'];
+  success: Scalars['Boolean']['output'];
+};
+
+export type LowStockProduct = {
+  __typename?: 'LowStockProduct';
+  id: Scalars['String']['output'];
+  name: Scalars['JSON']['output'];
+  quantity: Scalars['Int']['output'];
+  shop_id?: Maybe<Scalars['String']['output']>;
+  slug: Scalars['String']['output'];
+};
+
+export type LowStockProductsResponse = {
+  __typename?: 'LowStockProductsResponse';
+  data: Array<LowStockProduct>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type MagicLinkData = {
+  __typename?: 'MagicLinkData';
+  magic_link: Scalars['String']['output'];
+};
+
+export type MagicLinkResponse = {
+  __typename?: 'MagicLinkResponse';
+  data?: Maybe<MagicLinkData>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type ManageReceivedItemsInput = {
+  lines: Array<ManageReceivedLineInput>;
+  transfer_id: Scalars['String']['input'];
+};
+
+export type ManageReceivedLineInput = {
+  line_id: Scalars['String']['input'];
+  received_quantity: Scalars['Int']['input'];
+  rejected_quantity?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type ManufacturerEntry = {
+  __typename?: 'ManufacturerEntry';
+  cover_image?: Maybe<Scalars['JSON']['output']>;
+  created_at: Scalars['String']['output'];
+  description?: Maybe<Scalars['JSON']['output']>;
+  id: Scalars['String']['output'];
+  image?: Maybe<Scalars['JSON']['output']>;
+  is_approved: Scalars['Boolean']['output'];
+  name: Scalars['JSON']['output'];
+  shop_id?: Maybe<Scalars['String']['output']>;
+  slug: Scalars['String']['output'];
+  socials?: Maybe<Scalars['JSON']['output']>;
+  type?: Maybe<Scalars['String']['output']>;
+  updated_at: Scalars['String']['output'];
+  website?: Maybe<Scalars['String']['output']>;
+};
+
+export type ManufacturerPaginationMeta = {
+  __typename?: 'ManufacturerPaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type ManufacturerResponse = {
+  __typename?: 'ManufacturerResponse';
+  data?: Maybe<ManufacturerEntry>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type ManufacturersResponse = {
+  __typename?: 'ManufacturersResponse';
+  data: Array<ManufacturerEntry>;
+  meta: ManufacturerPaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type MapShippingProviderLocationInput = {
+  /** The carrier's own pickup-location code. */
+  external_location_id: Scalars['String']['input'];
+  /** The shop's own InventoryLocation. */
+  location_id: Scalars['String']['input'];
+};
+
+export type MaskedCredentialField = {
+  __typename?: 'MaskedCredentialField';
+  key: Scalars['String']['output'];
+  masked_value: Scalars['String']['output'];
+};
+
+export type MeResponse = {
+  __typename?: 'MeResponse';
+  data?: Maybe<User>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type MenuEntry = {
+  __typename?: 'MenuEntry';
+  created_at: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  items?: Maybe<Scalars['JSON']['output']>;
+  name: Scalars['JSON']['output'];
+  shop_id?: Maybe<Scalars['String']['output']>;
+  slug: Scalars['String']['output'];
+  updated_at: Scalars['String']['output'];
+};
+
+export type MenuPaginationMeta = {
+  __typename?: 'MenuPaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type MenuResponse = {
+  __typename?: 'MenuResponse';
+  data?: Maybe<MenuEntry>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type MenusResponse = {
+  __typename?: 'MenusResponse';
+  data: Array<MenuEntry>;
+  meta: MenuPaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type MonthlySale = {
+  __typename?: 'MonthlySale';
+  month: Scalars['Int']['output'];
+  total_cents: Scalars['Int']['output'];
+};
+
+export type MonthlyUsageEntry = {
+  __typename?: 'MonthlyUsageEntry';
+  cap: Scalars['Int']['output'];
+  used: Scalars['Int']['output'];
+};
+
+export type Mutation = {
+  __typename?: 'Mutation';
+  acceptNegotiation: NegotiatedOfferResponse;
+  addInventoryTransferComment: AuditLogsResponse;
+  addNegotiatedOfferToCart: CartResponse;
+  addProductRelation: ProductRelationResponse;
+  addStaffNotificationRecipient: StaffRecipientResponse;
+  addToCart: CartResponse;
+  addWalletPoints: WalletResponse;
+  adjustInventory: InventoryAdjustmentResponse;
+  adminCreateShop: ShopResponse;
+  adminUpdateUser: UserResponse;
+  /** Run one of the rich-text editor's AI actions. Billed per character against ai.text.rewrite / summarize / translate / generate depending on the action. */
+  aiEditorTransform: AiEditorResponse;
+  answerQuestion: QuestionResponse;
+  applyCartCoupon: CartResponse;
+  approveBecameSeller: BecameSellerResponse;
+  approveShop: ShopResponse;
+  askShopAssistant: StorefrontAssistantResponse;
+  assignShopPlan: ShopSubscriptionResponse;
+  attachProductToCollection: CollectionResponse;
+  backfillProductEnrichment: BaseResponse;
+  blockCustomerFromAi: BaseResponse;
+  bulkDeleteCustomerSegments: BulkDeleteSegmentsResponse;
+  /** Soft-delete multiple vendor-agent conversations in one round trip. IDs outside the caller's scope are silently skipped. */
+  bulkDeleteVendorAgentConversations: BaseResponse;
+  /** Fill stock and/or category across every product the review screen’s current filter selects. Writes NOTHING to the catalogue — it stores overrides exactly as a save does. Only `quantity` and `system_category_id`; excluded products are skipped; a cell already holding an edit or a scanned value is left alone unless `overwrite` is true. Refused unless the job is still READY. */
+  bulkFillStoreImportOverrides: StoreImportBulkFillResponse;
+  /** Pin or unpin multiple vendor-agent conversations in one round trip. All updated rows share the same pin timestamp so they cluster together in the sidebar. */
+  bulkPinVendorAgentConversations: BaseResponse;
+  bulkUpdateProductsPrice: BulkUpdatePriceResponse;
+  bulkUpdateProductsStatus: BulkUpdateProductsResponse;
+  bulkUpdateProductsTags: BulkUpdateTagsResponse;
+  bulkUpsertNegotiationPolicies: NegotiationPoliciesResponse;
+  cancelImageGeneration: BaseResponse;
+  cancelInventoryTransfer: InventoryTransferResponse;
+  cancelMySubscription: SubscriptionScheduleResponse;
+  cancelOrder: OrderResponse;
+  cancelShipment: ShipmentResponse;
+  cancelShopSubscription: BaseResponse;
+  /** Stop a migration. Cooperative: the running scan stops at its next phase. Nothing already written is removed — an import that wrote 300 products and was then cancelled has 300 products. */
+  cancelStoreImport: StoreImportJobResponse;
+  /** Bring a previous scan’s review edits over to this job. Writes NOTHING to the catalogue — it stores overrides as a save does. Products are matched on the source’s own product id, never on the handle; an edit that cannot be matched with certainty is reported, not guessed. Where this job already has an answer for a field, this job’s answer wins; exclusions carry; removed photos carry where this scan still lists them for the product, and the rest are counted in dropped_images_not_carried. Both jobs must be in this shop and read the same source_host; this job must be READY; the previous one must have finished scanning and not expired (STORE_IMPORT_ARTIFACT_EXPIRED). */
+  carryStoreImportOverrides: StoreImportCarryResponse;
+  changePassword: BaseResponse;
+  changePlanSubscription: PlanChangeResponse;
+  clearCart: BaseResponse;
+  /** Hand primacy back to the platform subdomain. It cannot be promoted through setPrimaryShopDomain because it has no row to name; clearing every custom domain's primary flag is the same end state. Idempotent. Returns the refreshed list, because one write changes the role of every address the shop answers at. */
+  clearPrimaryShopDomain: ShopDomainsResponse;
+  clearProductComposition: BaseResponse;
+  closePurchaseOrder: PurchaseOrderResponse;
+  /** Approve a finished scan and queue the write. The file goes through the ordinary CSV importer unchanged, every product lands as a DRAFT, and each image gets a PENDING row that blocks publishing until it has been transferred. Refused unless the job is READY. */
+  commitStoreImport: StoreImportJobResponse;
+  completeVendorSignup: VendorSignupCompleteResponse;
+  confirmPayment: PaymentIntentResponse;
+  confirmReferralEarning: ReferralEarningResponse;
+  connectPlatformWhatsApp: PlatformWhatsAppHandshakeResponse;
+  /** Connect a domain the merchant owns. Returns the DNS records they must create; the domain does not serve until it verifies. */
+  connectShopDomain: ShopDomainResponse;
+  connectShopTelegramBot: ShopTelegramBot;
+  connectTelegramBot: TelegramPairingLink;
+  connectTelegramOrderUpdates?: Maybe<TelegramPairingLink>;
+  connectWhatsApp: WhatsAppHandshakeResponse;
+  convertDraftOrder: DraftOrderResponse;
+  createAbusiveReport: AbusiveReportResponse;
+  createAdSpend: AdSpendResponse;
+  createAddress: AddressResponse;
+  createAttribute: AttributeResponse;
+  createAttributeDefinition: AttributeDefinitionResponse;
+  createAttributeOption: AttributeDefinitionResponse;
+  createAuthor: AuthorResponse;
+  createBanner: BannerResponse;
+  createCollection: CollectionResponse;
+  createCommission: CommissionResponse;
+  createContact: ContactResponse;
+  createCoupon: CouponResponse;
+  createCustomerSegment: CustomerSegmentResponse;
+  createDeliveryTime: DeliveryTimeResponse;
+  createDigitalFile: DigitalFileResponse;
+  createDraftOrder: DraftOrderResponse;
+  createFaq: FaqResponse;
+  createFlashSale: FlashSaleResponse;
+  createInventoryLocation: InventoryLocationResponse;
+  createInventoryTransfer: InventoryTransferResponse;
+  createLanguage: LanguageResponse;
+  createManufacturer: ManufacturerResponse;
+  createMenu: MenuResponse;
+  createOrder: OrderResponse;
+  createPage: PageResponse;
+  createPaymentIntent: PaymentIntentResponse;
+  createPaymentLink: PaymentIntentResponse;
+  createPlan: PlanResponse;
+  createProduct: ProductResponse;
+  createPurchaseOrder: PurchaseOrderResponse;
+  createQuestion: QuestionResponse;
+  createReferralEarning: ReferralEarningResponse;
+  createRefund: RefundResponse;
+  createRefundPolicy: RefundPolicyResponse;
+  createReturn: ReturnResponse;
+  createReview: ReviewResponse;
+  createSavedPrompt: Scalars['JSON']['output'];
+  createSavedReport: SavedReportResponse;
+  createShipment: ShipmentResponse;
+  createShippingRule: ShippingRuleResponse;
+  createShippingZone: ShippingZoneResponse;
+  createShop: ShopResponse;
+  createShopBankAccount: ShopBankAccountResponse;
+  /** Creates a new shipping package for the shop. */
+  createShopPackage: ShopPackageResponse;
+  createShortLink: ShortLinkCreateResponse;
+  /** Open a migration from a merchant's old storefront — or, with scope PRODUCT, a single product page — and queue its scan. The URL is checked against the SSRF guard before it is stored, the ownership attestation is required, and an `is_sensitive` audit row records who scanned what. Nothing is written to the catalogue: the job lands QUEUED and the scan produces a file to preview. */
+  createStoreImport: StoreImportJobResponse;
+  createStoreNotice: StoreNoticeResponse;
+  createSupplier: SupplierResponse;
+  createTag: TagResponse;
+  createTarget: TargetResponse;
+  createTax: TaxResponse;
+  createTaxClass: TaxClassResponse;
+  createTermsAndConditions: TermsConditionsResponse;
+  createUser: UserResponse;
+  createWebhookSubscription: WebhookSubscriptionResponse;
+  createWithdrawal: WithdrawalResponse;
+  deductWalletPoints: WalletResponse;
+  deleteAdSpend: BaseResponse;
+  deleteAddress: BaseResponse;
+  deleteAttachment: BaseResponse;
+  deleteAttachments: BaseResponse;
+  deleteAttribute: BaseResponse;
+  deleteAttributeDefinition: BaseResponse;
+  deleteAttributeOption: BaseResponse;
+  deleteAuthor: BaseResponse;
+  deleteBanner: BaseResponse;
+  deleteCollection: BaseResponse;
+  deleteCommission: BaseResponse;
+  deleteContact: BaseResponse;
+  deleteCoupon: BaseResponse;
+  deleteCustomerSegment: BaseResponse;
+  deleteDeliveryTime: BaseResponse;
+  deleteDigitalFile: BaseResponse;
+  deleteDraftOrder: BaseResponse;
+  deleteEnhancePreset: BaseResponse;
+  deleteFaq: BaseResponse;
+  deleteFlashSale: BaseResponse;
+  deleteIntegration: BaseResponse;
+  deleteInventoryLocation: BaseResponse;
+  deleteInventoryTransfer: InventoryTransferResponse;
+  deleteLanguage: LanguageBaseResponse;
+  deleteManufacturer: BaseResponse;
+  deleteMenu: BaseResponse;
+  deleteNotification: BaseResponse;
+  deleteOrder: OrderResponse;
+  deletePage: BaseResponse;
+  deletePaymentMethod: BaseResponse;
+  deletePlan: BaseResponse;
+  deleteProduct: BaseResponse;
+  deletePurchaseOrder: BaseResponse;
+  deleteRefundPolicy: BaseResponse;
+  deleteReview: BaseResponse;
+  deleteSavedPrompt: Scalars['JSON']['output'];
+  deleteSavedReport: BaseResponse;
+  deleteShippingProviderAccount: BaseResponse;
+  deleteShippingRule: BaseResponse;
+  deleteShippingZone: BaseResponse;
+  deleteShop: BaseResponse;
+  deleteShopBankAccount: ShopBankAccountResponse;
+  /** Deletes a package for the shop. */
+  deleteShopPackage: BaseResponse;
+  deleteStoreNotice: BaseResponse;
+  deleteSupplier: BaseResponse;
+  deleteTag: BaseResponse;
+  deleteTarget: BaseResponse;
+  deleteTax: BaseResponse;
+  deleteTaxClass: BaseResponse;
+  deleteTermsAndConditions: BaseResponse;
+  deleteUser: BaseResponse;
+  /** Soft-delete a vendor-agent conversation. The vendor sees it gone; history stays retrievable for moderation. */
+  deleteVendorAgentConversation: BaseResponse;
+  deleteWebhookSubscription: BaseResponse;
+  deleteWithdrawal: BaseResponse;
+  detachProductFromCollection: CollectionResponse;
+  disapproveShop: ShopResponse;
+  disconnectPlatformWhatsApp: PlatformWhatsAppResponse;
+  disconnectShopTelegramBot: Scalars['Boolean']['output'];
+  disconnectTelegramBot: Scalars['Boolean']['output'];
+  disconnectWhatsApp: WhatsAppInstanceResponse;
+  dismissInsight: BaseResponse;
+  duplicateInventoryTransfer: InventoryTransferResponse;
+  duplicateProduct: ProductResponse;
+  editInventoryStock: InventoryAdjustmentResponse;
+  editOrder: OrderResponse;
+  enableCarrierPickup: CarrierPickupResponse;
+  endCustomerSession: BaseResponse;
+  enhanceImage: AiImageGenerationResponse;
+  enhanceImageShots: AiImageGenerationsResponse;
+  exportOrdersCsv: ExportOrdersCsvResponse;
+  /** Build a CSV of products owned by the caller. Inline string response; for big shops use the REST endpoint `/products/export.csv` for streamed download. */
+  exportProductsCsv: ExportProductsCsvResponse;
+  forgetPassword: PasswordResetCodeResponse;
+  fulfillOrder: OrderResponse;
+  generateCustomerSegmentFromPrompt: GenerateSegmentResponse;
+  generateDownloadLink: DownloadLinkResponse;
+  generateProductImage: AiImageGenerationResponse;
+  hideAbandonedCart: BaseResponse;
+  hideAbandonedCarts: AbandonedCartsBulkResponse;
+  /** Apply a CSV file to the current shop. Accepts Shopify product exports (both the classic and current column vocabularies) and our own export: rows sharing a handle fold into one product with its variants. Products matched by `id` or `slug` are updated when `overwrite_existing` is set and skipped otherwise; the rest are created. `dry_run=true` returns the identical report — counts, per-product actions and the first product’s preview — without writing. */
+  importProductsCsv: ImportProductsCsvResponse;
+  login: AuthResponse;
+  logout: BaseResponse;
+  manageReceivedItems: InventoryTransferResponse;
+  mapShippingProviderLocation: BaseResponse;
+  markAllNotificationsRead: BaseResponse;
+  markConversationRead: BaseResponse;
+  markInsightRead: BaseResponse;
+  markNotificationRead: BaseResponse;
+  markNotificationUnread: BaseResponse;
+  markReferralEarningPaid: ReferralEarningResponse;
+  markStoreNoticeAsRead: BaseResponse;
+  markTransferReadyToShip: InventoryTransferResponse;
+  markTransferTransferred: InventoryTransferResponse;
+  markWhatsAppThreadRead: Scalars['Boolean']['output'];
+  notificationStreamTicket: NotifyStreamTicketResponse;
+  openBillingPortal: BillingRedirectResponse;
+  openOrderPayment: OrderPaymentOpeningResponse;
+  orderPurchaseOrder: PurchaseOrderResponse;
+  /** Pin or unpin a vendor-agent conversation. Pinned threads float to the top of the sidebar. */
+  pinVendorAgentConversation: BaseResponse;
+  platformWhatsAppQrTicket: PlatformWhatsAppTicketResponse;
+  previewNotificationTemplate: NotificationPreviewResponse;
+  receiveInventoryTransfer: InventoryTransferResponse;
+  receivePurchaseOrder: PurchaseOrderResponse;
+  recomputePredictedSpendTiers: BaseResponse;
+  reconcileCustomerContacts: BaseResponse;
+  reconcileShopSubscription: BaseResponse;
+  recordAbandonedCartDraft: BaseResponse;
+  recordCartLinkOpen: CartLinkOpenResponse;
+  refreshCustomerSession: CustomerSessionResponse;
+  refreshShipmentTracking: ShipmentResponse;
+  refreshToken: RefreshTokenResponse;
+  /** Refund, in full, a card payment recorded against an order but not applied to it (OrderEntry.unapplied_payments). Idempotent: a repeat, a retry or a second staff member never refunds twice. Touches no order status, total, balance or ledger. */
+  refundUnappliedPayment: UnappliedPaymentRefundResponse;
+  register: AuthResponse;
+  rejectBecameSeller: BecameSellerResponse;
+  removeCartCoupon: CartResponse;
+  removeCartItem: CartResponse;
+  removeProductRelation: BaseResponse;
+  /** Detach a custom domain. The platform subdomain cannot be removed — it has no row. */
+  removeShopDomain: BaseResponse;
+  removeStaffNotificationRecipient: BaseResponse;
+  renameAttachment: AttachmentResponse;
+  /** Rename a vendor-agent conversation. Pass an empty string to clear the override and revert to the auto-generated title. */
+  renameVendorAgentConversation: BaseResponse;
+  renewShopSubscription: ShopSubscriptionResponse;
+  reorderCollectionProducts: CollectionResponse;
+  reorderProductRelation: ProductRelationResponse;
+  replaceAttachmentFromExisting: AttachmentResponse;
+  replyToWhatsAppThread: BaseResponse;
+  requestBecameSeller: BecameSellerResponse;
+  requestMagicLink: MagicLinkResponse;
+  requestWhatsAppPairingCode: WhatsAppHandshakeResponse;
+  resendSenderVerification: BaseResponse;
+  resendVendorSignupOtp: VendorSignupDraftResponse;
+  resendVerificationEmail: BaseResponse;
+  resetPassword: BaseResponse;
+  resetShopShippingCarriers: BaseResponse;
+  resetShopUsage: BaseResponse;
+  restoreShops: BaseResponse;
+  restoreUsers: BaseResponse;
+  /** Restore an archived conversation back to the active list. Idempotent — restoring an already-active row is a no-op. */
+  restoreVendorAgentConversation: BaseResponse;
+  resumeMySubscription: SubscriptionScheduleResponse;
+  resumeWhatsAppAssistant: BaseResponse;
+  /** Pull one failed image again. Refused on a skipped row — dropping an image is a decision, and a decision is terminal. */
+  retryStoreImportMedia: StoreImportMediaIssueResponse;
+  /** Recovers the code for a still-live OTP row. super_admin only, and every call is written to the audit log. */
+  revealOtpCode: OtpRevealResponse;
+  revertNotificationTemplate: NotificationTemplateResponse;
+  reviewBankTransfer: BankTransferResponse;
+  /** Revoke the share token on a conversation. Outstanding URLs 404 on next visit. */
+  revokeVendorAgentConversationShare: BaseResponse;
+  rotateWebhookSecret: WebhookRotateSecretResponse;
+  saveEnhancePreset: EnhancePresetResponse;
+  saveIntegration: IntegrationResponse;
+  savePaymentMethod: PaymentMethodResponse;
+  /** Store the merchant’s review-screen edits. Writes NOTHING to the catalogue — the edits sit beside the scan’s file and are folded in once, by the approval. Refused unless the job is still READY. */
+  saveStoreImportOverrides: StoreImportJobResponse;
+  selectAiImageResults: AiImageResultsResponse;
+  sendAbandonedCartReminder: AbandonedCartReminderResponse;
+  /** Send an anonymous message to a shop from its storefront's contact form. The shop comes from the X-SHOP header, never from an argument. The answer is the same for a known address, an unknown one and a submission that filled the hidden field; the only refusal is CONTACT_MESSAGE_RATE_LIMITED. */
+  sendContactMessage: BaseResponse;
+  sendCustomerSignInCode: CustomerSignInCodeResponse;
+  sendDirectMessage: DirectMessageResponse;
+  sendIntegrationTest: BaseResponse;
+  sendInventoryTransfer: InventoryTransferResponse;
+  sendNegotiationMessage: NegotiationSessionResponse;
+  sendOtpCode: OtpSentResponse;
+  sendTestNotification: BaseResponse;
+  sendTestStaffNotification: BaseResponse;
+  sendTestWebhook: BaseResponse;
+  sendWhatsAppTest: BaseResponse;
+  setDefaultPaymentMethod: PaymentMethodResponse;
+  /** Designates a package as the store default. */
+  setDefaultShopPackage: ShopPackageResponse;
+  setDefaultTaxClass: TaxClassResponse;
+  setIntegrationEnabled: IntegrationResponse;
+  setInventoryAvailable: InventoryAdjustmentResponse;
+  setNegotiationExcludedOptions: NegotiationExcludedOptionsResponse;
+  setNegotiationOptionFloors: NegotiationOptionFloorsResponse;
+  setPlanEntitlements: BaseResponse;
+  /** Make this the address the shop's URLs are built from. Refused unless the domain is already active. */
+  setPrimaryShopDomain: ShopDomainResponse;
+  setProductComposition: ProductCompositionResponse;
+  setSenderEmail: NotificationSettingResponse;
+  setShipmentActualCost: ShipmentResponse;
+  setShippingProviderAccountEnabled: BaseResponse;
+  setShopShippingCarriers: BaseResponse;
+  setShopTelegramCustomerBot: ShopTelegramBot;
+  setShopTelegramCustomerBotOrders: ShopTelegramBot;
+  setShopsActive: BaseResponse;
+  setSubscriptionOverride: BaseResponse;
+  setUsersActive: BaseResponse;
+  setWhatsAppCustomerBot: WhatsAppInstanceResponse;
+  setWhatsAppCustomerBotOrders: WhatsAppInstanceResponse;
+  /** Mint (or re-read) a public read-only share token for a conversation. Idempotent — calling twice returns the SAME token so an already-pasted link keeps working. Pass ttl_days to set/refresh an auto-revoke expiry; omit it to leave any existing expiry untouched. */
+  shareVendorAgentConversation: VendorAgentShareResult;
+  signInWithSocial: AuthResponse;
+  /** Drop one image for good, so its product stops waiting on it. Refused on a row that already transferred — there is nothing to drop. */
+  skipStoreImportMedia: StoreImportMediaIssueResponse;
+  startNegotiation: NegotiationSessionResponse;
+  startPlanCheckout: BillingRedirectResponse;
+  startVendorSignup: VendorSignupDraftResponse;
+  subscribeNewsletter: BaseResponse;
+  subscribeStockNotification: SubscribeStockResponse;
+  suggestAttachmentAlt: AttachmentAltSuggestion;
+  /** Suggest values for a category's metafields from the product's name and description. */
+  suggestProductAttributes: AttributeSuggestionsResponse;
+  /** Suggest Google Product Taxonomy categories for up to 25 products from their own words. Suggests only — nothing is written to a product. */
+  suggestSystemCategories: SystemCategorySuggestionsResponse;
+  syncCarrierPickup: BaseResponse;
+  syncCart: CartResponse;
+  syncMySubscription: MyPlanResponse;
+  syncPlatformWhatsAppWebhook: PlatformWhatsAppResponse;
+  syncShopTelegramWebhook: ShopTelegramBot;
+  syncWhatsAppWebhooks: WhatsAppWebhookSyncResponse;
+  toggleFeedback: FeedbackResponse;
+  toggleWishlist: WishlistToggleResponse;
+  transferInventory: BaseResponse;
+  triggerEmbedding: BaseResponse;
+  unblockCustomerFromAi: BaseResponse;
+  unhideAbandonedCart: BaseResponse;
+  unlinkVendorBot: VendorBotStatusResponse;
+  /** Unlock a PIN-protected shared conversation. Returns the conversation when the PIN matches, or status="not_found" when wrong/missing. */
+  unlockSharedVendorAgentConversation: SharedConversationLookup;
+  unmapShippingProviderLocation: BaseResponse;
+  unsubscribeStockNotification: BaseResponse;
+  updateAdSpend: AdSpendResponse;
+  updateAddress: AddressResponse;
+  updateAttachment: AttachmentResponse;
+  updateAttribute: AttributeResponse;
+  updateAttributeDefinition: AttributeDefinitionResponse;
+  updateAttributeOption: BaseResponse;
+  updateAuthor: AuthorResponse;
+  updateBanner: BannerResponse;
+  updateCartItem: CartResponse;
+  updateCollection: CollectionResponse;
+  updateCommission: CommissionResponse;
+  updateContact: ContactResponse;
+  updateCountryProfile: AdminCountryProfileResponse;
+  updateCoupon: CouponResponse;
+  updateCustomerSegment: CustomerSegmentResponse;
+  updateDeliveryChannels: BaseResponse;
+  updateDeliveryTime: DeliveryTimeResponse;
+  updateDraftOrder: DraftOrderResponse;
+  updateFaq: FaqResponse;
+  updateFlashSale: FlashSaleResponse;
+  updateInventoryLocation: InventoryLocationResponse;
+  updateInventoryTransfer: InventoryTransferResponse;
+  updateLanguage: LanguageResponse;
+  updateManufacturer: ManufacturerResponse;
+  updateMenu: MenuResponse;
+  updateMyCustomerProfile: CustomerProfileResponse;
+  updateNotificationPreference: NotificationPreferencesResponse;
+  updateNotificationSetting: NotificationSettingResponse;
+  updateNotificationTemplate: NotificationTemplateResponse;
+  updateOrder: OrderResponse;
+  updateOtpSettings: OtpSettingsResponse;
+  updatePage: PageResponse;
+  updatePlan: PlanResponse;
+  updateProduct: ProductResponse;
+  updatePurchaseOrder: PurchaseOrderResponse;
+  updateRefundPolicy: RefundPolicyResponse;
+  updateRefundStatus: RefundResponse;
+  updateReturnStatus: ReturnResponse;
+  updateReview: ReviewResponse;
+  updateRolePermissions: RolePermissionResponse;
+  updateSavedPrompt: Scalars['JSON']['output'];
+  updateSavedReport: SavedReportResponse;
+  updateShipmentStatus: ShipmentResponse;
+  updateShippingRule: ShippingRuleResponse;
+  updateShippingZone: ShippingZoneResponse;
+  updateShop: ShopResponse;
+  updateShopBankAccount: ShopBankAccountResponse;
+  /** Updates an existing package for the shop. */
+  updateShopPackage: ShopPackageResponse;
+  updateShopPaymentSettings: ShopPaymentSettingsResponse;
+  updateShopShippingMode: ShopShippingSettingsResponse;
+  updateStaffNotificationRecipient: StaffRecipientResponse;
+  updateSupplier: SupplierResponse;
+  updateTag: TagResponse;
+  updateTarget: TargetResponse;
+  updateTax: TaxResponse;
+  updateTaxClass: TaxClassResponse;
+  updateTermsAndConditions: TermsConditionsResponse;
+  updateUser: UserResponse;
+  updateWebhookSubscription: WebhookSubscriptionResponse;
+  updateWithdrawalStatus: WithdrawalResponse;
+  upsertNegotiationPolicy: NegotiationPolicyResponse;
+  upsertPaymentGatewayFee: PaymentGatewayFeeResponse;
+  upsertSetting: SettingsResponse;
+  upsertShippingProviderAccount: ShippingProviderAccountResponse;
+  /** Send a message to the vendor management AI assistant. The assistant can read + create/edit/delete collections, products, and view analytics via tool calls. Requires JWT + X-SHOP header. */
+  vendorAgentChat: VendorAgentResponse;
+  /** Record that the vendor saved something the agent prepared, as an assistant turn in the conversation. Costs no model call: the sentence is composed server-side. Idempotent on handoff_id — a repeat returns the receipt already written. */
+  vendorAgentSaveReceipt: VendorAgentMessageEntry;
+  verifyCheckout: CheckoutVerifyResponse;
+  verifyCoupon: VerifyCouponResponse;
+  verifyCustomerSignInCode: CustomerSignInResponse;
+  verifyEmail: BaseResponse;
+  verifyForgetPasswordToken: BaseResponse;
+  verifyIntegration: IntegrationVerifyResponse;
+  verifyMagicLink: AuthResponse;
+  verifyOtpCode: AuthResponse;
+  verifyPayment: PaymentIntentResponse;
+  verifySender: BaseResponse;
+  verifyShippingProviderAccount: ShippingProviderVerifyResponse;
+  /** Re-read a domain's state from the hosting provider, store it, and return the full fresh configuration so the screen updates in one round trip. Driven by the merchant pressing Verify, never by a timer. */
+  verifyShopDomain: ShopDomainConfigurationResponse;
+  verifyVendorSignupOtp: VendorSignupDraftResponse;
+  viewProduct: ProductResponse;
+  whatsAppInboxTicket: WhatsAppInboxTicketResponse;
+  whatsAppQrTicket: WhatsAppStreamTicketResponse;
+};
+
+
+export type MutationAcceptNegotiationArgs = {
+  guest_key?: InputMaybe<Scalars['String']['input']>;
+  input: AcceptNegotiationInput;
+};
+
+
+export type MutationAddInventoryTransferCommentArgs = {
+  input: AddTransferCommentInput;
+};
+
+
+export type MutationAddNegotiatedOfferToCartArgs = {
+  input: AddNegotiatedOfferToCartInput;
+  session_id?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type MutationAddProductRelationArgs = {
+  input: AddProductRelationInput;
+};
+
+
+export type MutationAddStaffNotificationRecipientArgs = {
+  input: AddStaffRecipientInput;
+};
+
+
+export type MutationAddToCartArgs = {
+  input: AddToCartInput;
+  session_id?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type MutationAddWalletPointsArgs = {
+  amount_cents: Scalars['Int']['input'];
+  customer_id: Scalars['String']['input'];
+  note?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type MutationAdjustInventoryArgs = {
+  input: AdjustInventoryInput;
+};
+
+
+export type MutationAdminCreateShopArgs = {
+  input: AdminCreateShopInput;
+};
+
+
+export type MutationAdminUpdateUserArgs = {
+  input: AdminUpdateUserInput;
+};
+
+
+export type MutationAiEditorTransformArgs = {
+  input: AiEditorInput;
+};
+
+
+export type MutationAnswerQuestionArgs = {
+  input: AnswerQuestionInput;
+};
+
+
+export type MutationApplyCartCouponArgs = {
+  code: Scalars['String']['input'];
+  session_id?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type MutationApproveBecameSellerArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationApproveShopArgs = {
+  slug: Scalars['String']['input'];
+};
+
+
+export type MutationAskShopAssistantArgs = {
+  input: AskAssistantInput;
+};
+
+
+export type MutationAssignShopPlanArgs = {
+  input: AssignShopPlanInput;
+};
+
+
+export type MutationAttachProductToCollectionArgs = {
+  collection_id: Scalars['String']['input'];
+  product_id: Scalars['String']['input'];
+};
+
+
+export type MutationBackfillProductEnrichmentArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type MutationBlockCustomerFromAiArgs = {
+  input: BlockCustomerFromAiInput;
+};
+
+
+export type MutationBulkDeleteCustomerSegmentsArgs = {
+  ids: Array<Scalars['String']['input']>;
+};
+
+
+export type MutationBulkDeleteVendorAgentConversationsArgs = {
+  ids: Array<Scalars['String']['input']>;
+};
+
+
+export type MutationBulkFillStoreImportOverridesArgs = {
+  input: BulkFillStoreImportOverridesInput;
+};
+
+
+export type MutationBulkPinVendorAgentConversationsArgs = {
+  ids: Array<Scalars['String']['input']>;
+  pinned: Scalars['Boolean']['input'];
+};
+
+
+export type MutationBulkUpdateProductsPriceArgs = {
+  input: BulkUpdatePriceInput;
+};
+
+
+export type MutationBulkUpdateProductsStatusArgs = {
+  ids: Array<Scalars['String']['input']>;
+  status: ProductStatus;
+};
+
+
+export type MutationBulkUpdateProductsTagsArgs = {
+  input: BulkUpdateTagsInput;
+};
+
+
+export type MutationBulkUpsertNegotiationPoliciesArgs = {
+  input: BulkUpsertNegotiationPolicyInput;
+};
+
+
+export type MutationCancelImageGenerationArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationCancelInventoryTransferArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationCancelOrderArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationCancelShipmentArgs = {
+  id: Scalars['String']['input'];
+  reason?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type MutationCancelShopSubscriptionArgs = {
+  shop_id: Scalars['String']['input'];
+};
+
+
+export type MutationCancelStoreImportArgs = {
+  id: Scalars['ID']['input'];
+};
+
+
+export type MutationCarryStoreImportOverridesArgs = {
+  input: CarryStoreImportOverridesInput;
+};
+
+
+export type MutationChangePasswordArgs = {
+  input: ChangePasswordInput;
+};
+
+
+export type MutationChangePlanSubscriptionArgs = {
+  input: StartPlanCheckoutInput;
+};
+
+
+export type MutationClearCartArgs = {
+  session_id?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type MutationClearProductCompositionArgs = {
+  product_id: Scalars['String']['input'];
+};
+
+
+export type MutationClosePurchaseOrderArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationCommitStoreImportArgs = {
+  input: CommitStoreImportInput;
+};
+
+
+export type MutationCompleteVendorSignupArgs = {
+  input: CompleteVendorSignupInput;
+};
+
+
+export type MutationConfirmPaymentArgs = {
+  input: ConfirmPaymentInput;
+};
+
+
+export type MutationConfirmReferralEarningArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationConnectShopDomainArgs = {
+  hostname: Scalars['String']['input'];
+};
+
+
+export type MutationConnectShopTelegramBotArgs = {
+  input: ConnectShopTelegramBotInput;
+};
+
+
+export type MutationConvertDraftOrderArgs = {
+  input: ConvertDraftOrderInput;
+};
+
+
+export type MutationCreateAbusiveReportArgs = {
+  input: CreateAbusiveReportInput;
+};
+
+
+export type MutationCreateAdSpendArgs = {
+  input: AdSpendInput;
+};
+
+
+export type MutationCreateAddressArgs = {
+  input: CreateAddressInput;
+};
+
+
+export type MutationCreateAttributeArgs = {
+  input: CreateAttributeInput;
+};
+
+
+export type MutationCreateAttributeDefinitionArgs = {
+  input: CreateAttributeDefinitionInput;
+};
+
+
+export type MutationCreateAttributeOptionArgs = {
+  input: CreateAttributeOptionInput;
+};
+
+
+export type MutationCreateAuthorArgs = {
+  input: CreateAuthorInput;
+};
+
+
+export type MutationCreateBannerArgs = {
+  input: CreateBannerInput;
+};
+
+
+export type MutationCreateCollectionArgs = {
+  input: CreateCollectionInput;
+};
+
+
+export type MutationCreateCommissionArgs = {
+  input: CreateCommissionInput;
+};
+
+
+export type MutationCreateContactArgs = {
+  input: CreateContactInput;
+};
+
+
+export type MutationCreateCouponArgs = {
+  input: CreateCouponInput;
+};
+
+
+export type MutationCreateCustomerSegmentArgs = {
+  input: CreateCustomerSegmentInput;
+};
+
+
+export type MutationCreateDeliveryTimeArgs = {
+  input: CreateDeliveryTimeInput;
+};
+
+
+export type MutationCreateDigitalFileArgs = {
+  input: CreateDigitalFileInput;
+};
+
+
+export type MutationCreateDraftOrderArgs = {
+  input: CreateDraftOrderInput;
+};
+
+
+export type MutationCreateFaqArgs = {
+  input: CreateFaqInput;
+};
+
+
+export type MutationCreateFlashSaleArgs = {
+  input: CreateFlashSaleInput;
+};
+
+
+export type MutationCreateInventoryLocationArgs = {
+  input: CreateLocationInput;
+};
+
+
+export type MutationCreateInventoryTransferArgs = {
+  input: CreateInventoryTransferInput;
+};
+
+
+export type MutationCreateLanguageArgs = {
+  input: CreateLanguageInput;
+};
+
+
+export type MutationCreateManufacturerArgs = {
+  input: CreateManufacturerInput;
+};
+
+
+export type MutationCreateMenuArgs = {
+  input: CreateMenuInput;
+};
+
+
+export type MutationCreateOrderArgs = {
+  input: CreateOrderInput;
+};
+
+
+export type MutationCreatePageArgs = {
+  input: CreatePageInput;
+};
+
+
+export type MutationCreatePaymentIntentArgs = {
+  input: CreatePaymentIntentInput;
+};
+
+
+export type MutationCreatePaymentLinkArgs = {
+  order_id: Scalars['String']['input'];
+  payment_gateway?: Scalars['String']['input'];
+};
+
+
+export type MutationCreatePlanArgs = {
+  input: CreatePlanInput;
+};
+
+
+export type MutationCreateProductArgs = {
+  input: CreateProductInput;
+};
+
+
+export type MutationCreatePurchaseOrderArgs = {
+  input: CreatePurchaseOrderInput;
+};
+
+
+export type MutationCreateQuestionArgs = {
+  input: CreateQuestionInput;
+};
+
+
+export type MutationCreateReferralEarningArgs = {
+  input: CreateReferralEarningInput;
+};
+
+
+export type MutationCreateRefundArgs = {
+  input: CreateRefundInput;
+};
+
+
+export type MutationCreateRefundPolicyArgs = {
+  input: CreateRefundPolicyInput;
+};
+
+
+export type MutationCreateReturnArgs = {
+  input: CreateReturnInput;
+};
+
+
+export type MutationCreateReviewArgs = {
+  input: CreateReviewInput;
+};
+
+
+export type MutationCreateSavedPromptArgs = {
+  category: Scalars['String']['input'];
+  description?: InputMaybe<Scalars['JSON']['input']>;
+  name: Scalars['JSON']['input'];
+  prompt: Scalars['String']['input'];
+  shopId?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type MutationCreateSavedReportArgs = {
+  input: SaveReportInput;
+};
+
+
+export type MutationCreateShipmentArgs = {
+  input: CreateShipmentInput;
+};
+
+
+export type MutationCreateShippingRuleArgs = {
+  input: CreateShippingRuleInput;
+};
+
+
+export type MutationCreateShippingZoneArgs = {
+  input: CreateShippingZoneInput;
+};
+
+
+export type MutationCreateShopArgs = {
+  input: CreateShopInput;
+};
+
+
+export type MutationCreateShopBankAccountArgs = {
+  input: CreateShopBankAccountInput;
+};
+
+
+export type MutationCreateShopPackageArgs = {
+  input: CreateShopPackageInput;
+};
+
+
+export type MutationCreateShortLinkArgs = {
+  input: CreateShortLinkInput;
+};
+
+
+export type MutationCreateStoreImportArgs = {
+  input: CreateStoreImportInput;
+};
+
+
+export type MutationCreateStoreNoticeArgs = {
+  input: CreateStoreNoticeInput;
+};
+
+
+export type MutationCreateSupplierArgs = {
+  input: CreateSupplierInput;
+};
+
+
+export type MutationCreateTagArgs = {
+  input: CreateTagInput;
+};
+
+
+export type MutationCreateTargetArgs = {
+  input: CreateTargetInput;
+};
+
+
+export type MutationCreateTaxArgs = {
+  input: CreateTaxInput;
+};
+
+
+export type MutationCreateTaxClassArgs = {
+  input: CreateTaxClassInput;
+};
+
+
+export type MutationCreateTermsAndConditionsArgs = {
+  input: CreateTermsConditionsInput;
+};
+
+
+export type MutationCreateUserArgs = {
+  input: CreateUserInput;
+};
+
+
+export type MutationCreateWebhookSubscriptionArgs = {
+  input: CreateWebhookSubscriptionInput;
+};
+
+
+export type MutationCreateWithdrawalArgs = {
+  input: CreateWithdrawalInput;
+};
+
+
+export type MutationDeductWalletPointsArgs = {
+  amount_cents: Scalars['Int']['input'];
+  customer_id: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteAdSpendArgs = {
+  id: Scalars['ID']['input'];
+};
+
+
+export type MutationDeleteAddressArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteAttachmentArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteAttachmentsArgs = {
+  ids: Array<Scalars['String']['input']>;
+};
+
+
+export type MutationDeleteAttributeArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteAttributeDefinitionArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteAttributeOptionArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteAuthorArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteBannerArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteCollectionArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteCommissionArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteContactArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteCouponArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteCustomerSegmentArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteDeliveryTimeArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteDigitalFileArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteDraftOrderArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteEnhancePresetArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteFaqArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteFlashSaleArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteIntegrationArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteInventoryLocationArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteInventoryTransferArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteLanguageArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteManufacturerArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteMenuArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteNotificationArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteOrderArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationDeletePageArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationDeletePaymentMethodArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationDeletePlanArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteProductArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationDeletePurchaseOrderArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteRefundPolicyArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteReviewArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteSavedPromptArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteSavedReportArgs = {
+  id: Scalars['ID']['input'];
+};
+
+
+export type MutationDeleteShippingProviderAccountArgs = {
+  account_id: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteShippingRuleArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteShippingZoneArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteShopArgs = {
+  slug: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteShopBankAccountArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteShopPackageArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteStoreNoticeArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteSupplierArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteTagArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteTargetArgs = {
+  id: Scalars['ID']['input'];
+};
+
+
+export type MutationDeleteTaxArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteTaxClassArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteTermsAndConditionsArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteUserArgs = {
+  ids: Array<Scalars['ID']['input']>;
+};
+
+
+export type MutationDeleteVendorAgentConversationArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteWebhookSubscriptionArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteWithdrawalArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationDetachProductFromCollectionArgs = {
+  collection_id: Scalars['String']['input'];
+  product_id: Scalars['String']['input'];
+};
+
+
+export type MutationDisapproveShopArgs = {
+  slug: Scalars['String']['input'];
+};
+
+
+export type MutationDismissInsightArgs = {
+  id: Scalars['ID']['input'];
+};
+
+
+export type MutationDuplicateInventoryTransferArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationDuplicateProductArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationEditInventoryStockArgs = {
+  input: EditStockInput;
+};
+
+
+export type MutationEditOrderArgs = {
+  input: EditOrderInput;
+};
+
+
+export type MutationEnableCarrierPickupArgs = {
+  input: EnableCarrierPickupInput;
+};
+
+
+export type MutationEndCustomerSessionArgs = {
+  token: Scalars['String']['input'];
+};
+
+
+export type MutationEnhanceImageArgs = {
+  attachmentId: Scalars['String']['input'];
+  options?: InputMaybe<EnhanceImageOptionsInput>;
+  productId?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type MutationEnhanceImageShotsArgs = {
+  input: EnhanceImageShotsInput;
+};
+
+
+export type MutationExportOrdersCsvArgs = {
+  filters?: InputMaybe<FilterOrdersInput>;
+};
+
+
+export type MutationExportProductsCsvArgs = {
+  input?: InputMaybe<ExportProductsCsvInput>;
+};
+
+
+export type MutationForgetPasswordArgs = {
+  input: ForgetPasswordInput;
+};
+
+
+export type MutationFulfillOrderArgs = {
+  input: FulfillOrderInput;
+};
+
+
+export type MutationGenerateCustomerSegmentFromPromptArgs = {
+  input: GenerateSegmentInput;
+};
+
+
+export type MutationGenerateDownloadLinkArgs = {
+  digital_file_id: Scalars['String']['input'];
+};
+
+
+export type MutationGenerateProductImageArgs = {
+  input: GenerateImageInput;
+};
+
+
+export type MutationHideAbandonedCartArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationHideAbandonedCartsArgs = {
+  input: HideAbandonedCartsInput;
+};
+
+
+export type MutationImportProductsCsvArgs = {
+  input: ImportProductsCsvInput;
+};
+
+
+export type MutationLoginArgs = {
+  input: LoginInput;
+};
+
+
+export type MutationLogoutArgs = {
+  token: Scalars['String']['input'];
+};
+
+
+export type MutationManageReceivedItemsArgs = {
+  input: ManageReceivedItemsInput;
+};
+
+
+export type MutationMapShippingProviderLocationArgs = {
+  input: MapShippingProviderLocationInput;
+};
+
+
+export type MutationMarkConversationReadArgs = {
+  conversation_id: Scalars['String']['input'];
+};
+
+
+export type MutationMarkInsightReadArgs = {
+  id: Scalars['ID']['input'];
+};
+
+
+export type MutationMarkNotificationReadArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationMarkNotificationUnreadArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationMarkReferralEarningPaidArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationMarkStoreNoticeAsReadArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationMarkTransferReadyToShipArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationMarkTransferTransferredArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationMarkWhatsAppThreadReadArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationOpenOrderPaymentArgs = {
+  token: Scalars['String']['input'];
+};
+
+
+export type MutationOrderPurchaseOrderArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationPinVendorAgentConversationArgs = {
+  id: Scalars['String']['input'];
+  pinned: Scalars['Boolean']['input'];
+};
+
+
+export type MutationPreviewNotificationTemplateArgs = {
+  input: PreviewNotificationTemplateInput;
+};
+
+
+export type MutationReceiveInventoryTransferArgs = {
+  input: ReceiveInventoryTransferInput;
+};
+
+
+export type MutationReceivePurchaseOrderArgs = {
+  input: ReceivePurchaseOrderInput;
+};
+
+
+export type MutationRecomputePredictedSpendTiersArgs = {
+  shopId?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type MutationReconcileCustomerContactsArgs = {
+  shopId?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type MutationReconcileShopSubscriptionArgs = {
+  shop_id: Scalars['String']['input'];
+};
+
+
+export type MutationRecordAbandonedCartDraftArgs = {
+  input: RecordAbandonedCartDraftInput;
+};
+
+
+export type MutationRecordCartLinkOpenArgs = {
+  token: Scalars['String']['input'];
+};
+
+
+export type MutationRefreshCustomerSessionArgs = {
+  token: Scalars['String']['input'];
+};
+
+
+export type MutationRefreshShipmentTrackingArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationRefreshTokenArgs = {
+  token: Scalars['String']['input'];
+};
+
+
+export type MutationRefundUnappliedPaymentArgs = {
+  payment_intent_id: Scalars['String']['input'];
+};
+
+
+export type MutationRegisterArgs = {
+  input: RegisterInput;
+};
+
+
+export type MutationRejectBecameSellerArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationRemoveCartCouponArgs = {
+  coupon_id: Scalars['String']['input'];
+  session_id?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type MutationRemoveCartItemArgs = {
+  item_id: Scalars['String']['input'];
+  session_id?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type MutationRemoveProductRelationArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationRemoveShopDomainArgs = {
+  id: Scalars['ID']['input'];
+};
+
+
+export type MutationRemoveStaffNotificationRecipientArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationRenameAttachmentArgs = {
+  id: Scalars['String']['input'];
+  name: Scalars['String']['input'];
+};
+
+
+export type MutationRenameVendorAgentConversationArgs = {
+  id: Scalars['String']['input'];
+  title: Scalars['String']['input'];
+};
+
+
+export type MutationRenewShopSubscriptionArgs = {
+  input: RenewShopSubscriptionInput;
+};
+
+
+export type MutationReorderCollectionProductsArgs = {
+  collection_id: Scalars['String']['input'];
+  product_ids: Array<Scalars['String']['input']>;
+};
+
+
+export type MutationReorderProductRelationArgs = {
+  input: ReorderProductRelationInput;
+};
+
+
+export type MutationReplaceAttachmentFromExistingArgs = {
+  id: Scalars['String']['input'];
+  replacementId: Scalars['String']['input'];
+};
+
+
+export type MutationReplyToWhatsAppThreadArgs = {
+  input: ReplyToWhatsAppThreadInput;
+};
+
+
+export type MutationRequestBecameSellerArgs = {
+  input: RequestBecameSellerInput;
+};
+
+
+export type MutationRequestMagicLinkArgs = {
+  input: RequestMagicLinkInput;
+};
+
+
+export type MutationRequestWhatsAppPairingCodeArgs = {
+  input: RequestWhatsAppPairingCodeInput;
+};
+
+
+export type MutationResendVendorSignupOtpArgs = {
+  token: Scalars['String']['input'];
+};
+
+
+export type MutationResetPasswordArgs = {
+  input: ResetPasswordInput;
+};
+
+
+export type MutationResetShopUsageArgs = {
+  input: ResetShopUsageInput;
+};
+
+
+export type MutationRestoreShopsArgs = {
+  ids: Array<Scalars['ID']['input']>;
+};
+
+
+export type MutationRestoreUsersArgs = {
+  ids: Array<Scalars['ID']['input']>;
+};
+
+
+export type MutationRestoreVendorAgentConversationArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationResumeWhatsAppAssistantArgs = {
+  conversation_id: Scalars['String']['input'];
+};
+
+
+export type MutationRetryStoreImportMediaArgs = {
+  media_id: Scalars['ID']['input'];
+};
+
+
+export type MutationRevealOtpCodeArgs = {
+  id: Scalars['ID']['input'];
+};
+
+
+export type MutationRevertNotificationTemplateArgs = {
+  input: RevertNotificationTemplateInput;
+};
+
+
+export type MutationReviewBankTransferArgs = {
+  input: ReviewBankTransferInput;
+};
+
+
+export type MutationRevokeVendorAgentConversationShareArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationRotateWebhookSecretArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationSaveEnhancePresetArgs = {
+  input: SaveEnhancePresetInput;
+};
+
+
+export type MutationSaveIntegrationArgs = {
+  input: SaveIntegrationInput;
+};
+
+
+export type MutationSavePaymentMethodArgs = {
+  input: SavePaymentMethodInput;
+};
+
+
+export type MutationSaveStoreImportOverridesArgs = {
+  input: SaveStoreImportOverridesInput;
+};
+
+
+export type MutationSelectAiImageResultsArgs = {
+  generationId: Scalars['String']['input'];
+  resultIds: Array<Scalars['String']['input']>;
+};
+
+
+export type MutationSendAbandonedCartReminderArgs = {
+  input: SendAbandonedCartReminderInput;
+};
+
+
+export type MutationSendContactMessageArgs = {
+  input: SendContactMessageInput;
+};
+
+
+export type MutationSendCustomerSignInCodeArgs = {
+  input: SendCustomerSignInCodeInput;
+};
+
+
+export type MutationSendDirectMessageArgs = {
+  input: SendDirectMessageInput;
+};
+
+
+export type MutationSendIntegrationTestArgs = {
+  input: TestIntegrationInput;
+};
+
+
+export type MutationSendInventoryTransferArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationSendNegotiationMessageArgs = {
+  guest_key?: InputMaybe<Scalars['String']['input']>;
+  input: SendNegotiationMessageInput;
+  lang?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type MutationSendOtpCodeArgs = {
+  input: SendOtpInput;
+};
+
+
+export type MutationSendTestNotificationArgs = {
+  event_key: Scalars['String']['input'];
+};
+
+
+export type MutationSendTestWebhookArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationSendWhatsAppTestArgs = {
+  input: SendWhatsAppTestInput;
+};
+
+
+export type MutationSetDefaultPaymentMethodArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationSetDefaultShopPackageArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationSetDefaultTaxClassArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationSetIntegrationEnabledArgs = {
+  input: SetIntegrationEnabledInput;
+};
+
+
+export type MutationSetInventoryAvailableArgs = {
+  input: SetAvailableInput;
+};
+
+
+export type MutationSetNegotiationExcludedOptionsArgs = {
+  input: SetNegotiationExcludedOptionsInput;
+};
+
+
+export type MutationSetNegotiationOptionFloorsArgs = {
+  input: SetNegotiationOptionFloorsInput;
+};
+
+
+export type MutationSetPlanEntitlementsArgs = {
+  input: SetPlanEntitlementsInput;
+};
+
+
+export type MutationSetPrimaryShopDomainArgs = {
+  id: Scalars['ID']['input'];
+};
+
+
+export type MutationSetProductCompositionArgs = {
+  input: SetProductCompositionInput;
+};
+
+
+export type MutationSetSenderEmailArgs = {
+  input: SetSenderEmailInput;
+};
+
+
+export type MutationSetShipmentActualCostArgs = {
+  cost_cents: Scalars['Int']['input'];
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationSetShippingProviderAccountEnabledArgs = {
+  input: SetShippingProviderAccountEnabledInput;
+};
+
+
+export type MutationSetShopShippingCarriersArgs = {
+  input: SetShopCarriersInput;
+};
+
+
+export type MutationSetShopTelegramCustomerBotArgs = {
+  enabled: Scalars['Boolean']['input'];
+};
+
+
+export type MutationSetShopTelegramCustomerBotOrdersArgs = {
+  enabled: Scalars['Boolean']['input'];
+};
+
+
+export type MutationSetShopsActiveArgs = {
+  ids: Array<Scalars['ID']['input']>;
+  is_active: Scalars['Boolean']['input'];
+};
+
+
+export type MutationSetSubscriptionOverrideArgs = {
+  input: SetSubscriptionOverrideInput;
+};
+
+
+export type MutationSetUsersActiveArgs = {
+  ids: Array<Scalars['ID']['input']>;
+  is_active: Scalars['Boolean']['input'];
+};
+
+
+export type MutationSetWhatsAppCustomerBotArgs = {
+  enabled: Scalars['Boolean']['input'];
+};
+
+
+export type MutationSetWhatsAppCustomerBotOrdersArgs = {
+  enabled: Scalars['Boolean']['input'];
+};
+
+
+export type MutationShareVendorAgentConversationArgs = {
+  id: Scalars['String']['input'];
+  pin?: InputMaybe<Scalars['String']['input']>;
+  ttl_days?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type MutationSignInWithSocialArgs = {
+  input: SignInWithSocialInput;
+};
+
+
+export type MutationSkipStoreImportMediaArgs = {
+  media_id: Scalars['ID']['input'];
+};
+
+
+export type MutationStartNegotiationArgs = {
+  input: StartNegotiationInput;
+  lang?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type MutationStartPlanCheckoutArgs = {
+  input: StartPlanCheckoutInput;
+};
+
+
+export type MutationStartVendorSignupArgs = {
+  input: StartVendorSignupInput;
+};
+
+
+export type MutationSubscribeNewsletterArgs = {
+  email: Scalars['String']['input'];
+  shop_id?: InputMaybe<Scalars['String']['input']>;
+  shop_slug?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type MutationSubscribeStockNotificationArgs = {
+  input: SubscribeStockInput;
+};
+
+
+export type MutationSuggestAttachmentAltArgs = {
+  lang?: InputMaybe<Scalars['String']['input']>;
+  url: Scalars['String']['input'];
+};
+
+
+export type MutationSuggestProductAttributesArgs = {
+  input: SuggestAttributesInput;
+  locale?: Scalars['String']['input'];
+};
+
+
+export type MutationSuggestSystemCategoriesArgs = {
+  input: SuggestSystemCategoriesInput;
+  locale?: Scalars['String']['input'];
+};
+
+
+export type MutationSyncCarrierPickupArgs = {
+  input: EnableCarrierPickupInput;
+};
+
+
+export type MutationSyncCartArgs = {
+  input: SyncCartInput;
+};
+
+
+export type MutationToggleFeedbackArgs = {
+  input: ToggleFeedbackInput;
+};
+
+
+export type MutationToggleWishlistArgs = {
+  input: WishlistInput;
+};
+
+
+export type MutationTransferInventoryArgs = {
+  input: TransferInventoryInput;
+};
+
+
+export type MutationUnblockCustomerFromAiArgs = {
+  conversation_id: Scalars['String']['input'];
+};
+
+
+export type MutationUnhideAbandonedCartArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationUnlockSharedVendorAgentConversationArgs = {
+  pin: Scalars['String']['input'];
+  token: Scalars['String']['input'];
+};
+
+
+export type MutationUnmapShippingProviderLocationArgs = {
+  input: UnmapShippingProviderLocationInput;
+};
+
+
+export type MutationUnsubscribeStockNotificationArgs = {
+  email: Scalars['String']['input'];
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationUpdateAdSpendArgs = {
+  id: Scalars['ID']['input'];
+  input: AdSpendInput;
+};
+
+
+export type MutationUpdateAddressArgs = {
+  input: UpdateAddressInput;
+};
+
+
+export type MutationUpdateAttachmentArgs = {
+  alt?: InputMaybe<Scalars['String']['input']>;
+  id: Scalars['String']['input'];
+  name?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type MutationUpdateAttributeArgs = {
+  input: UpdateAttributeInput;
+};
+
+
+export type MutationUpdateAttributeDefinitionArgs = {
+  input: UpdateAttributeDefinitionInput;
+};
+
+
+export type MutationUpdateAttributeOptionArgs = {
+  input: UpdateAttributeOptionInput;
+};
+
+
+export type MutationUpdateAuthorArgs = {
+  input: UpdateAuthorInput;
+};
+
+
+export type MutationUpdateBannerArgs = {
+  input: UpdateBannerInput;
+};
+
+
+export type MutationUpdateCartItemArgs = {
+  input: UpdateCartItemInput;
+  session_id?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type MutationUpdateCollectionArgs = {
+  input: UpdateCollectionInput;
+};
+
+
+export type MutationUpdateCommissionArgs = {
+  input: UpdateCommissionInput;
+};
+
+
+export type MutationUpdateContactArgs = {
+  input: UpdateContactInput;
+};
+
+
+export type MutationUpdateCountryProfileArgs = {
+  input: UpdateCountryProfileInput;
+};
+
+
+export type MutationUpdateCouponArgs = {
+  input: UpdateCouponInput;
+};
+
+
+export type MutationUpdateCustomerSegmentArgs = {
+  input: UpdateCustomerSegmentInput;
+};
+
+
+export type MutationUpdateDeliveryChannelsArgs = {
+  input: UpdateDeliveryChannelsInput;
+};
+
+
+export type MutationUpdateDeliveryTimeArgs = {
+  input: UpdateDeliveryTimeInput;
+};
+
+
+export type MutationUpdateDraftOrderArgs = {
+  input: UpdateDraftOrderInput;
+};
+
+
+export type MutationUpdateFaqArgs = {
+  input: UpdateFaqInput;
+};
+
+
+export type MutationUpdateFlashSaleArgs = {
+  input: UpdateFlashSaleInput;
+};
+
+
+export type MutationUpdateInventoryLocationArgs = {
+  input: UpdateLocationInput;
+};
+
+
+export type MutationUpdateInventoryTransferArgs = {
+  input: UpdateInventoryTransferInput;
+};
+
+
+export type MutationUpdateLanguageArgs = {
+  input: UpdateLanguageInput;
+};
+
+
+export type MutationUpdateManufacturerArgs = {
+  input: UpdateManufacturerInput;
+};
+
+
+export type MutationUpdateMenuArgs = {
+  input: UpdateMenuInput;
+};
+
+
+export type MutationUpdateMyCustomerProfileArgs = {
+  input: UpdateMyCustomerProfileInput;
+};
+
+
+export type MutationUpdateNotificationPreferenceArgs = {
+  input: UpdateNotificationPreferenceInput;
+};
+
+
+export type MutationUpdateNotificationSettingArgs = {
+  input: UpdateNotificationSettingInput;
+};
+
+
+export type MutationUpdateNotificationTemplateArgs = {
+  input: UpdateNotificationTemplateInput;
+};
+
+
+export type MutationUpdateOrderArgs = {
+  input: UpdateOrderInput;
+};
+
+
+export type MutationUpdateOtpSettingsArgs = {
+  input: UpdateOtpSettingsInput;
+};
+
+
+export type MutationUpdatePageArgs = {
+  input: UpdatePageInput;
+};
+
+
+export type MutationUpdatePlanArgs = {
+  input: UpdatePlanInput;
+};
+
+
+export type MutationUpdateProductArgs = {
+  input: UpdateProductInput;
+};
+
+
+export type MutationUpdatePurchaseOrderArgs = {
+  input: UpdatePurchaseOrderInput;
+};
+
+
+export type MutationUpdateRefundPolicyArgs = {
+  input: UpdateRefundPolicyInput;
+};
+
+
+export type MutationUpdateRefundStatusArgs = {
+  input: UpdateRefundStatusInput;
+};
+
+
+export type MutationUpdateReturnStatusArgs = {
+  input: UpdateReturnStatusInput;
+};
+
+
+export type MutationUpdateReviewArgs = {
+  input: UpdateReviewInput;
+};
+
+
+export type MutationUpdateRolePermissionsArgs = {
+  input: UpdateRolePermissionsInput;
+};
+
+
+export type MutationUpdateSavedPromptArgs = {
+  category?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['JSON']['input']>;
+  id: Scalars['String']['input'];
+  name?: InputMaybe<Scalars['JSON']['input']>;
+  prompt?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type MutationUpdateSavedReportArgs = {
+  id: Scalars['ID']['input'];
+  input: SaveReportInput;
+};
+
+
+export type MutationUpdateShipmentStatusArgs = {
+  input: UpdateShipmentStatusInput;
+};
+
+
+export type MutationUpdateShippingRuleArgs = {
+  input: UpdateShippingRuleInput;
+};
+
+
+export type MutationUpdateShippingZoneArgs = {
+  input: UpdateShippingZoneInput;
+};
+
+
+export type MutationUpdateShopArgs = {
+  input: UpdateShopInput;
+  slug: Scalars['String']['input'];
+};
+
+
+export type MutationUpdateShopBankAccountArgs = {
+  input: UpdateShopBankAccountInput;
+};
+
+
+export type MutationUpdateShopPackageArgs = {
+  id: Scalars['String']['input'];
+  input: UpdateShopPackageInput;
+};
+
+
+export type MutationUpdateShopPaymentSettingsArgs = {
+  input: UpdateShopPaymentSettingsInput;
+};
+
+
+export type MutationUpdateShopShippingModeArgs = {
+  input: UpdateShopShippingModeInput;
+};
+
+
+export type MutationUpdateStaffNotificationRecipientArgs = {
+  input: UpdateStaffRecipientInput;
+};
+
+
+export type MutationUpdateSupplierArgs = {
+  input: UpdateSupplierInput;
+};
+
+
+export type MutationUpdateTagArgs = {
+  input: UpdateTagInput;
+};
+
+
+export type MutationUpdateTargetArgs = {
+  id: Scalars['ID']['input'];
+  input: CreateTargetInput;
+};
+
+
+export type MutationUpdateTaxArgs = {
+  input: UpdateTaxInput;
+};
+
+
+export type MutationUpdateTaxClassArgs = {
+  input: UpdateTaxClassInput;
+};
+
+
+export type MutationUpdateTermsAndConditionsArgs = {
+  input: UpdateTermsConditionsInput;
+};
+
+
+export type MutationUpdateUserArgs = {
+  input: UpdateUserInput;
+};
+
+
+export type MutationUpdateWebhookSubscriptionArgs = {
+  input: UpdateWebhookSubscriptionInput;
+};
+
+
+export type MutationUpdateWithdrawalStatusArgs = {
+  input: UpdateWithdrawalInput;
+};
+
+
+export type MutationUpsertNegotiationPolicyArgs = {
+  input: UpsertNegotiationPolicyInput;
+};
+
+
+export type MutationUpsertPaymentGatewayFeeArgs = {
+  input: UpsertPaymentGatewayFeeInput;
+};
+
+
+export type MutationUpsertSettingArgs = {
+  input: UpsertSettingsInput;
+};
+
+
+export type MutationUpsertShippingProviderAccountArgs = {
+  input: UpsertShippingProviderAccountInput;
+};
+
+
+export type MutationVendorAgentChatArgs = {
+  input: VendorAgentChatInput;
+};
+
+
+export type MutationVendorAgentSaveReceiptArgs = {
+  input: VendorAgentSaveReceiptInput;
+};
+
+
+export type MutationVerifyCheckoutArgs = {
+  input: VerifyCheckoutInput;
+};
+
+
+export type MutationVerifyCouponArgs = {
+  input: VerifyCouponInput;
+};
+
+
+export type MutationVerifyCustomerSignInCodeArgs = {
+  input: VerifyCustomerSignInCodeInput;
+};
+
+
+export type MutationVerifyEmailArgs = {
+  token: Scalars['String']['input'];
+};
+
+
+export type MutationVerifyForgetPasswordTokenArgs = {
+  token: Scalars['String']['input'];
+};
+
+
+export type MutationVerifyIntegrationArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationVerifyMagicLinkArgs = {
+  input: VerifyMagicLinkInput;
+};
+
+
+export type MutationVerifyOtpCodeArgs = {
+  input: VerifyOtpInput;
+};
+
+
+export type MutationVerifyPaymentArgs = {
+  order_id: Scalars['String']['input'];
+};
+
+
+export type MutationVerifySenderArgs = {
+  token: Scalars['String']['input'];
+};
+
+
+export type MutationVerifyShippingProviderAccountArgs = {
+  account_id: Scalars['String']['input'];
+};
+
+
+export type MutationVerifyShopDomainArgs = {
+  id: Scalars['ID']['input'];
+};
+
+
+export type MutationVerifyVendorSignupOtpArgs = {
+  input: VerifyVendorSignupOtpInput;
+};
+
+
+export type MutationViewProductArgs = {
+  slug: Scalars['String']['input'];
+};
+
+export type MyAiSpenderEntry = {
+  __typename?: 'MyAiSpenderEntry';
+  channel: Scalars['String']['output'];
+  conversation_id?: Maybe<Scalars['String']['output']>;
+  key: Scalars['String']['output'];
+  label?: Maybe<Scalars['String']['output']>;
+  last_turn_at: Scalars['DateTime']['output'];
+  turns: Scalars['Int']['output'];
+};
+
+export type MyAiSpenders = {
+  __typename?: 'MyAiSpenders';
+  period_end: Scalars['DateTime']['output'];
+  period_start: Scalars['DateTime']['output'];
+  rows: Array<MyAiSpenderEntry>;
+  total_turns: Scalars['Int']['output'];
+  unattributed_turns: Scalars['Int']['output'];
+};
+
+export type MyAiSpendersResponse = {
+  __typename?: 'MyAiSpendersResponse';
+  data?: Maybe<MyAiSpenders>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type MyEntitlementsResponse = {
+  __typename?: 'MyEntitlementsResponse';
+  data?: Maybe<Array<EntitlementEntry>>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type MyInvoicesResponse = {
+  __typename?: 'MyInvoicesResponse';
+  data?: Maybe<Array<InvoiceEntry>>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type MyPlanEntry = {
+  __typename?: 'MyPlanEntry';
+  billing_enabled: Scalars['Boolean']['output'];
+  cancel_at_period_end?: Maybe<Scalars['Boolean']['output']>;
+  current_period_end?: Maybe<Scalars['DateTime']['output']>;
+  current_period_start?: Maybe<Scalars['DateTime']['output']>;
+  has_billing_account: Scalars['Boolean']['output'];
+  interval?: Maybe<SubscriptionInterval>;
+  is_fallback: Scalars['Boolean']['output'];
+  is_stripe_billed: Scalars['Boolean']['output'];
+  pending_change_at?: Maybe<Scalars['DateTime']['output']>;
+  pending_plan?: Maybe<PlanEntry>;
+  plan: PlanEntry;
+  status?: Maybe<SubscriptionStatus>;
+  subscription_id?: Maybe<Scalars['String']['output']>;
+  trial_available: Scalars['Boolean']['output'];
+  trial_ends_at?: Maybe<Scalars['DateTime']['output']>;
+};
+
+export type MyPlanResponse = {
+  __typename?: 'MyPlanResponse';
+  data?: Maybe<MyPlanEntry>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type MyUsageEventEntry = {
+  __typename?: 'MyUsageEventEntry';
+  billing_unit: BillingUnit;
+  created_at: Scalars['DateTime']['output'];
+  feature_key: Scalars['String']['output'];
+  feature_name: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  quantity: Scalars['Int']['output'];
+  ref_id?: Maybe<Scalars['String']['output']>;
+  ref_type?: Maybe<Scalars['String']['output']>;
+  released: Scalars['Boolean']['output'];
+  user_id?: Maybe<Scalars['String']['output']>;
+};
+
+export type MyUsageLedgerResponse = {
+  __typename?: 'MyUsageLedgerResponse';
+  data?: Maybe<Array<MyUsageEventEntry>>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  meta?: Maybe<UsageLedgerMeta>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type MyUsageResponse = {
+  __typename?: 'MyUsageResponse';
+  data?: Maybe<Array<UsageEntry>>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type MyUsageSummaryEntry = {
+  __typename?: 'MyUsageSummaryEntry';
+  events: Scalars['Int']['output'];
+  feature_key: Scalars['String']['output'];
+  feature_name: Scalars['String']['output'];
+  group: Scalars['String']['output'];
+  quantity: Scalars['Int']['output'];
+};
+
+export type MyUsageSummaryResponse = {
+  __typename?: 'MyUsageSummaryResponse';
+  data?: Maybe<Array<MyUsageSummaryEntry>>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type NegotiatedOfferEntry = {
+  __typename?: 'NegotiatedOfferEntry';
+  allow_coupon_stacking: Scalars['Boolean']['output'];
+  currency: Scalars['String']['output'];
+  expires_at: Scalars['DateTime']['output'];
+  id: Scalars['String']['output'];
+  negotiated_cents: Scalars['Int']['output'];
+  original_cents: Scalars['Int']['output'];
+  product_id: Scalars['String']['output'];
+  quantity: Scalars['Int']['output'];
+  status: NegotiatedOfferStatus;
+  variation_option_id?: Maybe<Scalars['String']['output']>;
+};
+
+export type NegotiatedOfferResponse = {
+  __typename?: 'NegotiatedOfferResponse';
+  data?: Maybe<NegotiatedOfferEntry>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type NegotiatedOfferStatus =
+  | 'CANCELLED'
+  | 'CLAIMED'
+  | 'EXPIRED'
+  | 'PENDING'
+  | 'USED';
+
+export type NegotiationAvailableResponse = {
+  __typename?: 'NegotiationAvailableResponse';
+  available: Scalars['Boolean']['output'];
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type NegotiationChannel =
+  | 'TELEGRAM'
+  | 'WEB'
+  | 'WHATSAPP';
+
+export type NegotiationDecision =
+  | 'ACCEPT'
+  | 'COUNTER'
+  | 'FINAL_OFFER'
+  | 'HOLD'
+  | 'REJECT';
+
+export type NegotiationExcludedOptionsResponse = {
+  __typename?: 'NegotiationExcludedOptionsResponse';
+  data?: Maybe<Array<Scalars['String']['output']>>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type NegotiationFloorMode =
+  | 'advanced'
+  | 'max_discount'
+  | 'min_margin'
+  | 'min_price';
+
+export type NegotiationFloorPreview = {
+  __typename?: 'NegotiationFloorPreview';
+  effective_floor_cents?: Maybe<Scalars['Int']['output']>;
+  from_dynamic_cents: Scalars['Int']['output'];
+  from_max_discount_cents: Scalars['Int']['output'];
+  from_minimum_margin_cents: Scalars['Int']['output'];
+  from_minimum_price_cents: Scalars['Int']['output'];
+  list_price_cents: Scalars['Int']['output'];
+};
+
+export type NegotiationFloorPreviewResponse = {
+  __typename?: 'NegotiationFloorPreviewResponse';
+  data?: Maybe<NegotiationFloorPreview>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type NegotiationMessageEntry = {
+  __typename?: 'NegotiationMessageEntry';
+  created_at: Scalars['DateTime']['output'];
+  decision?: Maybe<NegotiationDecision>;
+  id: Scalars['String']['output'];
+  message: Scalars['String']['output'];
+  offer_cents?: Maybe<Scalars['Int']['output']>;
+  role: NegotiationMessageRole;
+};
+
+export type NegotiationMessageRole =
+  | 'ASSISTANT'
+  | 'CUSTOMER'
+  | 'SYSTEM';
+
+export type NegotiationOptionFloorEntry = {
+  __typename?: 'NegotiationOptionFloorEntry';
+  minimum_price_cents: Scalars['Int']['output'];
+  variation_option_id: Scalars['String']['output'];
+};
+
+export type NegotiationOptionFloorInput = {
+  minimum_price_cents: Scalars['Int']['input'];
+  variation_option_id: Scalars['String']['input'];
+};
+
+export type NegotiationOptionFloorsResponse = {
+  __typename?: 'NegotiationOptionFloorsResponse';
+  data?: Maybe<Array<NegotiationOptionFloorEntry>>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type NegotiationOutcomeEntry = {
+  __typename?: 'NegotiationOutcomeEntry';
+  channel: NegotiationChannel;
+  created_at: Scalars['DateTime']['output'];
+  currency: Scalars['String']['output'];
+  customer_label?: Maybe<Scalars['String']['output']>;
+  discount_cents?: Maybe<Scalars['Int']['output']>;
+  final_price_cents?: Maybe<Scalars['Int']['output']>;
+  is_guest: Scalars['Boolean']['output'];
+  last_offer_cents?: Maybe<Scalars['Int']['output']>;
+  list_price_cents: Scalars['Int']['output'];
+  margin_cents?: Maybe<Scalars['Int']['output']>;
+  max_rounds: Scalars['Int']['output'];
+  offer_expires_at?: Maybe<Scalars['DateTime']['output']>;
+  offer_status?: Maybe<NegotiatedOfferStatus>;
+  order_id?: Maybe<Scalars['String']['output']>;
+  /** The order this deal was spent on has since been cancelled, failed or refunded, so its discount and margin never landed. The summary leaves it out. */
+  order_unwound: Scalars['Boolean']['output'];
+  product_id: Scalars['String']['output'];
+  product_title: Scalars['String']['output'];
+  quantity?: Maybe<Scalars['Int']['output']>;
+  redeemed_at?: Maybe<Scalars['DateTime']['output']>;
+  rounds: Scalars['Int']['output'];
+  session_id: Scalars['String']['output'];
+  session_status: NegotiationSessionStatus;
+  variation_option_id?: Maybe<Scalars['String']['output']>;
+  variation_title?: Maybe<Scalars['String']['output']>;
+};
+
+export type NegotiationOutcomeFigures = {
+  __typename?: 'NegotiationOutcomeFigures';
+  acceptance_bps: Scalars['Int']['output'];
+  accepted: Scalars['Int']['output'];
+  /** Money-weighted discount from list over redeemed deals: discount ÷ (revenue + discount), in basis points — the basis of a policy's max_discount_bps. Null when nothing was redeemed. */
+  avg_discount_bps?: Maybe<Scalars['Int']['output']>;
+  /** Mean rounds used by the sessions that reached a deal, to one decimal. Null when none did. */
+  avg_rounds_to_close?: Maybe<Scalars['Float']['output']>;
+  conversion_bps: Scalars['Int']['output'];
+  discount_cents: Scalars['Int']['output'];
+  /** Sessions whose deal closed at the floor the session started with. The floor itself is never returned. */
+  floor_reached: Scalars['Int']['output'];
+  /** floor_reached ÷ accepted, in basis points. Null when no session reached a deal. */
+  floor_reached_bps?: Maybe<Scalars['Int']['output']>;
+  /** Margin of selling price over redeemed deals that had a cost: margin ÷ revenue on those deals, in basis points — the basis of a policy's minimum_margin_bps. Negative when deals sold below cost. Null when none had a cost. */
+  margin_bps?: Maybe<Scalars['Int']['output']>;
+  margin_cents?: Maybe<Scalars['Int']['output']>;
+  redeemed: Scalars['Int']['output'];
+  redeemed_without_cost: Scalars['Int']['output'];
+  revenue_cents: Scalars['Int']['output'];
+  sessions: Scalars['Int']['output'];
+};
+
+export type NegotiationOutcomeRollups = {
+  __typename?: 'NegotiationOutcomeRollups';
+  currency: Scalars['String']['output'];
+  granularity: Scalars['String']['output'];
+  products: Array<NegotiationProductRollup>;
+  products_total: Scalars['Int']['output'];
+  strategies: Array<NegotiationStrategyRollup>;
+  timezone: Scalars['String']['output'];
+  total: NegotiationOutcomeFigures;
+  trend: Array<NegotiationTrendPoint>;
+};
+
+export type NegotiationOutcomeRollupsResponse = {
+  __typename?: 'NegotiationOutcomeRollupsResponse';
+  data: NegotiationOutcomeRollups;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type NegotiationOutcomesFilterInput = {
+  channel?: InputMaybe<NegotiationChannel>;
+  end?: InputMaybe<Scalars['DateTime']['input']>;
+  product_id?: InputMaybe<Scalars['String']['input']>;
+  redeemed_only?: InputMaybe<Scalars['Boolean']['input']>;
+  start?: InputMaybe<Scalars['DateTime']['input']>;
+  status?: InputMaybe<NegotiationSessionStatus>;
+};
+
+export type NegotiationOutcomesPaginationMeta = {
+  __typename?: 'NegotiationOutcomesPaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type NegotiationOutcomesResponse = {
+  __typename?: 'NegotiationOutcomesResponse';
+  data: Array<NegotiationOutcomeEntry>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  meta: NegotiationOutcomesPaginationMeta;
+  success: Scalars['Boolean']['output'];
+  summary: NegotiationOutcomesSummary;
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type NegotiationOutcomesSummary = {
+  __typename?: 'NegotiationOutcomesSummary';
+  acceptance_bps: Scalars['Int']['output'];
+  accepted: Scalars['Int']['output'];
+  conversion_bps: Scalars['Int']['output'];
+  currency: Scalars['String']['output'];
+  discount_cents: Scalars['Int']['output'];
+  margin_cents?: Maybe<Scalars['Int']['output']>;
+  redeemed: Scalars['Int']['output'];
+  redeemed_without_cost: Scalars['Int']['output'];
+  revenue_cents: Scalars['Int']['output'];
+  sessions: Scalars['Int']['output'];
+};
+
+export type NegotiationPoliciesResponse = {
+  __typename?: 'NegotiationPoliciesResponse';
+  data?: Maybe<Array<NegotiationPolicyEntry>>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type NegotiationPolicyEntry = {
+  __typename?: 'NegotiationPolicyEntry';
+  allow_coupon_stacking: Scalars['Boolean']['output'];
+  enabled: Scalars['Boolean']['output'];
+  floor_mode: NegotiationFloorMode;
+  floor_preview?: Maybe<NegotiationFloorPreview>;
+  id: Scalars['String']['output'];
+  max_discount_bps?: Maybe<Scalars['Int']['output']>;
+  max_negotiations_per_customer_per_day: Scalars['Int']['output'];
+  max_rounds: Scalars['Int']['output'];
+  minimum_margin_bps?: Maybe<Scalars['Int']['output']>;
+  minimum_price_cents?: Maybe<Scalars['Int']['output']>;
+  offer_ttl_seconds: Scalars['Int']['output'];
+  preferred_price_cents?: Maybe<Scalars['Int']['output']>;
+  product_id: Scalars['String']['output'];
+  shop_id: Scalars['String']['output'];
+  strategy: NegotiationStrategy;
+  variation_option_id?: Maybe<Scalars['String']['output']>;
+};
+
+export type NegotiationPolicyResponse = {
+  __typename?: 'NegotiationPolicyResponse';
+  data?: Maybe<NegotiationPolicyEntry>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type NegotiationProductRollup = {
+  __typename?: 'NegotiationProductRollup';
+  figures: NegotiationOutcomeFigures;
+  product_id: Scalars['String']['output'];
+  product_title: Scalars['String']['output'];
+};
+
+export type NegotiationSessionEntry = {
+  __typename?: 'NegotiationSessionEntry';
+  channel: NegotiationChannel;
+  currency: Scalars['String']['output'];
+  current_round: Scalars['Int']['output'];
+  id: Scalars['String']['output'];
+  last_allowed_price_cents?: Maybe<Scalars['Int']['output']>;
+  last_decision?: Maybe<NegotiationDecision>;
+  list_price_cents: Scalars['Int']['output'];
+  max_rounds: Scalars['Int']['output'];
+  messages: Array<NegotiationMessageEntry>;
+  product_id: Scalars['String']['output'];
+  product_title: Scalars['String']['output'];
+  shop_id: Scalars['String']['output'];
+  status: NegotiationSessionStatus;
+  variation_option_id?: Maybe<Scalars['String']['output']>;
+  variation_title?: Maybe<Scalars['String']['output']>;
+};
+
+export type NegotiationSessionResponse = {
+  __typename?: 'NegotiationSessionResponse';
+  data?: Maybe<NegotiationSessionEntry>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type NegotiationSessionStatus =
+  | 'ACCEPTED'
+  | 'ACTIVE'
+  | 'CANCELLED'
+  | 'EXPIRED'
+  | 'REJECTED';
+
+export type NegotiationStrategy =
+  | 'aggressive'
+  | 'balanced'
+  | 'conservative';
+
+export type NegotiationStrategyRollup = {
+  __typename?: 'NegotiationStrategyRollup';
+  figures: NegotiationOutcomeFigures;
+  strategy: NegotiationStrategy;
+};
+
+export type NegotiationTrendPoint = {
+  __typename?: 'NegotiationTrendPoint';
+  /** The bucket: a shop-local day ('YYYY-MM-DD') or month ('YYYY-MM'). Sessions are bucketed by the day they started. */
+  date: Scalars['String']['output'];
+  figures: NegotiationOutcomeFigures;
+};
+
+export type NotificationCatalogResponse = {
+  __typename?: 'NotificationCatalogResponse';
+  data: Array<NotificationTemplateEntry>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type NotificationPreferenceEntry = {
+  __typename?: 'NotificationPreferenceEntry';
+  email: Scalars['Boolean']['output'];
+  in_app: Scalars['Boolean']['output'];
+  notify_type: NotifyType;
+};
+
+export type NotificationPreferencesResponse = {
+  __typename?: 'NotificationPreferencesResponse';
+  data: Array<NotificationPreferenceEntry>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type NotificationPreviewResponse = {
+  __typename?: 'NotificationPreviewResponse';
+  html: Scalars['String']['output'];
+  subject: Scalars['String']['output'];
+  success: Scalars['Boolean']['output'];
+};
+
+export type NotificationSettingEntry = {
+  __typename?: 'NotificationSettingEntry';
+  accent_color: Scalars['String']['output'];
+  logo_url?: Maybe<Scalars['String']['output']>;
+  logo_width: Scalars['Int']['output'];
+  order_summary_day: Scalars['Int']['output'];
+  order_summary_frequency: Scalars['String']['output'];
+  order_summary_hour: Scalars['Int']['output'];
+  sender_email?: Maybe<Scalars['String']['output']>;
+  sender_verified: Scalars['Boolean']['output'];
+  show_powered_by: Scalars['Boolean']['output'];
+  sms_enabled: Scalars['Boolean']['output'];
+  telegram_enabled: Scalars['Boolean']['output'];
+  whatsapp_enabled: Scalars['Boolean']['output'];
+};
+
+export type NotificationSettingResponse = {
+  __typename?: 'NotificationSettingResponse';
+  data: NotificationSettingEntry;
+  success: Scalars['Boolean']['output'];
+};
+
+export type NotificationTemplateEntry = {
+  __typename?: 'NotificationTemplateEntry';
+  body: Scalars['String']['output'];
+  category: Scalars['String']['output'];
+  enabled: Scalars['Boolean']['output'];
+  event_key: Scalars['String']['output'];
+  has_previous: Scalars['Boolean']['output'];
+  is_customized: Scalars['Boolean']['output'];
+  subject: Scalars['String']['output'];
+};
+
+export type NotificationTemplateResponse = {
+  __typename?: 'NotificationTemplateResponse';
+  data?: Maybe<NotificationTemplateEntry>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type NotifyLogEntry = {
+  __typename?: 'NotifyLogEntry';
+  created_at: Scalars['String']['output'];
+  entity_id?: Maybe<Scalars['String']['output']>;
+  entity_type?: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  is_read: Scalars['Boolean']['output'];
+  notify_receiver_type?: Maybe<NotifyReceiverType>;
+  notify_text?: Maybe<Scalars['String']['output']>;
+  notify_type: NotifyType;
+  receiver?: Maybe<NotifyReceiver>;
+  sender: Scalars['String']['output'];
+  shop_id?: Maybe<Scalars['String']['output']>;
+  updated_at: Scalars['String']['output'];
+  user_id?: Maybe<Scalars['String']['output']>;
+};
+
+export type NotifyLogPaginationMeta = {
+  __typename?: 'NotifyLogPaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type NotifyLogsResponse = {
+  __typename?: 'NotifyLogsResponse';
+  data: Array<NotifyLogEntry>;
+  meta: NotifyLogPaginationMeta;
+  success: Scalars['Boolean']['output'];
+  unread_count: Scalars['Int']['output'];
+};
+
+/** Which audience a notification was written for. Descriptive only; access is scoped by user_id. */
+export type NotifyReceiver =
+  | 'ADMIN'
+  | 'CUSTOMER'
+  | 'VENDOR';
+
+/** Whether the notification reaches the reader as a shop operator (carries shop_id) or as a person. */
+export type NotifyReceiverType =
+  | 'SHOP'
+  | 'USER';
+
+export type NotifyStreamTicketResponse = {
+  __typename?: 'NotifyStreamTicketResponse';
+  expires_in: Scalars['Int']['output'];
+  success: Scalars['Boolean']['output'];
+  ticket: Scalars['String']['output'];
+};
+
+/** What a notification is about. Drives the bell icon and the per-type mute preference. */
+export type NotifyType =
+  | 'BILLING'
+  | 'INVENTORY'
+  | 'MESSAGE'
+  | 'ORDER'
+  | 'PAYMENT'
+  | 'REFUND'
+  | 'REVIEW'
+  | 'STORE_NOTICE'
+  | 'SYSTEM';
+
+export type OrderAddresses = {
+  __typename?: 'OrderAddresses';
+  billing?: Maybe<Scalars['JSON']['output']>;
+  shipping?: Maybe<Scalars['JSON']['output']>;
+};
+
+export type OrderAttributionInput = {
+  campaign?: InputMaybe<Scalars['String']['input']>;
+  content?: InputMaybe<Scalars['String']['input']>;
+  first_campaign?: InputMaybe<Scalars['String']['input']>;
+  first_medium?: InputMaybe<Scalars['String']['input']>;
+  first_source?: InputMaybe<Scalars['String']['input']>;
+  landing_url?: InputMaybe<Scalars['String']['input']>;
+  medium?: InputMaybe<Scalars['String']['input']>;
+  raw_query_string?: InputMaybe<Scalars['String']['input']>;
+  raw_referrer?: InputMaybe<Scalars['String']['input']>;
+  referrer_url?: InputMaybe<Scalars['String']['input']>;
+  session_id?: InputMaybe<Scalars['String']['input']>;
+  source?: InputMaybe<Scalars['String']['input']>;
+  term?: InputMaybe<Scalars['String']['input']>;
+};
+
+/** An immutable payment claim and the current review decision. */
+export type OrderBankTransferEntry = {
+  __typename?: 'OrderBankTransferEntry';
+  amount_due_cents: Scalars['Int']['output'];
+  bank_account_id?: Maybe<Scalars['String']['output']>;
+  bank_account_snapshot: BankAccountSnapshot;
+  /** Whether this caller may review the pending claim. */
+  can_review: Scalars['Boolean']['output'];
+  claimed_amount_cents?: Maybe<Scalars['Int']['output']>;
+  created_at: Scalars['String']['output'];
+  currency: Scalars['String']['output'];
+  customer_id?: Maybe<Scalars['String']['output']>;
+  customer_name?: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  note?: Maybe<Scalars['String']['output']>;
+  order_id: Scalars['String']['output'];
+  receipt_mime_type: Scalars['String']['output'];
+  receipt_original_name: Scalars['String']['output'];
+  receipt_purged_at?: Maybe<Scalars['String']['output']>;
+  receipt_size: Scalars['Int']['output'];
+  /** Authenticated API route; fetch with the current session, then display the Blob. */
+  receipt_url?: Maybe<Scalars['String']['output']>;
+  rejection_reason?: Maybe<Scalars['String']['output']>;
+  reviewed_at?: Maybe<Scalars['String']['output']>;
+  reviewed_by_id?: Maybe<Scalars['String']['output']>;
+  sender_bank_code?: Maybe<Scalars['String']['output']>;
+  sender_name: Scalars['String']['output'];
+  shop_id: Scalars['String']['output'];
+  status: BankTransferStatus;
+  transfer_reference: Scalars['String']['output'];
+  transferred_at: Scalars['String']['output'];
+  updated_at: Scalars['String']['output'];
+};
+
+export type OrderBankTransfersResponse = {
+  __typename?: 'OrderBankTransfersResponse';
+  data: Array<OrderBankTransferEntry>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type OrderCancellation = {
+  __typename?: 'OrderCancellation';
+  amount_cents: Scalars['Int']['output'];
+  delivery_fee_cents: Scalars['Int']['output'];
+  tax_cents: Scalars['Int']['output'];
+};
+
+export type OrderCouponEntry = {
+  __typename?: 'OrderCouponEntry';
+  applied_discount_cents: Scalars['Int']['output'];
+  code: Scalars['String']['output'];
+  coupon_id: Scalars['String']['output'];
+};
+
+export type OrderCustomerInfo = {
+  __typename?: 'OrderCustomerInfo';
+  contact?: Maybe<Scalars['String']['output']>;
+  email?: Maybe<Scalars['String']['output']>;
+  id?: Maybe<Scalars['String']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
+  phone?: Maybe<Scalars['String']['output']>;
+};
+
+export type OrderDelivery = {
+  __typename?: 'OrderDelivery';
+  fee_cents: Scalars['Int']['output'];
+  time?: Maybe<Scalars['String']['output']>;
+};
+
+export type OrderEntry = {
+  __typename?: 'OrderEntry';
+  addresses?: Maybe<OrderAddresses>;
+  cancellation?: Maybe<OrderCancellation>;
+  channel?: Maybe<Scalars['String']['output']>;
+  coupons?: Maybe<Array<OrderCouponEntry>>;
+  created_at: Scalars['String']['output'];
+  currency: Scalars['String']['output'];
+  customer?: Maybe<OrderCustomerInfo>;
+  delivery?: Maybe<OrderDelivery>;
+  /** pending | authorized | paid | partially_refunded | refunded | voided. Derived from payment + refunds. */
+  financial_status: Scalars['String']['output'];
+  /** unfulfilled | partial | fulfilled (orthogonal to order_status) */
+  fulfillment_status: Scalars['String']['output'];
+  fulfillments?: Maybe<Array<OrderFulfillmentEntry>>;
+  id: Scalars['String']['output'];
+  invoices?: Maybe<Array<OrderInvoiceEntry>>;
+  language?: Maybe<Scalars['String']['output']>;
+  note?: Maybe<Scalars['String']['output']>;
+  order_status: Scalars['String']['output'];
+  payment: OrderPayment;
+  payment_expires_at?: Maybe<Scalars['String']['output']>;
+  /** Beneficiary instructions frozen when a bank-transfer order was created. */
+  payment_instructions?: Maybe<BankAccountSnapshot>;
+  placed_via?: Maybe<Scalars['String']['output']>;
+  pricing: OrderPricing;
+  products: Array<OrderProductEntry>;
+  refunds?: Maybe<Array<OrderRefundEntry>>;
+  /** The parcels executing this order, customer-safe (no cost or provider internals). Cancelled shipments are included — hiding one would mis-tell the story of a re-booked delivery. */
+  shipments?: Maybe<Array<OrderShipmentEntry>>;
+  /** Which shipping method priced delivery_fee_cents, frozen at creation: { source: "rule", rule_id, zone_id, name: {en,ar}, type } — or { source: "merchant_override" } for a draft conversion where the merchant set the fee by hand. Null on orders that priced no rule and on orders predating the column. Survives the merchant editing or deleting zones. */
+  shipping_method?: Maybe<Scalars['JSON']['output']>;
+  shop?: Maybe<OrderShopRef>;
+  tracking_number: Scalars['String']['output'];
+  /** Card payments recorded against this order but not applied to it, oldest first — what payment-mismatch (and a duplicate charge) is about. Resolved by order and orderByTrackingNumber; null on lists and mutation results. */
+  unapplied_payments?: Maybe<Array<OrderUnappliedPayment>>;
+  updated_at: Scalars['String']['output'];
+  wallet_point?: Maybe<OrderWalletPointEntry>;
+};
+
+export type OrderFulfillmentEntry = {
+  __typename?: 'OrderFulfillmentEntry';
+  created_at: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  line_items: Array<OrderFulfillmentLineItem>;
+  /** The InventoryLocation these items shipped from. A split order carries one fulfillment per location, so this is what tells two otherwise-identical rows apart. */
+  location_id?: Maybe<Scalars['String']['output']>;
+  location_name?: Maybe<Scalars['String']['output']>;
+  shipped_at?: Maybe<Scalars['String']['output']>;
+  /** success | cancelled */
+  status: Scalars['String']['output'];
+  tracking_company?: Maybe<Scalars['String']['output']>;
+  tracking_number?: Maybe<Scalars['String']['output']>;
+  tracking_url?: Maybe<Scalars['String']['output']>;
+};
+
+export type OrderFulfillmentLineItem = {
+  __typename?: 'OrderFulfillmentLineItem';
+  order_product_id: Scalars['String']['output'];
+  quantity: Scalars['Int']['output'];
+};
+
+export type OrderInvoiceEntry = {
+  __typename?: 'OrderInvoiceEntry';
+  currency?: Maybe<Scalars['String']['output']>;
+  /** When payment falls due (ISO 8601). Set only on an INVOICE order: issued_at plus the draft’s payment terms (due_on_receipt 0, net_7 7, net_15 15, net_30 30 days). Null for every other gateway. */
+  due_date?: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  invoice_number: Scalars['String']['output'];
+  invoice_url?: Maybe<Scalars['String']['output']>;
+  issued_at: Scalars['String']['output'];
+  /** When the order’s payment was settled through updateOrder (ISO 8601): the not-paid to paid payment_status change that also sets this invoice’s status to "paid". Null until then, and for orders paid at checkout or by a processor, which do not stamp the invoice today. */
+  paid_at?: Maybe<Scalars['String']['output']>;
+  status?: Maybe<Scalars['String']['output']>;
+  total_amount_cents: Scalars['Int']['output'];
+};
+
+export type OrderPaginationMeta = {
+  __typename?: 'OrderPaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type OrderPayment = {
+  __typename?: 'OrderPayment';
+  altered_gateway?: Maybe<Scalars['String']['output']>;
+  gateway?: Maybe<Scalars['String']['output']>;
+  status: Scalars['String']['output'];
+};
+
+export type OrderPaymentOpeningEntry = {
+  __typename?: 'OrderPaymentOpeningEntry';
+  closed_reason?: Maybe<Scalars['String']['output']>;
+  currency: Scalars['String']['output'];
+  order_id: Scalars['String']['output'];
+  payment_url?: Maybe<Scalars['String']['output']>;
+  state: Scalars['String']['output'];
+  total_cents: Scalars['Int']['output'];
+  tracking_number: Scalars['String']['output'];
+};
+
+export type OrderPaymentOpeningResponse = {
+  __typename?: 'OrderPaymentOpeningResponse';
+  data?: Maybe<OrderPaymentOpeningEntry>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type OrderPricing = {
+  __typename?: 'OrderPricing';
+  delivery_fee_cents: Scalars['Int']['output'];
+  discount_cents: Scalars['Int']['output'];
+  paid_total_cents: Scalars['Int']['output'];
+  subtotal_cents: Scalars['Int']['output'];
+  tax_cents: Scalars['Int']['output'];
+  total_cents: Scalars['Int']['output'];
+};
+
+export type OrderProductEntry = {
+  __typename?: 'OrderProductEntry';
+  /** Quantity of this line already shipped. */
+  fulfilled_quantity: Scalars['Int']['output'];
+  id: Scalars['String']['output'];
+  image?: Maybe<Scalars['JSON']['output']>;
+  name: Scalars['JSON']['output'];
+  order_quantity: Scalars['Int']['output'];
+  product_id: Scalars['String']['output'];
+  slug?: Maybe<Scalars['String']['output']>;
+  subtotal_cents: Scalars['Int']['output'];
+  unit_price_cents: Scalars['Int']['output'];
+  variation_option_id?: Maybe<Scalars['String']['output']>;
+  variation_options?: Maybe<Scalars['JSON']['output']>;
+  variation_snapshot?: Maybe<Scalars['JSON']['output']>;
+  variation_title?: Maybe<Scalars['JSON']['output']>;
+};
+
+export type OrderProductInput = {
+  composition?: InputMaybe<Scalars['JSON']['input']>;
+  order_quantity: Scalars['Int']['input'];
+  product_id: Scalars['String']['input'];
+  variation_option_id?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type OrderRefundEntry = {
+  __typename?: 'OrderRefundEntry';
+  amount_cents: Scalars['Int']['output'];
+  created_at: Scalars['String']['output'];
+  description?: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  images?: Maybe<Scalars['JSON']['output']>;
+  is_partial: Scalars['Boolean']['output'];
+  order_id: Scalars['String']['output'];
+  product_id?: Maybe<Scalars['String']['output']>;
+  refund_quantity?: Maybe<Scalars['Int']['output']>;
+  status: Scalars['String']['output'];
+  title?: Maybe<Scalars['String']['output']>;
+  updated_at: Scalars['String']['output'];
+};
+
+export type OrderResponse = {
+  __typename?: 'OrderResponse';
+  data?: Maybe<OrderEntry>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type OrderShipmentEntry = {
+  __typename?: 'OrderShipmentEntry';
+  carrier_name?: Maybe<Scalars['String']['output']>;
+  created_at: Scalars['String']['output'];
+  delivered_at?: Maybe<Scalars['String']['output']>;
+  /** The Fulfillment this shipment executes — correlates with `fulfillments` on a split order. */
+  fulfillment_id?: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  shipped_at?: Maybe<Scalars['String']['output']>;
+  /** pending | processing | shipped | delivered | cancelled */
+  status: Scalars['String']['output'];
+  tracking_number?: Maybe<Scalars['String']['output']>;
+  tracking_url?: Maybe<Scalars['String']['output']>;
+};
+
+export type OrderShippingEconomics = {
+  __typename?: 'OrderShippingEconomics';
+  /** Summed across every shipment on the order whose cost is known. Null when none is. A split order is one fee against several invoices, so this is summed at the ORDER level and never compared per shipment. */
+  actual_cost_cents?: Maybe<Scalars['Int']['output']>;
+  /** Net of anything refunded — `delivery_fee_cents` minus `cancelled_delivery_fee_cents`. What the shop actually kept. */
+  customer_charge_cents: Scalars['Int']['output'];
+  /** Whether EVERY shipment on the order has a known cost. An order with two shipments where one has no invoice yet produces a subsidy that is too small and looks entirely reasonable; this is what distinguishes a partial figure from a finished one. */
+  is_complete: Scalars['Boolean']['output'];
+  /** max(0, charge − cost). The other side of the same comparison — zero whenever a subsidy applies, so either can be summed across orders without the two cancelling out. */
+  merchant_margin_cents?: Maybe<Scalars['Int']['output']>;
+  /** max(0, cost − charge). What the shop absorbed. */
+  merchant_subsidy_cents?: Maybe<Scalars['Int']['output']>;
+  order_id: Scalars['String']['output'];
+  /** actual − quoted, when both are known. Positive means the parcels cost more than was quoted and the merchant paid the difference. This is the only figure that says whether checkout predicted fulfillment correctly — subsidy and margin both compare against the CHARGE, which under pass-through pricing equals the quote by construction. */
+  quote_drift_cents?: Maybe<Scalars['Int']['output']>;
+  /** What the customer was QUOTED for the parcels, summed. Null when the shop priced delivery with its own rules rather than a carrier. */
+  quoted_cost_cents?: Maybe<Scalars['Int']['output']>;
+};
+
+export type OrderShippingEconomicsResponse = {
+  __typename?: 'OrderShippingEconomicsResponse';
+  data?: Maybe<OrderShippingEconomics>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type OrderShopRef = {
+  __typename?: 'OrderShopRef';
+  id: Scalars['String']['output'];
+  logo?: Maybe<Scalars['JSON']['output']>;
+  name: Scalars['String']['output'];
+  slug: Scalars['String']['output'];
+};
+
+/** A card payment recorded against the order but never applied to it: paid after the order was closed, for a different amount, or a second time. The money is the customer’s; refundUnappliedPayment gives it back. Never carries the provider’s ids or the payer’s email. */
+export type OrderUnappliedPayment = {
+  __typename?: 'OrderUnappliedPayment';
+  /** What the provider charged, in cents. */
+  amount_cents: Scalars['Int']['output'];
+  /** ISO 4217 currency of amount_cents. */
+  currency: Scalars['String']['output'];
+  /** The payment intent row id — what refundUnappliedPayment takes. */
+  id: Scalars['String']['output'];
+  /** When the payment was first seen (ISO). Rows recorded before this was kept read as when their payment session opened. */
+  paid_at: Scalars['String']['output'];
+  /** paid_after_close | amount_mismatch | duplicate_charge */
+  reason: Scalars['String']['output'];
+  /** Why the last attempt did not settle: the provider’s code (charge_disputed, amount_too_large, …) on failed, or unconfirmed when it did not answer. */
+  refund_error?: Maybe<Scalars['String']['output']>;
+  /** none | requested | pending | succeeded | failed */
+  refund_status: Scalars['String']['output'];
+  refunded_at?: Maybe<Scalars['String']['output']>;
+};
+
+export type OrderWalletPointEntry = {
+  __typename?: 'OrderWalletPointEntry';
+  amount_cents: Scalars['Int']['output'];
+  id: Scalars['String']['output'];
+};
+
+export type OrderedFileEntry = {
+  __typename?: 'OrderedFileEntry';
+  created_at: Scalars['String']['output'];
+  customer_id: Scalars['String']['output'];
+  digital_file_id: Scalars['String']['output'];
+  file_name: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  purchase_key: Scalars['String']['output'];
+  tracking_number: Scalars['String']['output'];
+  url: Scalars['String']['output'];
+};
+
+export type OrderedFilesResponse = {
+  __typename?: 'OrderedFilesResponse';
+  data: Array<OrderedFileEntry>;
+  meta: DigitalFilePaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type OrdersByStatus = {
+  __typename?: 'OrdersByStatus';
+  at_local_facility: Scalars['Int']['output'];
+  cancelled: Scalars['Int']['output'];
+  completed: Scalars['Int']['output'];
+  failed: Scalars['Int']['output'];
+  out_for_delivery: Scalars['Int']['output'];
+  pending: Scalars['Int']['output'];
+  processing: Scalars['Int']['output'];
+  refunded: Scalars['Int']['output'];
+};
+
+export type OrdersByStatusResponse = {
+  __typename?: 'OrdersByStatusResponse';
+  data: OrdersByStatus;
+  success: Scalars['Boolean']['output'];
+};
+
+export type OrdersResponse = {
+  __typename?: 'OrdersResponse';
+  data: Array<OrderEntry>;
+  meta: OrderPaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+/** Delivery channel for one-time codes in flows that hold both an email and a phone. */
+export type OtpChannel =
+  | 'BOTH'
+  | 'EMAIL'
+  | 'SMS';
+
+/** A delivery failure reason across the filtered OTP log. */
+export type OtpDeliveryErrorGroup = {
+  __typename?: 'OtpDeliveryErrorGroup';
+  /** Number of matching OTPs with this failure reason. */
+  count: Scalars['Int']['output'];
+  /** The delivery provider error recorded on the OTP. */
+  reason: Scalars['String']['output'];
+};
+
+export type OtpLogEntry = {
+  __typename?: 'OtpLogEntry';
+  attempts: Scalars['Int']['output'];
+  created_at: Scalars['DateTime']['output'];
+  delivered_at?: Maybe<Scalars['DateTime']['output']>;
+  delivery_error?: Maybe<Scalars['String']['output']>;
+  expires_at: Scalars['DateTime']['output'];
+  id: Scalars['ID']['output'];
+  identifier: Scalars['String']['output'];
+  max_attempts: Scalars['Int']['output'];
+  purpose: OtpPurpose;
+  status: OtpLogStatus;
+  user_id?: Maybe<Scalars['ID']['output']>;
+  user_name?: Maybe<Scalars['String']['output']>;
+  verified_at?: Maybe<Scalars['DateTime']['output']>;
+  verifier?: Maybe<Scalars['String']['output']>;
+};
+
+/** Outcome of a one-time code, derived from the row at read time. */
+export type OtpLogStatus =
+  | 'EXPIRED'
+  | 'LOCKED'
+  | 'PENDING'
+  | 'SUPERSEDED'
+  | 'VERIFIED';
+
+export type OtpLogsMeta = {
+  __typename?: 'OtpLogsMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type OtpLogsResponse = {
+  __typename?: 'OtpLogsResponse';
+  data?: Maybe<Array<OtpLogEntry>>;
+  message?: Maybe<Scalars['String']['output']>;
+  meta?: Maybe<OtpLogsMeta>;
+  success: Scalars['Boolean']['output'];
+};
+
+/** What a one-time code was issued for. */
+export type OtpPurpose =
+  | 'CUSTOMER_SIGN_IN'
+  | 'LOGIN'
+  | 'RESET_PASSWORD'
+  | 'SIGNUP'
+  | 'VERIFY_EMAIL';
+
+export type OtpRevealData = {
+  __typename?: 'OtpRevealData';
+  code: Scalars['String']['output'];
+  expires_at: Scalars['DateTime']['output'];
+  id: Scalars['ID']['output'];
+};
+
+export type OtpRevealResponse = {
+  __typename?: 'OtpRevealResponse';
+  data?: Maybe<OtpRevealData>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type OtpSentData = {
+  __typename?: 'OtpSentData';
+  /** Digits in the code: the OTP setting for an email, the SMS provider's own length for a text (Twilio Verify). Returned for an identifier with no account too. */
+  code_length: Scalars['Int']['output'];
+  otp_id: Scalars['String']['output'];
+};
+
+export type OtpSentResponse = {
+  __typename?: 'OtpSentResponse';
+  data?: Maybe<OtpSentData>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type OtpSettingsData = {
+  __typename?: 'OtpSettingsData';
+  channel: OtpChannel;
+  code_length: Scalars['Int']['output'];
+  cooldown_seconds: Scalars['Int']['output'];
+  daily_limit: Scalars['Int']['output'];
+  is_customized: Scalars['Boolean']['output'];
+  lockout_minutes: Scalars['Int']['output'];
+  max_attempts: Scalars['Int']['output'];
+  shop_hourly_limit: Scalars['Int']['output'];
+  ttl_seconds: Scalars['Int']['output'];
+  updated_at?: Maybe<Scalars['String']['output']>;
+};
+
+export type OtpSettingsResponse = {
+  __typename?: 'OtpSettingsResponse';
+  data?: Maybe<OtpSettingsData>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type PacePoint = {
+  __typename?: 'PacePoint';
+  date: Scalars['String']['output'];
+  value: Scalars['Int']['output'];
+};
+
+/** Type of shipping package (BOX, ENVELOPE, SOFT_PACKAGE) */
+export type PackageType =
+  | 'BOX'
+  | 'ENVELOPE'
+  | 'SOFT_PACKAGE';
+
+export type PageEntry = {
+  __typename?: 'PageEntry';
+  content?: Maybe<Scalars['JSON']['output']>;
+  created_at: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  image?: Maybe<Scalars['JSON']['output']>;
+  shop_id?: Maybe<Scalars['String']['output']>;
+  slug: Scalars['String']['output'];
+  title: Scalars['JSON']['output'];
+  updated_at: Scalars['String']['output'];
+};
+
+export type PagePaginationMeta = {
+  __typename?: 'PagePaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type PageResponse = {
+  __typename?: 'PageResponse';
+  data?: Maybe<PageEntry>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type PagesResponse = {
+  __typename?: 'PagesResponse';
+  data: Array<PageEntry>;
+  meta: PagePaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type PalestineCitiesResponse = {
+  __typename?: 'PalestineCitiesResponse';
+  data: Array<PalestineCityEntry>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type PalestineCityEntry = {
+  __typename?: 'PalestineCityEntry';
+  code: Scalars['String']['output'];
+  country: Scalars['String']['output'];
+  name_ar: Scalars['String']['output'];
+  name_en: Scalars['String']['output'];
+};
+
+export type ParticipantEntry = {
+  __typename?: 'ParticipantEntry';
+  id: Scalars['String']['output'];
+  last_read?: Maybe<Scalars['String']['output']>;
+  notify: Scalars['Boolean']['output'];
+  type: Scalars['String']['output'];
+  user_id: Scalars['String']['output'];
+};
+
+export type PasswordResetCodeData = {
+  __typename?: 'PasswordResetCodeData';
+  /** Digits in the reset code: the OTP setting for an email, the SMS provider's own length for a text (Twilio Verify). Returned for an identifier with no account too. */
+  code_length: Scalars['Int']['output'];
+};
+
+export type PasswordResetCodeResponse = {
+  __typename?: 'PasswordResetCodeResponse';
+  data?: Maybe<PasswordResetCodeData>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type PaymentGatewayFeeEntry = {
+  __typename?: 'PaymentGatewayFeeEntry';
+  active: Scalars['Boolean']['output'];
+  currency: Scalars['String']['output'];
+  fee_bps: Scalars['Int']['output'];
+  fee_cap_cents?: Maybe<Scalars['Int']['output']>;
+  fee_fixed_cents: Scalars['Int']['output'];
+  gateway: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  updated_at: Scalars['String']['output'];
+};
+
+export type PaymentGatewayFeeResponse = {
+  __typename?: 'PaymentGatewayFeeResponse';
+  data?: Maybe<PaymentGatewayFeeEntry>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type PaymentGatewayFeesResponse = {
+  __typename?: 'PaymentGatewayFeesResponse';
+  data: Array<PaymentGatewayFeeEntry>;
+  gateways: Array<Scalars['String']['output']>;
+  shop_override_count: Scalars['Int']['output'];
+  success: Scalars['Boolean']['output'];
+};
+
+export type PaymentInfo = {
+  __typename?: 'PaymentInfo';
+  account?: Maybe<Scalars['String']['output']>;
+  bank?: Maybe<Scalars['String']['output']>;
+  email?: Maybe<Scalars['String']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
+};
+
+export type PaymentInfoInput = {
+  account?: InputMaybe<Scalars['String']['input']>;
+  bank?: InputMaybe<Scalars['String']['input']>;
+  email?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PaymentIntentEntry = {
+  __typename?: 'PaymentIntentEntry';
+  created_at: Scalars['String']['output'];
+  customer_id?: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  order_id: Scalars['String']['output'];
+  payment_gateway: Scalars['String']['output'];
+  payment_intent_info?: Maybe<Scalars['JSON']['output']>;
+  shop_id?: Maybe<Scalars['String']['output']>;
+  tracking_number?: Maybe<Scalars['String']['output']>;
+  updated_at: Scalars['String']['output'];
+};
+
+export type PaymentIntentPaginationMeta = {
+  __typename?: 'PaymentIntentPaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type PaymentIntentResponse = {
+  __typename?: 'PaymentIntentResponse';
+  data?: Maybe<PaymentIntentEntry>;
+  message?: Maybe<Scalars['String']['output']>;
+  payment_url?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type PaymentIntentsResponse = {
+  __typename?: 'PaymentIntentsResponse';
+  data: Array<PaymentIntentEntry>;
+  meta: PaymentIntentPaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type PaymentMethodEntry = {
+  __typename?: 'PaymentMethodEntry';
+  created_at: Scalars['String']['output'];
+  customer_id: Scalars['String']['output'];
+  default_card?: Maybe<Scalars['String']['output']>;
+  expires?: Maybe<Scalars['String']['output']>;
+  fingerprint?: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  last4?: Maybe<Scalars['String']['output']>;
+  method_key?: Maybe<Scalars['String']['output']>;
+  network?: Maybe<Scalars['String']['output']>;
+  owner_name?: Maybe<Scalars['String']['output']>;
+  payment_gateway: Scalars['String']['output'];
+  type?: Maybe<Scalars['String']['output']>;
+  updated_at: Scalars['String']['output'];
+};
+
+export type PaymentMethodPaginationMeta = {
+  __typename?: 'PaymentMethodPaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type PaymentMethodResponse = {
+  __typename?: 'PaymentMethodResponse';
+  data?: Maybe<PaymentMethodEntry>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type PaymentMethodsResponse = {
+  __typename?: 'PaymentMethodsResponse';
+  data: Array<PaymentMethodEntry>;
+  meta: PaymentMethodPaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type PlanCapabilityEntry = {
+  __typename?: 'PlanCapabilityEntry';
+  enabled: Scalars['Boolean']['output'];
+  feature_key: Scalars['String']['output'];
+  limit_value?: Maybe<Scalars['Int']['output']>;
+};
+
+export type PlanChangeEntry = {
+  __typename?: 'PlanChangeEntry';
+  applied: Scalars['Boolean']['output'];
+  currency: Scalars['String']['output'];
+  effective_at: Scalars['DateTime']['output'];
+  ends_trial: Scalars['Boolean']['output'];
+  from_plan_code: Scalars['String']['output'];
+  interval: SubscriptionInterval;
+  is_upgrade: Scalars['Boolean']['output'];
+  to_plan_code: Scalars['String']['output'];
+  to_plan_name: Scalars['String']['output'];
+};
+
+export type PlanChangePreviewEntry = {
+  __typename?: 'PlanChangePreviewEntry';
+  amount_due_now_cents: Scalars['Int']['output'];
+  charge_cents: Scalars['Int']['output'];
+  credit_cents: Scalars['Int']['output'];
+  currency: Scalars['String']['output'];
+  effective_at: Scalars['DateTime']['output'];
+  ends_trial: Scalars['Boolean']['output'];
+  from_plan_code: Scalars['String']['output'];
+  interval: SubscriptionInterval;
+  is_upgrade: Scalars['Boolean']['output'];
+  next_invoice_at: Scalars['DateTime']['output'];
+  next_invoice_cents: Scalars['Int']['output'];
+  to_plan_code: Scalars['String']['output'];
+  to_plan_name: Scalars['String']['output'];
+};
+
+export type PlanChangePreviewResponse = {
+  __typename?: 'PlanChangePreviewResponse';
+  data?: Maybe<PlanChangePreviewEntry>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type PlanChangeResponse = {
+  __typename?: 'PlanChangeResponse';
+  data?: Maybe<PlanChangeEntry>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type PlanComparisonEntry = {
+  __typename?: 'PlanComparisonEntry';
+  capabilities: Array<PlanCapabilityEntry>;
+  plan_id: Scalars['String']['output'];
+};
+
+export type PlanComparisonResponse = {
+  __typename?: 'PlanComparisonResponse';
+  data?: Maybe<Array<PlanComparisonEntry>>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type PlanEntitlementEntry = {
+  __typename?: 'PlanEntitlementEntry';
+  config: Scalars['JSON']['output'];
+  enabled: Scalars['Boolean']['output'];
+  feature_key: Scalars['String']['output'];
+  limit_value?: Maybe<Scalars['Int']['output']>;
+};
+
+export type PlanEntitlementInput = {
+  config?: InputMaybe<Scalars['JSON']['input']>;
+  enabled: Scalars['Boolean']['input'];
+  feature_key: Scalars['String']['input'];
+  limit_value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type PlanEntitlementsResponse = {
+  __typename?: 'PlanEntitlementsResponse';
+  data?: Maybe<Array<PlanEntitlementEntry>>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type PlanEntry = {
+  __typename?: 'PlanEntry';
+  code: Scalars['String']['output'];
+  currency: Scalars['String']['output'];
+  description?: Maybe<Scalars['String']['output']>;
+  description_ar?: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  is_active: Scalars['Boolean']['output'];
+  is_public: Scalars['Boolean']['output'];
+  monthly_price_cents: Scalars['Int']['output'];
+  name: Scalars['String']['output'];
+  name_ar?: Maybe<Scalars['String']['output']>;
+  sort_order: Scalars['Int']['output'];
+  trial_days: Scalars['Int']['output'];
+  yearly_price_cents: Scalars['Int']['output'];
+};
+
+export type PlanResponse = {
+  __typename?: 'PlanResponse';
+  data?: Maybe<PlanEntry>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type PlansResponse = {
+  __typename?: 'PlansResponse';
+  data?: Maybe<Array<PlanEntry>>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type PlatformShippingHealthEntry = {
+  __typename?: 'PlatformShippingHealthEntry';
+  callback_origin?: Maybe<Scalars['String']['output']>;
+  configured: Scalars['Boolean']['output'];
+  details?: Maybe<Scalars['String']['output']>;
+  is_enabled: Scalars['Boolean']['output'];
+  last_verified_at?: Maybe<Scalars['DateTime']['output']>;
+  last_verify_error?: Maybe<Scalars['String']['output']>;
+  national_address_ok: Scalars['Boolean']['output'];
+  national_address_sample?: Maybe<Scalars['String']['output']>;
+  oto_connected: Scalars['Boolean']['output'];
+  provider?: Maybe<Scalars['String']['output']>;
+};
+
+export type PlatformShippingHealthResponse = {
+  __typename?: 'PlatformShippingHealthResponse';
+  data?: Maybe<PlatformShippingHealthEntry>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type PlatformWhatsAppEntity = {
+  __typename?: 'PlatformWhatsAppEntity';
+  disconnected_at?: Maybe<Scalars['DateTime']['output']>;
+  id: Scalars['String']['output'];
+  instance_name: Scalars['String']['output'];
+  last_connected_at?: Maybe<Scalars['DateTime']['output']>;
+  last_error?: Maybe<Scalars['String']['output']>;
+  linked_vendors: Scalars['Float']['output'];
+  phone_masked?: Maybe<Scalars['String']['output']>;
+  status: Scalars['String']['output'];
+};
+
+export type PlatformWhatsAppHandshake = {
+  __typename?: 'PlatformWhatsAppHandshake';
+  pairing_code?: Maybe<Scalars['String']['output']>;
+  qr_code?: Maybe<Scalars['String']['output']>;
+  state: Scalars['String']['output'];
+};
+
+export type PlatformWhatsAppHandshakeResponse = {
+  __typename?: 'PlatformWhatsAppHandshakeResponse';
+  data?: Maybe<PlatformWhatsAppHandshake>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type PlatformWhatsAppResponse = {
+  __typename?: 'PlatformWhatsAppResponse';
+  data?: Maybe<PlatformWhatsAppEntity>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type PlatformWhatsAppTicket = {
+  __typename?: 'PlatformWhatsAppTicket';
+  ticket: Scalars['String']['output'];
+  ttl_seconds: Scalars['Float']['output'];
+};
+
+export type PlatformWhatsAppTicketResponse = {
+  __typename?: 'PlatformWhatsAppTicketResponse';
+  data?: Maybe<PlatformWhatsAppTicket>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type PreviewNegotiationFloorInput = {
+  max_discount_bps?: InputMaybe<Scalars['Int']['input']>;
+  minimum_margin_bps?: InputMaybe<Scalars['Int']['input']>;
+  minimum_price_cents?: InputMaybe<Scalars['Int']['input']>;
+  product_id: Scalars['String']['input'];
+  variation_option_id?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PreviewNotificationTemplateInput = {
+  body?: InputMaybe<Scalars['String']['input']>;
+  event_key: Scalars['String']['input'];
+  subject?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ProductAttributeEntry = {
+  __typename?: 'ProductAttributeEntry';
+  definition_version: Scalars['Int']['output'];
+  display_value?: Maybe<Scalars['String']['output']>;
+  /** True if the schema has been edited since this value was written. */
+  is_outdated: Scalars['Boolean']['output'];
+  key: Scalars['String']['output'];
+  name: Scalars['JSON']['output'];
+  type: Scalars['String']['output'];
+  unit?: Maybe<Scalars['String']['output']>;
+  value: Scalars['JSON']['output'];
+};
+
+export type ProductAttributeValueInput = {
+  attribute_key: Scalars['String']['input'];
+  value_boolean?: InputMaybe<Scalars['Boolean']['input']>;
+  value_number?: InputMaybe<Scalars['Int']['input']>;
+  /** SELECT — option.value string (not id) */
+  value_option?: InputMaybe<Scalars['String']['input']>;
+  /** MULTI_SELECT — option.value strings */
+  value_options?: InputMaybe<Array<Scalars['String']['input']>>;
+  value_text?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ProductCategoriesResponse = {
+  __typename?: 'ProductCategoriesResponse';
+  data: Array<ProductCategoryEntry>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  meta: SystemCategoryListMeta;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type ProductCategoryEntry = {
+  __typename?: 'ProductCategoryEntry';
+  id: Scalars['String']['output'];
+  level: Scalars['Int']['output'];
+  name: Scalars['String']['output'];
+  parent_id?: Maybe<Scalars['String']['output']>;
+  path: Scalars['String']['output'];
+  /** Products in the shop assigned directly to this node. */
+  product_count: Scalars['Int']['output'];
+  slug: Scalars['String']['output'];
+  sort_order: Scalars['Int']['output'];
+};
+
+export type ProductCollectionRef = {
+  __typename?: 'ProductCollectionRef';
+  id: Scalars['String']['output'];
+  name: Scalars['JSON']['output'];
+  slug: Scalars['String']['output'];
+};
+
+export type ProductCompositionEntry = {
+  __typename?: 'ProductCompositionEntry';
+  groups: Array<ProductCompositionGroupEntry>;
+  max_count: Scalars['Int']['output'];
+  min_count: Scalars['Int']['output'];
+  price_ladder_cents: Array<Scalars['Int']['output']>;
+  product_id: Scalars['String']['output'];
+  vessel_cap: Scalars['Int']['output'];
+};
+
+export type ProductCompositionGroupEntry = {
+  __typename?: 'ProductCompositionGroupEntry';
+  addon_cents: Scalars['Int']['output'];
+  key: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+  max_count: Scalars['Int']['output'];
+  min_count: Scalars['Int']['output'];
+  parts: Array<ProductCompositionPartEntry>;
+  position: Scalars['Int']['output'];
+  priced_by_ladder: Scalars['Boolean']['output'];
+  selection: Scalars['String']['output'];
+};
+
+export type ProductCompositionPartEntry = {
+  __typename?: 'ProductCompositionPartEntry';
+  addon_cents: Scalars['Int']['output'];
+  cutout_url?: Maybe<Scalars['String']['output']>;
+  image_url?: Maybe<Scalars['String']['output']>;
+  name?: Maybe<Scalars['JSON']['output']>;
+  position: Scalars['Int']['output'];
+  product_id: Scalars['String']['output'];
+};
+
+export type ProductCompositionResponse = {
+  __typename?: 'ProductCompositionResponse';
+  data?: Maybe<ProductCompositionEntry>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type ProductEntry = {
+  __typename?: 'ProductEntry';
+  ai_keywords?: Maybe<Scalars['JSON']['output']>;
+  attributes?: Maybe<Array<ProductAttributeEntry>>;
+  barcode?: Maybe<Scalars['String']['output']>;
+  brand?: Maybe<Scalars['String']['output']>;
+  collections?: Maybe<Array<ProductCollectionRef>>;
+  continue_selling_when_out_of_stock: Scalars['Boolean']['output'];
+  cost_per_item_cents?: Maybe<Scalars['Int']['output']>;
+  country_of_origin?: Maybe<Scalars['String']['output']>;
+  created_at: Scalars['String']['output'];
+  description?: Maybe<Scalars['JSON']['output']>;
+  gallery?: Maybe<Scalars['JSON']['output']>;
+  height_mm?: Maybe<Scalars['Int']['output']>;
+  hs_code?: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  image?: Maybe<Scalars['JSON']['output']>;
+  in_stock: Scalars['Boolean']['output'];
+  is_digital: Scalars['Boolean']['output'];
+  length_mm?: Maybe<Scalars['Int']['output']>;
+  max_bid_price_cents?: Maybe<Scalars['Int']['output']>;
+  max_percentage_bps?: Maybe<Scalars['Int']['output']>;
+  max_price_cents?: Maybe<Scalars['Int']['output']>;
+  min_bid_price_cents?: Maybe<Scalars['Int']['output']>;
+  min_price_cents?: Maybe<Scalars['Int']['output']>;
+  name: Scalars['JSON']['output'];
+  option_definitions?: Maybe<Array<ProductOptionDefinitionOutput>>;
+  package_id?: Maybe<Scalars['ID']['output']>;
+  price_cents?: Maybe<Scalars['Int']['output']>;
+  product_type: ProductType;
+  quantity: Scalars['Int']['output'];
+  requires_shipping: Scalars['Boolean']['output'];
+  sale_price_cents?: Maybe<Scalars['Int']['output']>;
+  sale_type: SaleType;
+  seo_description?: Maybe<Scalars['JSON']['output']>;
+  seo_title?: Maybe<Scalars['JSON']['output']>;
+  shop?: Maybe<ProductShopRef>;
+  shop_id?: Maybe<Scalars['String']['output']>;
+  sku?: Maybe<Scalars['String']['output']>;
+  slug: Scalars['String']['output'];
+  sold_quantity?: Maybe<Scalars['Int']['output']>;
+  status: ProductStatus;
+  system_category?: Maybe<ProductSystemCategoryRef>;
+  system_category_id?: Maybe<Scalars['String']['output']>;
+  tags?: Maybe<Array<ProductTagRef>>;
+  target_audience?: Maybe<TargetAudience>;
+  track_quantity: Scalars['Boolean']['output'];
+  /** The merchant's own label for what this product is ("Perfume"). Free text; not the `product_type` enum. */
+  type_name?: Maybe<Scalars['String']['output']>;
+  updated_at: Scalars['String']['output'];
+  variation_options?: Maybe<Array<VariationOptionEntry>>;
+  version: Scalars['Int']['output'];
+  video?: Maybe<Scalars['JSON']['output']>;
+  views: Scalars['Int']['output'];
+  weight_grams?: Maybe<Scalars['Int']['output']>;
+  weight_unit_display?: Maybe<WeightUnit>;
+  width_mm?: Maybe<Scalars['Int']['output']>;
+};
+
+export type ProductFilterInput = {
+  /** Attribute-based filters (max 5, category scope required). */
+  attribute_filters?: InputMaybe<Array<AttributeFilterInputGql>>;
+  /** Collection ids (curation). */
+  collection_ids?: InputMaybe<Array<Scalars['String']['input']>>;
+  /** Explicit product ids. Narrows within the caller’s existing visibility scope — never widens it. */
+  ids?: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  /** Maximum price filter (integer cents) — overlaps VARIABLE range */
+  max_price_cents?: InputMaybe<Scalars['Int']['input']>;
+  /** Minimum price filter (integer cents) — overlaps VARIABLE range */
+  min_price_cents?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+  /** Filter by one or more product types */
+  product_types?: InputMaybe<Array<ProductType>>;
+  /** Filter by sale mechanism (FIXED_PRICE | NEGOTIABLE | AUCTION) */
+  sale_types?: InputMaybe<Array<SaleType>>;
+  /** Search by name (partial match on slug) */
+  search?: InputMaybe<Scalars['String']['input']>;
+  /** Filter by one or more shops */
+  shop_ids?: InputMaybe<Array<Scalars['String']['input']>>;
+  sort_by?: InputMaybe<ProductSortBy>;
+  /** Filter by one or more statuses (vendor/admin only) */
+  statuses?: InputMaybe<Array<ProductStatus>>;
+  /** Filter by one or more stock buckets */
+  stock_statuses?: InputMaybe<Array<StockStatus>>;
+  /** Single SystemCategory id — expands to descendants. */
+  system_category_id?: InputMaybe<Scalars['String']['input']>;
+  /** Filter by one or more tags */
+  tag_ids?: InputMaybe<Array<Scalars['String']['input']>>;
+};
+
+export type ProductNegotiationStatus = {
+  __typename?: 'ProductNegotiationStatus';
+  enabled: Scalars['Boolean']['output'];
+  enabled_variant_count: Scalars['Int']['output'];
+  label: Scalars['String']['output'];
+  product_id: Scalars['String']['output'];
+  total_variant_count: Scalars['Int']['output'];
+};
+
+export type ProductNegotiationStatusResponse = {
+  __typename?: 'ProductNegotiationStatusResponse';
+  data?: Maybe<Array<ProductNegotiationStatus>>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type ProductOptionDefinitionInput = {
+  /** Localized option name, e.g. { en: "Size", ar: "المقاس" } */
+  name: Scalars['JSON']['input'];
+  /** Column order in the variant grid (1-based). */
+  position?: Scalars['Int']['input'];
+  values: Array<ProductOptionValueInput>;
+};
+
+export type ProductOptionDefinitionOutput = {
+  __typename?: 'ProductOptionDefinitionOutput';
+  name: Scalars['JSON']['output'];
+  position: Scalars['Int']['output'];
+  values: Array<ProductOptionValueOutput>;
+};
+
+export type ProductOptionValueInput = {
+  /** Localized value, e.g. { en: "Red", ar: "أحمر" }. Match key is `en`. */
+  label: Scalars['JSON']['input'];
+};
+
+export type ProductOptionValueOutput = {
+  __typename?: 'ProductOptionValueOutput';
+  /** Localized value, e.g. { en: "Red", ar: "أحمر" } */
+  label: Scalars['JSON']['output'];
+};
+
+export type ProductOrganizationOptions = {
+  __typename?: 'ProductOrganizationOptions';
+  /** Distinct `type_name` values, A-Z. */
+  types: Array<Scalars['String']['output']>;
+  /** Distinct `brand` values, A-Z. */
+  vendors: Array<Scalars['String']['output']>;
+};
+
+export type ProductOrganizationOptionsResponse = {
+  __typename?: 'ProductOrganizationOptionsResponse';
+  data: ProductOrganizationOptions;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type ProductPaginationMeta = {
+  __typename?: 'ProductPaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type ProductRelation = {
+  __typename?: 'ProductRelation';
+  created_at: Scalars['DateTime']['output'];
+  id: Scalars['String']['output'];
+  position: Scalars['Int']['output'];
+  source_product_id: Scalars['String']['output'];
+  target_product_id: Scalars['String']['output'];
+  type: ProductRelationType;
+};
+
+export type ProductRelationResponse = {
+  __typename?: 'ProductRelationResponse';
+  data?: Maybe<ProductRelation>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+/** Surface kind for a curated product link. RELATED / UPSELL / CROSS_SELL / COMPLEMENTARY. */
+export type ProductRelationType =
+  | 'COMPLEMENTARY'
+  | 'CROSS_SELL'
+  | 'RELATED'
+  | 'UPSELL';
+
+export type ProductRelationsResponse = {
+  __typename?: 'ProductRelationsResponse';
+  data?: Maybe<Array<ProductRelation>>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type ProductResponse = {
+  __typename?: 'ProductResponse';
+  data?: Maybe<ProductEntry>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type ProductShopRef = {
+  __typename?: 'ProductShopRef';
+  id: Scalars['String']['output'];
+  name: Scalars['String']['output'];
+  slug: Scalars['String']['output'];
+};
+
+/** Sort order for product listings */
+export type ProductSortBy =
+  | 'MOST_VIEWED'
+  | 'NEWEST'
+  | 'OLDEST'
+  | 'PRICE_HIGH'
+  | 'PRICE_LOW';
+
+/** Product publication status. DRAFT (not for sale, reachable by nothing), PUBLISH (in the catalogue and buyable), UNLISTED (reachable by its own URL only — hidden from the catalogue, search, recommendations and bots). */
+export type ProductStatus =
+  | 'DRAFT'
+  | 'PUBLISH'
+  | 'UNLISTED';
+
+export type ProductSystemCategoryRef = {
+  __typename?: 'ProductSystemCategoryRef';
+  id: Scalars['String']['output'];
+  level: Scalars['Int']['output'];
+  name: Scalars['String']['output'];
+  path: Scalars['String']['output'];
+  slug: Scalars['String']['output'];
+};
+
+export type ProductTagRef = {
+  __typename?: 'ProductTagRef';
+  id: Scalars['String']['output'];
+  name: Scalars['JSON']['output'];
+  slug: Scalars['String']['output'];
+};
+
+/** Structure of the product (SIMPLE, VARIABLE, DIGITAL, SERVICE) */
+export type ProductType =
+  | 'DIGITAL'
+  | 'SERVICE'
+  | 'SIMPLE'
+  | 'VARIABLE';
+
+export type ProductsResponse = {
+  __typename?: 'ProductsResponse';
+  data: Array<ProductEntry>;
+  meta: ProductPaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type PublicCollectionRef = {
+  __typename?: 'PublicCollectionRef';
+  id: Scalars['String']['output'];
+  name: Scalars['JSON']['output'];
+  slug: Scalars['String']['output'];
+};
+
+export type PublicOptionDefinition = {
+  __typename?: 'PublicOptionDefinition';
+  name: Scalars['JSON']['output'];
+  position: Scalars['Int']['output'];
+  values: Array<PublicOptionValue>;
+};
+
+export type PublicOptionValue = {
+  __typename?: 'PublicOptionValue';
+  label: Scalars['JSON']['output'];
+};
+
+export type PublicProduct = {
+  __typename?: 'PublicProduct';
+  attributes?: Maybe<Array<PublicProductAttribute>>;
+  barcode?: Maybe<Scalars['String']['output']>;
+  brand?: Maybe<Scalars['String']['output']>;
+  collections?: Maybe<Array<PublicCollectionRef>>;
+  /** Shopify-parity alias: strikethrough "was" price. Non-null only when a sale_price_cents is active. */
+  compare_at_price_cents?: Maybe<Scalars['Int']['output']>;
+  continue_selling_when_out_of_stock: Scalars['Boolean']['output'];
+  country_of_origin?: Maybe<Scalars['String']['output']>;
+  created_at: Scalars['String']['output'];
+  description?: Maybe<Scalars['JSON']['output']>;
+  gallery?: Maybe<Scalars['JSON']['output']>;
+  hs_code?: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  image?: Maybe<Scalars['JSON']['output']>;
+  in_stock: Scalars['Boolean']['output'];
+  is_digital: Scalars['Boolean']['output'];
+  max_price_cents?: Maybe<Scalars['Int']['output']>;
+  min_price_cents?: Maybe<Scalars['Int']['output']>;
+  name: Scalars['JSON']['output'];
+  option_definitions?: Maybe<Array<PublicOptionDefinition>>;
+  price_cents?: Maybe<Scalars['Int']['output']>;
+  product_type: ProductType;
+  quantity: Scalars['Int']['output'];
+  requires_shipping: Scalars['Boolean']['output'];
+  sale_price_cents?: Maybe<Scalars['Int']['output']>;
+  sale_type: SaleType;
+  /** Shopify-parity alias: the price the customer actually pays. Equals sale_price_cents when set, else price_cents. */
+  selling_price_cents?: Maybe<Scalars['Int']['output']>;
+  seo_description?: Maybe<Scalars['JSON']['output']>;
+  seo_title?: Maybe<Scalars['JSON']['output']>;
+  shop?: Maybe<PublicShopRef>;
+  sku?: Maybe<Scalars['String']['output']>;
+  slug: Scalars['String']['output'];
+  system_category?: Maybe<PublicSystemCategoryRef>;
+  tags?: Maybe<Array<PublicTagRef>>;
+  target_audience?: Maybe<TargetAudience>;
+  track_quantity: Scalars['Boolean']['output'];
+  variation_options?: Maybe<Array<PublicVariation>>;
+  video?: Maybe<Scalars['JSON']['output']>;
+  views: Scalars['Int']['output'];
+  weight_grams?: Maybe<Scalars['Int']['output']>;
+  weight_unit_display?: Maybe<WeightUnit>;
+};
+
+export type PublicProductAttribute = {
+  __typename?: 'PublicProductAttribute';
+  display_value?: Maybe<Scalars['String']['output']>;
+  key: Scalars['String']['output'];
+  name: Scalars['JSON']['output'];
+  type: Scalars['String']['output'];
+  unit?: Maybe<Scalars['String']['output']>;
+  value: Scalars['JSON']['output'];
+};
+
+export type PublicProductResponse = {
+  __typename?: 'PublicProductResponse';
+  data?: Maybe<PublicProduct>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type PublicProductsPaginationMeta = {
+  __typename?: 'PublicProductsPaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type PublicProductsResponse = {
+  __typename?: 'PublicProductsResponse';
+  data: Array<PublicProduct>;
+  meta: PublicProductsPaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type PublicShopRef = {
+  __typename?: 'PublicShopRef';
+  id: Scalars['String']['output'];
+  name: Scalars['String']['output'];
+  slug: Scalars['String']['output'];
+};
+
+export type PublicSystemCategoryRef = {
+  __typename?: 'PublicSystemCategoryRef';
+  id: Scalars['String']['output'];
+  level: Scalars['Int']['output'];
+  name: Scalars['String']['output'];
+  path: Scalars['String']['output'];
+  slug: Scalars['String']['output'];
+};
+
+export type PublicTagRef = {
+  __typename?: 'PublicTagRef';
+  id: Scalars['String']['output'];
+  name: Scalars['JSON']['output'];
+  slug: Scalars['String']['output'];
+};
+
+export type PublicVariation = {
+  __typename?: 'PublicVariation';
+  compare_at_price_cents?: Maybe<Scalars['Int']['output']>;
+  id: Scalars['String']['output'];
+  image?: Maybe<Scalars['JSON']['output']>;
+  is_disable: Scalars['Boolean']['output'];
+  options: Scalars['JSON']['output'];
+  position: Scalars['Int']['output'];
+  price_cents: Scalars['Int']['output'];
+  quantity: Scalars['Int']['output'];
+  sale_price_cents?: Maybe<Scalars['Int']['output']>;
+  selling_price_cents?: Maybe<Scalars['Int']['output']>;
+  sku?: Maybe<Scalars['String']['output']>;
+  title: Scalars['JSON']['output'];
+};
+
+export type PurchaseOrderEntry = {
+  __typename?: 'PurchaseOrderEntry';
+  closed_at?: Maybe<Scalars['DateTime']['output']>;
+  created_at: Scalars['DateTime']['output'];
+  currency_code?: Maybe<Scalars['String']['output']>;
+  destination_location_id: Scalars['String']['output'];
+  expected_at?: Maybe<Scalars['DateTime']['output']>;
+  id: Scalars['String']['output'];
+  lines: Array<PurchaseOrderLineEntry>;
+  note?: Maybe<Scalars['String']['output']>;
+  ordered_at?: Maybe<Scalars['DateTime']['output']>;
+  payment_terms: PurchaseOrderPaymentTerms;
+  received_at?: Maybe<Scalars['DateTime']['output']>;
+  reference?: Maybe<Scalars['String']['output']>;
+  shipping_carrier?: Maybe<Scalars['String']['output']>;
+  shipping_cents: Scalars['Int']['output'];
+  shop_id: Scalars['String']['output'];
+  status: PurchaseOrderStatus;
+  subtotal_cents: Scalars['Int']['output'];
+  supplier?: Maybe<SupplierEntry>;
+  supplier_id?: Maybe<Scalars['String']['output']>;
+  tags: Array<Scalars['String']['output']>;
+  tax_cents: Scalars['Int']['output'];
+  total_cents: Scalars['Int']['output'];
+  tracking_number?: Maybe<Scalars['String']['output']>;
+  updated_at: Scalars['DateTime']['output'];
+};
+
+export type PurchaseOrderLineEntry = {
+  __typename?: 'PurchaseOrderLineEntry';
+  created_at: Scalars['DateTime']['output'];
+  id: Scalars['String']['output'];
+  product_id?: Maybe<Scalars['String']['output']>;
+  purchase_order_id: Scalars['String']['output'];
+  quantity: Scalars['Int']['output'];
+  received_quantity: Scalars['Int']['output'];
+  rejected_quantity: Scalars['Int']['output'];
+  supplier_sku?: Maybe<Scalars['String']['output']>;
+  tax_percent_bps?: Maybe<Scalars['Int']['output']>;
+  unit_cost_cents: Scalars['Int']['output'];
+  variation_option_id?: Maybe<Scalars['String']['output']>;
+};
+
+export type PurchaseOrderLineInput = {
+  product_id?: InputMaybe<Scalars['String']['input']>;
+  quantity: Scalars['Int']['input'];
+  supplier_sku?: InputMaybe<Scalars['String']['input']>;
+  tax_percent_bps?: InputMaybe<Scalars['Int']['input']>;
+  unit_cost_cents?: InputMaybe<Scalars['Int']['input']>;
+  variation_option_id?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PurchaseOrderMeta = {
+  __typename?: 'PurchaseOrderMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+/** Shopify-style supplier payment terms taxonomy. NONE means no terms set. */
+export type PurchaseOrderPaymentTerms =
+  | 'CASH_ON_DELIVERY'
+  | 'NET_7'
+  | 'NET_15'
+  | 'NET_30'
+  | 'NET_45'
+  | 'NET_60'
+  | 'NONE'
+  | 'PAYMENT_IN_ADVANCE'
+  | 'PAYMENT_ON_RECEIPT';
+
+export type PurchaseOrderResponse = {
+  __typename?: 'PurchaseOrderResponse';
+  data?: Maybe<PurchaseOrderEntry>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+/** Lifecycle of a Purchase Order. DRAFT is editable; ORDERED bumped incoming; PARTIAL is mid-receive; RECEIVED is fully arrived; CLOSED is terminal (outstanding incoming rolled back). */
+export type PurchaseOrderStatus =
+  | 'CLOSED'
+  | 'DRAFT'
+  | 'ORDERED'
+  | 'PARTIAL'
+  | 'RECEIVED';
+
+export type PurchaseOrdersResponse = {
+  __typename?: 'PurchaseOrdersResponse';
+  data: Array<PurchaseOrderEntry>;
+  meta: PurchaseOrderMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type Query = {
+  __typename?: 'Query';
+  abandonedCartIds: AbandonedCartIdsResponse;
+  abandonedCartOps: AbandonedCartOpsResponse;
+  abandonedCartStatusCounts: AbandonedCartStatusCountsResponse;
+  abandonedCarts: AbandonedCartsResponse;
+  abandonedCartsByProduct: AbandonedCartsByProductResponse;
+  abandonedCartsSummary: AbandonedCartsSummaryResponse;
+  abusiveReports: AbusiveReportsResponse;
+  activityLog: AuditLogResponse;
+  activityLogs: AuditLogsResponse;
+  adSpends: AdSpendsResponse;
+  address: AddressResponse;
+  /** Every address a shop answers at, for the platform console. The merchant's own `shopDomains` payload plus the shop it belongs to, read by shop id instead of the X-SHOP header. Read-only: there is no admin mutation for somebody else's domain. */
+  adminShopDomains: AdminShopDomainsResponse;
+  aiContentHourlyAllowance: AiContentHourlyAllowance;
+  aiImageGeneration: AiImageGenerationResponse;
+  aiImageGenerations: AiImageGenerationsResponse;
+  aiRecommendations: AiRecommendationsResponse;
+  aiSearch: AiSearchResponse;
+  aiSpendByPlan: AiSpendByPlanResponse;
+  aiSpendByShop: AiSpendByShopResponse;
+  allPlans: PlansResponse;
+  analytics: AnalyticsResponse;
+  attachment: AttachmentResponse;
+  attachmentUsage: AttachmentUsage;
+  attachments: AttachmentsResponse;
+  attribute: AttributeResponse;
+  attributes: AttributesResponse;
+  attributionReport: AttributionReportResponse;
+  /** Security dashboard read-model: top users, sensitive events, spikes, recent critical. Optimised for a "see abuse in 5 seconds" view. */
+  auditAnomalies: AuditAnomaliesResponse;
+  author: AuthorResponse;
+  authors: AuthorsResponse;
+  balanceTransactions: BalanceTransactionsResponse;
+  bankTransfer: BankTransferResponse;
+  bankTransfers: BankTransfersResponse;
+  /** Public Saudi bank catalogue, independent of shop and session. */
+  banks: BanksResponse;
+  banner: BannerResponse;
+  banners: BannersResponse;
+  becameSellerRequests: BecameSellerListResponse;
+  cart: CartResponse;
+  /** Effective schema (inherited + own) for a system category. */
+  categoryAttributes: AttributeDefinitionsResponse;
+  categorySales: CategorySalesResponse;
+  cities: CitiesResponse;
+  collection: CollectionResponse;
+  collectionItems: CollectionItemsResponse;
+  collections: CollectionsResponse;
+  commission: CommissionResponse;
+  commissions: CommissionsResponse;
+  contact: ContactResponse;
+  contacts: ContactsResponse;
+  countryProfiles: AdminCountryProfilesResponse;
+  coupon: CouponResponse;
+  couponPerformance: CouponPerformanceResponse;
+  couponStats: CouponStatsResponse;
+  coupons: CouponsResponse;
+  customerAnalytics: CustomerAnalyticsResponse;
+  customerSegment: CustomerSegmentResponse;
+  customerSegmentFilters: FilterCatalogResponse;
+  customerSegments: CustomerSegmentsResponse;
+  /** Returns the default package for the shop. */
+  defaultShopPackage: ShopPackageResponse;
+  deliveryTime: DeliveryTimeResponse;
+  deliveryTimes: DeliveryTimesResponse;
+  describeCustomerSegment: SegmentDescriptionResponse;
+  directConversation: DirectConversationResponse;
+  directConversations: DirectConversationsResponse;
+  dispute: DisputeResponse;
+  disputes: DisputesResponse;
+  /** Resolve any hostname a shop answers at — platform subdomain, primary domain or alias — into a serve-or-redirect verdict. Public: the storefront proxy calls this on every request it cannot answer from the host string alone. */
+  domainRequest: ShopDomainRequestResponse;
+  draftOrder: DraftOrderResponse;
+  draftOrders: DraftOrdersResponse;
+  enabledCountryProfiles: EnabledCountryProfilesResponse;
+  enhancePresets: EnhancePresetsResponse;
+  enhanceRun: AiImageGenerationsResponse;
+  enhanceRuns: EnhanceRunsResponse;
+  enhanceStyles: EnhanceStylesResponse;
+  explainCustomerSegment: SegmentExplainResponse;
+  faq: FaqResponse;
+  faqs: FaqsResponse;
+  featureCatalog: FeatureCatalogResponse;
+  flashSale: FlashSaleResponse;
+  flashSales: FlashSalesResponse;
+  inWishlist: WishlistCheckResponse;
+  insights: InsightsResponse;
+  integrationConfigs: IntegrationsResponse;
+  integrationProviders: IntegrationProvidersResponse;
+  integrationStatus: IntegrationStatusResponse;
+  inventoryAnalytics: InventoryAnalyticsResponse;
+  inventoryHistory: InventoryHistoryResponse;
+  inventoryItems: InventoryItemsResponse;
+  inventoryLevels: InventoryLevelsResponse;
+  inventoryLocations: InventoryLocationsResponse;
+  inventoryTransfer: InventoryTransferResponse;
+  inventoryTransferStats: InventoryTransferStatsResponse;
+  inventoryTransferTimeline: AuditLogsResponse;
+  inventoryTransfers: InventoryTransfersResponse;
+  isShopSlugAvailable: Scalars['Boolean']['output'];
+  language: LanguageResponse;
+  languages: LanguagesResponse;
+  lookupNationalAddress: ResolvedAddressResponse;
+  lookups: LookupResponse;
+  lowStockProducts: LowStockProductsResponse;
+  manufacturer: ManufacturerResponse;
+  manufacturers: ManufacturersResponse;
+  me: MeResponse;
+  menu: MenuResponse;
+  menus: MenusResponse;
+  myAddresses: AddressesResponse;
+  myAiSpenders: MyAiSpendersResponse;
+  myCustomerProfile: CustomerProfileResponse;
+  myDigitalFiles: OrderedFilesResponse;
+  myEntitlements: MyEntitlementsResponse;
+  myInvoices: MyInvoicesResponse;
+  myPaymentMethods: PaymentMethodsResponse;
+  myPlan: MyPlanResponse;
+  myShopTelegramBot: ShopTelegramBot;
+  myShops: ShopsResponse;
+  myShortLinks: ShortLinksResponse;
+  myTelegramBot: TelegramVendorLink;
+  myTelegramOrderUpdates: TelegramOrderUpdates;
+  myUsage: MyUsageResponse;
+  myUsageEvents: MyUsageLedgerResponse;
+  myUsageSummary: MyUsageSummaryResponse;
+  myVendorBot: VendorBotStatusResponse;
+  myWallet: WalletResponse;
+  myWhatsAppInstance: WhatsAppStatusResponse;
+  negotiationAvailable: NegotiationAvailableResponse;
+  negotiationOutcomeRollups: NegotiationOutcomeRollupsResponse;
+  negotiationOutcomes: NegotiationOutcomesResponse;
+  negotiationPolicies: NegotiationPoliciesResponse;
+  negotiationSession: NegotiationSessionResponse;
+  notificationCatalog: NotificationCatalogResponse;
+  notificationPreferences: NotificationPreferencesResponse;
+  notificationSetting: NotificationSettingResponse;
+  notificationTemplate: NotificationTemplateResponse;
+  notifications: NotifyLogsResponse;
+  order: OrderResponse;
+  orderBankTransfers: OrderBankTransfersResponse;
+  orderByTrackingNumber: OrderResponse;
+  orderShippingEconomics: OrderShippingEconomicsResponse;
+  orders: OrdersResponse;
+  ordersByStatus: OrdersByStatusResponse;
+  /** Delivery failures grouped by provider reason across all matching OTPs, most frequent first. */
+  otpDeliveryErrorGroups: Array<OtpDeliveryErrorGroup>;
+  /** One-time codes issued by the platform, newest first. Never returns the code or its hash. */
+  otpLogs: OtpLogsResponse;
+  otpSettings: OtpSettingsResponse;
+  pageBySlug: PageResponse;
+  pages: PagesResponse;
+  palestineCities: PalestineCitiesResponse;
+  payLinkOrder: OrderResponse;
+  paymentGatewayFees: PaymentGatewayFeesResponse;
+  paymentIntents: PaymentIntentsResponse;
+  /** Vendor view of pending subscribers for a product. Used to size demand before a restock. */
+  pendingStockNotifications: StockNotificationsResponse;
+  planComparison: PlanComparisonResponse;
+  planEntitlements: PlanEntitlementsResponse;
+  plans: PlansResponse;
+  platformShippingHealth: PlatformShippingHealthResponse;
+  platformWhatsApp: PlatformWhatsAppResponse;
+  previewCollection: CollectionItemsResponse;
+  previewCustomerSegment: SegmentPreviewResponse;
+  previewNegotiationFloor: NegotiationFloorPreviewResponse;
+  previewPlanChange: PlanChangePreviewResponse;
+  product: ProductResponse;
+  /** The taxonomy nodes the current shop's products are assigned to, with a product count each. X-SHOP required. */
+  productCategories: ProductCategoriesResponse;
+  productComposition: ProductCompositionResponse;
+  productNegotiationStatuses: ProductNegotiationStatusResponse;
+  /** Distinct `type_name` and `brand` values across the current shop's products. X-SHOP required. */
+  productOrganizationOptions: ProductOrganizationOptionsResponse;
+  /** Vendor view of relations sourced from one product. Includes draft/deleted targets so the manage UI can offer cleanup. */
+  productRelations: ProductRelationsResponse;
+  products: ProductsResponse;
+  /** Public read-only lookup of a conversation by share token. Returns { status, conversation? } where status is "ok" | "pin_required" | "not_found". */
+  publicVendorAgentConversationByToken: SharedConversationLookup;
+  purchaseOrder: PurchaseOrderResponse;
+  purchaseOrders: PurchaseOrdersResponse;
+  questions: QuestionsResponse;
+  referralEarnings: ReferralEarningsResponse;
+  refund: RefundResponse;
+  refundPolicies: RefundPoliciesResponse;
+  refundPolicy: RefundPolicyResponse;
+  refunds: RefundsResponse;
+  reportSchema: ReportSchemaResponse;
+  return: ReturnResponse;
+  returns: ReturnsResponse;
+  review: ReviewResponse;
+  reviews: ReviewsResponse;
+  rolePermission: RolePermissionResponse;
+  rolePermissions: RolePermissionsListResponse;
+  runReport: ReportResultResponse;
+  runSavedReport: ReportResultResponse;
+  salesByChannel: SalesByChannelResponse;
+  salesReport: SalesReportResponse;
+  savedPrompt: Scalars['JSON']['output'];
+  savedPrompts: Scalars['JSON']['output'];
+  savedReports: SavedReportsResponse;
+  segmentInsights: SegmentInsightsResponse;
+  segmentTemplates: SegmentTemplatesResponse;
+  sellThroughProducts: SellThroughProductsResponse;
+  setting: SettingsResponse;
+  settings: SettingsListResponse;
+  shipment: ShipmentResponse;
+  shipments: ShipmentsResponse;
+  shippingProviderAccounts: ShippingProviderAccountsResponse;
+  shippingProviderCatalog: ShippingProviderCatalogResponse;
+  shippingProviderLocations: ShippingProviderLocationsResponse;
+  shippingRule: ShippingRuleResponse;
+  shippingRules: ShippingRulesResponse;
+  shippingZones: ShippingZonesResponse;
+  shop: ShopResponse;
+  shopBankAccounts: ShopBankAccountsResponse;
+  /** Resolve a custom domain to the shop that owns it. Public: the storefront proxy calls this for a host it does not recognise as a platform subdomain. Only ACTIVE domains resolve. */
+  shopByHostname: ShopHostnameResponse;
+  shopCountryCapabilities: ShopCountryCapabilitiesResponse;
+  shopCustomers: ShopCustomersResponse;
+  /** Everything the setup screen needs for one domain: what the host requires, what the zone actually says, the difference between them, who runs the DNS, and each readiness check separately. Reads live DNS, so it is deliberately not part of the domains list. */
+  shopDomainConfiguration: ShopDomainConfigurationResponse;
+  /** Every address this shop answers at: the platform subdomain (synthesised from the handle, never stored) followed by any custom domains. Primary first. */
+  shopDomains: ShopDomainsResponse;
+  shopOverrides: SubscriptionOverridesResponse;
+  /** Lists all configured shipping packages for the current shop. */
+  shopPackages: ShopPackagesResponse;
+  shopPaymentOptions: ShopPaymentOptionsResponse;
+  shopPaymentSettings: ShopPaymentSettingsResponse;
+  shopReviews: ShopReviewsResponse;
+  shopReviewsSummary: ShopReviewsSummaryResponse;
+  shopShippingCarriers: ShopCarriersResponse;
+  shopShippingSettings: ShopShippingSettingsResponse;
+  shopSubscriptions: ShopSubscriptionsResponse;
+  shopWhatsAppThread: WhatsAppInboxThreadResponse;
+  shopWhatsAppThreads: WhatsAppInboxResponse;
+  shops: ShopsResponse;
+  shortLink: ShortLinkResponse;
+  staffNotificationRecipients: StaffRecipientsResponse;
+  storageUsage: StorageUsageResponse;
+  /** One migration, with its progress, its counts and — once it has committed — the importer’s own report. This is the poll target for the progress screen. */
+  storeImportJob: StoreImportJobResponse;
+  /** This shop’s migrations, newest first. The CSV and the raw report are excluded at the query — the file is up to 24 MB. */
+  storeImportJobs: StoreImportJobsResponse;
+  /** Imported images that are not on our storage — the "needs attention" list. Failed and skipped rows share it on purpose: the question is "what is missing", and hiding the ones the merchant dropped would leave a product with a gap in its gallery and nothing to explain it. */
+  storeImportMediaIssues: StoreImportMediaIssuesResponse;
+  /** Run a dry-run preview of the merged CSV file with current overrides applied, returning counts and validation issues without writing. */
+  storeImportPreview: Scalars['JSON']['output'];
+  /** The scanned catalogue as the review screen reads it: what the scan found beside what the merchant has typed over it. Reads the job’s own CSV — nothing here has been written to the catalogue, and nothing here writes. */
+  storeImportProducts: StoreImportProductsResponse;
+  storeNotice: StoreNoticeResponse;
+  storeNotices: StoreNoticesResponse;
+  /** Public-facing single product by slug — PUBLISH + active shops only. */
+  storefrontProduct: PublicProductResponse;
+  storefrontProductComposition: ProductCompositionResponse;
+  /** Public PDP-side carousel data. Returns only relations to PUBLISH + live targets, ordered by vendor position. */
+  storefrontProductRelations: ProductRelationsResponse;
+  /** Public-facing product list — PUBLISH + active shops only. No auth required. */
+  storefrontProducts: PublicProductsResponse;
+  /** Recommendation rail — similar products when given a product_id, this shop’s trending products otherwise. PUBLISH + active shops only. No auth required. */
+  storefrontRecommendations: PublicProductsResponse;
+  supplier: SupplierResponse;
+  suppliers: SuppliersResponse;
+  /** Read-only Google Product Taxonomy, flattened for search. */
+  systemCategoriesFlat: SystemCategoriesFlatResponse;
+  systemCategory: SystemCategoryResponse;
+  /** Read-only Google Product Taxonomy, structured tree (full or subtree). */
+  systemCategoryTree: SystemCategoryTreeResponse;
+  tag: TagResponse;
+  tags: TagsResponse;
+  target: TargetResponse;
+  targets: TargetsResponse;
+  tax: TaxResponse;
+  taxClasses: TaxClassesResponse;
+  taxes: TaxesResponse;
+  termsAndCondition: TermsConditionsResponse;
+  termsAndConditions: TermsConditionsListResponse;
+  topProducts: TopProductsResponse;
+  usageLedger: UsageLedgerResponse;
+  usageSummary: UsageSummaryResponse;
+  usageTopShops: UsageShopTotalsResponse;
+  user: UserResponse;
+  users: UsersResponse;
+  /** Recently archived conversations within the recovery window (default 30 days). Backs the "Archived" subview in the sidebar so a vendor can restore a thread auto-archive nudged into the trash. */
+  vendorAgentArchivedConversations: Array<VendorAgentConversationSummary>;
+  /** Snapshot of the current day for the vendor — shown on the empty state of the /ai page. Today is the shop's local calendar day so far, and each *_change_pct compares it with yesterday up to the same local time; sales follow the analytics definition (orders placed except cancelled and failed, minus settled refunds). Composes AnalyticsService reads so it stays cheap on every page open. */
+  vendorAgentBriefing: VendorAgentBriefing;
+  /** Load a single vendor-agent conversation with all its messages + tool events. Returns null if the caller does not own it. */
+  vendorAgentConversation?: Maybe<VendorAgentConversationEntry>;
+  /** List the caller's vendor-agent conversations for the current shop. Pinned first (most recent pin leading), then by last activity. When `search` is provided, also surfaces conversations whose MESSAGE bodies contain the query (not just titles) and returns the matching message as the preview. */
+  vendorAgentConversations: Array<VendorAgentConversationSummary>;
+  /** The last 7 COMPLETE local days (yesterday and the six days before it; today is left out, and shown by vendorAgentBriefing) vs the 7 days before them, cut at the shop's local midnight. Sales follow the analytics definition (orders placed except cancelled and failed, minus settled refunds). The headline figures, the change percentages and the 14 daily points all come from one `getSalesByChannel` series, so the points always sum to the headline and each change compares two whole weeks. Used by the weekly insights card on the /ai empty state. */
+  vendorAgentWeeklyInsights: VendorAgentWeeklyInsights;
+  vendorSignupEmailAvailable: SignupAvailabilityResponse;
+  vendorSignupSlugAvailable: SignupAvailabilityResponse;
+  verifyDownloadToken: DownloadLinkResponse;
+  webhookDeliveries: WebhookDeliveriesResponse;
+  webhookSubscriptions: WebhookSubscriptionsResponse;
+  wishlists: WishlistsResponse;
+  withdrawal: WithdrawalResponse;
+  withdrawals: WithdrawalsResponse;
+  yearlySales: YearlySalesResponse;
+};
+
+
+export type QueryAbandonedCartIdsArgs = {
+  created_end?: InputMaybe<Scalars['DateTime']['input']>;
+  created_start?: InputMaybe<Scalars['DateTime']['input']>;
+  end?: InputMaybe<Scalars['DateTime']['input']>;
+  include_hidden?: InputMaybe<Scalars['Boolean']['input']>;
+  max_total_cents?: InputMaybe<Scalars['Int']['input']>;
+  min_total_cents?: InputMaybe<Scalars['Int']['input']>;
+  reminder_status?: InputMaybe<AbandonedCartReminderStatus>;
+  search?: InputMaybe<Scalars['String']['input']>;
+  sort_by?: InputMaybe<AbandonedCartSortField>;
+  sort_dir?: InputMaybe<AbandonedCartSortDir>;
+  start?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+
+export type QueryAbandonedCartOpsArgs = {
+  end?: InputMaybe<Scalars['DateTime']['input']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+  start?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+
+export type QueryAbandonedCartStatusCountsArgs = {
+  created_end?: InputMaybe<Scalars['DateTime']['input']>;
+  created_start?: InputMaybe<Scalars['DateTime']['input']>;
+  end?: InputMaybe<Scalars['DateTime']['input']>;
+  include_hidden?: InputMaybe<Scalars['Boolean']['input']>;
+  max_total_cents?: InputMaybe<Scalars['Int']['input']>;
+  min_total_cents?: InputMaybe<Scalars['Int']['input']>;
+  search?: InputMaybe<Scalars['String']['input']>;
+  start?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+
+export type QueryAbandonedCartsArgs = {
+  created_end?: InputMaybe<Scalars['DateTime']['input']>;
+  created_start?: InputMaybe<Scalars['DateTime']['input']>;
+  end?: InputMaybe<Scalars['DateTime']['input']>;
+  include_hidden?: InputMaybe<Scalars['Boolean']['input']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  max_total_cents?: InputMaybe<Scalars['Int']['input']>;
+  min_total_cents?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+  reminder_status?: InputMaybe<AbandonedCartReminderStatus>;
+  search?: InputMaybe<Scalars['String']['input']>;
+  sort_by?: InputMaybe<AbandonedCartSortField>;
+  sort_dir?: InputMaybe<AbandonedCartSortDir>;
+  start?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+
+export type QueryAbandonedCartsByProductArgs = {
+  created_end?: InputMaybe<Scalars['DateTime']['input']>;
+  created_start?: InputMaybe<Scalars['DateTime']['input']>;
+  end?: InputMaybe<Scalars['DateTime']['input']>;
+  include_hidden?: InputMaybe<Scalars['Boolean']['input']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  max_total_cents?: InputMaybe<Scalars['Int']['input']>;
+  min_total_cents?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+  search?: InputMaybe<Scalars['String']['input']>;
+  sort_by?: InputMaybe<AbandonedCartSortField>;
+  sort_dir?: InputMaybe<AbandonedCartSortDir>;
+  start?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+
+export type QueryAbandonedCartsSummaryArgs = {
+  end?: InputMaybe<Scalars['DateTime']['input']>;
+  start?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+
+export type QueryAbusiveReportsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  model_type?: InputMaybe<Scalars['String']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type QueryActivityLogArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type QueryActivityLogsArgs = {
+  filters?: InputMaybe<AuditLogFilterInput>;
+};
+
+
+export type QueryAdSpendsArgs = {
+  end?: InputMaybe<Scalars['DateTime']['input']>;
+  start?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+
+export type QueryAddressArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type QueryAdminShopDomainsArgs = {
+  shop_id: Scalars['ID']['input'];
+};
+
+
+export type QueryAiImageGenerationArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type QueryAiImageGenerationsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  productId?: InputMaybe<Scalars['String']['input']>;
+  status?: InputMaybe<ImageGenStatus>;
+};
+
+
+export type QueryAiRecommendationsArgs = {
+  input?: InputMaybe<AiRecommendationsInput>;
+};
+
+
+export type QueryAiSearchArgs = {
+  input: AiSearchInput;
+};
+
+
+export type QueryAiSpendByPlanArgs = {
+  from?: InputMaybe<Scalars['DateTime']['input']>;
+  plan_id?: InputMaybe<Scalars['String']['input']>;
+  to?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+
+export type QueryAiSpendByShopArgs = {
+  feature_key?: InputMaybe<Scalars['String']['input']>;
+  from?: InputMaybe<Scalars['DateTime']['input']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  plan_id?: InputMaybe<Scalars['String']['input']>;
+  shop_id?: InputMaybe<Scalars['String']['input']>;
+  to?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+
+export type QueryAttachmentArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type QueryAttachmentUsageArgs = {
+  url: Scalars['String']['input'];
+};
+
+
+export type QueryAttachmentsArgs = {
+  context?: InputMaybe<Scalars['String']['input']>;
+  ids?: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  maxSize?: InputMaybe<Scalars['Int']['input']>;
+  minSize?: InputMaybe<Scalars['Int']['input']>;
+  order?: InputMaybe<Scalars['String']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+  search?: InputMaybe<Scalars['String']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  types?: InputMaybe<Array<Scalars['String']['input']>>;
+};
+
+
+export type QueryAttributeArgs = {
+  id?: InputMaybe<Scalars['String']['input']>;
+  slug?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryAttributesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type QueryAttributionReportArgs = {
+  input: AttributionReportInput;
+};
+
+
+export type QueryAuditAnomaliesArgs = {
+  input?: InputMaybe<AuditAnomaliesInput>;
+};
+
+
+export type QueryAuthorArgs = {
+  slug: Scalars['String']['input'];
+};
+
+
+export type QueryAuthorsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type QueryBalanceTransactionsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type QueryBankTransferArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type QueryBankTransfersArgs = {
+  limit?: Scalars['Int']['input'];
+  page?: Scalars['Int']['input'];
+  status?: InputMaybe<BankTransferStatus>;
+};
+
+
+export type QueryBanksArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryBannerArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type QueryBannersArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type QueryBecameSellerRequestsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+  status?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryCartArgs = {
+  session_id?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryCategoryAttributesArgs = {
+  locale?: Scalars['String']['input'];
+  systemCategoryId: Scalars['String']['input'];
+};
+
+
+export type QueryCitiesArgs = {
+  page?: Scalars['Int']['input'];
+  perPage?: Scalars['Int']['input'];
+};
+
+
+export type QueryCollectionArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type QueryCollectionItemsArgs = {
+  collection_id: Scalars['String']['input'];
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type QueryCollectionsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+  search?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryCommissionArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type QueryCommissionsArgs = {
+  language?: InputMaybe<Scalars['String']['input']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+  shop_id?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryContactArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type QueryContactsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+  search?: InputMaybe<Scalars['String']['input']>;
+  status?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryCouponArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type QueryCouponPerformanceArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type QueryCouponStatsArgs = {
+  range?: InputMaybe<CouponStatsRangeInput>;
+};
+
+
+export type QueryCouponsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+  scope?: InputMaybe<CouponScopeFilter>;
+  scopes?: InputMaybe<Array<CouponScopeFilter>>;
+  search?: InputMaybe<Scalars['String']['input']>;
+  status?: InputMaybe<CouponStatusFilter>;
+  statuses?: InputMaybe<Array<CouponStatusFilter>>;
+  type?: InputMaybe<CouponType>;
+  types?: InputMaybe<Array<CouponType>>;
+};
+
+
+export type QueryCustomerAnalyticsArgs = {
+  input: CustomerAnalyticsInput;
+};
+
+
+export type QueryCustomerSegmentArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type QueryCustomerSegmentsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+  search?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryDeliveryTimeArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type QueryDeliveryTimesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type QueryDescribeCustomerSegmentArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+  query: Scalars['String']['input'];
+};
+
+
+export type QueryDirectConversationArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type QueryDirectConversationsArgs = {
+  limit?: Scalars['Int']['input'];
+  page?: Scalars['Int']['input'];
+};
+
+
+export type QueryDisputeArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type QueryDisputesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type QueryDomainRequestArgs = {
+  hostname: Scalars['String']['input'];
+};
+
+
+export type QueryDraftOrderArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type QueryDraftOrdersArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type QueryEnhanceRunArgs = {
+  runId: Scalars['String']['input'];
+};
+
+
+export type QueryEnhanceRunsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type QueryExplainCustomerSegmentArgs = {
+  baseCount: Scalars['Int']['input'];
+  count: Scalars['Int']['input'];
+  locale?: InputMaybe<Scalars['String']['input']>;
+  query: Scalars['String']['input'];
+};
+
+
+export type QueryFaqArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type QueryFaqsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type QueryFlashSaleArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type QueryFlashSalesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type QueryInWishlistArgs = {
+  product_id: Scalars['String']['input'];
+};
+
+
+export type QueryInsightsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type QueryInventoryAnalyticsArgs = {
+  input: InventoryAnalyticsInput;
+};
+
+
+export type QueryInventoryHistoryArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  location_id?: InputMaybe<Scalars['String']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+  product_id?: InputMaybe<Scalars['String']['input']>;
+  variation_option_id?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryInventoryItemsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  location_id?: InputMaybe<Scalars['String']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+  search?: InputMaybe<Scalars['String']['input']>;
+  status?: InputMaybe<InventoryStockStatus>;
+};
+
+
+export type QueryInventoryLevelsArgs = {
+  include_variations?: InputMaybe<Scalars['Boolean']['input']>;
+  product_id?: InputMaybe<Scalars['String']['input']>;
+  variation_option_id?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryInventoryTransferArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type QueryInventoryTransferStatsArgs = {
+  days?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type QueryInventoryTransferTimelineArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type QueryInventoryTransfersArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+  search?: InputMaybe<Scalars['String']['input']>;
+  status?: InputMaybe<InventoryTransferStatus>;
+  statuses?: InputMaybe<Array<InventoryTransferStatus>>;
+  tag?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryIsShopSlugAvailableArgs = {
+  excludeShopId?: InputMaybe<Scalars['String']['input']>;
+  slug: Scalars['String']['input'];
+};
+
+
+export type QueryLanguageArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type QueryLanguagesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type QueryLookupNationalAddressArgs = {
+  input: LookupNationalAddressInput;
+};
+
+
+export type QueryLowStockProductsArgs = {
+  threshold?: Scalars['Int']['input'];
+};
+
+
+export type QueryManufacturerArgs = {
+  slug: Scalars['String']['input'];
+};
+
+
+export type QueryManufacturersArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type QueryMenuArgs = {
+  slug: Scalars['String']['input'];
+};
+
+
+export type QueryMenusArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type QueryMyAddressesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type QueryMyDigitalFilesArgs = {
+  limit?: Scalars['Int']['input'];
+  page?: Scalars['Int']['input'];
+};
+
+
+export type QueryMyInvoicesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type QueryMyPaymentMethodsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type QueryMyShortLinksArgs = {
+  page?: Scalars['Int']['input'];
+};
+
+
+export type QueryMyUsageEventsArgs = {
+  feature_key?: InputMaybe<Scalars['String']['input']>;
+  from?: InputMaybe<Scalars['DateTime']['input']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+  to?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+
+export type QueryMyUsageSummaryArgs = {
+  from?: InputMaybe<Scalars['DateTime']['input']>;
+  to?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+
+export type QueryNegotiationAvailableArgs = {
+  product_id: Scalars['String']['input'];
+  variation_option_id?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryNegotiationOutcomeRollupsArgs = {
+  filter?: InputMaybe<NegotiationOutcomesFilterInput>;
+  granularity?: InputMaybe<Scalars['String']['input']>;
+  product_limit?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type QueryNegotiationOutcomesArgs = {
+  filter?: InputMaybe<NegotiationOutcomesFilterInput>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type QueryNegotiationPoliciesArgs = {
+  product_id: Scalars['String']['input'];
+};
+
+
+export type QueryNegotiationSessionArgs = {
+  guest_key?: InputMaybe<Scalars['String']['input']>;
+  session_id: Scalars['String']['input'];
+};
+
+
+export type QueryNotificationTemplateArgs = {
+  event_key: Scalars['String']['input'];
+};
+
+
+export type QueryNotificationsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+  unread_only?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+export type QueryOrderArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type QueryOrderBankTransfersArgs = {
+  order_id: Scalars['String']['input'];
+};
+
+
+export type QueryOrderByTrackingNumberArgs = {
+  tracking_number: Scalars['String']['input'];
+};
+
+
+export type QueryOrderShippingEconomicsArgs = {
+  order_id: Scalars['String']['input'];
+};
+
+
+export type QueryOrdersArgs = {
+  filters?: InputMaybe<FilterOrdersInput>;
+};
+
+
+export type QueryOrdersByStatusArgs = {
+  period?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryOtpDeliveryErrorGroupsArgs = {
+  from?: InputMaybe<Scalars['DateTime']['input']>;
+  purpose?: InputMaybe<OtpPurpose>;
+  search?: InputMaybe<Scalars['String']['input']>;
+  status?: InputMaybe<OtpLogStatus>;
+  to?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+
+export type QueryOtpLogsArgs = {
+  from?: InputMaybe<Scalars['DateTime']['input']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+  purpose?: InputMaybe<OtpPurpose>;
+  search?: InputMaybe<Scalars['String']['input']>;
+  status?: InputMaybe<OtpLogStatus>;
+  to?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+
+export type QueryPageBySlugArgs = {
+  slug: Scalars['String']['input'];
+};
+
+
+export type QueryPagesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type QueryPayLinkOrderArgs = {
+  token: Scalars['String']['input'];
+};
+
+
+export type QueryPaymentIntentsArgs = {
+  order_id: Scalars['String']['input'];
+};
+
+
+export type QueryPendingStockNotificationsArgs = {
+  product_id: Scalars['String']['input'];
+  variation_option_id?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryPlanEntitlementsArgs = {
+  plan_id: Scalars['String']['input'];
+};
+
+
+export type QueryPreviewCollectionArgs = {
+  input: CollectionPreviewInput;
+};
+
+
+export type QueryPreviewCustomerSegmentArgs = {
+  query: Scalars['String']['input'];
+  sampleSize?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type QueryPreviewNegotiationFloorArgs = {
+  input: PreviewNegotiationFloorInput;
+};
+
+
+export type QueryPreviewPlanChangeArgs = {
+  input: StartPlanCheckoutInput;
+};
+
+
+export type QueryProductArgs = {
+  slug: Scalars['String']['input'];
+};
+
+
+export type QueryProductCategoriesArgs = {
+  locale?: Scalars['String']['input'];
+};
+
+
+export type QueryProductCompositionArgs = {
+  product_id: Scalars['String']['input'];
+};
+
+
+export type QueryProductNegotiationStatusesArgs = {
+  product_ids: Array<Scalars['String']['input']>;
+};
+
+
+export type QueryProductRelationsArgs = {
+  product_id: Scalars['String']['input'];
+  type?: InputMaybe<ProductRelationType>;
+};
+
+
+export type QueryProductsArgs = {
+  filters?: InputMaybe<ProductFilterInput>;
+};
+
+
+export type QueryPublicVendorAgentConversationByTokenArgs = {
+  token: Scalars['String']['input'];
+};
+
+
+export type QueryPurchaseOrderArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type QueryPurchaseOrdersArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  location_id?: InputMaybe<Scalars['String']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+  status?: InputMaybe<PurchaseOrderStatus>;
+  supplier_id?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryQuestionsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+  product_id: Scalars['String']['input'];
+};
+
+
+export type QueryReferralEarningsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+  status?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryRefundArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type QueryRefundPoliciesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type QueryRefundPolicyArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type QueryRefundsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type QueryReturnArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type QueryReturnsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type QueryReviewArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type QueryReviewsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+  product_id?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryRolePermissionArgs = {
+  role: Scalars['String']['input'];
+};
+
+
+export type QueryRunReportArgs = {
+  input: RunReportInput;
+};
+
+
+export type QueryRunSavedReportArgs = {
+  end: Scalars['DateTime']['input'];
+  id: Scalars['ID']['input'];
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  start: Scalars['DateTime']['input'];
+};
+
+
+export type QuerySalesByChannelArgs = {
+  input: SalesByChannelInput;
+};
+
+
+export type QuerySalesReportArgs = {
+  input: SalesReportInput;
+};
+
+
+export type QuerySavedPromptArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type QuerySavedPromptsArgs = {
+  category?: InputMaybe<Scalars['String']['input']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+  shopId?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QuerySegmentInsightsArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type QuerySegmentTemplatesArgs = {
+  category?: InputMaybe<SegmentTemplateCategory>;
+};
+
+
+export type QuerySellThroughProductsArgs = {
+  end?: InputMaybe<Scalars['DateTime']['input']>;
+  limit?: Scalars['Int']['input'];
+  start?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+
+export type QuerySettingArgs = {
+  key: Scalars['String']['input'];
+  language?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QuerySettingsArgs = {
+  language?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryShipmentArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type QueryShipmentsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  order_id?: InputMaybe<Scalars['String']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+  status?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryShippingRuleArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type QueryShippingRulesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type QueryShopArgs = {
+  slug: Scalars['String']['input'];
+};
+
+
+export type QueryShopBankAccountsArgs = {
+  include_inactive?: Scalars['Boolean']['input'];
+};
+
+
+export type QueryShopByHostnameArgs = {
+  hostname: Scalars['String']['input'];
+};
+
+
+export type QueryShopCustomersArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+  search?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryShopDomainConfigurationArgs = {
+  id: Scalars['ID']['input'];
+};
+
+
+export type QueryShopOverridesArgs = {
+  shop_id: Scalars['String']['input'];
+};
+
+
+export type QueryShopReviewsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+  product_id?: InputMaybe<Scalars['String']['input']>;
+  rating?: InputMaybe<Scalars['Int']['input']>;
+  search?: InputMaybe<Scalars['String']['input']>;
+  sort?: InputMaybe<ShopReviewSort>;
+};
+
+
+export type QueryShopSubscriptionsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+  plan_id?: InputMaybe<Scalars['String']['input']>;
+  search?: InputMaybe<Scalars['String']['input']>;
+  shop_id?: InputMaybe<Scalars['String']['input']>;
+  statuses?: InputMaybe<Array<SubscriptionStatus>>;
+};
+
+
+export type QueryShopWhatsAppThreadArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type QueryShopWhatsAppThreadsArgs = {
+  limit?: Scalars['Int']['input'];
+  page?: Scalars['Int']['input'];
+  search?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryShopsArgs = {
+  is_approved?: InputMaybe<Scalars['Boolean']['input']>;
+  limit?: Scalars['Int']['input'];
+  page?: Scalars['Int']['input'];
+  search?: InputMaybe<Scalars['String']['input']>;
+  status?: InputMaybe<ShopStatusFilter>;
+};
+
+
+export type QueryShortLinkArgs = {
+  code: Scalars['String']['input'];
+};
+
+
+export type QueryStorageUsageArgs = {
+  largest_count?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type QueryStoreImportJobArgs = {
+  id: Scalars['ID']['input'];
+  include_csv?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+export type QueryStoreImportJobsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type QueryStoreImportMediaIssuesArgs = {
+  job_id: Scalars['ID']['input'];
+};
+
+
+export type QueryStoreImportPreviewArgs = {
+  id: Scalars['ID']['input'];
+};
+
+
+export type QueryStoreImportProductsArgs = {
+  job_id: Scalars['ID']['input'];
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  only_incomplete?: InputMaybe<Scalars['Boolean']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+  search?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryStoreNoticeArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type QueryStoreNoticesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type QueryStorefrontProductArgs = {
+  slug: Scalars['String']['input'];
+};
+
+
+export type QueryStorefrontProductCompositionArgs = {
+  product_id: Scalars['String']['input'];
+};
+
+
+export type QueryStorefrontProductRelationsArgs = {
+  product_id: Scalars['String']['input'];
+  type?: InputMaybe<ProductRelationType>;
+};
+
+
+export type QueryStorefrontProductsArgs = {
+  filters?: InputMaybe<ProductFilterInput>;
+};
+
+
+export type QueryStorefrontRecommendationsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  product_id?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QuerySupplierArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type QuerySuppliersArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+  search?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QuerySystemCategoriesFlatArgs = {
+  locale?: Scalars['String']['input'];
+};
+
+
+export type QuerySystemCategoryArgs = {
+  id: Scalars['String']['input'];
+  locale?: Scalars['String']['input'];
+};
+
+
+export type QuerySystemCategoryTreeArgs = {
+  locale?: Scalars['String']['input'];
+  rootId?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryTagArgs = {
+  slug: Scalars['String']['input'];
+};
+
+
+export type QueryTagsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type QueryTargetArgs = {
+  id: Scalars['ID']['input'];
+};
+
+
+export type QueryTargetsArgs = {
+  status?: InputMaybe<Array<TargetStatus>>;
+};
+
+
+export type QueryTaxArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type QueryTaxesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+  shop_id?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryTermsAndConditionArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type QueryTermsAndConditionsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type QueryTopProductsArgs = {
+  by?: InputMaybe<TopProductsBy>;
+  end?: InputMaybe<Scalars['DateTime']['input']>;
+  limit?: Scalars['Int']['input'];
+  start?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+
+export type QueryUsageLedgerArgs = {
+  feature_key?: InputMaybe<Scalars['String']['input']>;
+  from?: InputMaybe<Scalars['DateTime']['input']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+  shop_id?: InputMaybe<Scalars['String']['input']>;
+  to?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+
+export type QueryUsageSummaryArgs = {
+  from?: InputMaybe<Scalars['DateTime']['input']>;
+  shop_id?: InputMaybe<Scalars['String']['input']>;
+  to?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+
+export type QueryUsageTopShopsArgs = {
+  feature_key?: InputMaybe<Scalars['String']['input']>;
+  from?: InputMaybe<Scalars['DateTime']['input']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  to?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+
+export type QueryUserArgs = {
+  id: Scalars['ID']['input'];
+};
+
+
+export type QueryUsersArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+  role?: InputMaybe<UserRole>;
+  search?: InputMaybe<Scalars['String']['input']>;
+  status?: InputMaybe<UserStatusFilter>;
+};
+
+
+export type QueryVendorAgentConversationArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type QueryVendorAgentConversationsArgs = {
+  search?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryVendorSignupEmailAvailableArgs = {
+  email: Scalars['String']['input'];
+};
+
+
+export type QueryVendorSignupSlugAvailableArgs = {
+  slug: Scalars['String']['input'];
+};
+
+
+export type QueryVerifyDownloadTokenArgs = {
+  token: Scalars['String']['input'];
+};
+
+
+export type QueryWebhookDeliveriesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  subscription_id: Scalars['String']['input'];
+};
+
+
+export type QueryWishlistsArgs = {
+  limit?: Scalars['Int']['input'];
+  page?: Scalars['Int']['input'];
+};
+
+
+export type QueryWithdrawalArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type QueryWithdrawalsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+  status?: InputMaybe<WithdrawalStatus>;
+};
+
+
+export type QueryYearlySalesArgs = {
+  year?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type QuestionEntry = {
+  __typename?: 'QuestionEntry';
+  answer?: Maybe<Scalars['String']['output']>;
+  answered_by?: Maybe<Scalars['String']['output']>;
+  created_at: Scalars['String']['output'];
+  customer_id: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  product_id: Scalars['String']['output'];
+  question: Scalars['String']['output'];
+  shop_id?: Maybe<Scalars['String']['output']>;
+  updated_at: Scalars['String']['output'];
+};
+
+export type QuestionPaginationMeta = {
+  __typename?: 'QuestionPaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type QuestionResponse = {
+  __typename?: 'QuestionResponse';
+  data?: Maybe<QuestionEntry>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type QuestionsResponse = {
+  __typename?: 'QuestionsResponse';
+  data: Array<QuestionEntry>;
+  meta: QuestionPaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type QuotaPeriod =
+  | 'DAY'
+  | 'MONTH'
+  | 'NONE'
+  | 'YEAR';
+
+export type ReceiveInventoryTransferInput = {
+  lines: Array<ReceiveTransferLineInput>;
+  transfer_id: Scalars['String']['input'];
+};
+
+export type ReceivePoLineInput = {
+  accepted_quantity?: InputMaybe<Scalars['Int']['input']>;
+  line_id: Scalars['String']['input'];
+  rejected_quantity?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type ReceivePurchaseOrderInput = {
+  lines: Array<ReceivePoLineInput>;
+  purchase_order_id: Scalars['String']['input'];
+};
+
+export type ReceiveTransferLineInput = {
+  line_id: Scalars['String']['input'];
+  received_quantity: Scalars['Int']['input'];
+  rejected_quantity?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type RecordAbandonedCartDraftInput = {
+  cart_id: Scalars['String']['input'];
+  draft_order_id: Scalars['String']['input'];
+};
+
+export type ReferralEarningEntry = {
+  __typename?: 'ReferralEarningEntry';
+  amount_cents: Scalars['Int']['output'];
+  created_at: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  metadata?: Maybe<Scalars['JSON']['output']>;
+  referral_coupon_id: Scalars['String']['output'];
+  status: Scalars['String']['output'];
+  subscriber_user_id: Scalars['String']['output'];
+  subscription_shop_id?: Maybe<Scalars['String']['output']>;
+  updated_at: Scalars['String']['output'];
+};
+
+export type ReferralEarningResponse = {
+  __typename?: 'ReferralEarningResponse';
+  data?: Maybe<ReferralEarningEntry>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type ReferralEarningsResponse = {
+  __typename?: 'ReferralEarningsResponse';
+  data: Array<ReferralEarningEntry>;
+  meta: ReferralPaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type ReferralPaginationMeta = {
+  __typename?: 'ReferralPaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type RefreshTokenData = {
+  __typename?: 'RefreshTokenData';
+  access_token: Scalars['String']['output'];
+  access_token_expires_at: Scalars['String']['output'];
+  refresh_token: Scalars['String']['output'];
+  refresh_token_expires_at: Scalars['String']['output'];
+  token_type: Scalars['String']['output'];
+};
+
+export type RefreshTokenResponse = {
+  __typename?: 'RefreshTokenResponse';
+  data?: Maybe<RefreshTokenData>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type RefundDetailEntry = {
+  __typename?: 'RefundDetailEntry';
+  amount_cents: Scalars['Int']['output'];
+  created_at: Scalars['String']['output'];
+  customer_id: Scalars['String']['output'];
+  description?: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  images?: Maybe<Scalars['JSON']['output']>;
+  is_partial: Scalars['Boolean']['output'];
+  order_id: Scalars['String']['output'];
+  product_id?: Maybe<Scalars['String']['output']>;
+  refund_quantity?: Maybe<Scalars['Int']['output']>;
+  shop_id?: Maybe<Scalars['String']['output']>;
+  status: Scalars['String']['output'];
+  title?: Maybe<Scalars['String']['output']>;
+  updated_at: Scalars['String']['output'];
+};
+
+export type RefundLineInput = {
+  order_product_id: Scalars['String']['input'];
+  quantity: Scalars['Int']['input'];
+  reason?: InputMaybe<Scalars['String']['input']>;
+  restock?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type RefundPaginationMeta = {
+  __typename?: 'RefundPaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type RefundPoliciesResponse = {
+  __typename?: 'RefundPoliciesResponse';
+  data: Array<RefundPolicyEntry>;
+  meta: RefundPolicyPaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type RefundPolicyEntry = {
+  __typename?: 'RefundPolicyEntry';
+  created_at: Scalars['String']['output'];
+  description?: Maybe<Scalars['JSON']['output']>;
+  id: Scalars['String']['output'];
+  shop_id?: Maybe<Scalars['String']['output']>;
+  slug: Scalars['String']['output'];
+  status: Scalars['String']['output'];
+  target: Scalars['String']['output'];
+  title: Scalars['JSON']['output'];
+  updated_at: Scalars['String']['output'];
+};
+
+export type RefundPolicyPaginationMeta = {
+  __typename?: 'RefundPolicyPaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type RefundPolicyResponse = {
+  __typename?: 'RefundPolicyResponse';
+  data?: Maybe<RefundPolicyEntry>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type RefundResponse = {
+  __typename?: 'RefundResponse';
+  data?: Maybe<RefundDetailEntry>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type RefundsResponse = {
+  __typename?: 'RefundsResponse';
+  data: Array<RefundDetailEntry>;
+  meta: RefundPaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type RegisterInput = {
+  email?: InputMaybe<Scalars['String']['input']>;
+  name: Scalars['String']['input'];
+  password: Scalars['String']['input'];
+  password_confirmation: Scalars['String']['input'];
+  phone?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type RenewShopSubscriptionInput = {
+  note?: InputMaybe<Scalars['String']['input']>;
+  period_days?: InputMaybe<Scalars['Int']['input']>;
+  shop_id: Scalars['String']['input'];
+};
+
+export type ReorderProductRelationInput = {
+  id: Scalars['String']['input'];
+  position: Scalars['Int']['input'];
+};
+
+export type ReplyToWhatsAppThreadInput = {
+  body: Scalars['String']['input'];
+  conversation_id: Scalars['String']['input'];
+};
+
+export type ReportColumn = {
+  __typename?: 'ReportColumn';
+  key: Scalars['String']['output'];
+  kind: Scalars['String']['output'];
+  role: Scalars['String']['output'];
+};
+
+export type ReportColumnSchema = {
+  __typename?: 'ReportColumnSchema';
+  availability: Scalars['String']['output'];
+  key: Scalars['String']['output'];
+  kind: Scalars['String']['output'];
+  role: Scalars['String']['output'];
+};
+
+export type ReportDimension =
+  | 'COUNTRY'
+  | 'DAY'
+  | 'LOGISTICS_PROVIDER'
+  | 'MONTH'
+  | 'PAYMENT_GATEWAY'
+  | 'WEEK';
+
+export type ReportFilterInput = {
+  dimension: ReportDimension;
+  op: ReportFilterOp;
+  value: Scalars['JSON']['input'];
+};
+
+export type ReportFilterOp =
+  | 'EQ'
+  | 'GT'
+  | 'GTE'
+  | 'IN'
+  | 'LT'
+  | 'LTE'
+  | 'NEQ'
+  | 'NOT_IN';
+
+export type ReportMeasure =
+  | 'AOV'
+  | 'CONVERSION'
+  | 'DISCOUNTS'
+  | 'GROSS_SALES'
+  | 'NET_SALES'
+  | 'ORDERS_COUNT'
+  | 'SESSIONS'
+  | 'SHIPPING'
+  | 'TAXES'
+  | 'TOTAL_SALES';
+
+export type ReportResult = {
+  __typename?: 'ReportResult';
+  columns: Array<ReportColumn>;
+  currency: Scalars['String']['output'];
+  rows: Scalars['JSON']['output'];
+  source: Scalars['String']['output'];
+  timezone: Scalars['String']['output'];
+  totals: Scalars['JSON']['output'];
+  truncated: Scalars['Boolean']['output'];
+  unavailable_measures: Array<ReportMeasure>;
+};
+
+export type ReportResultResponse = {
+  __typename?: 'ReportResultResponse';
+  data: ReportResult;
+  success: Scalars['Boolean']['output'];
+};
+
+export type ReportSchema = {
+  __typename?: 'ReportSchema';
+  dimensions: Array<ReportColumnSchema>;
+  max_dimensions: Scalars['Int']['output'];
+  max_range_days: Scalars['Int']['output'];
+  measures: Array<ReportColumnSchema>;
+};
+
+export type ReportSchemaResponse = {
+  __typename?: 'ReportSchemaResponse';
+  data: ReportSchema;
+  success: Scalars['Boolean']['output'];
+};
+
+export type ReportSortInput = {
+  direction?: InputMaybe<Scalars['String']['input']>;
+  key: Scalars['String']['input'];
+};
+
+export type RequestBecameSellerInput = {
+  message?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  phone?: InputMaybe<Scalars['String']['input']>;
+  url?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type RequestMagicLinkInput = {
+  options?: InputMaybe<Scalars['JSON']['input']>;
+  path?: InputMaybe<Scalars['String']['input']>;
+  phone_number: Scalars['String']['input'];
+  redirect_url?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type RequestWhatsAppPairingCodeInput = {
+  phone: Scalars['String']['input'];
+};
+
+export type ResetPasswordInput = {
+  /** OTP code sent via email/SMS */
+  code: Scalars['String']['input'];
+  /** Email or phone used in forgetPassword */
+  identifier: Scalars['String']['input'];
+  password: Scalars['String']['input'];
+  password_confirmation: Scalars['String']['input'];
+};
+
+export type ResetShopUsageInput = {
+  feature_key?: InputMaybe<Scalars['String']['input']>;
+  note?: InputMaybe<Scalars['String']['input']>;
+  shop_id: Scalars['String']['input'];
+};
+
+export type ResolvedAddressEntry = {
+  __typename?: 'ResolvedAddressEntry';
+  building_number?: Maybe<Scalars['String']['output']>;
+  city: Scalars['String']['output'];
+  /** The short code this was resolved from. */
+  code: Scalars['String']['output'];
+  /** ISO-3166-1 alpha-2. */
+  country: Scalars['String']['output'];
+  district?: Maybe<Scalars['String']['output']>;
+  /** One-line address, as the registry formats it. */
+  formatted: Scalars['String']['output'];
+  postcode?: Maybe<Scalars['String']['output']>;
+  street?: Maybe<Scalars['String']['output']>;
+};
+
+export type ResolvedAddressResponse = {
+  __typename?: 'ResolvedAddressResponse';
+  data?: Maybe<ResolvedAddressEntry>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type ReturnEntry = {
+  __typename?: 'ReturnEntry';
+  closed_at?: Maybe<Scalars['String']['output']>;
+  created_at: Scalars['String']['output'];
+  customer_id: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  line_items: Array<ReturnLineItemEntry>;
+  note?: Maybe<Scalars['String']['output']>;
+  order_id: Scalars['String']['output'];
+  reason?: Maybe<Scalars['String']['output']>;
+  received_at?: Maybe<Scalars['String']['output']>;
+  /** Refund issued when the goods were received. */
+  refund_id?: Maybe<Scalars['String']['output']>;
+  requested_at: Scalars['String']['output'];
+  restocking_fee_cents: Scalars['Int']['output'];
+  shop_id?: Maybe<Scalars['String']['output']>;
+  status: Scalars['String']['output'];
+};
+
+export type ReturnLineItemEntry = {
+  __typename?: 'ReturnLineItemEntry';
+  id: Scalars['String']['output'];
+  order_product_id: Scalars['String']['output'];
+  quantity: Scalars['Int']['output'];
+  reason?: Maybe<Scalars['String']['output']>;
+  restock: Scalars['Boolean']['output'];
+};
+
+export type ReturnPaginationMeta = {
+  __typename?: 'ReturnPaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type ReturnResponse = {
+  __typename?: 'ReturnResponse';
+  data?: Maybe<ReturnEntry>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+/** Merchandise return (RMA) lifecycle status */
+export type ReturnStatus =
+  | 'APPROVED'
+  | 'CLOSED'
+  | 'IN_TRANSIT'
+  | 'RECEIVED'
+  | 'REJECTED'
+  | 'REQUESTED';
+
+export type ReturnsResponse = {
+  __typename?: 'ReturnsResponse';
+  data: Array<ReturnEntry>;
+  meta: ReturnPaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type RevertNotificationTemplateInput = {
+  event_key: Scalars['String']['input'];
+  to: RevertTarget;
+};
+
+/** Restore a notification template to its previous or default state. */
+export type RevertTarget =
+  | 'DEFAULT'
+  | 'PREVIOUS';
+
+export type ReviewBankTransferInput = {
+  id: Scalars['String']['input'];
+  rejection_reason?: InputMaybe<Scalars['String']['input']>;
+  status: BankTransferStatus;
+};
+
+export type ReviewEntry = {
+  __typename?: 'ReviewEntry';
+  abusive_reports_count: Scalars['Int']['output'];
+  comment: Scalars['String']['output'];
+  created_at: Scalars['String']['output'];
+  customer_id: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  my_feedback?: Maybe<Scalars['JSON']['output']>;
+  negative_feedbacks_count: Scalars['Int']['output'];
+  order_id: Scalars['String']['output'];
+  photos?: Maybe<Scalars['JSON']['output']>;
+  positive_feedbacks_count: Scalars['Int']['output'];
+  product_id: Scalars['String']['output'];
+  rating: Scalars['Int']['output'];
+  shop_id: Scalars['String']['output'];
+  updated_at: Scalars['String']['output'];
+  variation_option_id?: Maybe<Scalars['String']['output']>;
+};
+
+export type ReviewPaginationMeta = {
+  __typename?: 'ReviewPaginationMeta';
+  average_rating: Scalars['Float']['output'];
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type ReviewRatingBucket = {
+  __typename?: 'ReviewRatingBucket';
+  count: Scalars['Int']['output'];
+  rating: Scalars['Int']['output'];
+};
+
+export type ReviewResponse = {
+  __typename?: 'ReviewResponse';
+  data?: Maybe<ReviewEntry>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type ReviewsResponse = {
+  __typename?: 'ReviewsResponse';
+  data: Array<ReviewEntry>;
+  meta: ReviewPaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type RolePermission = {
+  __typename?: 'RolePermission';
+  permissions: Array<Scalars['String']['output']>;
+  role: Scalars['String']['output'];
+};
+
+export type RolePermissionResponse = {
+  __typename?: 'RolePermissionResponse';
+  data?: Maybe<RolePermission>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type RolePermissionsListResponse = {
+  __typename?: 'RolePermissionsListResponse';
+  data: Array<RolePermission>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type RunReportInput = {
+  dimensions: Array<ReportDimension>;
+  end: Scalars['DateTime']['input'];
+  filters?: InputMaybe<Array<ReportFilterInput>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  measures: Array<ReportMeasure>;
+  sort?: InputMaybe<Array<ReportSortInput>>;
+  start: Scalars['DateTime']['input'];
+};
+
+/** Pricing mechanism: FIXED_PRICE (buy-it-now), NEGOTIABLE (chat), AUCTION (bidding) */
+export type SaleType =
+  | 'AUCTION'
+  | 'FIXED_PRICE'
+  | 'NEGOTIABLE';
+
+export type SalesBreakdown = {
+  __typename?: 'SalesBreakdown';
+  average_order_value_cents: Scalars['Int']['output'];
+  cogs_cents: Scalars['Int']['output'];
+  cost_coverage_bps: Scalars['Int']['output'];
+  discounts_cents: Scalars['Int']['output'];
+  fees_cents: Scalars['Int']['output'];
+  fulfilled_orders_count: Scalars['Int']['output'];
+  gross_profit_cents: Scalars['Int']['output'];
+  gross_sales_cents: Scalars['Int']['output'];
+  is_estimated: Scalars['Boolean']['output'];
+  margin_bps: Scalars['Int']['output'];
+  net_profit_cents: Scalars['Int']['output'];
+  net_sales_cents: Scalars['Int']['output'];
+  orders_count: Scalars['Int']['output'];
+  return_fees_cents: Scalars['Int']['output'];
+  returning_customer_rate_bps: Scalars['Int']['output'];
+  returns_cents: Scalars['Int']['output'];
+  shipping_cents: Scalars['Int']['output'];
+  taxes_cents: Scalars['Int']['output'];
+  total_sales_cents: Scalars['Int']['output'];
+  units_missing_cost: Scalars['Int']['output'];
+};
+
+export type SalesByChannelInput = {
+  compare?: InputMaybe<Scalars['Boolean']['input']>;
+  end: Scalars['DateTime']['input'];
+  start: Scalars['DateTime']['input'];
+};
+
+export type SalesByChannelReport = {
+  __typename?: 'SalesByChannelReport';
+  currency: Scalars['String']['output'];
+  end: Scalars['DateTime']['output'];
+  granularity: Scalars['String']['output'];
+  orders_count: Scalars['Int']['output'];
+  rows: Array<SalesChannelRow>;
+  start: Scalars['DateTime']['output'];
+  timezone: Scalars['String']['output'];
+  total_sales_cents: Scalars['Int']['output'];
+};
+
+export type SalesByChannelResponse = {
+  __typename?: 'SalesByChannelResponse';
+  data: SalesByChannelReport;
+  success: Scalars['Boolean']['output'];
+};
+
+/** Where an order was placed, derived at read time: ONLINE_STORE (the storefront), TELEGRAM and WHATSAPP (the shop chat assistant, from orders.placed_via), DRAFT_ORDER (built by the merchant as a draft order and converted). */
+export type SalesChannel =
+  | 'DRAFT_ORDER'
+  | 'ONLINE_STORE'
+  | 'TELEGRAM'
+  | 'WHATSAPP';
+
+export type SalesChannelRow = {
+  __typename?: 'SalesChannelRow';
+  average_order_value_cents: Scalars['Int']['output'];
+  channel: SalesChannel;
+  connected: Scalars['Boolean']['output'];
+  customers_count: Scalars['Int']['output'];
+  orders_count: Scalars['Int']['output'];
+  previous_orders_count?: Maybe<Scalars['Int']['output']>;
+  previous_total_sales_cents?: Maybe<Scalars['Int']['output']>;
+  returns_cents: Scalars['Int']['output'];
+  series: Array<SalesTimePoint>;
+  share_bps: Scalars['Int']['output'];
+  total_sales_cents: Scalars['Int']['output'];
+};
+
+export type SalesReport = {
+  __typename?: 'SalesReport';
+  currency: Scalars['String']['output'];
+  current: SalesBreakdown;
+  end: Scalars['DateTime']['output'];
+  granularity: Scalars['String']['output'];
+  previous?: Maybe<SalesBreakdown>;
+  previous_series?: Maybe<Array<SalesTimePoint>>;
+  series: Array<SalesTimePoint>;
+  start: Scalars['DateTime']['output'];
+  timezone: Scalars['String']['output'];
+};
+
+export type SalesReportInput = {
+  compare?: InputMaybe<Scalars['Boolean']['input']>;
+  end: Scalars['DateTime']['input'];
+  granularity?: InputMaybe<Scalars['String']['input']>;
+  start: Scalars['DateTime']['input'];
+};
+
+export type SalesReportResponse = {
+  __typename?: 'SalesReportResponse';
+  data: SalesReport;
+  success: Scalars['Boolean']['output'];
+};
+
+export type SalesTimePoint = {
+  __typename?: 'SalesTimePoint';
+  date: Scalars['String']['output'];
+  orders_count: Scalars['Int']['output'];
+  total_sales_cents: Scalars['Int']['output'];
+};
+
+export type SaveEnhancePresetInput = {
+  id?: InputMaybe<Scalars['String']['input']>;
+  name: Scalars['String']['input'];
+  options?: InputMaybe<EnhanceImageOptionsInput>;
+  shots: Array<Scalars['String']['input']>;
+  variationCount?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type SaveIntegrationInput = {
+  credentials: Scalars['JSON']['input'];
+  enable?: InputMaybe<Scalars['Boolean']['input']>;
+  provider: Scalars['String']['input'];
+  type: IntegrationType;
+};
+
+export type SavePaymentMethodInput = {
+  default_card?: InputMaybe<Scalars['Boolean']['input']>;
+  expires?: InputMaybe<Scalars['String']['input']>;
+  fingerprint?: InputMaybe<Scalars['String']['input']>;
+  last4?: InputMaybe<Scalars['String']['input']>;
+  method_key?: InputMaybe<Scalars['String']['input']>;
+  network?: InputMaybe<Scalars['String']['input']>;
+  owner_name?: InputMaybe<Scalars['String']['input']>;
+  payment_gateway: Scalars['String']['input'];
+  type?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type SaveReportInput = {
+  description?: InputMaybe<Scalars['String']['input']>;
+  dimensions: Array<ReportDimension>;
+  filters?: InputMaybe<Array<ReportFilterInput>>;
+  is_pinned?: InputMaybe<Scalars['Boolean']['input']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  measures: Array<ReportMeasure>;
+  name: Scalars['String']['input'];
+  sort?: InputMaybe<Array<ReportSortInput>>;
+};
+
+export type SaveStoreImportOverridesInput = {
+  id: Scalars['ID']['input'];
+  /** Only the products the merchant touched. Merged field by field into what is stored, so a save never drops an edit it does not mention. */
+  products: Array<StoreImportProductPatchInput>;
+};
+
+export type SavedReportEntry = {
+  __typename?: 'SavedReportEntry';
+  created_at: Scalars['String']['output'];
+  description?: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  is_pinned: Scalars['Boolean']['output'];
+  name: Scalars['String']['output'];
+  spec: Scalars['JSON']['output'];
+};
+
+export type SavedReportResponse = {
+  __typename?: 'SavedReportResponse';
+  data: SavedReportEntry;
+  success: Scalars['Boolean']['output'];
+};
+
+export type SavedReportsResponse = {
+  __typename?: 'SavedReportsResponse';
+  data: Array<SavedReportEntry>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type SegmentDescriptionResponse = {
+  __typename?: 'SegmentDescriptionResponse';
+  description: Scalars['String']['output'];
+  success: Scalars['Boolean']['output'];
+};
+
+export type SegmentExplainData = {
+  __typename?: 'SegmentExplainData';
+  suggestions: Array<ExplainSuggestion>;
+  summary: Scalars['String']['output'];
+};
+
+export type SegmentExplainResponse = {
+  __typename?: 'SegmentExplainResponse';
+  data?: Maybe<SegmentExplainData>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type SegmentInsightsData = {
+  __typename?: 'SegmentInsightsData';
+  avgOrdersCount: Scalars['Float']['output'];
+  avgTotalSpentCents: Scalars['Int']['output'];
+  baseCount: Scalars['Int']['output'];
+  count: Scalars['Int']['output'];
+  emailSubscribedRatio: Scalars['Float']['output'];
+  medianTotalSpentCents: Scalars['Int']['output'];
+  sizeHistory: Array<InsightsHistoryPoint>;
+  smsSubscribedRatio: Scalars['Float']['output'];
+  topCities: Array<InsightsValueCount>;
+  topCountries: Array<InsightsValueCount>;
+  topLanguages: Array<InsightsValueCount>;
+};
+
+export type SegmentInsightsResponse = {
+  __typename?: 'SegmentInsightsResponse';
+  data?: Maybe<SegmentInsightsData>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type SegmentPreviewContact = {
+  __typename?: 'SegmentPreviewContact';
+  created_at: Scalars['String']['output'];
+  email?: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  meta?: Maybe<Scalars['JSON']['output']>;
+  name: Scalars['String']['output'];
+  phone_number?: Maybe<Scalars['String']['output']>;
+  updated_at: Scalars['String']['output'];
+};
+
+export type SegmentPreviewResponse = {
+  __typename?: 'SegmentPreviewResponse';
+  count: Scalars['Int']['output'];
+  message?: Maybe<Scalars['String']['output']>;
+  sample: Array<SegmentPreviewContact>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type SegmentTemplateCategory =
+  | 'ACQUISITION'
+  | 'AUDIENCE'
+  | 'BEHAVIOUR'
+  | 'ENGAGEMENT'
+  | 'GEOGRAPHY'
+  | 'TIER';
+
+export type SegmentTemplateEntry = {
+  __typename?: 'SegmentTemplateEntry';
+  category: SegmentTemplateCategory;
+  description: LocalizedText;
+  id: Scalars['String']['output'];
+  name: LocalizedText;
+  query: Scalars['String']['output'];
+};
+
+export type SegmentTemplatesResponse = {
+  __typename?: 'SegmentTemplatesResponse';
+  success: Scalars['Boolean']['output'];
+  templates: Array<SegmentTemplateEntry>;
+};
+
+export type SellThroughProduct = {
+  __typename?: 'SellThroughProduct';
+  id: Scalars['String']['output'];
+  name: Scalars['JSON']['output'];
+  on_hand: Scalars['Int']['output'];
+  sell_through_bps: Scalars['Int']['output'];
+  slug: Scalars['String']['output'];
+  sold_units: Scalars['Int']['output'];
+};
+
+export type SellThroughProductsResponse = {
+  __typename?: 'SellThroughProductsResponse';
+  data: Array<SellThroughProduct>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type SendAbandonedCartReminderInput = {
+  body: Scalars['String']['input'];
+  cart_id: Scalars['String']['input'];
+  channels: Array<AbandonedCartChannel>;
+  discount_expires_at?: InputMaybe<Scalars['DateTime']['input']>;
+  discount_percent?: InputMaybe<Scalars['Int']['input']>;
+  free_shipping?: InputMaybe<Scalars['Boolean']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type SendContactMessageInput = {
+  email: Scalars['String']['input'];
+  message: Scalars['String']['input'];
+  name: Scalars['String']['input'];
+  order_number?: InputMaybe<Scalars['String']['input']>;
+  website?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type SendCustomerSignInCodeInput = {
+  /** The customer's number: local (read in the shop's country) or international. */
+  phone: Scalars['String']['input'];
+};
+
+export type SendDirectMessageInput = {
+  body: Scalars['String']['input'];
+  conversation_id?: InputMaybe<Scalars['String']['input']>;
+  shop_id?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type SendNegotiationMessageInput = {
+  message: Scalars['String']['input'];
+  offer_cents?: InputMaybe<Scalars['Int']['input']>;
+  session_id: Scalars['String']['input'];
+};
+
+export type SendOtpInput = {
+  /** Email address or phone number */
+  identifier: Scalars['String']['input'];
+};
+
+export type SendWhatsAppTestInput = {
+  phone: Scalars['String']['input'];
+};
+
+export type SetAvailableInput = {
+  available: Scalars['Int']['input'];
+  location_id: Scalars['String']['input'];
+  note?: InputMaybe<Scalars['String']['input']>;
+  product_id?: InputMaybe<Scalars['String']['input']>;
+  variation_option_id?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type SetIntegrationEnabledInput = {
+  id: Scalars['String']['input'];
+  is_enabled: Scalars['Boolean']['input'];
+};
+
+export type SetNegotiationExcludedOptionsInput = {
+  excluded_variation_option_ids: Array<Scalars['String']['input']>;
+  product_id: Scalars['String']['input'];
+};
+
+export type SetNegotiationOptionFloorsInput = {
+  floors: Array<NegotiationOptionFloorInput>;
+  product_id: Scalars['String']['input'];
+};
+
+export type SetPlanEntitlementsInput = {
+  entitlements: Array<PlanEntitlementInput>;
+  plan_id: Scalars['String']['input'];
+};
+
+export type SetProductCompositionGroupInput = {
+  addon_cents?: InputMaybe<Scalars['Int']['input']>;
+  key: Scalars['String']['input'];
+  label?: InputMaybe<Scalars['String']['input']>;
+  max_count: Scalars['Int']['input'];
+  min_count: Scalars['Int']['input'];
+  parts: Array<SetProductCompositionPartInput>;
+  priced_by_ladder: Scalars['Boolean']['input'];
+  /** SINGLE or MULTI */
+  selection: Scalars['String']['input'];
+};
+
+export type SetProductCompositionInput = {
+  groups: Array<SetProductCompositionGroupInput>;
+  max_count: Scalars['Int']['input'];
+  min_count: Scalars['Int']['input'];
+  price_ladder_cents: Array<Scalars['Int']['input']>;
+  product_id: Scalars['String']['input'];
+  vessel_cap: Scalars['Int']['input'];
+};
+
+export type SetProductCompositionPartInput = {
+  addon_cents?: InputMaybe<Scalars['Int']['input']>;
+  cutout_url?: InputMaybe<Scalars['String']['input']>;
+  product_id: Scalars['String']['input'];
+};
+
+export type SetSenderEmailInput = {
+  email: Scalars['String']['input'];
+};
+
+export type SetShippingProviderAccountEnabledInput = {
+  account_id: Scalars['String']['input'];
+  is_enabled: Scalars['Boolean']['input'];
+};
+
+export type SetShopCarriersInput = {
+  carriers: Array<ShopCarrierInput>;
+};
+
+export type SetSubscriptionOverrideInput = {
+  config?: InputMaybe<Scalars['JSON']['input']>;
+  enabled?: InputMaybe<Scalars['Boolean']['input']>;
+  expires_at?: InputMaybe<Scalars['DateTime']['input']>;
+  feature_key: Scalars['String']['input'];
+  limit_value?: InputMaybe<Scalars['Int']['input']>;
+  note?: InputMaybe<Scalars['String']['input']>;
+  shop_id: Scalars['String']['input'];
+};
+
+export type SettingsEntry = {
+  __typename?: 'SettingsEntry';
+  created_at: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  key: Scalars['String']['output'];
+  language: Scalars['String']['output'];
+  shop_id?: Maybe<Scalars['String']['output']>;
+  updated_at: Scalars['String']['output'];
+  value?: Maybe<Scalars['JSON']['output']>;
+};
+
+export type SettingsListResponse = {
+  __typename?: 'SettingsListResponse';
+  data: Array<SettingsEntry>;
+  meta: SettingsPaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type SettingsPaginationMeta = {
+  __typename?: 'SettingsPaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type SettingsResponse = {
+  __typename?: 'SettingsResponse';
+  data?: Maybe<SettingsEntry>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type SharedConversationLookup = {
+  __typename?: 'SharedConversationLookup';
+  conversation?: Maybe<VendorAgentConversationEntry>;
+  /** "ok" → conversation populated. "pin_required" → recipient must POST a PIN to unlock. "not_found" → token missing, revoked, expired, or deleted. */
+  status: Scalars['String']['output'];
+};
+
+export type ShipmentEntry = {
+  __typename?: 'ShipmentEntry';
+  /** What the carrier billed for this shipment, in minor units of the shop’s currency. Returned to shop staff only — it is the shop’s cost base, and a customer reading it would learn the shop’s shipping margin. Null means the cost is not known yet, which is NOT the same as free. */
+  actual_cost_cents?: Maybe<Scalars['Int']['output']>;
+  cancelled_at?: Maybe<Scalars['String']['output']>;
+  /** provider | manual — whether the carrier reported the cost or a person entered it. Shop staff only. */
+  cost_source?: Maybe<Scalars['String']['output']>;
+  created_at: Scalars['String']['output'];
+  delivered_at?: Maybe<Scalars['String']['output']>;
+  delivery_company?: Maybe<Scalars['String']['output']>;
+  estimated_delivery?: Maybe<Scalars['String']['output']>;
+  external_shipment_id?: Maybe<Scalars['String']['output']>;
+  /** The Fulfillment this shipment executes. Null only on rows created before shipments were re-parented, and on those the backfill could not link unambiguously (an order carrying more than one fulfillment). */
+  fulfillment_id?: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  label_url?: Maybe<Scalars['String']['output']>;
+  notes?: Maybe<Scalars['String']['output']>;
+  order_id: Scalars['String']['output'];
+  packages?: Maybe<Array<ShipmentPackageEntry>>;
+  /** Registry slug of the provider that executed this shipment. `manual` means the merchant delivers it themselves — it can never result from a failed carrier call, because that path throws. Null on rows created before providers existed. */
+  provider_slug?: Maybe<Scalars['String']['output']>;
+  shipped_at?: Maybe<Scalars['String']['output']>;
+  shop_id?: Maybe<Scalars['String']['output']>;
+  status: Scalars['String']['output'];
+  tracking_events?: Maybe<Array<ShipmentTrackingEventEntry>>;
+  tracking_number?: Maybe<Scalars['String']['output']>;
+  tracking_url?: Maybe<Scalars['String']['output']>;
+  updated_at: Scalars['String']['output'];
+};
+
+export type ShipmentPackageEntry = {
+  __typename?: 'ShipmentPackageEntry';
+  height_mm?: Maybe<Scalars['Int']['output']>;
+  id: Scalars['String']['output'];
+  label_url?: Maybe<Scalars['String']['output']>;
+  length_mm?: Maybe<Scalars['Int']['output']>;
+  tracking_number?: Maybe<Scalars['String']['output']>;
+  weight_grams?: Maybe<Scalars['Int']['output']>;
+  width_mm?: Maybe<Scalars['Int']['output']>;
+};
+
+export type ShipmentPackageInput = {
+  height_mm?: InputMaybe<Scalars['Int']['input']>;
+  length_mm?: InputMaybe<Scalars['Int']['input']>;
+  weight_grams?: InputMaybe<Scalars['Int']['input']>;
+  width_mm?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type ShipmentPaginationMeta = {
+  __typename?: 'ShipmentPaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type ShipmentResponse = {
+  __typename?: 'ShipmentResponse';
+  data?: Maybe<ShipmentEntry>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type ShipmentTrackingEventEntry = {
+  __typename?: 'ShipmentTrackingEventEntry';
+  description?: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  occurred_at: Scalars['String']['output'];
+  /** provider | manual | system — which of the three wrote this entry. Without it a carrier webhook and a merchant typing an update by hand are indistinguishable afterwards, which is exactly the question asked when the two disagree. */
+  source: Scalars['String']['output'];
+  status: Scalars['String']['output'];
+};
+
+export type ShipmentsResponse = {
+  __typename?: 'ShipmentsResponse';
+  data: Array<ShipmentEntry>;
+  meta: ShipmentPaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type ShippingCredentialFieldInput = {
+  key: Scalars['String']['input'];
+  value: Scalars['String']['input'];
+};
+
+export type ShippingMatchMode =
+  | 'CITY'
+  | 'COUNTRY_STATE';
+
+/** How a shop executes its shipments. MERCHANT_MANAGED = the shop delivers its own orders; SHIPPING_PROVIDER = an external carrier does. Orthogonal to what the customer PAYS, which is always the shop’s ShippingZone/ShippingRule. */
+export type ShippingMode =
+  | 'MERCHANT_MANAGED'
+  | 'SHIPPING_PROVIDER';
+
+export type ShippingProviderAccountEntry = {
+  __typename?: 'ShippingProviderAccountEntry';
+  created_at: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  is_enabled: Scalars['Boolean']['output'];
+  is_sandbox: Scalars['Boolean']['output'];
+  last_verified_at?: Maybe<Scalars['String']['output']>;
+  last_verify_error?: Maybe<Scalars['String']['output']>;
+  masked_credentials: Array<MaskedCredentialField>;
+  provider: Scalars['String']['output'];
+  updated_at: Scalars['String']['output'];
+};
+
+export type ShippingProviderAccountResponse = {
+  __typename?: 'ShippingProviderAccountResponse';
+  data?: Maybe<ShippingProviderAccountEntry>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type ShippingProviderAccountsResponse = {
+  __typename?: 'ShippingProviderAccountsResponse';
+  data?: Maybe<Array<ShippingProviderAccountEntry>>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type ShippingProviderCatalogEntry = {
+  __typename?: 'ShippingProviderCatalogEntry';
+  description: Scalars['String']['output'];
+  description_ar: Scalars['String']['output'];
+  fields: Array<ShippingProviderField>;
+  name: Scalars['String']['output'];
+  name_ar: Scalars['String']['output'];
+  provider: Scalars['String']['output'];
+  requires_location_mapping: Scalars['Boolean']['output'];
+  supports_sandbox: Scalars['Boolean']['output'];
+};
+
+export type ShippingProviderCatalogResponse = {
+  __typename?: 'ShippingProviderCatalogResponse';
+  data?: Maybe<Array<ShippingProviderCatalogEntry>>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type ShippingProviderField = {
+  __typename?: 'ShippingProviderField';
+  help?: Maybe<Scalars['String']['output']>;
+  help_ar?: Maybe<Scalars['String']['output']>;
+  key: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+  label_ar: Scalars['String']['output'];
+  options?: Maybe<Array<ShippingProviderFieldOption>>;
+  placeholder?: Maybe<Scalars['String']['output']>;
+  required: Scalars['Boolean']['output'];
+  secret: Scalars['Boolean']['output'];
+  type: Scalars['String']['output'];
+};
+
+export type ShippingProviderFieldOption = {
+  __typename?: 'ShippingProviderFieldOption';
+  label: Scalars['String']['output'];
+  label_ar: Scalars['String']['output'];
+  value: Scalars['String']['output'];
+};
+
+export type ShippingProviderLocationEntry = {
+  __typename?: 'ShippingProviderLocationEntry';
+  external_location_id: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  is_enabled: Scalars['Boolean']['output'];
+  location_city?: Maybe<Scalars['String']['output']>;
+  location_country?: Maybe<Scalars['String']['output']>;
+  location_id: Scalars['String']['output'];
+  location_name?: Maybe<Scalars['String']['output']>;
+};
+
+export type ShippingProviderLocationsResponse = {
+  __typename?: 'ShippingProviderLocationsResponse';
+  data?: Maybe<Array<ShippingProviderLocationEntry>>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type ShippingProviderVerifyResponse = {
+  __typename?: 'ShippingProviderVerifyResponse';
+  data?: Maybe<ShippingProviderVerifyResult>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type ShippingProviderVerifyResult = {
+  __typename?: 'ShippingProviderVerifyResult';
+  error?: Maybe<Scalars['String']['output']>;
+  ok: Scalars['Boolean']['output'];
+};
+
+export type ShippingRuleEntry = {
+  __typename?: 'ShippingRuleEntry';
+  /** Rate in basis points (percentage rules). */
+  amount_bps: Scalars['Int']['output'];
+  /** Flat rate in cents (fixed / weight_based). */
+  amount_cents: Scalars['Int']['output'];
+  created_at: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  is_global: Scalars['Boolean']['output'];
+  /** Delivery estimate upper bound, in days. Null = no promise. */
+  max_delivery_days?: Maybe<Scalars['Int']['output']>;
+  /** Delivery estimate lower bound, in days. Null = the merchant made no promise. */
+  min_delivery_days?: Maybe<Scalars['Int']['output']>;
+  min_order_cents: Scalars['Int']['output'];
+  name: Scalars['JSON']['output'];
+  /** Per-kg cost in cents (weight_based rules). Engine adds this × ceil(total_grams / 1000) to amount_cents. */
+  per_kg_cents: Scalars['Int']['output'];
+  shop_id?: Maybe<Scalars['String']['output']>;
+  type: Scalars['String']['output'];
+  updated_at: Scalars['String']['output'];
+  /** Owning ShippingZone (rate band), if any. */
+  zone_id?: Maybe<Scalars['String']['output']>;
+};
+
+export type ShippingRulePaginationMeta = {
+  __typename?: 'ShippingRulePaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type ShippingRuleResponse = {
+  __typename?: 'ShippingRuleResponse';
+  data?: Maybe<ShippingRuleEntry>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type ShippingRulesResponse = {
+  __typename?: 'ShippingRulesResponse';
+  data: Array<ShippingRuleEntry>;
+  meta: ShippingRulePaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type ShippingZoneEntry = {
+  __typename?: 'ShippingZoneEntry';
+  /** Stable city codes (e.g. PS-GZA). Empty = every city in the listed countries. */
+  city_codes: Array<Scalars['String']['output']>;
+  countries: Array<Scalars['String']['output']>;
+  created_at: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  is_global: Scalars['Boolean']['output'];
+  name: Scalars['JSON']['output'];
+  priority: Scalars['Int']['output'];
+  /** Rate bands attached to this zone. */
+  rules: Array<ShippingRuleEntry>;
+  shop_id?: Maybe<Scalars['String']['output']>;
+  states: Array<Scalars['String']['output']>;
+  updated_at: Scalars['String']['output'];
+};
+
+export type ShippingZoneResponse = {
+  __typename?: 'ShippingZoneResponse';
+  data?: Maybe<ShippingZoneEntry>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type ShippingZonesResponse = {
+  __typename?: 'ShippingZonesResponse';
+  data: Array<ShippingZoneEntry>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type Shop = {
+  __typename?: 'Shop';
+  address?: Maybe<Scalars['JSON']['output']>;
+  balance?: Maybe<BalanceEntry>;
+  cover_image?: Maybe<ShopImage>;
+  created_at: Scalars['String']['output'];
+  currency: Scalars['String']['output'];
+  deleted_at?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  home_country: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  is_active: Scalars['Boolean']['output'];
+  is_approved: Scalars['Boolean']['output'];
+  logo?: Maybe<ShopImage>;
+  name: Scalars['String']['output'];
+  notifications?: Maybe<Scalars['JSON']['output']>;
+  orders_count?: Maybe<Scalars['Int']['output']>;
+  owner?: Maybe<ShopOwner>;
+  owner_id: Scalars['String']['output'];
+  products_count?: Maybe<Scalars['Int']['output']>;
+  settings?: Maybe<ShopSettings>;
+  shipping?: Maybe<Scalars['JSON']['output']>;
+  slug: Scalars['String']['output'];
+  socials?: Maybe<Array<ShopSocialEntry>>;
+  storefront_template?: Maybe<Scalars['String']['output']>;
+  storefront_theme?: Maybe<Scalars['JSON']['output']>;
+  tax_bps: Scalars['Int']['output'];
+  /** IANA time zone written on the shop. Null means none has been set; analytics still reads that as UTC. */
+  timezone?: Maybe<Scalars['String']['output']>;
+  updated_at: Scalars['String']['output'];
+};
+
+/** A merchant-owned beneficiary account. */
+export type ShopBankAccountEntry = {
+  __typename?: 'ShopBankAccountEntry';
+  account_holder_name: Scalars['String']['output'];
+  account_number?: Maybe<Scalars['String']['output']>;
+  /** Saudi catalogue code when bank_account_mode is SAUDI_IBAN. */
+  bank_code?: Maybe<Scalars['String']['output']>;
+  bank_name?: Maybe<Scalars['String']['output']>;
+  created_at: Scalars['String']['output'];
+  currency: Scalars['String']['output'];
+  /** IBAN when present; optional under FREEFORM. */
+  iban?: Maybe<Scalars['String']['output']>;
+  /** Original shop bank account identifier. */
+  id: Scalars['String']['output'];
+  is_active: Scalars['Boolean']['output'];
+  notes?: Maybe<Scalars['String']['output']>;
+  shop_id: Scalars['String']['output'];
+  sort_order: Scalars['Int']['output'];
+  swift_code?: Maybe<Scalars['String']['output']>;
+  updated_at: Scalars['String']['output'];
+};
+
+export type ShopBankAccountResponse = {
+  __typename?: 'ShopBankAccountResponse';
+  data: ShopBankAccountEntry;
+  success: Scalars['Boolean']['output'];
+};
+
+export type ShopBankAccountsResponse = {
+  __typename?: 'ShopBankAccountsResponse';
+  data: Array<ShopBankAccountEntry>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type ShopBrand = {
+  __typename?: 'ShopBrand';
+  colors?: Maybe<ShopBrandColors>;
+  slogan?: Maybe<Scalars['String']['output']>;
+  square_logo?: Maybe<ShopImage>;
+};
+
+export type ShopBrandColorPair = {
+  __typename?: 'ShopBrandColorPair';
+  background?: Maybe<Scalars['String']['output']>;
+  foreground?: Maybe<Scalars['String']['output']>;
+};
+
+export type ShopBrandColorPairInput = {
+  background?: InputMaybe<Scalars['String']['input']>;
+  foreground?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ShopBrandColors = {
+  __typename?: 'ShopBrandColors';
+  primary?: Maybe<ShopBrandColorPair>;
+  secondary?: Maybe<ShopBrandColorPair>;
+};
+
+export type ShopBrandColorsInput = {
+  primary?: InputMaybe<ShopBrandColorPairInput>;
+  secondary?: InputMaybe<ShopBrandColorPairInput>;
+};
+
+export type ShopBrandInput = {
+  colors?: InputMaybe<ShopBrandColorsInput>;
+  slogan?: InputMaybe<Scalars['String']['input']>;
+  square_logo?: InputMaybe<ImageInput>;
+};
+
+export type ShopCarrierEntry = {
+  __typename?: 'ShopCarrierEntry';
+  /** Domain slug — stable across cosmetic renames. */
+  code: Scalars['String']['output'];
+  enabled: Scalars['Boolean']['output'];
+  /** Absolute https URL of the carrier's logo, straight from the aggregator. Nullable: a carrier it publishes no image for renders as its name. */
+  logo?: Maybe<Scalars['String']['output']>;
+  /** The carrier's own name, for display. */
+  name: Scalars['String']['output'];
+};
+
+export type ShopCarrierInput = {
+  /** Domain slug, e.g. `aramex`. */
+  code: Scalars['String']['input'];
+  enabled: Scalars['Boolean']['input'];
+  /** The carrier's display name. */
+  name?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ShopCarriersResponse = {
+  __typename?: 'ShopCarriersResponse';
+  data?: Maybe<Array<ShopCarrierEntry>>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  /** True while the shop has stored no choices at all — every platform carrier is allowed, and the screen says so rather than showing an empty selection. */
+  using_platform_defaults: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type ShopCountryCapabilities = {
+  __typename?: 'ShopCountryCapabilities';
+  allowed_delivery_channels: Array<CountryDeliveryChannel>;
+  allowed_payments: Array<CountryPaymentMethod>;
+  bank_account_mode: BankAccountMode;
+  currency: Scalars['String']['output'];
+  effective_bank_transfer: Scalars['Boolean']['output'];
+  effective_card: Scalars['Boolean']['output'];
+  effective_carrier_delivery: Scalars['Boolean']['output'];
+  effective_cod: Scalars['Boolean']['output'];
+  effective_merchant_delivery: Scalars['Boolean']['output'];
+  home_country: Scalars['String']['output'];
+  shipping_match: ShippingMatchMode;
+};
+
+export type ShopCountryCapabilitiesResponse = {
+  __typename?: 'ShopCountryCapabilitiesResponse';
+  data?: Maybe<ShopCountryCapabilities>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type ShopCustomerEntry = {
+  __typename?: 'ShopCustomerEntry';
+  created_at: Scalars['String']['output'];
+  email?: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  name?: Maybe<Scalars['String']['output']>;
+  phone_e164?: Maybe<Scalars['String']['output']>;
+};
+
+export type ShopCustomersPaginationMeta = {
+  __typename?: 'ShopCustomersPaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type ShopCustomersResponse = {
+  __typename?: 'ShopCustomersResponse';
+  data: Array<ShopCustomerEntry>;
+  meta: ShopCustomersPaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type ShopDnsAction =
+  | 'ADD'
+  | 'CORRECT'
+  | 'REMOVE'
+  | 'UPDATE';
+
+export type ShopDnsDiffEntry = {
+  __typename?: 'ShopDnsDiffEntry';
+  action: ShopDnsAction;
+  /** @deprecated Use `current_values`, which carries every value at this name rather than one of them. */
+  current_value?: Maybe<Scalars['String']['output']>;
+  current_values: Array<Scalars['String']['output']>;
+  name: Scalars['String']['output'];
+  reason: Scalars['String']['output'];
+  /** @deprecated Use `required_values`, which carries every value this name must hold. */
+  required_value?: Maybe<Scalars['String']['output']>;
+  required_values: Array<Scalars['String']['output']>;
+  type: Scalars['String']['output'];
+};
+
+export type ShopDnsPropagation = {
+  __typename?: 'ShopDnsPropagation';
+  agreement: Scalars['String']['output'];
+  checked_at: Scalars['DateTime']['output'];
+  resolvers: Array<ShopDnsResolverReading>;
+};
+
+export type ShopDnsProviderInfo = {
+  __typename?: 'ShopDnsProviderInfo';
+  confidence: Scalars['String']['output'];
+  display_name?: Maybe<Scalars['String']['output']>;
+  management_url?: Maybe<Scalars['String']['output']>;
+  provider: Scalars['String']['output'];
+  warning?: Maybe<Scalars['String']['output']>;
+};
+
+export type ShopDnsResolverReading = {
+  __typename?: 'ShopDnsResolverReading';
+  agrees?: Maybe<Scalars['Boolean']['output']>;
+  key: Scalars['String']['output'];
+  name: Scalars['String']['output'];
+  responded: Scalars['Boolean']['output'];
+};
+
+export type ShopDnsWarning = {
+  __typename?: 'ShopDnsWarning';
+  code: Scalars['String']['output'];
+  message: Scalars['String']['output'];
+  params: Scalars['JSON']['output'];
+  severity: ShopDnsWarningSeverity;
+};
+
+export type ShopDnsWarningSeverity =
+  | 'ERROR'
+  | 'INFO'
+  | 'WARNING';
+
+export type ShopDomainAction =
+  | 'REDIRECT'
+  | 'SERVE';
+
+export type ShopDomainChecks = {
+  __typename?: 'ShopDomainChecks';
+  dns_configured: Scalars['Boolean']['output'];
+  dns_propagated: Scalars['Boolean']['output'];
+  ownership_verified: Scalars['Boolean']['output'];
+  routing_ready: Scalars['Boolean']['output'];
+  tls: ShopDomainTlsState;
+};
+
+export type ShopDomainConfiguration = {
+  __typename?: 'ShopDomainConfiguration';
+  checks: ShopDomainChecks;
+  dns_diff: Array<ShopDnsDiffEntry>;
+  dns_provider: ShopDnsProviderInfo;
+  domain: ShopDomainEntry;
+  issues: Array<ShopDnsWarning>;
+  propagation: ShopDnsPropagation;
+  /** @deprecated Use `issues`, which carries severity and a code. */
+  warnings: Array<Scalars['String']['output']>;
+  zone_unreachable: Scalars['Boolean']['output'];
+};
+
+export type ShopDomainConfigurationResponse = {
+  __typename?: 'ShopDomainConfigurationResponse';
+  data?: Maybe<ShopDomainConfiguration>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type ShopDomainDnsRecord = {
+  __typename?: 'ShopDomainDnsRecord';
+  name: Scalars['String']['output'];
+  type: Scalars['String']['output'];
+  value: Scalars['String']['output'];
+};
+
+export type ShopDomainEntry = {
+  __typename?: 'ShopDomainEntry';
+  created_at?: Maybe<Scalars['DateTime']['output']>;
+  dns_records: Array<ShopDomainDnsRecord>;
+  hostname: Scalars['String']['output'];
+  id?: Maybe<Scalars['String']['output']>;
+  is_primary: Scalars['Boolean']['output'];
+  kind: ShopDomainKind;
+  last_error?: Maybe<Scalars['String']['output']>;
+  role: ShopDomainRole;
+  status: ShopDomainStatus;
+  verified_at?: Maybe<Scalars['DateTime']['output']>;
+};
+
+export type ShopDomainKind =
+  | 'CUSTOM'
+  | 'PLATFORM_SUBDOMAIN';
+
+export type ShopDomainRequest = {
+  __typename?: 'ShopDomainRequest';
+  action: ShopDomainAction;
+  primary_hostname?: Maybe<Scalars['String']['output']>;
+  role: ShopDomainRole;
+  slug: Scalars['String']['output'];
+};
+
+export type ShopDomainRequestResponse = {
+  __typename?: 'ShopDomainRequestResponse';
+  data?: Maybe<ShopDomainRequest>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type ShopDomainResponse = {
+  __typename?: 'ShopDomainResponse';
+  data?: Maybe<ShopDomainEntry>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type ShopDomainRole =
+  | 'ALIAS'
+  | 'PLATFORM'
+  | 'PRIMARY';
+
+export type ShopDomainShop = {
+  __typename?: 'ShopDomainShop';
+  deleted_at?: Maybe<Scalars['DateTime']['output']>;
+  id: Scalars['ID']['output'];
+  is_active: Scalars['Boolean']['output'];
+  is_approved: Scalars['Boolean']['output'];
+  name: Scalars['String']['output'];
+  slug: Scalars['String']['output'];
+};
+
+export type ShopDomainStatus =
+  | 'ACTIVE'
+  | 'FAILED'
+  | 'PENDING'
+  | 'VERIFYING';
+
+export type ShopDomainTlsState =
+  | 'FAILED'
+  | 'PENDING'
+  | 'PROVISIONING'
+  | 'READY'
+  | 'UNKNOWN';
+
+export type ShopDomainsResponse = {
+  __typename?: 'ShopDomainsResponse';
+  custom_domains_enabled: Scalars['Boolean']['output'];
+  data: Array<ShopDomainEntry>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type ShopHostnameMatch = {
+  __typename?: 'ShopHostnameMatch';
+  slug: Scalars['String']['output'];
+};
+
+export type ShopHostnameResponse = {
+  __typename?: 'ShopHostnameResponse';
+  data?: Maybe<ShopHostnameMatch>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type ShopImage = {
+  __typename?: 'ShopImage';
+  id: Scalars['String']['output'];
+  original: Scalars['String']['output'];
+  thumbnail: Scalars['String']['output'];
+};
+
+export type ShopLocation = {
+  __typename?: 'ShopLocation';
+  apartment?: Maybe<Scalars['String']['output']>;
+  city?: Maybe<Scalars['String']['output']>;
+  company?: Maybe<Scalars['String']['output']>;
+  country?: Maybe<Scalars['String']['output']>;
+  district?: Maybe<Scalars['String']['output']>;
+  formattedAddress?: Maybe<Scalars['String']['output']>;
+  lat?: Maybe<Scalars['Float']['output']>;
+  lng?: Maybe<Scalars['Float']['output']>;
+  state?: Maybe<Scalars['String']['output']>;
+  zip?: Maybe<Scalars['String']['output']>;
+};
+
+export type ShopLocationInput = {
+  apartment?: InputMaybe<Scalars['String']['input']>;
+  city?: InputMaybe<Scalars['String']['input']>;
+  company?: InputMaybe<Scalars['String']['input']>;
+  country?: InputMaybe<Scalars['String']['input']>;
+  district?: InputMaybe<Scalars['String']['input']>;
+  formattedAddress?: InputMaybe<Scalars['String']['input']>;
+  lat?: InputMaybe<Scalars['Float']['input']>;
+  lng?: InputMaybe<Scalars['Float']['input']>;
+  state?: InputMaybe<Scalars['String']['input']>;
+  zip?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ShopOwner = {
+  __typename?: 'ShopOwner';
+  email?: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  name: Scalars['String']['output'];
+  phone?: Maybe<Scalars['String']['output']>;
+};
+
+export type ShopPackageEntry = {
+  __typename?: 'ShopPackageEntry';
+  created_at: Scalars['DateTime']['output'];
+  /** Empty tare weight in grams */
+  empty_weight_grams: Scalars['Int']['output'];
+  /** Height in millimetres */
+  height_mm: Scalars['Int']['output'];
+  id: Scalars['ID']['output'];
+  is_default: Scalars['Boolean']['output'];
+  /** Length in millimetres */
+  length_mm: Scalars['Int']['output'];
+  name: Scalars['String']['output'];
+  package_type: PackageType;
+  shop_id: Scalars['ID']['output'];
+  updated_at: Scalars['DateTime']['output'];
+  /** Width in millimetres */
+  width_mm: Scalars['Int']['output'];
+};
+
+export type ShopPackageResponse = {
+  __typename?: 'ShopPackageResponse';
+  data?: Maybe<ShopPackageEntry>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type ShopPackagesResponse = {
+  __typename?: 'ShopPackagesResponse';
+  data?: Maybe<Array<ShopPackageEntry>>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type ShopPaginationMeta = {
+  __typename?: 'ShopPaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+/** Public payment availability. Contains no beneficiary details. */
+export type ShopPaymentOptions = {
+  __typename?: 'ShopPaymentOptions';
+  available_gateways: Array<Scalars['String']['output']>;
+  bank_transfer_available: Scalars['Boolean']['output'];
+  card_available: Scalars['Boolean']['output'];
+  cod_available: Scalars['Boolean']['output'];
+};
+
+export type ShopPaymentOptionsResponse = {
+  __typename?: 'ShopPaymentOptionsResponse';
+  data: ShopPaymentOptions;
+  success: Scalars['Boolean']['output'];
+};
+
+/** Merchant payment switches and operational availability. */
+export type ShopPaymentSettings = {
+  __typename?: 'ShopPaymentSettings';
+  bank_transfer_available: Scalars['Boolean']['output'];
+  bank_transfer_enabled: Scalars['Boolean']['output'];
+  card_available: Scalars['Boolean']['output'];
+  card_enabled: Scalars['Boolean']['output'];
+  cod_enabled: Scalars['Boolean']['output'];
+};
+
+export type ShopPaymentSettingsResponse = {
+  __typename?: 'ShopPaymentSettingsResponse';
+  data: ShopPaymentSettings;
+  success: Scalars['Boolean']['output'];
+};
+
+export type ShopPolicies = {
+  __typename?: 'ShopPolicies';
+  privacy_policy?: Maybe<Scalars['String']['output']>;
+  refund_policy?: Maybe<Scalars['String']['output']>;
+  shipping_policy?: Maybe<Scalars['String']['output']>;
+  terms_of_service?: Maybe<Scalars['String']['output']>;
+};
+
+export type ShopPoliciesInput = {
+  privacy_policy?: InputMaybe<Scalars['String']['input']>;
+  refund_policy?: InputMaybe<Scalars['String']['input']>;
+  shipping_policy?: InputMaybe<Scalars['String']['input']>;
+  terms_of_service?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ShopResponse = {
+  __typename?: 'ShopResponse';
+  data?: Maybe<Shop>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type ShopReviewCustomer = {
+  __typename?: 'ShopReviewCustomer';
+  avatar?: Maybe<Scalars['String']['output']>;
+  email?: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  name: Scalars['String']['output'];
+};
+
+export type ShopReviewEntry = {
+  __typename?: 'ShopReviewEntry';
+  abusive_reports_count: Scalars['Int']['output'];
+  comment: Scalars['String']['output'];
+  created_at: Scalars['String']['output'];
+  customer?: Maybe<ShopReviewCustomer>;
+  customer_id: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  negative_feedbacks_count: Scalars['Int']['output'];
+  order_id?: Maybe<Scalars['String']['output']>;
+  photo_urls: Array<Scalars['String']['output']>;
+  positive_feedbacks_count: Scalars['Int']['output'];
+  product?: Maybe<ShopReviewProduct>;
+  product_id: Scalars['String']['output'];
+  rating: Scalars['Int']['output'];
+  updated_at: Scalars['String']['output'];
+  variation_option_id?: Maybe<Scalars['String']['output']>;
+};
+
+export type ShopReviewProduct = {
+  __typename?: 'ShopReviewProduct';
+  id: Scalars['String']['output'];
+  image?: Maybe<Scalars['String']['output']>;
+  name?: Maybe<Scalars['JSON']['output']>;
+  slug: Scalars['String']['output'];
+};
+
+/** Ordering for the vendor review queue. NEWEST/OLDEST sort by created_at, HIGHEST/LOWEST by rating (ties broken by created_at desc). */
+export type ShopReviewSort =
+  | 'HIGHEST'
+  | 'LOWEST'
+  | 'NEWEST'
+  | 'OLDEST';
+
+export type ShopReviewsPaginationMeta = {
+  __typename?: 'ShopReviewsPaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type ShopReviewsResponse = {
+  __typename?: 'ShopReviewsResponse';
+  data: Array<ShopReviewEntry>;
+  meta: ShopReviewsPaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type ShopReviewsSummary = {
+  __typename?: 'ShopReviewsSummary';
+  average_rating: Scalars['Float']['output'];
+  distribution: Array<ReviewRatingBucket>;
+  last_30_days: Scalars['Int']['output'];
+  reported: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  with_photos: Scalars['Int']['output'];
+};
+
+export type ShopReviewsSummaryResponse = {
+  __typename?: 'ShopReviewsSummaryResponse';
+  data?: Maybe<ShopReviewsSummary>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type ShopSettings = {
+  __typename?: 'ShopSettings';
+  brand?: Maybe<ShopBrand>;
+  contact?: Maybe<Scalars['String']['output']>;
+  email?: Maybe<Scalars['String']['output']>;
+  isShopUnderMaintenance?: Maybe<Scalars['Boolean']['output']>;
+  location?: Maybe<ShopLocation>;
+  policies?: Maybe<ShopPolicies>;
+  website?: Maybe<Scalars['String']['output']>;
+};
+
+export type ShopSettingsInput = {
+  brand?: InputMaybe<ShopBrandInput>;
+  contact?: InputMaybe<Scalars['String']['input']>;
+  email?: InputMaybe<Scalars['String']['input']>;
+  isShopUnderMaintenance?: InputMaybe<Scalars['Boolean']['input']>;
+  location?: InputMaybe<ShopLocationInput>;
+  policies?: InputMaybe<ShopPoliciesInput>;
+  website?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ShopShippingSettings = {
+  __typename?: 'ShopShippingSettings';
+  active_provider_slug?: Maybe<Scalars['String']['output']>;
+  /** Whether this shop has a usable carrier account — enabled AND verified — INDEPENDENT of the mode, where `provider_ready` is not. `provider_ready` is always true for a merchant-managed shop, because such a shop can always fulfil; this answers whether there is a carrier behind it. The two differ in a case that already exists: `offers_carrier_delivery` does not follow the mode, so a merchant-managed shop can show live carrier prices beside its own delivery, and only this field says whether those prices can be quoted. */
+  carrier_available: Scalars['Boolean']['output'];
+  /** Assumed weight in grams for a shippable item that carries none. Carriers price on weight, so a cart of weightless products would quote at the carrier minimum and the shop would absorb the difference on every real parcel. */
+  default_item_weight_grams: Scalars['Int']['output'];
+  mode: ShippingMode;
+  /** Whether live carrier prices are offered beside it. Independent of the flag above — both may be on, and both may be off for a shop that sells only downloads. */
+  offers_carrier_delivery: Scalars['Boolean']['output'];
+  /** Whether the shop's own delivery is offered to customers at checkout, priced by its zone rules. */
+  offers_merchant_delivery: Scalars['Boolean']['output'];
+  provider_ready: Scalars['Boolean']['output'];
+};
+
+export type ShopShippingSettingsResponse = {
+  __typename?: 'ShopShippingSettingsResponse';
+  data?: Maybe<ShopShippingSettings>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type ShopSocialEntry = {
+  __typename?: 'ShopSocialEntry';
+  id: Scalars['String']['output'];
+  link: Scalars['String']['output'];
+  name: Scalars['String']['output'];
+};
+
+export type ShopSocialInput = {
+  link: Scalars['String']['input'];
+  name: Scalars['String']['input'];
+};
+
+export type ShopStatusFilter =
+  | 'active'
+  | 'all'
+  | 'deleted'
+  | 'pending'
+  | 'suspended';
+
+export type ShopSubscriptionEntry = {
+  __typename?: 'ShopSubscriptionEntry';
+  cancel_at_period_end: Scalars['Boolean']['output'];
+  canceled_at?: Maybe<Scalars['DateTime']['output']>;
+  created_at: Scalars['DateTime']['output'];
+  current_period_end: Scalars['DateTime']['output'];
+  current_period_start: Scalars['DateTime']['output'];
+  id: Scalars['String']['output'];
+  interval: SubscriptionInterval;
+  is_stripe_billed: Scalars['Boolean']['output'];
+  pending_change_at?: Maybe<Scalars['DateTime']['output']>;
+  pending_plan_code?: Maybe<Scalars['String']['output']>;
+  plan_code: Scalars['String']['output'];
+  plan_id: Scalars['String']['output'];
+  price_cents_snapshot: Scalars['Int']['output'];
+  shop_id: Scalars['String']['output'];
+  shop_name?: Maybe<Scalars['String']['output']>;
+  shop_slug?: Maybe<Scalars['String']['output']>;
+  status: SubscriptionStatus;
+  trial_ends_at?: Maybe<Scalars['DateTime']['output']>;
+};
+
+export type ShopSubscriptionResponse = {
+  __typename?: 'ShopSubscriptionResponse';
+  data?: Maybe<ShopSubscriptionEntry>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type ShopSubscriptionsMeta = {
+  __typename?: 'ShopSubscriptionsMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type ShopSubscriptionsResponse = {
+  __typename?: 'ShopSubscriptionsResponse';
+  data?: Maybe<Array<ShopSubscriptionEntry>>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  meta?: Maybe<ShopSubscriptionsMeta>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type ShopTelegramBot = {
+  __typename?: 'ShopTelegramBot';
+  ai_enabled: Scalars['Boolean']['output'];
+  ai_orders_enabled: Scalars['Boolean']['output'];
+  bot_username?: Maybe<Scalars['String']['output']>;
+  connected: Scalars['Boolean']['output'];
+  last_error?: Maybe<Scalars['String']['output']>;
+  last_ok_at?: Maybe<Scalars['DateTime']['output']>;
+  status: Scalars['String']['output'];
+};
+
+export type ShopsResponse = {
+  __typename?: 'ShopsResponse';
+  data: Array<Shop>;
+  meta: ShopPaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type ShortLinkCreateData = {
+  __typename?: 'ShortLinkCreateData';
+  short_link: ShortLinkEntry;
+  short_url: Scalars['String']['output'];
+  shorter_url: Scalars['String']['output'];
+};
+
+export type ShortLinkCreateResponse = {
+  __typename?: 'ShortLinkCreateResponse';
+  data: ShortLinkCreateData;
+  message: Scalars['String']['output'];
+  success: Scalars['Boolean']['output'];
+};
+
+export type ShortLinkDetailData = {
+  __typename?: 'ShortLinkDetailData';
+  destination_info?: Maybe<Scalars['JSON']['output']>;
+  short_link: ShortLinkEntry;
+};
+
+export type ShortLinkEntry = {
+  __typename?: 'ShortLinkEntry';
+  code: Scalars['String']['output'];
+  created_at: Scalars['String']['output'];
+  destination_id?: Maybe<Scalars['String']['output']>;
+  destination_type: Scalars['String']['output'];
+  destination_url: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  updated_at: Scalars['String']['output'];
+  user_id?: Maybe<Scalars['String']['output']>;
+  views_count: Scalars['Int']['output'];
+};
+
+export type ShortLinkResponse = {
+  __typename?: 'ShortLinkResponse';
+  data: ShortLinkDetailData;
+  message: Scalars['String']['output'];
+  success: Scalars['Boolean']['output'];
+};
+
+export type ShortLinksPaginationMeta = {
+  __typename?: 'ShortLinksPaginationMeta';
+  current_page: Scalars['Int']['output'];
+  from?: Maybe<Scalars['Int']['output']>;
+  last_page: Scalars['Int']['output'];
+  per_page: Scalars['Int']['output'];
+  to?: Maybe<Scalars['Int']['output']>;
+  total: Scalars['Int']['output'];
+};
+
+export type ShortLinksResponse = {
+  __typename?: 'ShortLinksResponse';
+  data: Array<ShortLinkEntry>;
+  message: Scalars['String']['output'];
+  meta: ShortLinksPaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type SignInWithSocialInput = {
+  access_token?: InputMaybe<Scalars['String']['input']>;
+  id_token?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  provider: SocialAuthProvider;
+};
+
+export type SignupAvailabilityData = {
+  __typename?: 'SignupAvailabilityData';
+  available: Scalars['Boolean']['output'];
+};
+
+export type SignupAvailabilityResponse = {
+  __typename?: 'SignupAvailabilityResponse';
+  data?: Maybe<SignupAvailabilityData>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type Social = {
+  __typename?: 'Social';
+  link: Scalars['String']['output'];
+  type: Scalars['String']['output'];
+};
+
+/** Identity provider for Sign in with Google / Apple */
+export type SocialAuthProvider =
+  | 'apple'
+  | 'google';
+
+export type SocialInput = {
+  link: Scalars['String']['input'];
+  type: Scalars['String']['input'];
+};
+
+export type StaffRecipientEntry = {
+  __typename?: 'StaffRecipientEntry';
+  email: Scalars['String']['output'];
+  enabled: Scalars['Boolean']['output'];
+  events: Array<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+};
+
+export type StaffRecipientResponse = {
+  __typename?: 'StaffRecipientResponse';
+  data?: Maybe<StaffRecipientEntry>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type StaffRecipientsResponse = {
+  __typename?: 'StaffRecipientsResponse';
+  data: Array<StaffRecipientEntry>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type StartNegotiationInput = {
+  channel?: InputMaybe<NegotiationChannel>;
+  guest_key?: InputMaybe<Scalars['String']['input']>;
+  product_id: Scalars['String']['input'];
+  variation_option_id?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type StartPlanCheckoutInput = {
+  interval: SubscriptionInterval;
+  plan_id: Scalars['String']['input'];
+};
+
+export type StartVendorSignupInput = {
+  email: Scalars['String']['input'];
+  name: Scalars['String']['input'];
+  phone: Scalars['String']['input'];
+};
+
+export type StockBucket =
+  | 'available'
+  | 'damaged'
+  | 'other'
+  | 'quality_control'
+  | 'safety_stock';
+
+export type StockEditMode =
+  | 'adjust'
+  | 'set';
+
+export type StockNotification = {
+  __typename?: 'StockNotification';
+  created_at: Scalars['DateTime']['output'];
+  customer_id?: Maybe<Scalars['String']['output']>;
+  email: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  product_id: Scalars['String']['output'];
+  variation_option_id?: Maybe<Scalars['String']['output']>;
+};
+
+export type StockNotificationsResponse = {
+  __typename?: 'StockNotificationsResponse';
+  data?: Maybe<Array<StockNotification>>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type StockRow = {
+  __typename?: 'StockRow';
+  abc_class: Scalars['String']['output'];
+  days_of_inventory?: Maybe<Scalars['Int']['output']>;
+  id: Scalars['String']['output'];
+  inventory_cost_cents: Scalars['Int']['output'];
+  name: Scalars['JSON']['output'];
+  quantity: Scalars['Int']['output'];
+  revenue_cents: Scalars['Int']['output'];
+  sell_through_bps: Scalars['Int']['output'];
+  sku?: Maybe<Scalars['String']['output']>;
+  slug: Scalars['String']['output'];
+  units_sold: Scalars['Int']['output'];
+};
+
+/** Stock availability bucket */
+export type StockStatus =
+  | 'IN_STOCK'
+  | 'LOW_STOCK'
+  | 'OUT_OF_STOCK';
+
+export type StorageLargestFile = {
+  __typename?: 'StorageLargestFile';
+  bytes: Scalars['Int']['output'];
+  context: Scalars['String']['output'];
+  created_at: Scalars['DateTime']['output'];
+  id: Scalars['String']['output'];
+  megabytes: Scalars['Int']['output'];
+  mime_type: Scalars['String']['output'];
+  name: Scalars['String']['output'];
+  url?: Maybe<Scalars['String']['output']>;
+};
+
+export type StorageSlice = {
+  __typename?: 'StorageSlice';
+  bytes: Scalars['Int']['output'];
+  files: Scalars['Int']['output'];
+  key: Scalars['String']['output'];
+  megabytes: Scalars['Int']['output'];
+  percent: Scalars['Float']['output'];
+};
+
+export type StorageUsageEntry = {
+  __typename?: 'StorageUsageEntry';
+  by_context: Array<StorageSlice>;
+  by_type: Array<StorageSlice>;
+  files: Scalars['Int']['output'];
+  largest_files: Array<StorageLargestFile>;
+  limit_megabytes?: Maybe<Scalars['Int']['output']>;
+  percent_used?: Maybe<Scalars['Float']['output']>;
+  remaining_megabytes?: Maybe<Scalars['Int']['output']>;
+  used_bytes: Scalars['Int']['output'];
+  used_megabytes: Scalars['Int']['output'];
+};
+
+export type StorageUsageResponse = {
+  __typename?: 'StorageUsageResponse';
+  data?: Maybe<StorageUsageEntry>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type StoreImportBulkFillResponse = {
+  __typename?: 'StoreImportBulkFillResponse';
+  /** Products whose imported value changed. Excluded products and cells that already held a value (unless `overwrite`) are not counted. */
+  affected: Scalars['Int']['output'];
+  data: StoreImportJobEntry;
+  /** Products the filter selected — the view the merchant confirmed. Counted before exclusions and existing values are skipped. */
+  matched: Scalars['Int']['output'];
+  success: Scalars['Boolean']['output'];
+};
+
+export type StoreImportCarryResponse = {
+  __typename?: 'StoreImportCarryResponse';
+  /** The receiving job. */
+  data: StoreImportJobEntry;
+  /** Photos removed on the previous scan, on matched products, that were NOT carried because this scan no longer lists them for that product. Every other removed photo on a matched product was carried, re-checked against this scan’s images exactly as a save checks them. Above zero means the store may now serve those photos at a new address, which this scan would import. */
+  dropped_images_not_carried: Scalars['Int']['output'];
+  /** This scan’s handles for the products those photos belong to, sorted, at most 50 — which products to look at again. */
+  dropped_images_not_carried_handles: Array<Scalars['String']['output']>;
+  /** Products from the previous scan whose edits were joined — by the source’s own product id, never the handle — to a product in this scan. */
+  matched: Scalars['Int']['output'];
+  success: Scalars['Boolean']['output'];
+  /** Products from the previous scan whose edits were left behind: not returned by this scan, carrying no source id, or sharing their source id with another product in either scan. */
+  unmatched: Scalars['Int']['output'];
+  /** The previous scan’s handles for the unmatched products, sorted, at most 50. `unmatched` is the full count. */
+  unmatched_handles: Array<Scalars['String']['output']>;
+};
+
+export type StoreImportField = {
+  __typename?: 'StoreImportField';
+  /** Leaving this empty leaves the product unfit to sell. This is what the needs-attention filter counts — narrower than never_scanned on purpose. */
+  blocks_sale: Scalars['Boolean']['output'];
+  /** bulkFillStoreImportOverrides accepts this column. True for stock and category only — the two fields no scan fills that also block a sale. */
+  bulk_fillable: Scalars['Boolean']['output'];
+  /** Which card the screen puts it on. */
+  group: Scalars['String']['output'];
+  /** The canonical CSV column this writes. */
+  key: Scalars['String']['output'];
+  /** text | multiline | money_cents | integer | category */
+  kind: Scalars['String']['output'];
+  max_length?: Maybe<Scalars['Int']['output']>;
+  /** No connector can fill this, so an empty cell is work rather than a faithful copy of an empty source. */
+  never_scanned: Scalars['Boolean']['output'];
+  /** The column whose value the reference cell shows instead of this field's own scanned value: a translation's English source. */
+  reference_key?: Maybe<Scalars['String']['output']>;
+};
+
+export type StoreImportJobEntry = {
+  __typename?: 'StoreImportJobEntry';
+  artifact_expires_at?: Maybe<Scalars['DateTime']['output']>;
+  attested_owner: Scalars['Boolean']['output'];
+  /** CSV data rows committed so far. A resumed commit skips these. */
+  committed_rows: Scalars['Int']['output'];
+  /** Integer cents. Zero on the free paths. */
+  cost_cents: Scalars['Int']['output'];
+  created_at: Scalars['DateTime']['output'];
+  /** The canonical CSV. Returned only when `include_csv` is asked for, and never from the list — it is up to 24 MB. */
+  csv?: Maybe<Scalars['String']['output']>;
+  csv_size_bytes?: Maybe<Scalars['Int']['output']>;
+  /** What detection concluded. A disagreement with the requested platform is a diagnostic, not an error — it is what explains a scan coming back empty. */
+  detected_platform?: Maybe<StoreImportPlatform>;
+  discovered_urls: Scalars['Int']['output'];
+  /** The error code the run ended on, ready to translate. Set only on FAILED. */
+  error?: Maybe<Scalars['String']['output']>;
+  finished_at?: Maybe<Scalars['DateTime']['output']>;
+  id: Scalars['ID']['output'];
+  images_failed: Scalars['Int']['output'];
+  images_found: Scalars['Int']['output'];
+  /** Images still queued. While this is above zero for a product, that product cannot be published. */
+  images_pending: Scalars['Int']['output'];
+  images_transferred: Scalars['Int']['output'];
+  /** The importer's own report for the commit: counts, per-product actions, errors. Detail query only. */
+  import_report?: Maybe<Scalars['JSON']['output']>;
+  /** How many scanned products were already imported from this source and will be updated rather than created. */
+  matched_products?: Maybe<Scalars['Int']['output']>;
+  /** Products imported from this source that this scan did not find. Reported only — nothing deletes them, and no mutation takes this list. Null means the answer is unknown (pruned, pre-dating the report, or a history too large to sweep), which is not the same as nothing being missing. */
+  missing_from_source?: Maybe<StoreImportMissingReport>;
+  /** Scanned products with no prior identity here — what a commit would CREATE rather than update. Null on a list row, which carries no report. */
+  new_products?: Maybe<Scalars['Int']['output']>;
+  /** Products carrying a review-screen edit or exclusion on this job. Zero once the artefacts are pruned, since the edits go with the file. What a new scan of the same store offers to bring over. */
+  overridden_products: Scalars['Int']['output'];
+  /** The dry-run preview report before commit: simulated counts, matched rows, parse issues. Detail query only. */
+  preview_report?: Maybe<Scalars['JSON']['output']>;
+  products_found: Scalars['Int']['output'];
+  /** Whether the paid extraction provider was eligible when this scan opened. Also set on a scan that FAILED, in the strategy chain or after it returned. Null on a list row and on jobs scanned before the field existed. */
+  provider_available?: Maybe<Scalars['Boolean']['output']>;
+  provider_credits: Scalars['Int']['output'];
+  provider_requests: Scalars['Int']['output'];
+  requested_platform: StoreImportPlatform;
+  /** Whether this job asked for the whole catalogue or the single product at source_url. A PRODUCT job discovers nothing, follows nothing, and books no store-import quota unit. */
+  scope: StoreImportScope;
+  skus_found: Scalars['Int']['output'];
+  /** What the source prices in, as an ISO code, when the source states one. Null means it stated nothing — which is not the same as agreeing with the shop. */
+  source_currency?: Maybe<Scalars['String']['output']>;
+  /** The host the scan actually landed on, which is the identity map’s namespace. Not a text transform of the URL above: a store that redirects to another hostname is that hostname. */
+  source_host: Scalars['String']['output'];
+  /** As the SSRF guard canonicalised it, credential-free. */
+  source_url: Scalars['String']['output'];
+  status: StoreImportStatus;
+  /** Which strategies ran and what each returned. Also set on a scan that FAILED, in the strategy chain or after it returned — what was tried before it gave up — while matched_products / new_products stay null there. Detail query only — the list omits the report it comes from. */
+  strategy_trace?: Maybe<Array<StoreImportStrategyStep>>;
+  updated_at: Scalars['DateTime']['output'];
+};
+
+export type StoreImportJobResponse = {
+  __typename?: 'StoreImportJobResponse';
+  data: StoreImportJobEntry;
+  success: Scalars['Boolean']['output'];
+};
+
+export type StoreImportJobsResponse = {
+  __typename?: 'StoreImportJobsResponse';
+  data: Array<StoreImportJobEntry>;
+  meta: StoreImportPaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+/** An imported image that is not on our storage. */
+export type StoreImportMediaIssue = {
+  __typename?: 'StoreImportMediaIssue';
+  /** How many transfer attempts were spent. */
+  attempts: Scalars['Int']['output'];
+  /** The last failure, in the source server's own terms. */
+  error?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ID']['output'];
+  /** Gallery order. 0 is the main image. */
+  position: Scalars['Int']['output'];
+  /** The product the image belongs to. */
+  product_id: Scalars['ID']['output'];
+  /** The product name, English first. Null if it is gone. */
+  product_name?: Maybe<Scalars['String']['output']>;
+  /** Where the image still lives — the old store. */
+  source_url: Scalars['String']['output'];
+  status: StoreImportMediaStatus;
+};
+
+export type StoreImportMediaIssueResponse = {
+  __typename?: 'StoreImportMediaIssueResponse';
+  data?: Maybe<StoreImportMediaIssue>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type StoreImportMediaIssuesResponse = {
+  __typename?: 'StoreImportMediaIssuesResponse';
+  data?: Maybe<Array<StoreImportMediaIssue>>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type StoreImportMediaStatus =
+  | 'DONE'
+  | 'FAILED'
+  | 'PENDING'
+  | 'SKIPPED';
+
+export type StoreImportMissingProduct = {
+  __typename?: 'StoreImportMissingProduct';
+  /** The source’s own id, as the identity map holds it. */
+  external_id: Scalars['String']['output'];
+  /** `{ en, ar }`. */
+  name: Scalars['JSON']['output'];
+  product_id: Scalars['ID']['output'];
+  slug: Scalars['String']['output'];
+};
+
+export type StoreImportMissingReport = {
+  __typename?: 'StoreImportMissingReport';
+  rows: Array<StoreImportMissingProduct>;
+  /** Live products from this source that the scan did not return. */
+  total: Scalars['Int']['output'];
+  /** `rows` was cut at the cap. */
+  truncated: Scalars['Boolean']['output'];
+};
+
+export type StoreImportPaginationMeta = {
+  __typename?: 'StoreImportPaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type StoreImportPlatform =
+  | 'AUTO'
+  | 'GENERIC'
+  | 'SALLA'
+  | 'SHOPIFY'
+  | 'WOOCOMMERCE'
+  | 'ZID';
+
+export type StoreImportProductEntry = {
+  __typename?: 'StoreImportProductEntry';
+  /** The images the merchant has dropped, in `images` order. They are left out of the imported file and never downloaded; if the primary is dropped, the next kept image in the gallery becomes the primary — never an image only a variant uses (see gallery_count). */
+  dropped_images: Array<Scalars['String']['output']>;
+  /** What the merchant typed. An absent key is untouched. */
+  edited: Scalars['JSON']['output'];
+  excluded: Scalars['Boolean']['output'];
+  /** How many entries at the front of `images` are the product gallery; the rest are images only a variant uses. After drops, the main image is the first gallery entry still kept, in `image_order` when the merchant reordered it. A variant-only image is never promoted, so a product whose gallery is all dropped imports with no main image. */
+  gallery_count: Scalars['Int']['output'];
+  /** The CSV handle. The address of this product in the file, the identity map and the image list at once — and for that reason not editable. */
+  handle: Scalars['String']['output'];
+  /** The gallery in the merchant’s order, primary first: every gallery entry of `images` (the first `gallery_count`), dropped ones included, rearranged. Empty when the merchant has not reordered it, which means the scan’s order. After drops, the main image is the first entry here still kept. */
+  image_order: Array<Scalars['String']['output']>;
+  /** The primary image as the SOURCE serves it — this is a foreign URL until the import transfers it. */
+  image_url?: Maybe<Scalars['String']['output']>;
+  /** Every image the scan found for this product, as the SOURCE serves them: the gallery in order, primary first, then any image only a variant uses. The list the import would transfer, and the only URLs a save may drop. */
+  images: Array<Scalars['String']['output']>;
+  /** Still missing something only a person can supply — stock, a category. */
+  incomplete: Scalars['Boolean']['output'];
+  position: Scalars['Int']['output'];
+  /** What the scan read, per column. */
+  scanned: Scalars['JSON']['output'];
+  /** Row 1 of this product carries its first variant’s money cells too, so editing the price here moves that variant. The screen says so rather than hiding it. */
+  shares_variant_row: Scalars['Boolean']['output'];
+  variant_count: Scalars['Int']['output'];
+};
+
+export type StoreImportProductPatchInput = {
+  /** Scanned images to leave out of the import, as `StoreImportProductEntry.images` lists them — the product’s WHOLE dropped set, replacing what is stored. An empty list or null restores every image; absent leaves the stored set alone. Drop-only: every URL must be one this product’s scan found, or the save is refused with VALIDATION_ERROR. There is no way to add an image. */
+  dropped_images?: InputMaybe<Array<Scalars['String']['input']>>;
+  /** Leave this product out of the import entirely. Its row is dropped from the file and its images are never downloaded. */
+  excluded?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Canonical CSV columns to override. `null` for a column reverts it to the scanned value; an empty string clears the cell. */
+  fields?: InputMaybe<Scalars['JSON']['input']>;
+  /** The product’s CSV handle. It is the address of everything — the override, the identity map and the image transfer list — and is itself never editable. */
+  handle: Scalars['String']['input'];
+  /** The product’s gallery in the order to import it, primary first — the first `gallery_count` entries of `StoreImportProductEntry.images`, rearranged. Replaces the stored order; an empty list or null restores the scan’s order; absent leaves it alone. A list naming only some of the gallery puts those first and the rest after them in the scan’s order. Every URL must be in this product’s gallery, or the save is refused with VALIDATION_ERROR: an image only a variant uses cannot be ordered or made the main photo. Dropped photos keep their place and are skipped, so the main photo is the first one here still kept. */
+  image_order?: InputMaybe<Array<Scalars['String']['input']>>;
+};
+
+export type StoreImportProductsResponse = {
+  __typename?: 'StoreImportProductsResponse';
+  data: Array<StoreImportProductEntry>;
+  /** Products the merchant has left out. */
+  excluded_total: Scalars['Int']['output'];
+  /** The editable surface, as the server defines it. */
+  fields: Array<StoreImportField>;
+  /** Products in this job still missing something to sell. */
+  incomplete_total: Scalars['Int']['output'];
+  meta: StoreImportPaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type StoreImportScope =
+  | 'PRODUCT'
+  | 'STORE';
+
+export type StoreImportStatus =
+  | 'CANCELLED'
+  | 'DISCOVERING'
+  | 'DONE'
+  | 'EXTRACTING'
+  | 'FAILED'
+  | 'IMPORTING'
+  | 'NORMALIZING'
+  | 'QUEUED'
+  | 'READY';
+
+export type StoreImportStrategyStep = {
+  __typename?: 'StoreImportStrategyStep';
+  /** The strategy, as the connector names it. */
+  name: Scalars['String']['output'];
+  products: Scalars['Int']['output'];
+  /** Why it did not run, or why it failed. Set means this strategy produced nothing and the chain moved on. A closed vocabulary, ready to translate: no_products | blocked | timeout | unreachable | cancelled | failed | provider unavailable. Never an error message. */
+  skipped?: Maybe<Scalars['String']['output']>;
+};
+
+export type StoreNoticeEntry = {
+  __typename?: 'StoreNoticeEntry';
+  created_at: Scalars['String']['output'];
+  creator_id?: Maybe<Scalars['String']['output']>;
+  creator_role?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  expire_at?: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  is_read: Scalars['Boolean']['output'];
+  notice: Scalars['String']['output'];
+  priority: Scalars['String']['output'];
+  reads?: Maybe<Array<StoreNoticeReadEntry>>;
+  shop_id?: Maybe<Scalars['String']['output']>;
+  type: Scalars['String']['output'];
+  updated_at: Scalars['String']['output'];
+};
+
+export type StoreNoticePaginationMeta = {
+  __typename?: 'StoreNoticePaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type StoreNoticeReadEntry = {
+  __typename?: 'StoreNoticeReadEntry';
+  created_at: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  store_notice_id: Scalars['String']['output'];
+  user_id: Scalars['String']['output'];
+};
+
+export type StoreNoticeResponse = {
+  __typename?: 'StoreNoticeResponse';
+  data?: Maybe<StoreNoticeEntry>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type StoreNoticesResponse = {
+  __typename?: 'StoreNoticesResponse';
+  data: Array<StoreNoticeEntry>;
+  meta: StoreNoticePaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type StorefrontAssistantResponse = {
+  __typename?: 'StorefrontAssistantResponse';
+  data?: Maybe<AssistantAnswer>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type SubscribeStockInput = {
+  email: Scalars['String']['input'];
+  product_id: Scalars['String']['input'];
+  variation_option_id?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type SubscribeStockResponse = {
+  __typename?: 'SubscribeStockResponse';
+  /** True when the email was already on the list — the storefront UI can show "you’ll be notified" without claiming a fresh subscribe. */
+  already_subscribed: Scalars['Boolean']['output'];
+  error_code?: Maybe<Scalars['String']['output']>;
+  id?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type SubscriptionInterval =
+  | 'MONTHLY'
+  | 'YEARLY';
+
+export type SubscriptionOverrideEntry = {
+  __typename?: 'SubscriptionOverrideEntry';
+  config?: Maybe<Scalars['JSON']['output']>;
+  created_at: Scalars['DateTime']['output'];
+  created_by?: Maybe<Scalars['String']['output']>;
+  enabled?: Maybe<Scalars['Boolean']['output']>;
+  expires_at?: Maybe<Scalars['DateTime']['output']>;
+  feature_key: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  limit_value?: Maybe<Scalars['Int']['output']>;
+  note?: Maybe<Scalars['String']['output']>;
+  shop_id: Scalars['String']['output'];
+};
+
+export type SubscriptionOverridesResponse = {
+  __typename?: 'SubscriptionOverridesResponse';
+  data?: Maybe<Array<SubscriptionOverrideEntry>>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type SubscriptionScheduleEntry = {
+  __typename?: 'SubscriptionScheduleEntry';
+  effective_at: Scalars['DateTime']['output'];
+};
+
+export type SubscriptionScheduleResponse = {
+  __typename?: 'SubscriptionScheduleResponse';
+  data?: Maybe<SubscriptionScheduleEntry>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type SubscriptionStatus =
+  | 'ACTIVE'
+  | 'CANCELED'
+  | 'EXPIRED'
+  | 'PAST_DUE'
+  | 'TRIALING';
+
+export type SuggestAttributesInput = {
+  brand?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  name: Scalars['String']['input'];
+  skip_keys?: InputMaybe<Array<Scalars['String']['input']>>;
+  system_category_id: Scalars['String']['input'];
+};
+
+export type SuggestSystemCategoriesInput = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  products: Array<SuggestSystemCategoryItemInput>;
+};
+
+export type SuggestSystemCategoryItemInput = {
+  brand?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  name: Scalars['String']['input'];
+  ref: Scalars['String']['input'];
+};
+
+export type SupplierEntry = {
+  __typename?: 'SupplierEntry';
+  address_line1?: Maybe<Scalars['String']['output']>;
+  address_line2?: Maybe<Scalars['String']['output']>;
+  city?: Maybe<Scalars['String']['output']>;
+  contact_name?: Maybe<Scalars['String']['output']>;
+  country?: Maybe<Scalars['String']['output']>;
+  created_at: Scalars['DateTime']['output'];
+  email?: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  name: Scalars['String']['output'];
+  note?: Maybe<Scalars['String']['output']>;
+  phone?: Maybe<Scalars['String']['output']>;
+  shop_id: Scalars['String']['output'];
+  state?: Maybe<Scalars['String']['output']>;
+  updated_at: Scalars['DateTime']['output'];
+  zip?: Maybe<Scalars['String']['output']>;
+};
+
+export type SupplierMeta = {
+  __typename?: 'SupplierMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type SupplierResponse = {
+  __typename?: 'SupplierResponse';
+  data?: Maybe<SupplierEntry>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type SuppliersResponse = {
+  __typename?: 'SuppliersResponse';
+  data: Array<SupplierEntry>;
+  meta: SupplierMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type SyncCartInput = {
+  items: Array<SyncCartItemInput>;
+  session_id?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type SyncCartItemInput = {
+  composition?: InputMaybe<Scalars['JSON']['input']>;
+  custom_options?: InputMaybe<Scalars['JSON']['input']>;
+  product_id: Scalars['String']['input'];
+  quantity: Scalars['Int']['input'];
+  variation_option_id?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type SystemCategoriesFlatResponse = {
+  __typename?: 'SystemCategoriesFlatResponse';
+  data: Array<SystemCategoryEntry>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  meta: SystemCategoryListMeta;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type SystemCategoryEntry = {
+  __typename?: 'SystemCategoryEntry';
+  id: Scalars['String']['output'];
+  level: Scalars['Int']['output'];
+  name: Scalars['String']['output'];
+  parent_id?: Maybe<Scalars['String']['output']>;
+  path: Scalars['String']['output'];
+  slug: Scalars['String']['output'];
+  sort_order: Scalars['Int']['output'];
+};
+
+export type SystemCategoryListMeta = {
+  __typename?: 'SystemCategoryListMeta';
+  total: Scalars['Int']['output'];
+};
+
+export type SystemCategoryResponse = {
+  __typename?: 'SystemCategoryResponse';
+  data?: Maybe<SystemCategoryEntry>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type SystemCategorySuggestionEntry = {
+  __typename?: 'SystemCategorySuggestionEntry';
+  id: Scalars['ID']['output'];
+  label: Scalars['String']['output'];
+  level: Scalars['Int']['output'];
+  name: Scalars['String']['output'];
+};
+
+export type SystemCategorySuggestionForProduct = {
+  __typename?: 'SystemCategorySuggestionForProduct';
+  categories: Array<SystemCategorySuggestionEntry>;
+  decisive: Scalars['Boolean']['output'];
+  ref: Scalars['String']['output'];
+};
+
+export type SystemCategorySuggestionsResponse = {
+  __typename?: 'SystemCategorySuggestionsResponse';
+  data: Array<SystemCategorySuggestionForProduct>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  generated: Scalars['Boolean']['output'];
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type SystemCategoryTreeNode = {
+  __typename?: 'SystemCategoryTreeNode';
+  children: Array<SystemCategoryTreeNode>;
+  id: Scalars['String']['output'];
+  level: Scalars['Int']['output'];
+  name: Scalars['String']['output'];
+  parent_id?: Maybe<Scalars['String']['output']>;
+  path: Scalars['String']['output'];
+  slug: Scalars['String']['output'];
+  sort_order: Scalars['Int']['output'];
+};
+
+export type SystemCategoryTreeResponse = {
+  __typename?: 'SystemCategoryTreeResponse';
+  data: Array<SystemCategoryTreeNode>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type TagEntry = {
+  __typename?: 'TagEntry';
+  created_at: Scalars['String']['output'];
+  details?: Maybe<Scalars['JSON']['output']>;
+  icon?: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  image?: Maybe<Scalars['JSON']['output']>;
+  name: Scalars['JSON']['output'];
+  products_count?: Maybe<Scalars['Int']['output']>;
+  shop_id?: Maybe<Scalars['String']['output']>;
+  slug: Scalars['String']['output'];
+  updated_at: Scalars['String']['output'];
+};
+
+export type TagPaginationMeta = {
+  __typename?: 'TagPaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type TagResponse = {
+  __typename?: 'TagResponse';
+  data?: Maybe<TagEntry>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type TagsResponse = {
+  __typename?: 'TagsResponse';
+  data: Array<TagEntry>;
+  meta: TagPaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type Target = {
+  __typename?: 'Target';
+  createdAt: Scalars['DateTime']['output'];
+  currency: Scalars['String']['output'];
+  id: Scalars['ID']['output'];
+  metric: TargetMetric;
+  name: Scalars['String']['output'];
+  period: TargetPeriod;
+  periodEnd: Scalars['DateTime']['output'];
+  periodStart: Scalars['DateTime']['output'];
+  progress: TargetProgress;
+  status: TargetStatus;
+  targetValue: Scalars['Int']['output'];
+  unit: Scalars['String']['output'];
+};
+
+/** Target audience for the product */
+export type TargetAudience =
+  | 'KIDS'
+  | 'MEN'
+  | 'UNISEX'
+  | 'WOMEN';
+
+export type TargetMetric =
+  | 'AOV'
+  | 'GROSS_SALES'
+  | 'NET_PROFIT'
+  | 'NET_SALES'
+  | 'ORDERS_COUNT'
+  | 'RETURNING_CUSTOMER_RATE'
+  | 'TOTAL_SALES';
+
+export type TargetPeriod =
+  | 'CUSTOM'
+  | 'MONTH'
+  | 'QUARTER'
+  | 'WEEK'
+  | 'YEAR';
+
+export type TargetProgress = {
+  __typename?: 'TargetProgress';
+  attainmentBps: Scalars['Int']['output'];
+  costCoverageBps?: Maybe<Scalars['Int']['output']>;
+  currentValue: Scalars['Int']['output'];
+  elapsedBps: Scalars['Int']['output'];
+  idealPaceSeries: Array<PacePoint>;
+  paceable: Scalars['Boolean']['output'];
+  pacingSeries: Array<PacePoint>;
+  projectedValue?: Maybe<Scalars['Int']['output']>;
+  status: TargetStatus;
+  targetValue: Scalars['Int']['output'];
+};
+
+export type TargetResponse = {
+  __typename?: 'TargetResponse';
+  data: Target;
+  success: Scalars['Boolean']['output'];
+};
+
+export type TargetStatus =
+  | 'ACHIEVED'
+  | 'DRAFT'
+  | 'IN_PROGRESS'
+  | 'NOT_ACHIEVED'
+  | 'UPCOMING';
+
+export type TargetsResponse = {
+  __typename?: 'TargetsResponse';
+  data: Array<Target>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type TaxClassEntry = {
+  __typename?: 'TaxClassEntry';
+  bps: Scalars['Int']['output'];
+  created_at: Scalars['DateTime']['output'];
+  description?: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  is_default: Scalars['Boolean']['output'];
+  name: Scalars['JSON']['output'];
+  shop_id: Scalars['String']['output'];
+  updated_at: Scalars['DateTime']['output'];
+};
+
+export type TaxClassResponse = {
+  __typename?: 'TaxClassResponse';
+  data?: Maybe<TaxClassEntry>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type TaxClassesResponse = {
+  __typename?: 'TaxClassesResponse';
+  data: Array<TaxClassEntry>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type TaxEntry = {
+  __typename?: 'TaxEntry';
+  city?: Maybe<Scalars['String']['output']>;
+  country?: Maybe<Scalars['String']['output']>;
+  created_at: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  is_global: Scalars['Boolean']['output'];
+  name: Scalars['JSON']['output'];
+  on_shipping: Scalars['Boolean']['output'];
+  priority: Scalars['Int']['output'];
+  rate: Scalars['Float']['output'];
+  /** Tax rate in basis points (15.675% → 1568). Prefer this over `rate` for calculation; `rate` is kept as a legacy Float mirror. */
+  rate_bps: Scalars['Int']['output'];
+  shop_id?: Maybe<Scalars['String']['output']>;
+  state?: Maybe<Scalars['String']['output']>;
+  status: Scalars['String']['output'];
+  updated_at: Scalars['String']['output'];
+};
+
+export type TaxPaginationMeta = {
+  __typename?: 'TaxPaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type TaxResponse = {
+  __typename?: 'TaxResponse';
+  data?: Maybe<TaxEntry>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type TaxesResponse = {
+  __typename?: 'TaxesResponse';
+  data: Array<TaxEntry>;
+  meta: TaxPaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type TelegramOrderUpdates = {
+  __typename?: 'TelegramOrderUpdates';
+  available: Scalars['Boolean']['output'];
+  bot_username?: Maybe<Scalars['String']['output']>;
+  linked: Scalars['Boolean']['output'];
+};
+
+export type TelegramPairingLink = {
+  __typename?: 'TelegramPairingLink';
+  expires_in: Scalars['Float']['output'];
+  url: Scalars['String']['output'];
+};
+
+export type TelegramVendorLink = {
+  __typename?: 'TelegramVendorLink';
+  bot_username?: Maybe<Scalars['String']['output']>;
+  linked: Scalars['Boolean']['output'];
+  linked_at?: Maybe<Scalars['DateTime']['output']>;
+  telegram_username?: Maybe<Scalars['String']['output']>;
+};
+
+export type TermsConditionsEntry = {
+  __typename?: 'TermsConditionsEntry';
+  created_at: Scalars['String']['output'];
+  description?: Maybe<Scalars['JSON']['output']>;
+  id: Scalars['String']['output'];
+  is_approved: Scalars['Boolean']['output'];
+  shop_id?: Maybe<Scalars['String']['output']>;
+  slug: Scalars['String']['output'];
+  title: Scalars['JSON']['output'];
+  type: Scalars['String']['output'];
+  updated_at: Scalars['String']['output'];
+};
+
+export type TermsConditionsListResponse = {
+  __typename?: 'TermsConditionsListResponse';
+  data: Array<TermsConditionsEntry>;
+  meta: TermsConditionsPaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type TermsConditionsPaginationMeta = {
+  __typename?: 'TermsConditionsPaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type TermsConditionsResponse = {
+  __typename?: 'TermsConditionsResponse';
+  data?: Maybe<TermsConditionsEntry>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type TestIntegrationInput = {
+  destination?: InputMaybe<Scalars['String']['input']>;
+  id: Scalars['String']['input'];
+};
+
+export type ToggleFeedbackInput = {
+  model_id: Scalars['String']['input'];
+  model_type: Scalars['String']['input'];
+  positive: Scalars['Boolean']['input'];
+};
+
+export type TopCustomer = {
+  __typename?: 'TopCustomer';
+  email?: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  name?: Maybe<Scalars['String']['output']>;
+  orders_count: Scalars['Int']['output'];
+  total_spent_cents: Scalars['Int']['output'];
+};
+
+export type TopProduct = {
+  __typename?: 'TopProduct';
+  id: Scalars['String']['output'];
+  image?: Maybe<Scalars['JSON']['output']>;
+  name: Scalars['JSON']['output'];
+  orders_count: Scalars['Int']['output'];
+  slug: Scalars['String']['output'];
+  total_sales_cents: Scalars['Int']['output'];
+};
+
+/** Ranking dimension for topProducts */
+export type TopProductsBy =
+  | 'ORDERS'
+  | 'SALES';
+
+export type TopProductsResponse = {
+  __typename?: 'TopProductsResponse';
+  data: Array<TopProduct>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type TransferInventoryInput = {
+  from_location_id: Scalars['String']['input'];
+  note?: InputMaybe<Scalars['String']['input']>;
+  product_id?: InputMaybe<Scalars['String']['input']>;
+  quantity: Scalars['Int']['input'];
+  to_location_id: Scalars['String']['input'];
+  variation_option_id?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type TransferLineInput = {
+  product_id?: InputMaybe<Scalars['String']['input']>;
+  quantity: Scalars['Int']['input'];
+  variation_option_id?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type UnappliedPaymentRefundResponse = {
+  __typename?: 'UnappliedPaymentRefundResponse';
+  data?: Maybe<OrderUnappliedPayment>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type UnavailableProductEntry = {
+  __typename?: 'UnavailableProductEntry';
+  available_quantity?: Maybe<Scalars['Float']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  product_id: Scalars['String']['output'];
+  reason: Scalars['String']['output'];
+};
+
+export type UnmapShippingProviderLocationInput = {
+  location_id: Scalars['String']['input'];
+};
+
+export type UpdateAddressInput = {
+  address?: InputMaybe<Scalars['JSON']['input']>;
+  default?: InputMaybe<Scalars['Boolean']['input']>;
+  id: Scalars['String']['input'];
+  location?: InputMaybe<Scalars['JSON']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  type?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type UpdateAttributeDefinitionInput = {
+  description?: InputMaybe<Scalars['JSON']['input']>;
+  filterable?: InputMaybe<Scalars['Boolean']['input']>;
+  id: Scalars['String']['input'];
+  name?: InputMaybe<Scalars['JSON']['input']>;
+  required?: InputMaybe<Scalars['Boolean']['input']>;
+  sort_order?: InputMaybe<Scalars['Int']['input']>;
+  unit?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type UpdateAttributeInput = {
+  id: Scalars['String']['input'];
+  name?: InputMaybe<Scalars['JSON']['input']>;
+  values?: InputMaybe<Array<AttributeValueInput>>;
+};
+
+export type UpdateAttributeOptionInput = {
+  id: Scalars['String']['input'];
+  label?: InputMaybe<Scalars['JSON']['input']>;
+  sort_order?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type UpdateAuthorInput = {
+  bio?: InputMaybe<Scalars['JSON']['input']>;
+  born?: InputMaybe<Scalars['String']['input']>;
+  cover_image?: InputMaybe<Scalars['JSON']['input']>;
+  death?: InputMaybe<Scalars['String']['input']>;
+  id: Scalars['String']['input'];
+  image?: InputMaybe<Scalars['JSON']['input']>;
+  name?: InputMaybe<Scalars['JSON']['input']>;
+  quote?: InputMaybe<Scalars['JSON']['input']>;
+  slug?: InputMaybe<Scalars['String']['input']>;
+  socials?: InputMaybe<Scalars['JSON']['input']>;
+};
+
+export type UpdateBannerInput = {
+  description?: InputMaybe<Scalars['JSON']['input']>;
+  id: Scalars['String']['input'];
+  image?: InputMaybe<Scalars['JSON']['input']>;
+  title?: InputMaybe<Scalars['JSON']['input']>;
+};
+
+export type UpdateCartItemInput = {
+  custom_options?: InputMaybe<Scalars['JSON']['input']>;
+  item_id: Scalars['String']['input'];
+  quantity: Scalars['Int']['input'];
+};
+
+export type UpdateCollectionInput = {
+  description?: InputMaybe<Scalars['JSON']['input']>;
+  id: Scalars['String']['input'];
+  image?: InputMaybe<Scalars['JSON']['input']>;
+  is_published?: InputMaybe<Scalars['Boolean']['input']>;
+  name?: InputMaybe<Scalars['JSON']['input']>;
+  product_ids?: InputMaybe<Array<Scalars['String']['input']>>;
+  rules?: InputMaybe<Scalars['JSON']['input']>;
+  seo_description?: InputMaybe<Scalars['JSON']['input']>;
+  seo_title?: InputMaybe<Scalars['JSON']['input']>;
+  slug?: InputMaybe<Scalars['String']['input']>;
+  sort?: InputMaybe<CollectionSort>;
+  sort_order?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type UpdateCommissionInput = {
+  commission_bps?: InputMaybe<Scalars['Int']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  id: Scalars['String']['input'];
+  image?: InputMaybe<Scalars['JSON']['input']>;
+  language?: InputMaybe<Scalars['String']['input']>;
+  level?: InputMaybe<Scalars['String']['input']>;
+  max_balance_cents?: InputMaybe<Scalars['Int']['input']>;
+  min_balance_cents?: InputMaybe<Scalars['Int']['input']>;
+  sub_level?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type UpdateContactInput = {
+  /** Re-link to another of this shop's customers (customers.id): a live customer of the contact's shop; otherwise VALIDATION_ERROR (field customer_id, code invalid_customer). null unlinks. */
+  customer_id?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  email?: InputMaybe<Scalars['String']['input']>;
+  id: Scalars['String']['input'];
+  meta?: InputMaybe<Scalars['JSON']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  notes?: InputMaybe<Scalars['String']['input']>;
+  overall_score?: InputMaybe<Scalars['JSON']['input']>;
+  phone_number?: InputMaybe<Scalars['String']['input']>;
+  status?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type UpdateCountryProfileInput = {
+  country_code: Scalars['String']['input'];
+  enabled: Scalars['Boolean']['input'];
+};
+
+export type UpdateCouponInput = {
+  active_from?: InputMaybe<Scalars['String']['input']>;
+  amount_cents?: InputMaybe<Scalars['Int']['input']>;
+  buy_collection_ids?: InputMaybe<Array<Scalars['String']['input']>>;
+  buy_product_ids?: InputMaybe<Array<Scalars['String']['input']>>;
+  buy_quantity?: InputMaybe<Scalars['Int']['input']>;
+  code?: InputMaybe<Scalars['String']['input']>;
+  collection_ids?: InputMaybe<Array<Scalars['String']['input']>>;
+  combinations?: InputMaybe<Scalars['JSON']['input']>;
+  countries?: InputMaybe<Array<Scalars['String']['input']>>;
+  customer_ids?: InputMaybe<Array<Scalars['String']['input']>>;
+  eligibility?: InputMaybe<CouponEligibility>;
+  exclude_shipping_rates_over_cents?: InputMaybe<Scalars['Int']['input']>;
+  expire_at?: InputMaybe<Scalars['String']['input']>;
+  get_collection_ids?: InputMaybe<Array<Scalars['String']['input']>>;
+  get_discount_amount_cents?: InputMaybe<Scalars['Int']['input']>;
+  get_discount_percent_bps?: InputMaybe<Scalars['Int']['input']>;
+  get_discount_type?: InputMaybe<BogoDiscountType>;
+  get_product_ids?: InputMaybe<Array<Scalars['String']['input']>>;
+  get_quantity?: InputMaybe<Scalars['Int']['input']>;
+  id: Scalars['String']['input'];
+  image?: InputMaybe<Scalars['JSON']['input']>;
+  is_exclusive?: InputMaybe<Scalars['Boolean']['input']>;
+  language?: InputMaybe<Scalars['String']['input']>;
+  max_discount_cents?: InputMaybe<Scalars['Int']['input']>;
+  max_uses?: InputMaybe<Scalars['Int']['input']>;
+  max_uses_per_order?: InputMaybe<Scalars['Int']['input']>;
+  max_uses_per_user?: InputMaybe<Scalars['Int']['input']>;
+  method?: InputMaybe<CouponMethod>;
+  minimum_cart_amount_cents?: InputMaybe<Scalars['Int']['input']>;
+  minimum_quantity?: InputMaybe<Scalars['Int']['input']>;
+  percent_bps?: InputMaybe<Scalars['Int']['input']>;
+  priority?: InputMaybe<Scalars['Int']['input']>;
+  product_ids?: InputMaybe<Array<Scalars['String']['input']>>;
+  segment_ids?: InputMaybe<Array<Scalars['String']['input']>>;
+  target?: InputMaybe<Scalars['String']['input']>;
+  timezone?: InputMaybe<Scalars['String']['input']>;
+  type?: InputMaybe<CouponType>;
+  value_type?: InputMaybe<CouponValueType>;
+};
+
+export type UpdateCustomerSegmentInput = {
+  description?: InputMaybe<Scalars['String']['input']>;
+  id: Scalars['String']['input'];
+  name?: InputMaybe<Scalars['String']['input']>;
+  query?: InputMaybe<Scalars['String']['input']>;
+  rules?: InputMaybe<Scalars['JSON']['input']>;
+};
+
+export type UpdateDeliveryChannelsInput = {
+  /** Assumed weight in grams for a shippable item with none of its own. */
+  default_item_weight_grams?: InputMaybe<Scalars['Int']['input']>;
+  offers_carrier_delivery?: InputMaybe<Scalars['Boolean']['input']>;
+  offers_merchant_delivery?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type UpdateDeliveryTimeInput = {
+  description?: InputMaybe<Scalars['JSON']['input']>;
+  icon?: InputMaybe<Scalars['String']['input']>;
+  id: Scalars['String']['input'];
+  slug?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['JSON']['input']>;
+};
+
+export type UpdateDraftOrderInput = {
+  billing_address?: InputMaybe<Scalars['JSON']['input']>;
+  /** Ids of this shop’s coupons, at most 5. Replaces the stored list; explicit null or an empty array clears it, absent leaves it unchanged. Ids not already on the draft must be live coupons of this shop. Priced by createOrder at conversion, against the draft’s customer. */
+  coupon_ids?: InputMaybe<Array<Scalars['String']['input']>>;
+  customer_contact?: InputMaybe<Scalars['String']['input']>;
+  /** Account id (users.id, not a CRM contact id) of a customer of this shop. Explicit null makes the draft a guest draft. Checked only when it differs from the stored value. */
+  customer_id?: InputMaybe<Scalars['String']['input']>;
+  customer_name?: InputMaybe<Scalars['String']['input']>;
+  id: Scalars['String']['input'];
+  /** When provided, replaces the draft’s line items. */
+  lines?: InputMaybe<Array<DraftOrderLineInput>>;
+  manual_discount_cents?: InputMaybe<Scalars['Int']['input']>;
+  note?: InputMaybe<Scalars['String']['input']>;
+  /** Payment due later. Absent or null leaves the stored value unchanged. */
+  payment_due_later?: InputMaybe<Scalars['Boolean']['input']>;
+  /** One of due_on_receipt, net_7, net_15, net_30. Explicit null clears it; absent leaves it unchanged. */
+  payment_terms?: InputMaybe<Scalars['String']['input']>;
+  shipping_address?: InputMaybe<Scalars['JSON']['input']>;
+  shipping_method_name?: InputMaybe<Scalars['String']['input']>;
+  shipping_override_cents?: InputMaybe<Scalars['Int']['input']>;
+  shipping_rule_id?: InputMaybe<Scalars['String']['input']>;
+  /** Vendor-facing tags (Shopify pattern) for custom views / filtering. */
+  tags?: InputMaybe<Array<Scalars['String']['input']>>;
+};
+
+export type UpdateFaqInput = {
+  faq_description?: InputMaybe<Scalars['String']['input']>;
+  faq_title?: InputMaybe<Scalars['JSON']['input']>;
+  id: Scalars['String']['input'];
+  status?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type UpdateFlashSaleInput = {
+  description?: InputMaybe<Scalars['JSON']['input']>;
+  end_date?: InputMaybe<Scalars['String']['input']>;
+  id: Scalars['String']['input'];
+  image?: InputMaybe<Scalars['JSON']['input']>;
+  is_active?: InputMaybe<Scalars['Boolean']['input']>;
+  product_ids?: InputMaybe<Array<Scalars['String']['input']>>;
+  rate?: InputMaybe<Scalars['Float']['input']>;
+  sale_type?: InputMaybe<Scalars['String']['input']>;
+  slug?: InputMaybe<Scalars['String']['input']>;
+  start_date?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['JSON']['input']>;
+};
+
+export type UpdateInventoryTransferInput = {
+  barcode?: InputMaybe<Scalars['String']['input']>;
+  destination_location_id?: InputMaybe<Scalars['String']['input']>;
+  expected_arrival?: InputMaybe<Scalars['String']['input']>;
+  id: Scalars['String']['input'];
+  lines?: InputMaybe<Array<TransferLineInput>>;
+  note?: InputMaybe<Scalars['String']['input']>;
+  reference?: InputMaybe<Scalars['String']['input']>;
+  shipment_cost_cents?: InputMaybe<Scalars['Int']['input']>;
+  shipping_carrier?: InputMaybe<Scalars['String']['input']>;
+  source_location_id?: InputMaybe<Scalars['String']['input']>;
+  tags?: InputMaybe<Array<Scalars['String']['input']>>;
+  tracking_number?: InputMaybe<Scalars['String']['input']>;
+  tracking_url?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type UpdateLanguageInput = {
+  direction?: InputMaybe<Scalars['String']['input']>;
+  flag?: InputMaybe<Scalars['String']['input']>;
+  id: Scalars['String']['input'];
+  is_default?: InputMaybe<Scalars['Boolean']['input']>;
+  language_code?: InputMaybe<Scalars['String']['input']>;
+  language_name?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type UpdateLocationInput = {
+  address_line1?: InputMaybe<Scalars['String']['input']>;
+  address_line2?: InputMaybe<Scalars['String']['input']>;
+  city?: InputMaybe<Scalars['String']['input']>;
+  country?: InputMaybe<Scalars['String']['input']>;
+  fulfills_online_orders?: InputMaybe<Scalars['Boolean']['input']>;
+  id: Scalars['String']['input'];
+  is_active?: InputMaybe<Scalars['Boolean']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  national_address_code?: InputMaybe<Scalars['String']['input']>;
+  phone?: InputMaybe<Scalars['String']['input']>;
+  state?: InputMaybe<Scalars['String']['input']>;
+  zip?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type UpdateManufacturerInput = {
+  cover_image?: InputMaybe<Scalars['JSON']['input']>;
+  description?: InputMaybe<Scalars['JSON']['input']>;
+  id: Scalars['String']['input'];
+  image?: InputMaybe<Scalars['JSON']['input']>;
+  name?: InputMaybe<Scalars['JSON']['input']>;
+  slug?: InputMaybe<Scalars['String']['input']>;
+  socials?: InputMaybe<Scalars['JSON']['input']>;
+  type?: InputMaybe<Scalars['String']['input']>;
+  website?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type UpdateMenuInput = {
+  id: Scalars['String']['input'];
+  items?: InputMaybe<Scalars['JSON']['input']>;
+  name?: InputMaybe<Scalars['JSON']['input']>;
+  slug?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type UpdateMyCustomerProfileInput = {
+  /** For receipts and updates only, never a sign-in. Absent leaves it; null or "" clears it. */
+  email?: InputMaybe<Scalars['String']['input']>;
+  /** Two to eighty characters; no @, links or phone numbers. Absent leaves it; null clears it. */
+  name?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type UpdateNotificationPreferenceInput = {
+  email?: InputMaybe<Scalars['Boolean']['input']>;
+  in_app?: InputMaybe<Scalars['Boolean']['input']>;
+  notify_type: NotifyType;
+};
+
+export type UpdateNotificationSettingInput = {
+  accent_color?: InputMaybe<Scalars['String']['input']>;
+  logo_url?: InputMaybe<Scalars['String']['input']>;
+  logo_width?: InputMaybe<Scalars['Int']['input']>;
+  order_summary_day?: InputMaybe<Scalars['Int']['input']>;
+  order_summary_frequency?: InputMaybe<Scalars['String']['input']>;
+  order_summary_hour?: InputMaybe<Scalars['Int']['input']>;
+  show_powered_by?: InputMaybe<Scalars['Boolean']['input']>;
+  sms_enabled?: InputMaybe<Scalars['Boolean']['input']>;
+  telegram_enabled?: InputMaybe<Scalars['Boolean']['input']>;
+  whatsapp_enabled?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type UpdateNotificationTemplateInput = {
+  body?: InputMaybe<Scalars['String']['input']>;
+  enabled?: InputMaybe<Scalars['Boolean']['input']>;
+  event_key: Scalars['String']['input'];
+  subject?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type UpdateOrderInput = {
+  altered_payment_gateway?: InputMaybe<Scalars['String']['input']>;
+  billing_address?: InputMaybe<Scalars['JSON']['input']>;
+  delivery_time?: InputMaybe<Scalars['String']['input']>;
+  id: Scalars['String']['input'];
+  note?: InputMaybe<Scalars['String']['input']>;
+  order_status?: InputMaybe<Scalars['String']['input']>;
+  /** A PaymentStatus value (payment-pending, payment-processing, payment-success, payment-failed, payment-reversal, payment-refunded, payment-cash-on-delivery, payment-cash, payment-wallet, payment-awaiting-for-approval); anything else is VALIDATION_ERROR (IS_IN). Refused on a BANK_TRANSFER order (BANK_TRANSFER_REVIEW_REQUIRED). A paid value (payment-success, payment-cash-on-delivery, payment-cash, payment-wallet) is accepted only on a CASH_ON_DELIVERY, CASH or INVOICE order (MANUAL_PAYMENT_NOT_ALLOWED). The write lands only if the payment status is still the one the server read: if another writer moved it elsewhere first the call fails with ORDER_PAYMENT_STATUS_CHANGED, and if it is already the requested value the call succeeds and fires nothing. */
+  payment_status?: InputMaybe<Scalars['String']['input']>;
+  shipping_address?: InputMaybe<Scalars['JSON']['input']>;
+};
+
+export type UpdateOtpSettingsInput = {
+  channel?: InputMaybe<OtpChannel>;
+  code_length?: InputMaybe<Scalars['Int']['input']>;
+  cooldown_seconds?: InputMaybe<Scalars['Int']['input']>;
+  daily_limit?: InputMaybe<Scalars['Int']['input']>;
+  lockout_minutes?: InputMaybe<Scalars['Int']['input']>;
+  max_attempts?: InputMaybe<Scalars['Int']['input']>;
+  shop_hourly_limit?: InputMaybe<Scalars['Int']['input']>;
+  ttl_seconds?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type UpdatePageInput = {
+  content?: InputMaybe<Scalars['JSON']['input']>;
+  id: Scalars['String']['input'];
+  image?: InputMaybe<Scalars['JSON']['input']>;
+  slug?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['JSON']['input']>;
+};
+
+export type UpdatePlanInput = {
+  currency?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  description_ar?: InputMaybe<Scalars['String']['input']>;
+  id: Scalars['String']['input'];
+  is_active?: InputMaybe<Scalars['Boolean']['input']>;
+  is_public?: InputMaybe<Scalars['Boolean']['input']>;
+  monthly_price_cents?: InputMaybe<Scalars['Int']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  name_ar?: InputMaybe<Scalars['String']['input']>;
+  sort_order?: InputMaybe<Scalars['Int']['input']>;
+  trial_days?: InputMaybe<Scalars['Int']['input']>;
+  yearly_price_cents?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type UpdateProductInput = {
+  ai_keywords?: InputMaybe<Scalars['JSON']['input']>;
+  attribute_values?: InputMaybe<Array<ProductAttributeValueInput>>;
+  barcode?: InputMaybe<Scalars['String']['input']>;
+  brand?: InputMaybe<Scalars['String']['input']>;
+  collection_ids?: InputMaybe<Array<Scalars['String']['input']>>;
+  continue_selling_when_out_of_stock?: InputMaybe<Scalars['Boolean']['input']>;
+  cost_per_item_cents?: InputMaybe<Scalars['Int']['input']>;
+  country_of_origin?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['JSON']['input']>;
+  expected_version?: InputMaybe<Scalars['Int']['input']>;
+  gallery?: InputMaybe<Scalars['JSON']['input']>;
+  height_mm?: InputMaybe<Scalars['Int']['input']>;
+  hs_code?: InputMaybe<Scalars['String']['input']>;
+  id: Scalars['String']['input'];
+  image?: InputMaybe<Scalars['JSON']['input']>;
+  in_stock?: InputMaybe<Scalars['Boolean']['input']>;
+  is_digital?: InputMaybe<Scalars['Boolean']['input']>;
+  length_mm?: InputMaybe<Scalars['Int']['input']>;
+  /** Maximum bid (integer cents) */
+  max_bid_price_cents?: InputMaybe<Scalars['Int']['input']>;
+  /** Max percentage in basis points (1bp = 0.01%, 10000 = 100%) */
+  max_percentage_bps?: InputMaybe<Scalars['Int']['input']>;
+  /** Minimum bid (integer cents) */
+  min_bid_price_cents?: InputMaybe<Scalars['Int']['input']>;
+  name?: InputMaybe<Scalars['JSON']['input']>;
+  option_definitions?: InputMaybe<Array<ProductOptionDefinitionInput>>;
+  /** Shop package ID used for parcel sizing. Null uses store default. */
+  package_id?: InputMaybe<Scalars['String']['input']>;
+  price_cents?: InputMaybe<Scalars['Int']['input']>;
+  product_type?: InputMaybe<ProductType>;
+  published_at?: InputMaybe<Scalars['DateTime']['input']>;
+  quantity?: InputMaybe<Scalars['Int']['input']>;
+  requires_shipping?: InputMaybe<Scalars['Boolean']['input']>;
+  sale_price_cents?: InputMaybe<Scalars['Int']['input']>;
+  sale_type?: InputMaybe<SaleType>;
+  seo_description?: InputMaybe<Scalars['JSON']['input']>;
+  seo_title?: InputMaybe<Scalars['JSON']['input']>;
+  sku?: InputMaybe<Scalars['String']['input']>;
+  slug?: InputMaybe<Scalars['String']['input']>;
+  status?: InputMaybe<ProductStatus>;
+  system_category_id?: InputMaybe<Scalars['String']['input']>;
+  tag_ids?: InputMaybe<Array<Scalars['String']['input']>>;
+  target_audience?: InputMaybe<TargetAudience>;
+  /** TaxClass id (per-product tax override). Null = inherit shop default. */
+  tax_class_id?: InputMaybe<Scalars['String']['input']>;
+  track_quantity?: InputMaybe<Scalars['Boolean']['input']>;
+  type_name?: InputMaybe<Scalars['String']['input']>;
+  unpublished_at?: InputMaybe<Scalars['DateTime']['input']>;
+  variation_options?: InputMaybe<Array<CreateVariationInput>>;
+  video?: InputMaybe<Scalars['JSON']['input']>;
+  weight_grams?: InputMaybe<Scalars['Int']['input']>;
+  weight_unit_display?: InputMaybe<WeightUnit>;
+  width_mm?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type UpdatePurchaseOrderInput = {
+  currency_code?: InputMaybe<Scalars['String']['input']>;
+  destination_location_id?: InputMaybe<Scalars['String']['input']>;
+  expected_at?: InputMaybe<Scalars['DateTime']['input']>;
+  id: Scalars['String']['input'];
+  lines?: InputMaybe<Array<PurchaseOrderLineInput>>;
+  note?: InputMaybe<Scalars['String']['input']>;
+  payment_terms?: InputMaybe<PurchaseOrderPaymentTerms>;
+  reference?: InputMaybe<Scalars['String']['input']>;
+  shipping_carrier?: InputMaybe<Scalars['String']['input']>;
+  shipping_cents?: InputMaybe<Scalars['Int']['input']>;
+  supplier_id?: InputMaybe<Scalars['String']['input']>;
+  tags?: InputMaybe<Array<Scalars['String']['input']>>;
+  tax_cents?: InputMaybe<Scalars['Int']['input']>;
+  tracking_number?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type UpdateRefundPolicyInput = {
+  description?: InputMaybe<Scalars['JSON']['input']>;
+  id: Scalars['String']['input'];
+  slug?: InputMaybe<Scalars['String']['input']>;
+  status?: InputMaybe<Scalars['String']['input']>;
+  target?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['JSON']['input']>;
+};
+
+export type UpdateRefundStatusInput = {
+  id: Scalars['String']['input'];
+  status: Scalars['String']['input'];
+};
+
+export type UpdateReturnStatusInput = {
+  id: Scalars['String']['input'];
+  status: ReturnStatus;
+};
+
+export type UpdateReviewInput = {
+  comment: Scalars['String']['input'];
+  id: Scalars['String']['input'];
+  photos?: InputMaybe<Array<Scalars['Int']['input']>>;
+  rating: Scalars['Int']['input'];
+};
+
+export type UpdateRolePermissionsInput = {
+  permissions: Array<Scalars['String']['input']>;
+  role: Scalars['String']['input'];
+};
+
+export type UpdateShipmentStatusInput = {
+  id: Scalars['String']['input'];
+  notes?: InputMaybe<Scalars['String']['input']>;
+  status: Scalars['String']['input'];
+  tracking_number?: InputMaybe<Scalars['String']['input']>;
+  tracking_url?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type UpdateShippingRuleInput = {
+  /** Rate in basis points (250 = 2.5%). Use for percentage rules. Switching a rule to a different type means setting the new rate column and zeroing the old one. */
+  amount_bps?: InputMaybe<Scalars['Int']['input']>;
+  /** Flat rate in cents. Use for fixed / weight_based rules. */
+  amount_cents?: InputMaybe<Scalars['Int']['input']>;
+  id: Scalars['String']['input'];
+  is_global?: InputMaybe<Scalars['Boolean']['input']>;
+  max_delivery_days?: InputMaybe<Scalars['Int']['input']>;
+  min_delivery_days?: InputMaybe<Scalars['Int']['input']>;
+  min_order_cents?: InputMaybe<Scalars['Int']['input']>;
+  name?: InputMaybe<Scalars['JSON']['input']>;
+  per_kg_cents?: InputMaybe<Scalars['Int']['input']>;
+  type?: InputMaybe<Scalars['String']['input']>;
+  /** Move this rule to a ShippingZone, or null to detach it. */
+  zone_id?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type UpdateShippingZoneInput = {
+  city_codes?: InputMaybe<Array<Scalars['String']['input']>>;
+  countries?: InputMaybe<Array<Scalars['String']['input']>>;
+  id: Scalars['String']['input'];
+  is_global?: InputMaybe<Scalars['Boolean']['input']>;
+  name?: InputMaybe<Scalars['JSON']['input']>;
+  priority?: InputMaybe<Scalars['Int']['input']>;
+  states?: InputMaybe<Array<Scalars['String']['input']>>;
+};
+
+export type UpdateShopBankAccountInput = {
+  account_holder_name?: InputMaybe<Scalars['String']['input']>;
+  account_number?: InputMaybe<Scalars['String']['input']>;
+  bank_code?: InputMaybe<Scalars['String']['input']>;
+  bank_name?: InputMaybe<Scalars['String']['input']>;
+  currency?: InputMaybe<Scalars['String']['input']>;
+  iban?: InputMaybe<Scalars['String']['input']>;
+  id: Scalars['String']['input'];
+  is_active?: InputMaybe<Scalars['Boolean']['input']>;
+  notes?: InputMaybe<Scalars['String']['input']>;
+  sort_order?: InputMaybe<Scalars['Int']['input']>;
+  swift_code?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type UpdateShopInput = {
+  address?: InputMaybe<Scalars['JSON']['input']>;
+  balance?: InputMaybe<BalanceInput>;
+  cover_image?: InputMaybe<ImageInput>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  is_active?: InputMaybe<Scalars['Boolean']['input']>;
+  logo?: InputMaybe<ImageInput>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  notifications?: InputMaybe<Scalars['JSON']['input']>;
+  settings?: InputMaybe<ShopSettingsInput>;
+  shipping?: InputMaybe<Scalars['JSON']['input']>;
+  slug?: InputMaybe<Scalars['String']['input']>;
+  socials?: InputMaybe<Array<ShopSocialInput>>;
+  storefront_template?: InputMaybe<Scalars['String']['input']>;
+  storefront_theme?: InputMaybe<Scalars['JSON']['input']>;
+  tax_bps?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type UpdateShopPackageInput = {
+  /** Empty package tare weight in grams */
+  empty_weight_grams?: InputMaybe<Scalars['Int']['input']>;
+  /** Height in mm */
+  height_mm?: InputMaybe<Scalars['Int']['input']>;
+  is_default?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Length in mm */
+  length_mm?: InputMaybe<Scalars['Int']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  package_type?: InputMaybe<PackageType>;
+  /** Width in mm */
+  width_mm?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type UpdateShopPaymentSettingsInput = {
+  bank_transfer_enabled?: InputMaybe<Scalars['Boolean']['input']>;
+  card_enabled?: InputMaybe<Scalars['Boolean']['input']>;
+  cod_enabled?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type UpdateShopShippingModeInput = {
+  mode: ShippingMode;
+};
+
+export type UpdateStaffRecipientInput = {
+  enabled?: InputMaybe<Scalars['Boolean']['input']>;
+  events?: InputMaybe<Array<Scalars['String']['input']>>;
+  id: Scalars['String']['input'];
+};
+
+export type UpdateSupplierInput = {
+  address_line1?: InputMaybe<Scalars['String']['input']>;
+  address_line2?: InputMaybe<Scalars['String']['input']>;
+  city?: InputMaybe<Scalars['String']['input']>;
+  contact_name?: InputMaybe<Scalars['String']['input']>;
+  country?: InputMaybe<Scalars['String']['input']>;
+  email?: InputMaybe<Scalars['String']['input']>;
+  id: Scalars['String']['input'];
+  name?: InputMaybe<Scalars['String']['input']>;
+  note?: InputMaybe<Scalars['String']['input']>;
+  phone?: InputMaybe<Scalars['String']['input']>;
+  state?: InputMaybe<Scalars['String']['input']>;
+  zip?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type UpdateTagInput = {
+  details?: InputMaybe<Scalars['JSON']['input']>;
+  icon?: InputMaybe<Scalars['String']['input']>;
+  id: Scalars['String']['input'];
+  image?: InputMaybe<Scalars['JSON']['input']>;
+  name?: InputMaybe<Scalars['JSON']['input']>;
+  slug?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type UpdateTaxClassInput = {
+  bps?: InputMaybe<Scalars['Int']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  id: Scalars['String']['input'];
+  name?: InputMaybe<Scalars['JSON']['input']>;
+};
+
+export type UpdateTaxInput = {
+  city?: InputMaybe<Scalars['String']['input']>;
+  country?: InputMaybe<Scalars['String']['input']>;
+  id: Scalars['String']['input'];
+  is_global?: InputMaybe<Scalars['Boolean']['input']>;
+  name?: InputMaybe<Scalars['JSON']['input']>;
+  on_shipping?: InputMaybe<Scalars['Boolean']['input']>;
+  priority?: InputMaybe<Scalars['Int']['input']>;
+  rate?: InputMaybe<Scalars['Float']['input']>;
+  state?: InputMaybe<Scalars['String']['input']>;
+  status?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type UpdateTermsConditionsInput = {
+  description?: InputMaybe<Scalars['JSON']['input']>;
+  id: Scalars['String']['input'];
+  is_approved?: InputMaybe<Scalars['Boolean']['input']>;
+  slug?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['JSON']['input']>;
+  type?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type UpdateUserInput = {
+  address?: InputMaybe<Array<UserAddressInput>>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  profile?: InputMaybe<UserProfileInput>;
+};
+
+export type UpdateWebhookSubscriptionInput = {
+  description?: InputMaybe<Scalars['String']['input']>;
+  events?: InputMaybe<Array<WebhookEventType>>;
+  id: Scalars['String']['input'];
+  is_active?: InputMaybe<Scalars['Boolean']['input']>;
+  url?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type UpdateWithdrawalInput = {
+  id: Scalars['String']['input'];
+  status: WithdrawalStatus;
+};
+
+export type UpsertNegotiationPolicyInput = {
+  allow_coupon_stacking?: InputMaybe<Scalars['Boolean']['input']>;
+  enabled?: InputMaybe<Scalars['Boolean']['input']>;
+  floor_mode?: InputMaybe<NegotiationFloorMode>;
+  max_discount_bps?: InputMaybe<Scalars['Int']['input']>;
+  max_negotiations_per_customer_per_day?: InputMaybe<Scalars['Int']['input']>;
+  max_rounds?: InputMaybe<Scalars['Int']['input']>;
+  minimum_margin_bps?: InputMaybe<Scalars['Int']['input']>;
+  minimum_price_cents?: InputMaybe<Scalars['Int']['input']>;
+  offer_ttl_seconds?: InputMaybe<Scalars['Int']['input']>;
+  preferred_price_cents?: InputMaybe<Scalars['Int']['input']>;
+  product_id: Scalars['String']['input'];
+  strategy?: InputMaybe<NegotiationStrategy>;
+  variation_option_id?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type UpsertPaymentGatewayFeeInput = {
+  active?: InputMaybe<Scalars['Boolean']['input']>;
+  currency: Scalars['String']['input'];
+  fee_bps: Scalars['Int']['input'];
+  fee_cap_cents?: InputMaybe<Scalars['Int']['input']>;
+  fee_fixed_cents: Scalars['Int']['input'];
+  gateway: Scalars['String']['input'];
+};
+
+export type UpsertSettingsInput = {
+  key: Scalars['String']['input'];
+  language?: InputMaybe<Scalars['String']['input']>;
+  value?: InputMaybe<Scalars['JSON']['input']>;
+};
+
+export type UpsertShippingProviderAccountInput = {
+  credentials: Array<ShippingCredentialFieldInput>;
+  is_sandbox?: InputMaybe<Scalars['Boolean']['input']>;
+  provider: Scalars['String']['input'];
+  touched: Array<Scalars['String']['input']>;
+};
+
+export type UsageEntry = {
+  __typename?: 'UsageEntry';
+  billing_unit: BillingUnit;
+  key: Scalars['String']['output'];
+  limit_value?: Maybe<Scalars['Int']['output']>;
+  period_end: Scalars['DateTime']['output'];
+  period_start: Scalars['DateTime']['output'];
+  remaining?: Maybe<Scalars['Int']['output']>;
+  used: Scalars['Int']['output'];
+};
+
+export type UsageEventEntry = {
+  __typename?: 'UsageEventEntry';
+  billing_unit: BillingUnit;
+  cost_cents: Scalars['Int']['output'];
+  created_at: Scalars['DateTime']['output'];
+  feature_key: Scalars['String']['output'];
+  feature_name: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  meta?: Maybe<Scalars['JSON']['output']>;
+  quantity: Scalars['Int']['output'];
+  ref_id?: Maybe<Scalars['String']['output']>;
+  ref_type?: Maybe<Scalars['String']['output']>;
+  released: Scalars['Boolean']['output'];
+  shop_id: Scalars['String']['output'];
+  shop_name?: Maybe<Scalars['String']['output']>;
+  shop_slug: Scalars['String']['output'];
+  user_id?: Maybe<Scalars['String']['output']>;
+};
+
+export type UsageLedgerMeta = {
+  __typename?: 'UsageLedgerMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type UsageLedgerResponse = {
+  __typename?: 'UsageLedgerResponse';
+  data?: Maybe<Array<UsageEventEntry>>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  meta?: Maybe<UsageLedgerMeta>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type UsageShopTotalEntry = {
+  __typename?: 'UsageShopTotalEntry';
+  cost_cents: Scalars['Int']['output'];
+  events: Scalars['Int']['output'];
+  quantity: Scalars['Int']['output'];
+  shop_id: Scalars['String']['output'];
+  shop_name?: Maybe<Scalars['String']['output']>;
+  shop_slug: Scalars['String']['output'];
+};
+
+export type UsageShopTotalsResponse = {
+  __typename?: 'UsageShopTotalsResponse';
+  data?: Maybe<Array<UsageShopTotalEntry>>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type UsageSummaryEntry = {
+  __typename?: 'UsageSummaryEntry';
+  cost_cents: Scalars['Int']['output'];
+  events: Scalars['Int']['output'];
+  feature_key: Scalars['String']['output'];
+  feature_name: Scalars['String']['output'];
+  group: Scalars['String']['output'];
+  quantity: Scalars['Int']['output'];
+};
+
+export type UsageSummaryResponse = {
+  __typename?: 'UsageSummaryResponse';
+  data?: Maybe<Array<UsageSummaryEntry>>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type User = {
+  __typename?: 'User';
+  address?: Maybe<Array<UserAddress>>;
+  created_at: Scalars['DateTime']['output'];
+  deleted_at?: Maybe<Scalars['DateTime']['output']>;
+  email?: Maybe<Scalars['String']['output']>;
+  email_verified: Scalars['Boolean']['output'];
+  id: Scalars['ID']['output'];
+  is_active: Scalars['Boolean']['output'];
+  name: Scalars['String']['output'];
+  permissions: Array<Scalars['String']['output']>;
+  phone?: Maybe<Scalars['String']['output']>;
+  profile?: Maybe<UserProfile>;
+  role: Scalars['String']['output'];
+};
+
+export type UserAddress = {
+  __typename?: 'UserAddress';
+  address: AddressDetail;
+  default: Scalars['Boolean']['output'];
+  id: Scalars['Int']['output'];
+  title: Scalars['String']['output'];
+  type: AddressType;
+};
+
+export type UserAddressInput = {
+  address: AddressDetailInput;
+  default: Scalars['Boolean']['input'];
+  id?: InputMaybe<Scalars['Int']['input']>;
+  title: Scalars['String']['input'];
+  type: AddressType;
+};
+
+export type UserPaginationMeta = {
+  __typename?: 'UserPaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type UserProfile = {
+  __typename?: 'UserProfile';
+  avatar?: Maybe<Avatar>;
+  bio?: Maybe<Scalars['String']['output']>;
+  contact?: Maybe<Scalars['String']['output']>;
+  socials?: Maybe<Array<Social>>;
+};
+
+export type UserProfileInput = {
+  avatar?: InputMaybe<AvatarInput>;
+  bio?: InputMaybe<Scalars['String']['input']>;
+  contact?: InputMaybe<Scalars['String']['input']>;
+  socials?: InputMaybe<Array<SocialInput>>;
+};
+
+export type UserResponse = {
+  __typename?: 'UserResponse';
+  data?: Maybe<User>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type UserRole =
+  | 'admin'
+  | 'customer'
+  | 'super_admin'
+  | 'vendor';
+
+export type UserStatusFilter =
+  | 'active'
+  | 'all'
+  | 'deleted'
+  | 'suspended';
+
+export type UsersResponse = {
+  __typename?: 'UsersResponse';
+  data?: Maybe<Array<User>>;
+  meta?: Maybe<UserPaginationMeta>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type ValidationErrorItem = {
+  __typename?: 'ValidationErrorItem';
+  code: Scalars['String']['output'];
+  field: Scalars['String']['output'];
+  messages: Array<Scalars['String']['output']>;
+};
+
+export type VariationOptionEntry = {
+  __typename?: 'VariationOptionEntry';
+  cost_per_item_cents?: Maybe<Scalars['Int']['output']>;
+  id: Scalars['String']['output'];
+  image?: Maybe<Scalars['JSON']['output']>;
+  is_disable: Scalars['Boolean']['output'];
+  options: Scalars['JSON']['output'];
+  position: Scalars['Int']['output'];
+  price_cents: Scalars['Int']['output'];
+  quantity: Scalars['Int']['output'];
+  sale_price_cents?: Maybe<Scalars['Int']['output']>;
+  sku?: Maybe<Scalars['String']['output']>;
+  sold_quantity?: Maybe<Scalars['Int']['output']>;
+  title: Scalars['JSON']['output'];
+  track_quantity?: Maybe<Scalars['Boolean']['output']>;
+};
+
+export type VendorAgentAttachmentInput = {
+  /** Optional thumbnail URL. */
+  thumbnail?: InputMaybe<Scalars['String']['input']>;
+  /** Public CDN URL of an image the vendor attached. */
+  url: Scalars['String']['input'];
+};
+
+export type VendorAgentBriefing = {
+  __typename?: 'VendorAgentBriefing';
+  /** Today's new customers so far vs yesterday's up to the same local time, as a signed percentage. Null when yesterday had no new customers by then. */
+  customers_change_pct?: Maybe<Scalars['Float']['output']>;
+  /** Products currently at or below the default low-stock threshold (10). */
+  low_stock_count: Scalars['Int']['output'];
+  /** The shop's customers first seen today (shop's local day). */
+  new_customers_today: Scalars['Int']['output'];
+  /** Today's orders so far vs yesterday's up to the same local time (both counted as orders_today counts them), as a signed percentage. Null when yesterday had none by then. */
+  orders_change_pct?: Maybe<Scalars['Float']['output']>;
+  /** Orders placed today (shop's local day) that count as sales: not cancelled, not failed. */
+  orders_today: Scalars['Int']['output'];
+  /** Products at exactly 0 stock (subset of low_stock_count). */
+  out_of_stock_count: Scalars['Int']['output'];
+  /** Refund requests in "pending" status awaiting vendor action. */
+  pending_refunds_count: Scalars['Int']['output'];
+  /** Today's sales so far vs yesterday's up to the same local time (shop-local days, same definition as revenue_today_cents), as a signed percentage. Null when yesterday's sales to that time were 0 or less. */
+  revenue_change_pct?: Maybe<Scalars['Float']['output']>;
+  /** Sales so far today (shop's local day), in integer cents: orders placed except cancelled and failed, net of cancelled items, shipping and tax included, minus refunds settled today. */
+  revenue_today_cents: Scalars['Int']['output'];
+  /** Lifetime sales, in integer cents, by the same definition as revenue_today_cents: every order ever placed except cancelled and failed, minus every settled refund. */
+  revenue_total_cents: Scalars['Int']['output'];
+  time_of_day: Scalars['String']['output'];
+};
+
+export type VendorAgentChatInput = {
+  /** Images the vendor attached to this message. Fed to create_product / update_product so attached photos land on the product deterministically, without the LLM having to copy their URLs. Capped at 10. */
+  attachments?: InputMaybe<Array<VendorAgentAttachmentInput>>;
+  /** Existing conversation id to continue. When present the server reloads the persisted history and ignores the client-side history[] array. Omit to start a fresh conversation. */
+  conversation_id?: InputMaybe<Scalars['String']['input']>;
+  /** Optional client-side history. Only used when conversation_id is omitted (first message of a new thread). Capped at 20 entries — the agent only feeds the last 10 to the LLM, so any larger payload is wasted parsing and a memory-DoS surface. */
+  history?: InputMaybe<Array<VendorAgentHistoryMessageInput>>;
+  message: Scalars['String']['input'];
+};
+
+export type VendorAgentConversationEntry = {
+  __typename?: 'VendorAgentConversationEntry';
+  created_at: Scalars['DateTime']['output'];
+  /** ISO 4217 currency of the shop this conversation belongs to (Shop.currency), so the read-only shared view can format money with no shop context. The only shop fact on this type; null if the shop could not be read. */
+  currency?: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  messages: Array<VendorAgentMessageEntry>;
+  title?: Maybe<Scalars['String']['output']>;
+  updated_at: Scalars['DateTime']['output'];
+};
+
+export type VendorAgentConversationSummary = {
+  __typename?: 'VendorAgentConversationSummary';
+  /** True when the share is gated by a PIN (Phase 19). */
+  has_share_pin: Scalars['Boolean']['output'];
+  id: Scalars['String']['output'];
+  /** True when a share token currently exists. */
+  is_shared: Scalars['Boolean']['output'];
+  message_count: Scalars['Int']['output'];
+  pinned_at?: Maybe<Scalars['DateTime']['output']>;
+  preview?: Maybe<Scalars['String']['output']>;
+  /** Auto-revoke timestamp if set. */
+  share_expires_at?: Maybe<Scalars['DateTime']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+  updated_at: Scalars['DateTime']['output'];
+};
+
+export type VendorAgentHistoryMessageInput = {
+  content: Scalars['String']['input'];
+  role: Scalars['String']['input'];
+};
+
+export type VendorAgentMessageEntry = {
+  __typename?: 'VendorAgentMessageEntry';
+  content: Scalars['String']['output'];
+  created_at: Scalars['DateTime']['output'];
+  id: Scalars['String']['output'];
+  /** Ordered narration ⇄ action log for assistant turns: an array of { kind: "text", text } | { kind: "tool", event } preserving the exact interleaving of text and tool calls. Null on legacy rows / user turns. */
+  parts?: Maybe<Scalars['JSON']['output']>;
+  role: Scalars['String']['output'];
+  tool_events?: Maybe<Array<VendorAgentToolEvent>>;
+};
+
+export type VendorAgentResponse = {
+  __typename?: 'VendorAgentResponse';
+  /** Persisted conversation id. Pass it back on the next chat call to continue this thread. */
+  conversation_id: Scalars['String']['output'];
+  /** Natural-language reply to show in the chat. */
+  reply: Scalars['String']['output'];
+  /** Tool invocations the agent made. UI uses these to render rich cards. */
+  tool_events: Array<VendorAgentToolEvent>;
+};
+
+export type VendorAgentSaveReceiptInput = {
+  /** One of: created, updated. */
+  action: Scalars['String']['input'];
+  /** The conversation the handoff card was rendered in. */
+  conversation_id: Scalars['String']['input'];
+  /** One of: product, collection, coupon. */
+  entity: Scalars['String']['input'];
+  /** The handoff this save completed, minted client-side when the vendor opened the form. Doubles as the idempotency key — a repeat returns the receipt already written rather than a second one. */
+  handoff_id: Scalars['String']['input'];
+  /** What the vendor called it, for the sentence. */
+  name: Scalars['String']['input'];
+  /** Dashboard path back to the saved record, for the card. */
+  url?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type VendorAgentShareResult = {
+  __typename?: 'VendorAgentShareResult';
+  /** When the link auto-revokes. Null = never expires (vendor manages manually). */
+  expires_at?: Maybe<Scalars['DateTime']['output']>;
+  /** True when a share PIN is currently set on this conversation. */
+  has_pin: Scalars['Boolean']['output'];
+  token: Scalars['String']['output'];
+  url: Scalars['String']['output'];
+};
+
+export type VendorAgentToolEvent = {
+  __typename?: 'VendorAgentToolEvent';
+  /** Arguments the agent supplied to the tool. */
+  args: Scalars['JSON']['output'];
+  /** Error message when ok is false. */
+  error?: Maybe<Scalars['String']['output']>;
+  /** Name of the tool that the agent called. */
+  name: Scalars['String']['output'];
+  /** true if the tool completed without an error. */
+  ok: Scalars['Boolean']['output'];
+  /** Parsed tool output (JSON object) or the raw string if not JSON. */
+  result?: Maybe<Scalars['JSON']['output']>;
+};
+
+export type VendorAgentWeeklyInsights = {
+  __typename?: 'VendorAgentWeeklyInsights';
+  /** The last 14 complete local days of sales + orders (oldest → newest, ending yesterday), in the shop's timezone. Index 7 marks the boundary between prior and current week. */
+  daily: Array<WeeklyDailyPoint>;
+  /** Orders that count as sales (not cancelled, not failed) placed in the last 7 complete local days. The sum of daily[7..13].orders. */
+  orders_7d: Scalars['Int']['output'];
+  /** Order-count % change of orders_7d vs orders_prior_7d: two whole weeks. Null when prior week had 0 orders. */
+  orders_change_pct?: Maybe<Scalars['Float']['output']>;
+  /** The same count for the 7 days before that. The sum of daily[0..6].orders. */
+  orders_prior_7d: Scalars['Int']['output'];
+  /** Sales across the last 7 complete local days (yesterday and the six days before it; today is not included), in integer cents: orders placed except cancelled and failed, minus settled refunds. The sum of daily[7..13].revenue_cents. */
+  revenue_7d_cents: Scalars['Int']['output'];
+  /** Sales % change of revenue_7d_cents vs revenue_prior_7d_cents: two whole weeks. Null when the prior week was 0 or less. */
+  revenue_change_pct?: Maybe<Scalars['Float']['output']>;
+  /** Sales across the 7 local days before that, in integer cents. The sum of daily[0..6].revenue_cents. */
+  revenue_prior_7d_cents: Scalars['Int']['output'];
+};
+
+export type VendorBotLinkEntity = {
+  __typename?: 'VendorBotLinkEntity';
+  created_at: Scalars['DateTime']['output'];
+  id: Scalars['String']['output'];
+  last_message_at?: Maybe<Scalars['DateTime']['output']>;
+  phone_masked?: Maybe<Scalars['String']['output']>;
+  verified: Scalars['Boolean']['output'];
+};
+
+export type VendorBotStatus = {
+  __typename?: 'VendorBotStatus';
+  available: Scalars['Boolean']['output'];
+  bot_number?: Maybe<Scalars['String']['output']>;
+  link?: Maybe<VendorBotLinkEntity>;
+};
+
+export type VendorBotStatusResponse = {
+  __typename?: 'VendorBotStatusResponse';
+  data?: Maybe<VendorBotStatus>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type VendorSignupCompleteData = {
+  __typename?: 'VendorSignupCompleteData';
+  auth: AuthData;
+  shop_id: Scalars['String']['output'];
+  shop_slug: Scalars['String']['output'];
+};
+
+export type VendorSignupCompleteResponse = {
+  __typename?: 'VendorSignupCompleteResponse';
+  data?: Maybe<VendorSignupCompleteData>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type VendorSignupDraftData = {
+  __typename?: 'VendorSignupDraftData';
+  channel: OtpChannel;
+  code_length: Scalars['Int']['output'];
+  destination_masked: Scalars['String']['output'];
+  resend_after: Scalars['Float']['output'];
+  signup_token: Scalars['String']['output'];
+};
+
+export type VendorSignupDraftResponse = {
+  __typename?: 'VendorSignupDraftResponse';
+  data?: Maybe<VendorSignupDraftData>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type VerifyCheckoutInput = {
+  billing_address?: InputMaybe<Scalars['JSON']['input']>;
+  cart_id?: InputMaybe<Scalars['String']['input']>;
+  coupon_code?: InputMaybe<Scalars['String']['input']>;
+  coupon_codes?: InputMaybe<Array<Scalars['String']['input']>>;
+  customer_id?: InputMaybe<Scalars['String']['input']>;
+  is_full_wallet_payment?: InputMaybe<Scalars['Boolean']['input']>;
+  payment_gateway?: InputMaybe<Scalars['String']['input']>;
+  products: Array<CheckoutProductInput>;
+  shipping_address?: InputMaybe<Scalars['JSON']['input']>;
+  shipping_rule_id?: InputMaybe<Scalars['String']['input']>;
+  use_wallet_points?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type VerifyCouponCartItem = {
+  collection_ids?: InputMaybe<Array<Scalars['String']['input']>>;
+  price_cents: Scalars['Int']['input'];
+  product_id: Scalars['String']['input'];
+  quantity: Scalars['Int']['input'];
+  shop_id?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type VerifyCouponInput = {
+  applied_coupons?: InputMaybe<Array<Scalars['String']['input']>>;
+  code: Scalars['String']['input'];
+  country?: InputMaybe<Scalars['String']['input']>;
+  customer_id?: InputMaybe<Scalars['String']['input']>;
+  items?: InputMaybe<Array<VerifyCouponCartItem>>;
+  shipping_rate_cents?: InputMaybe<Scalars['Int']['input']>;
+  sub_total_cents: Scalars['Int']['input'];
+};
+
+export type VerifyCouponResponse = {
+  __typename?: 'VerifyCouponResponse';
+  conflicts_with?: Maybe<Array<CouponConflictRef>>;
+  coupon?: Maybe<CouponEntry>;
+  discount_preview?: Maybe<CouponDiscountPreview>;
+  is_valid: Scalars['Boolean']['output'];
+  message: Scalars['String']['output'];
+  reason_code?: Maybe<Scalars['String']['output']>;
+};
+
+export type VerifyCustomerSignInCodeInput = {
+  /** The code the text carried. */
+  code: Scalars['String']['input'];
+  /** The number the code was sent to, as typed then. */
+  phone: Scalars['String']['input'];
+};
+
+export type VerifyMagicLinkInput = {
+  expires: Scalars['String']['input'];
+  signature: Scalars['String']['input'];
+  token: Scalars['String']['input'];
+};
+
+export type VerifyOtpInput = {
+  code: Scalars['String']['input'];
+  /** Email address or phone number used in sendOtpCode */
+  identifier: Scalars['String']['input'];
+  /** Deprecated — kept for backwards compatibility */
+  otp_id?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type VerifyVendorSignupOtpInput = {
+  code: Scalars['String']['input'];
+  token: Scalars['String']['input'];
+};
+
+export type WalletEntry = {
+  __typename?: 'WalletEntry';
+  available_points_cents: Scalars['Int']['output'];
+  created_at?: Maybe<Scalars['String']['output']>;
+  currency: Scalars['String']['output'];
+  customer_id: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  points_used_cents: Scalars['Int']['output'];
+  total_points_cents: Scalars['Int']['output'];
+  updated_at?: Maybe<Scalars['String']['output']>;
+};
+
+export type WalletResponse = {
+  __typename?: 'WalletResponse';
+  data?: Maybe<WalletEntry>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type WebhookDeliveriesResponse = {
+  __typename?: 'WebhookDeliveriesResponse';
+  data: Array<WebhookDelivery>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type WebhookDelivery = {
+  __typename?: 'WebhookDelivery';
+  attempts: Scalars['Int']['output'];
+  created_at: Scalars['DateTime']['output'];
+  error_message?: Maybe<Scalars['String']['output']>;
+  event: WebhookEventType;
+  id: Scalars['String']['output'];
+  next_attempt_at?: Maybe<Scalars['DateTime']['output']>;
+  payload: Scalars['JSON']['output'];
+  response_body?: Maybe<Scalars['String']['output']>;
+  response_status?: Maybe<Scalars['Int']['output']>;
+  status: WebhookDeliveryStatus;
+  subscription_id: Scalars['String']['output'];
+  succeeded_at?: Maybe<Scalars['DateTime']['output']>;
+};
+
+export type WebhookDeliveryStatus =
+  | 'ABANDONED'
+  | 'FAILED'
+  | 'PENDING'
+  | 'SUCCEEDED';
+
+/** Server-fired event taxonomy. Vendors subscribe to a subset; each event maps to a JSON payload schema documented in WEBHOOKS.md. */
+export type WebhookEventType =
+  | 'INVENTORY_ADJUSTED'
+  | 'ORDER_CANCELLED'
+  | 'ORDER_CREATED'
+  | 'ORDER_PAID'
+  | 'PRODUCT_CREATED'
+  | 'PRODUCT_DELETED'
+  | 'PRODUCT_UPDATED';
+
+export type WebhookRotateSecretResponse = {
+  __typename?: 'WebhookRotateSecretResponse';
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  secret?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type WebhookSubscription = {
+  __typename?: 'WebhookSubscription';
+  created_at: Scalars['DateTime']['output'];
+  description?: Maybe<Scalars['String']['output']>;
+  events: Array<WebhookEventType>;
+  id: Scalars['String']['output'];
+  is_active: Scalars['Boolean']['output'];
+  secret?: Maybe<Scalars['String']['output']>;
+  shop_id: Scalars['String']['output'];
+  updated_at: Scalars['DateTime']['output'];
+  url: Scalars['String']['output'];
+};
+
+export type WebhookSubscriptionResponse = {
+  __typename?: 'WebhookSubscriptionResponse';
+  data?: Maybe<WebhookSubscription>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type WebhookSubscriptionsResponse = {
+  __typename?: 'WebhookSubscriptionsResponse';
+  data: Array<WebhookSubscription>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type WeeklyDailyPoint = {
+  __typename?: 'WeeklyDailyPoint';
+  /** YYYY-MM-DD label, the shop's local calendar day. */
+  day: Scalars['String']['output'];
+  /** Orders placed this day that count as sales (not cancelled, not failed). */
+  orders: Scalars['Int']['output'];
+  /** Sales on this day, in integer cents: orders placed that day except cancelled and failed (net of cancelled items, shipping and tax included), minus refunds settled that day. Can be negative on a day whose refunds outweigh its sales. */
+  revenue_cents: Scalars['Int']['output'];
+};
+
+/** Vendor display preference for weight (storage is always grams) */
+export type WeightUnit =
+  | 'G'
+  | 'KG'
+  | 'LB'
+  | 'OZ';
+
+export type WhatsAppHandshakePayload = {
+  __typename?: 'WhatsAppHandshakePayload';
+  pairing_code?: Maybe<Scalars['String']['output']>;
+  qr_code?: Maybe<Scalars['String']['output']>;
+  status: Scalars['String']['output'];
+};
+
+export type WhatsAppHandshakeResponse = {
+  __typename?: 'WhatsAppHandshakeResponse';
+  data: WhatsAppHandshakePayload;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type WhatsAppInboxMessage = {
+  __typename?: 'WhatsAppInboxMessage';
+  body: Scalars['String']['output'];
+  created_at: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  sender: Scalars['String']['output'];
+  sent_at?: Maybe<Scalars['String']['output']>;
+};
+
+export type WhatsAppInboxPage = {
+  __typename?: 'WhatsAppInboxPage';
+  threads: Array<WhatsAppInboxThread>;
+  total: Scalars['Int']['output'];
+};
+
+export type WhatsAppInboxResponse = {
+  __typename?: 'WhatsAppInboxResponse';
+  data: WhatsAppInboxPage;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type WhatsAppInboxThread = {
+  __typename?: 'WhatsAppInboxThread';
+  ai_paused_until?: Maybe<Scalars['DateTime']['output']>;
+  channel: Scalars['String']['output'];
+  flag_reason?: Maybe<Scalars['String']['output']>;
+  flagged_at?: Maybe<Scalars['DateTime']['output']>;
+  id: Scalars['String']['output'];
+  is_ai_blocked: Scalars['Boolean']['output'];
+  is_read: Scalars['Boolean']['output'];
+  last_read_at?: Maybe<Scalars['DateTime']['output']>;
+  latest_message?: Maybe<WhatsAppInboxMessage>;
+  phone_masked?: Maybe<Scalars['String']['output']>;
+  unanswered_count: Scalars['Int']['output'];
+  updated_at: Scalars['DateTime']['output'];
+};
+
+export type WhatsAppInboxThreadDetail = {
+  __typename?: 'WhatsAppInboxThreadDetail';
+  ai_paused_until?: Maybe<Scalars['DateTime']['output']>;
+  channel: Scalars['String']['output'];
+  flag_reason?: Maybe<Scalars['String']['output']>;
+  flagged_at?: Maybe<Scalars['DateTime']['output']>;
+  id: Scalars['String']['output'];
+  is_ai_blocked: Scalars['Boolean']['output'];
+  is_read: Scalars['Boolean']['output'];
+  last_read_at?: Maybe<Scalars['DateTime']['output']>;
+  latest_message?: Maybe<WhatsAppInboxMessage>;
+  messages: Array<WhatsAppInboxMessage>;
+  orders: Array<WhatsAppInboxThreadOrder>;
+  phone_masked?: Maybe<Scalars['String']['output']>;
+  unanswered_count: Scalars['Int']['output'];
+  updated_at: Scalars['DateTime']['output'];
+};
+
+export type WhatsAppInboxThreadOrder = {
+  __typename?: 'WhatsAppInboxThreadOrder';
+  created_at: Scalars['DateTime']['output'];
+  currency: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  order_status: Scalars['String']['output'];
+  payment_status: Scalars['String']['output'];
+  total_cents: Scalars['Int']['output'];
+  tracking_number: Scalars['String']['output'];
+};
+
+export type WhatsAppInboxThreadResponse = {
+  __typename?: 'WhatsAppInboxThreadResponse';
+  data?: Maybe<WhatsAppInboxThreadDetail>;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type WhatsAppInboxTicketData = {
+  __typename?: 'WhatsAppInboxTicketData';
+  ticket: Scalars['String']['output'];
+  ttl_seconds: Scalars['Int']['output'];
+};
+
+export type WhatsAppInboxTicketResponse = {
+  __typename?: 'WhatsAppInboxTicketResponse';
+  data: WhatsAppInboxTicketData;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type WhatsAppInstanceEntity = {
+  __typename?: 'WhatsAppInstanceEntity';
+  ai_enabled: Scalars['Boolean']['output'];
+  ai_orders_enabled: Scalars['Boolean']['output'];
+  disconnected_at?: Maybe<Scalars['DateTime']['output']>;
+  last_connected_at?: Maybe<Scalars['DateTime']['output']>;
+  last_error?: Maybe<Scalars['String']['output']>;
+  phone_number?: Maybe<Scalars['String']['output']>;
+  status: Scalars['String']['output'];
+};
+
+export type WhatsAppInstanceResponse = {
+  __typename?: 'WhatsAppInstanceResponse';
+  data: WhatsAppInstanceEntity;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type WhatsAppStatusPayload = {
+  __typename?: 'WhatsAppStatusPayload';
+  available: Scalars['Boolean']['output'];
+  instance?: Maybe<WhatsAppInstanceEntity>;
+};
+
+export type WhatsAppStatusResponse = {
+  __typename?: 'WhatsAppStatusResponse';
+  data: WhatsAppStatusPayload;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type WhatsAppStreamTicketPayload = {
+  __typename?: 'WhatsAppStreamTicketPayload';
+  expires_in: Scalars['Float']['output'];
+  ticket: Scalars['String']['output'];
+};
+
+export type WhatsAppStreamTicketResponse = {
+  __typename?: 'WhatsAppStreamTicketResponse';
+  data: WhatsAppStreamTicketPayload;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type WhatsAppWebhookSyncPayload = {
+  __typename?: 'WhatsAppWebhookSyncPayload';
+  failed: Scalars['Int']['output'];
+  updated: Scalars['Int']['output'];
+};
+
+export type WhatsAppWebhookSyncResponse = {
+  __typename?: 'WhatsAppWebhookSyncResponse';
+  data: WhatsAppWebhookSyncPayload;
+  error_code?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+  validation_errors?: Maybe<Array<ValidationErrorItem>>;
+};
+
+export type WishlistCheckResponse = {
+  __typename?: 'WishlistCheckResponse';
+  in_wishlist: Scalars['Boolean']['output'];
+  success: Scalars['Boolean']['output'];
+};
+
+export type WishlistEntry = {
+  __typename?: 'WishlistEntry';
+  created_at: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  product?: Maybe<WishlistProduct>;
+  product_id: Scalars['String']['output'];
+  variation_option_id?: Maybe<Scalars['String']['output']>;
+};
+
+export type WishlistInput = {
+  product_id: Scalars['String']['input'];
+  variation_option_id?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type WishlistPaginationMeta = {
+  __typename?: 'WishlistPaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type WishlistProduct = {
+  __typename?: 'WishlistProduct';
+  id: Scalars['String']['output'];
+  image?: Maybe<Scalars['JSON']['output']>;
+  name: Scalars['JSON']['output'];
+  price_cents?: Maybe<Scalars['Int']['output']>;
+  sale_price_cents?: Maybe<Scalars['Int']['output']>;
+  shop_id?: Maybe<Scalars['String']['output']>;
+  slug: Scalars['String']['output'];
+};
+
+export type WishlistToggleData = {
+  __typename?: 'WishlistToggleData';
+  in_wishlist: Scalars['Boolean']['output'];
+};
+
+export type WishlistToggleResponse = {
+  __typename?: 'WishlistToggleResponse';
+  data: WishlistToggleData;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type WishlistsResponse = {
+  __typename?: 'WishlistsResponse';
+  data: Array<WishlistEntry>;
+  meta: WishlistPaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type WithdrawalEntry = {
+  __typename?: 'WithdrawalEntry';
+  amount_cents: Scalars['Int']['output'];
+  created_at?: Maybe<Scalars['String']['output']>;
+  details?: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  note?: Maybe<Scalars['String']['output']>;
+  payment_method?: Maybe<Scalars['String']['output']>;
+  shop_id?: Maybe<Scalars['String']['output']>;
+  status: WithdrawalStatus;
+  updated_at?: Maybe<Scalars['String']['output']>;
+  user_id: Scalars['String']['output'];
+};
+
+export type WithdrawalPaginationMeta = {
+  __typename?: 'WithdrawalPaginationMeta';
+  limit: Scalars['Int']['output'];
+  page: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+  total_pages: Scalars['Int']['output'];
+};
+
+export type WithdrawalResponse = {
+  __typename?: 'WithdrawalResponse';
+  data?: Maybe<WithdrawalEntry>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+/** Status of a withdrawal request */
+export type WithdrawalStatus =
+  | 'APPROVED'
+  | 'ON_HOLD'
+  | 'PENDING'
+  | 'REJECTED';
+
+export type WithdrawalsResponse = {
+  __typename?: 'WithdrawalsResponse';
+  data: Array<WithdrawalEntry>;
+  meta: WithdrawalPaginationMeta;
+  success: Scalars['Boolean']['output'];
+};
+
+export type YearlySalesResponse = {
+  __typename?: 'YearlySalesResponse';
+  data: Array<MonthlySale>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type ShopSitemapProductsQueryVariables = Exact<{
+  filters?: InputMaybe<ProductFilterInput>;
+}>;
+
+
+export type ShopSitemapProductsQuery = { __typename?: 'Query', storefrontProducts: { __typename?: 'PublicProductsResponse', data: Array<{ __typename?: 'PublicProduct', slug: string }>, meta: { __typename?: 'PublicProductsPaginationMeta', total_pages: number } } };
+
+export type SitemapShopsQueryVariables = Exact<{
+  page: Scalars['Int']['input'];
+  limit: Scalars['Int']['input'];
+}>;
+
+
+export type SitemapShopsQuery = { __typename?: 'Query', shops: { __typename?: 'ShopsResponse', data: Array<{ __typename?: 'Shop', slug: string }>, meta: { __typename?: 'ShopPaginationMeta', total_pages: number } } };
+
+export type SitemapProductsQueryVariables = Exact<{
+  filters?: InputMaybe<ProductFilterInput>;
+}>;
+
+
+export type SitemapProductsQuery = { __typename?: 'Query', storefrontProducts: { __typename?: 'PublicProductsResponse', data: Array<{ __typename?: 'PublicProduct', slug: string }>, meta: { __typename?: 'PublicProductsPaginationMeta', total_pages: number } } };
+
+export type AddressFieldsFragment = { __typename?: 'AddressEntry', id: string, title: string, type: string, default: boolean, address: any };
+
+export type StorefrontMyAddressesQueryVariables = Exact<{
+  page?: InputMaybe<Scalars['Int']['input']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+}>;
+
+
+export type StorefrontMyAddressesQuery = { __typename?: 'Query', myAddresses: { __typename?: 'AddressesResponse', success: boolean, data: Array<{ __typename?: 'AddressEntry', id: string, title: string, type: string, default: boolean, address: any }>, meta: { __typename?: 'AddressPaginationMeta', total: number } } };
+
+export type StorefrontCreateAddressMutationVariables = Exact<{
+  input: CreateAddressInput;
+}>;
+
+
+export type StorefrontCreateAddressMutation = { __typename?: 'Mutation', createAddress: { __typename?: 'AddressResponse', success: boolean, data?: { __typename?: 'AddressEntry', id: string, title: string, type: string, default: boolean, address: any } | null } };
+
+export type StorefrontUpdateAddressMutationVariables = Exact<{
+  input: UpdateAddressInput;
+}>;
+
+
+export type StorefrontUpdateAddressMutation = { __typename?: 'Mutation', updateAddress: { __typename?: 'AddressResponse', success: boolean, data?: { __typename?: 'AddressEntry', id: string, title: string, type: string, default: boolean, address: any } | null } };
+
+export type StorefrontDeleteAddressMutationVariables = Exact<{
+  id: Scalars['String']['input'];
+}>;
+
+
+export type StorefrontDeleteAddressMutation = { __typename?: 'Mutation', deleteAddress: { __typename?: 'BaseResponse', success: boolean, message?: string | null } };
+
+export type LookupNationalAddressQueryVariables = Exact<{
+  input: LookupNationalAddressInput;
+}>;
+
+
+export type LookupNationalAddressQuery = { __typename?: 'Query', lookupNationalAddress: { __typename?: 'ResolvedAddressResponse', success: boolean, data?: { __typename?: 'ResolvedAddressEntry', code: string, formatted: string, city: string, country: string, district?: string | null, street?: string | null, building_number?: string | null, postcode?: string | null } | null } };
+
+export type StorefrontPalestineCitiesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type StorefrontPalestineCitiesQuery = { __typename?: 'Query', palestineCities: { __typename?: 'PalestineCitiesResponse', success: boolean, data: Array<{ __typename?: 'PalestineCityEntry', code: string, country: string, name_ar: string, name_en: string }> } };
+
+export type StorefrontAskAssistantMutationVariables = Exact<{
+  input: AskAssistantInput;
+}>;
+
+
+export type StorefrontAskAssistantMutation = { __typename?: 'Mutation', askShopAssistant: { __typename?: 'StorefrontAssistantResponse', success: boolean, data?: { __typename?: 'AssistantAnswer', text: string, escalated: boolean, searched_for: Array<string>, products: Array<{ __typename?: 'AssistantProduct', id: string, name: any, slug: string, image?: any | null, product_type: string, price_cents?: number | null, selling_price_cents?: number | null, compare_at_price_cents?: number | null, min_price_cents?: number | null, max_price_cents?: number | null, in_stock: boolean, quantity: number, track_quantity: boolean, continue_selling_when_out_of_stock: boolean }>, additions: Array<{ __typename?: 'AssistantCartAddition', product_id: string, name: any, quantity: number }>, negotiation_offers: Array<{ __typename?: 'AssistantNegotiationOffer', session_id: string, decision: string, allowed_price_cents: number, list_price_cents: number, currency: string, product_title: string, can_accept: boolean }> } | null } };
+
+export type StorefrontCustomerSignInFragment = { __typename?: 'CustomerSignInData', access_token: string, access_token_expires_at: string, refresh_token: string, refresh_token_expires_at: string, created: boolean, customer: { __typename?: 'CustomerProfile', id: string, name?: string | null, phone_e164?: string | null, email?: string | null } };
+
+export type StorefrontSendSignInCodeMutationVariables = Exact<{
+  input: SendCustomerSignInCodeInput;
+}>;
+
+
+export type StorefrontSendSignInCodeMutation = { __typename?: 'Mutation', sendCustomerSignInCode: { __typename?: 'CustomerSignInCodeResponse', success: boolean, data?: { __typename?: 'CustomerSignInCodeData', phone_e164: string, code_length: number, resend_after_seconds: number, expires_in_seconds: number } | null } };
+
+export type StorefrontVerifySignInCodeMutationVariables = Exact<{
+  input: VerifyCustomerSignInCodeInput;
+}>;
+
+
+export type StorefrontVerifySignInCodeMutation = { __typename?: 'Mutation', verifyCustomerSignInCode: { __typename?: 'CustomerSignInResponse', success: boolean, data?: { __typename?: 'CustomerSignInData', access_token: string, access_token_expires_at: string, refresh_token: string, refresh_token_expires_at: string, created: boolean, customer: { __typename?: 'CustomerProfile', id: string, name?: string | null, phone_e164?: string | null, email?: string | null } } | null } };
+
+export type StorefrontMyProfileQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type StorefrontMyProfileQuery = { __typename?: 'Query', myCustomerProfile: { __typename?: 'CustomerProfileResponse', success: boolean, data?: { __typename?: 'CustomerProfile', id: string, name?: string | null, phone_e164?: string | null, email?: string | null } | null } };
+
+export type StorefrontUpdateMyProfileMutationVariables = Exact<{
+  input: UpdateMyCustomerProfileInput;
+}>;
+
+
+export type StorefrontUpdateMyProfileMutation = { __typename?: 'Mutation', updateMyCustomerProfile: { __typename?: 'CustomerProfileResponse', success: boolean, data?: { __typename?: 'CustomerProfile', id: string, name?: string | null, phone_e164?: string | null, email?: string | null } | null } };
+
+export type StorefrontPaymentOptionsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type StorefrontPaymentOptionsQuery = { __typename?: 'Query', shopPaymentOptions: { __typename?: 'ShopPaymentOptionsResponse', success: boolean, data: { __typename?: 'ShopPaymentOptions', available_gateways: Array<string>, cod_available: boolean, card_available: boolean, bank_transfer_available: boolean } } };
+
+export type StorefrontBanksQueryVariables = Exact<{
+  locale?: InputMaybe<Scalars['String']['input']>;
+}>;
+
+
+export type StorefrontBanksQuery = { __typename?: 'Query', banks: { __typename?: 'BanksResponse', success: boolean, data: Array<{ __typename?: 'BankEntry', code: string, name: string, swift?: string | null, icon?: string | null }> } };
+
+export type StorefrontBankAccountSnapshotFragment = { __typename?: 'BankAccountSnapshot', id: string, bank_code?: string | null, bank_name?: string | null, account_holder_name: string, account_number?: string | null, iban?: string | null, swift_code?: string | null, currency: string, notes?: string | null };
+
+export type StorefrontShopBankAccountsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type StorefrontShopBankAccountsQuery = { __typename?: 'Query', shopBankAccounts: { __typename?: 'ShopBankAccountsResponse', success: boolean, data: Array<{ __typename?: 'ShopBankAccountEntry', id: string, bank_code?: string | null, bank_name?: string | null, account_holder_name: string, account_number?: string | null, iban?: string | null, swift_code?: string | null, currency: string, notes?: string | null }> } };
+
+export type StorefrontOrderBankTransfersQueryVariables = Exact<{
+  order_id: Scalars['String']['input'];
+}>;
+
+
+export type StorefrontOrderBankTransfersQuery = { __typename?: 'Query', orderBankTransfers: { __typename?: 'OrderBankTransfersResponse', success: boolean, data: Array<{ __typename?: 'OrderBankTransferEntry', id: string, status: BankTransferStatus, amount_due_cents: number, claimed_amount_cents?: number | null, currency: string, sender_name: string, transfer_reference: string, transferred_at: string, created_at: string, rejection_reason?: string | null, receipt_url?: string | null, receipt_original_name: string, receipt_purged_at?: string | null, bank_account_snapshot: { __typename?: 'BankAccountSnapshot', id: string, bank_code?: string | null, bank_name?: string | null, account_holder_name: string, account_number?: string | null, iban?: string | null, swift_code?: string | null, currency: string, notes?: string | null } }> } };
+
+export type CartFieldsFragment = { __typename?: 'CartEnvelope', id: string, shop: { __typename?: 'CartShopInfo', id: string, name: string, slug: string, logo?: any | null }, items: Array<{ __typename?: 'CartItemEntry', id: string, product_id: string, variation_option_id?: string | null, name: string, variation_name?: string | null, slug?: string | null, image?: any | null, quantity: number, unit_price_cents: number, price_cents: number, sale_price_cents?: number | null, discount_cents: number, total_price_cents: number, is_variation: boolean, requires_shipping: boolean, is_digital: boolean, product_type: string, status: CartItemStatus, stock_status: string, unavailable_reason?: string | null, custom_options?: any | null, composition?: any | null, is_ai_negotiated?: boolean | null, negotiated_offer_id?: string | null, negotiated_expires_at?: any | null }>, summary: { __typename?: 'CartSummary', currency: string, total_items: number, subtotal_price_cents: number, discount_cents: number, tax_bps: number, total_tax_amount_cents: number, total_price_cents: number, coupons: Array<{ __typename?: 'AppliedCouponEntry', id: string, code: string, discount_cents: number }> } };
+
+export type StorefrontCartQueryVariables = Exact<{
+  session_id?: InputMaybe<Scalars['String']['input']>;
+}>;
+
+
+export type StorefrontCartQuery = { __typename?: 'Query', cart: { __typename?: 'CartResponse', success: boolean, message?: string | null, data?: { __typename?: 'CartEnvelope', id: string, shop: { __typename?: 'CartShopInfo', id: string, name: string, slug: string, logo?: any | null }, items: Array<{ __typename?: 'CartItemEntry', id: string, product_id: string, variation_option_id?: string | null, name: string, variation_name?: string | null, slug?: string | null, image?: any | null, quantity: number, unit_price_cents: number, price_cents: number, sale_price_cents?: number | null, discount_cents: number, total_price_cents: number, is_variation: boolean, requires_shipping: boolean, is_digital: boolean, product_type: string, status: CartItemStatus, stock_status: string, unavailable_reason?: string | null, custom_options?: any | null, composition?: any | null, is_ai_negotiated?: boolean | null, negotiated_offer_id?: string | null, negotiated_expires_at?: any | null }>, summary: { __typename?: 'CartSummary', currency: string, total_items: number, subtotal_price_cents: number, discount_cents: number, tax_bps: number, total_tax_amount_cents: number, total_price_cents: number, coupons: Array<{ __typename?: 'AppliedCouponEntry', id: string, code: string, discount_cents: number }> } } | null } };
+
+export type StorefrontAddToCartMutationVariables = Exact<{
+  input: AddToCartInput;
+  session_id?: InputMaybe<Scalars['String']['input']>;
+}>;
+
+
+export type StorefrontAddToCartMutation = { __typename?: 'Mutation', addToCart: { __typename?: 'CartResponse', success: boolean, message?: string | null, data?: { __typename?: 'CartEnvelope', id: string, shop: { __typename?: 'CartShopInfo', id: string, name: string, slug: string, logo?: any | null }, items: Array<{ __typename?: 'CartItemEntry', id: string, product_id: string, variation_option_id?: string | null, name: string, variation_name?: string | null, slug?: string | null, image?: any | null, quantity: number, unit_price_cents: number, price_cents: number, sale_price_cents?: number | null, discount_cents: number, total_price_cents: number, is_variation: boolean, requires_shipping: boolean, is_digital: boolean, product_type: string, status: CartItemStatus, stock_status: string, unavailable_reason?: string | null, custom_options?: any | null, composition?: any | null, is_ai_negotiated?: boolean | null, negotiated_offer_id?: string | null, negotiated_expires_at?: any | null }>, summary: { __typename?: 'CartSummary', currency: string, total_items: number, subtotal_price_cents: number, discount_cents: number, tax_bps: number, total_tax_amount_cents: number, total_price_cents: number, coupons: Array<{ __typename?: 'AppliedCouponEntry', id: string, code: string, discount_cents: number }> } } | null } };
+
+export type StorefrontUpdateCartItemMutationVariables = Exact<{
+  input: UpdateCartItemInput;
+  session_id?: InputMaybe<Scalars['String']['input']>;
+}>;
+
+
+export type StorefrontUpdateCartItemMutation = { __typename?: 'Mutation', updateCartItem: { __typename?: 'CartResponse', success: boolean, message?: string | null, data?: { __typename?: 'CartEnvelope', id: string, shop: { __typename?: 'CartShopInfo', id: string, name: string, slug: string, logo?: any | null }, items: Array<{ __typename?: 'CartItemEntry', id: string, product_id: string, variation_option_id?: string | null, name: string, variation_name?: string | null, slug?: string | null, image?: any | null, quantity: number, unit_price_cents: number, price_cents: number, sale_price_cents?: number | null, discount_cents: number, total_price_cents: number, is_variation: boolean, requires_shipping: boolean, is_digital: boolean, product_type: string, status: CartItemStatus, stock_status: string, unavailable_reason?: string | null, custom_options?: any | null, composition?: any | null, is_ai_negotiated?: boolean | null, negotiated_offer_id?: string | null, negotiated_expires_at?: any | null }>, summary: { __typename?: 'CartSummary', currency: string, total_items: number, subtotal_price_cents: number, discount_cents: number, tax_bps: number, total_tax_amount_cents: number, total_price_cents: number, coupons: Array<{ __typename?: 'AppliedCouponEntry', id: string, code: string, discount_cents: number }> } } | null } };
+
+export type StorefrontRemoveCartItemMutationVariables = Exact<{
+  item_id: Scalars['String']['input'];
+  session_id?: InputMaybe<Scalars['String']['input']>;
+}>;
+
+
+export type StorefrontRemoveCartItemMutation = { __typename?: 'Mutation', removeCartItem: { __typename?: 'CartResponse', success: boolean, message?: string | null, data?: { __typename?: 'CartEnvelope', id: string, shop: { __typename?: 'CartShopInfo', id: string, name: string, slug: string, logo?: any | null }, items: Array<{ __typename?: 'CartItemEntry', id: string, product_id: string, variation_option_id?: string | null, name: string, variation_name?: string | null, slug?: string | null, image?: any | null, quantity: number, unit_price_cents: number, price_cents: number, sale_price_cents?: number | null, discount_cents: number, total_price_cents: number, is_variation: boolean, requires_shipping: boolean, is_digital: boolean, product_type: string, status: CartItemStatus, stock_status: string, unavailable_reason?: string | null, custom_options?: any | null, composition?: any | null, is_ai_negotiated?: boolean | null, negotiated_offer_id?: string | null, negotiated_expires_at?: any | null }>, summary: { __typename?: 'CartSummary', currency: string, total_items: number, subtotal_price_cents: number, discount_cents: number, tax_bps: number, total_tax_amount_cents: number, total_price_cents: number, coupons: Array<{ __typename?: 'AppliedCouponEntry', id: string, code: string, discount_cents: number }> } } | null } };
+
+export type StorefrontClearCartMutationVariables = Exact<{
+  session_id?: InputMaybe<Scalars['String']['input']>;
+}>;
+
+
+export type StorefrontClearCartMutation = { __typename?: 'Mutation', clearCart: { __typename?: 'BaseResponse', success: boolean, message?: string | null } };
+
+export type StorefrontApplyCartCouponMutationVariables = Exact<{
+  code: Scalars['String']['input'];
+  session_id?: InputMaybe<Scalars['String']['input']>;
+}>;
+
+
+export type StorefrontApplyCartCouponMutation = { __typename?: 'Mutation', applyCartCoupon: { __typename?: 'CartResponse', success: boolean, message?: string | null, data?: { __typename?: 'CartEnvelope', id: string, shop: { __typename?: 'CartShopInfo', id: string, name: string, slug: string, logo?: any | null }, items: Array<{ __typename?: 'CartItemEntry', id: string, product_id: string, variation_option_id?: string | null, name: string, variation_name?: string | null, slug?: string | null, image?: any | null, quantity: number, unit_price_cents: number, price_cents: number, sale_price_cents?: number | null, discount_cents: number, total_price_cents: number, is_variation: boolean, requires_shipping: boolean, is_digital: boolean, product_type: string, status: CartItemStatus, stock_status: string, unavailable_reason?: string | null, custom_options?: any | null, composition?: any | null, is_ai_negotiated?: boolean | null, negotiated_offer_id?: string | null, negotiated_expires_at?: any | null }>, summary: { __typename?: 'CartSummary', currency: string, total_items: number, subtotal_price_cents: number, discount_cents: number, tax_bps: number, total_tax_amount_cents: number, total_price_cents: number, coupons: Array<{ __typename?: 'AppliedCouponEntry', id: string, code: string, discount_cents: number }> } } | null } };
+
+export type StorefrontRemoveCartCouponMutationVariables = Exact<{
+  coupon_id: Scalars['String']['input'];
+  session_id?: InputMaybe<Scalars['String']['input']>;
+}>;
+
+
+export type StorefrontRemoveCartCouponMutation = { __typename?: 'Mutation', removeCartCoupon: { __typename?: 'CartResponse', success: boolean, message?: string | null, data?: { __typename?: 'CartEnvelope', id: string, shop: { __typename?: 'CartShopInfo', id: string, name: string, slug: string, logo?: any | null }, items: Array<{ __typename?: 'CartItemEntry', id: string, product_id: string, variation_option_id?: string | null, name: string, variation_name?: string | null, slug?: string | null, image?: any | null, quantity: number, unit_price_cents: number, price_cents: number, sale_price_cents?: number | null, discount_cents: number, total_price_cents: number, is_variation: boolean, requires_shipping: boolean, is_digital: boolean, product_type: string, status: CartItemStatus, stock_status: string, unavailable_reason?: string | null, custom_options?: any | null, composition?: any | null, is_ai_negotiated?: boolean | null, negotiated_offer_id?: string | null, negotiated_expires_at?: any | null }>, summary: { __typename?: 'CartSummary', currency: string, total_items: number, subtotal_price_cents: number, discount_cents: number, tax_bps: number, total_tax_amount_cents: number, total_price_cents: number, coupons: Array<{ __typename?: 'AppliedCouponEntry', id: string, code: string, discount_cents: number }> } } | null } };
+
+export type StorefrontSyncCartMutationVariables = Exact<{
+  input: SyncCartInput;
+}>;
+
+
+export type StorefrontSyncCartMutation = { __typename?: 'Mutation', syncCart: { __typename?: 'CartResponse', success: boolean, message?: string | null, data?: { __typename?: 'CartEnvelope', id: string, shop: { __typename?: 'CartShopInfo', id: string, name: string, slug: string, logo?: any | null }, items: Array<{ __typename?: 'CartItemEntry', id: string, product_id: string, variation_option_id?: string | null, name: string, variation_name?: string | null, slug?: string | null, image?: any | null, quantity: number, unit_price_cents: number, price_cents: number, sale_price_cents?: number | null, discount_cents: number, total_price_cents: number, is_variation: boolean, requires_shipping: boolean, is_digital: boolean, product_type: string, status: CartItemStatus, stock_status: string, unavailable_reason?: string | null, custom_options?: any | null, composition?: any | null, is_ai_negotiated?: boolean | null, negotiated_offer_id?: string | null, negotiated_expires_at?: any | null }>, summary: { __typename?: 'CartSummary', currency: string, total_items: number, subtotal_price_cents: number, discount_cents: number, tax_bps: number, total_tax_amount_cents: number, total_price_cents: number, coupons: Array<{ __typename?: 'AppliedCouponEntry', id: string, code: string, discount_cents: number }> } } | null } };
+
+export type StorefrontRecordCartLinkOpenMutationVariables = Exact<{
+  token: Scalars['String']['input'];
+}>;
+
+
+export type StorefrontRecordCartLinkOpenMutation = { __typename?: 'Mutation', recordCartLinkOpen: { __typename?: 'CartLinkOpenResponse', success: boolean, recorded: boolean } };
+
+export type ProductCardFieldsFragment = { __typename?: 'PublicProduct', id: string, name: any, slug: string, image?: any | null, gallery?: any | null, description?: any | null, price_cents?: number | null, sale_price_cents?: number | null, selling_price_cents?: number | null, compare_at_price_cents?: number | null, min_price_cents?: number | null, max_price_cents?: number | null, product_type: ProductType, in_stock: boolean, quantity: number, track_quantity: boolean, continue_selling_when_out_of_stock: boolean, tags?: Array<{ __typename?: 'PublicTagRef', id: string, name: any, slug: string }> | null };
+
+export type StorefrontProductsQueryVariables = Exact<{
+  filters?: InputMaybe<ProductFilterInput>;
+}>;
+
+
+export type StorefrontProductsQuery = { __typename?: 'Query', storefrontProducts: { __typename?: 'PublicProductsResponse', success: boolean, data: Array<{ __typename?: 'PublicProduct', id: string, name: any, slug: string, image?: any | null, gallery?: any | null, description?: any | null, price_cents?: number | null, sale_price_cents?: number | null, selling_price_cents?: number | null, compare_at_price_cents?: number | null, min_price_cents?: number | null, max_price_cents?: number | null, product_type: ProductType, in_stock: boolean, quantity: number, track_quantity: boolean, continue_selling_when_out_of_stock: boolean, tags?: Array<{ __typename?: 'PublicTagRef', id: string, name: any, slug: string }> | null }>, meta: { __typename?: 'PublicProductsPaginationMeta', page: number, limit: number, total: number, total_pages: number } } };
+
+export type StorefrontProductQueryVariables = Exact<{
+  slug: Scalars['String']['input'];
+}>;
+
+
+export type StorefrontProductQuery = { __typename?: 'Query', storefrontProduct: { __typename?: 'PublicProductResponse', success: boolean, data?: { __typename?: 'PublicProduct', video?: any | null, sku?: string | null, barcode?: string | null, brand?: string | null, views: number, is_digital: boolean, requires_shipping: boolean, weight_grams?: number | null, weight_unit_display?: WeightUnit | null, country_of_origin?: string | null, sale_type: SaleType, seo_title?: any | null, seo_description?: any | null, id: string, name: any, slug: string, image?: any | null, gallery?: any | null, description?: any | null, price_cents?: number | null, sale_price_cents?: number | null, selling_price_cents?: number | null, compare_at_price_cents?: number | null, min_price_cents?: number | null, max_price_cents?: number | null, product_type: ProductType, in_stock: boolean, quantity: number, track_quantity: boolean, continue_selling_when_out_of_stock: boolean, shop?: { __typename?: 'PublicShopRef', id: string, name: string, slug: string } | null, collections?: Array<{ __typename?: 'PublicCollectionRef', id: string, name: any, slug: string }> | null, attributes?: Array<{ __typename?: 'PublicProductAttribute', key: string, name: any, type: string, unit?: string | null, value: any, display_value?: string | null }> | null, option_definitions?: Array<{ __typename?: 'PublicOptionDefinition', name: any, position: number, values: Array<{ __typename?: 'PublicOptionValue', label: any }> }> | null, variation_options?: Array<{ __typename?: 'PublicVariation', id: string, title: any, options: any, sku?: string | null, image?: any | null, price_cents: number, sale_price_cents?: number | null, selling_price_cents?: number | null, compare_at_price_cents?: number | null, quantity: number, is_disable: boolean, position: number }> | null, tags?: Array<{ __typename?: 'PublicTagRef', id: string, name: any, slug: string }> | null } | null } };
+
+export type StorefrontRecommendationsQueryVariables = Exact<{
+  product_id?: InputMaybe<Scalars['String']['input']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+}>;
+
+
+export type StorefrontRecommendationsQuery = { __typename?: 'Query', storefrontRecommendations: { __typename?: 'PublicProductsResponse', success: boolean, data: Array<{ __typename?: 'PublicProduct', id: string, name: any, slug: string, image?: any | null, gallery?: any | null, description?: any | null, price_cents?: number | null, sale_price_cents?: number | null, selling_price_cents?: number | null, compare_at_price_cents?: number | null, min_price_cents?: number | null, max_price_cents?: number | null, product_type: ProductType, in_stock: boolean, quantity: number, track_quantity: boolean, continue_selling_when_out_of_stock: boolean, tags?: Array<{ __typename?: 'PublicTagRef', id: string, name: any, slug: string }> | null }> } };
+
+export type StorefrontProductReviewsQueryVariables = Exact<{
+  product_id: Scalars['String']['input'];
+  page?: InputMaybe<Scalars['Int']['input']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+}>;
+
+
+export type StorefrontProductReviewsQuery = { __typename?: 'Query', reviews: { __typename?: 'ReviewsResponse', success: boolean, data: Array<{ __typename?: 'ReviewEntry', id: string, rating: number, comment: string, photos?: any | null, created_at: string, positive_feedbacks_count: number }>, meta: { __typename?: 'ReviewPaginationMeta', page: number, limit: number, total: number, total_pages: number, average_rating: number } } };
+
+export type StorefrontViewProductMutationVariables = Exact<{
+  slug: Scalars['String']['input'];
+}>;
+
+
+export type StorefrontViewProductMutation = { __typename?: 'Mutation', viewProduct: { __typename?: 'ProductResponse', success: boolean } };
+
+export type StorefrontCatalogFacetsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type StorefrontCatalogFacetsQuery = { __typename?: 'Query', tags: { __typename?: 'TagsResponse', success: boolean, data: Array<{ __typename?: 'TagEntry', id: string, name: any, slug: string, products_count?: number | null }> }, collections: { __typename?: 'CollectionsResponse', success: boolean, data: Array<{ __typename?: 'CollectionEntry', id: string, name: any, slug: string, product_count: number }> } };
+
+export type StorefrontProductMetaQueryVariables = Exact<{
+  slug: Scalars['String']['input'];
+}>;
+
+
+export type StorefrontProductMetaQuery = { __typename?: 'Query', storefrontProduct: { __typename?: 'PublicProductResponse', success: boolean, data?: { __typename?: 'PublicProduct', id: string, slug: string, name: any, description?: any | null, image?: any | null, gallery?: any | null, seo_title?: any | null, seo_description?: any | null, price_cents?: number | null, selling_price_cents?: number | null, in_stock: boolean, sku?: string | null, brand?: string | null } | null } };
+
+export type StorefrontVerifyCheckoutMutationVariables = Exact<{
+  input: VerifyCheckoutInput;
+}>;
+
+
+export type StorefrontVerifyCheckoutMutation = { __typename?: 'Mutation', verifyCheckout: { __typename?: 'CheckoutVerifyResponse', success: boolean, data: { __typename?: 'CheckoutVerifyEntry', subtotal_cents: number, shipping_fee_cents: number, tax_cents: number, discount_cents: number, total_cents: number, coupon_applied: boolean, shipping_available: boolean, shipping_unavailable_reason?: string | null, carrier_unavailable_reason?: string | null, selected_shipping_rule_id?: string | null, shipping_options: Array<{ __typename?: 'CheckoutShippingOptionEntry', id: string, name: any, type: string, fee_cents: number, min_delivery_days?: number | null, max_delivery_days?: number | null, channel: string, carrier_name?: string | null, carrier_logo?: string | null, package_count: number }>, unavailable_products: Array<{ __typename?: 'UnavailableProductEntry', product_id: string, reason: string, message?: string | null, available_quantity?: number | null }>, fulfillment: { __typename?: 'CheckoutFulfillmentPlan', requires_split: boolean } } } };
+
+export type StorefrontCreateOrderMutationVariables = Exact<{
+  input: CreateOrderInput;
+}>;
+
+
+export type StorefrontCreateOrderMutation = { __typename?: 'Mutation', createOrder: { __typename?: 'OrderResponse', success: boolean, message?: string | null, data?: { __typename?: 'OrderEntry', id: string, tracking_number: string, order_status: string, financial_status: string, currency: string, created_at: string, payment: { __typename?: 'OrderPayment', gateway?: string | null, status: string }, pricing: { __typename?: 'OrderPricing', subtotal_cents: number, discount_cents: number, tax_cents: number, delivery_fee_cents: number, total_cents: number, paid_total_cents: number }, shop?: { __typename?: 'OrderShopRef', id: string, name: string, slug: string } | null } | null } };
+
+export type StorefrontOpenOrderPaymentMutationVariables = Exact<{
+  token: Scalars['String']['input'];
+}>;
+
+
+export type StorefrontOpenOrderPaymentMutation = { __typename?: 'Mutation', openOrderPayment: { __typename?: 'OrderPaymentOpeningResponse', success: boolean, data?: { __typename?: 'OrderPaymentOpeningEntry', state: string, closed_reason?: string | null, payment_url?: string | null, order_id: string, tracking_number: string, total_cents: number, currency: string } | null } };
+
+export type StorefrontCreatePaymentLinkMutationVariables = Exact<{
+  order_id: Scalars['String']['input'];
+  payment_gateway: Scalars['String']['input'];
+}>;
+
+
+export type StorefrontCreatePaymentLinkMutation = { __typename?: 'Mutation', createPaymentLink: { __typename?: 'PaymentIntentResponse', success: boolean, message?: string | null, payment_url?: string | null } };
+
+export type StorefrontSendContactMessageMutationVariables = Exact<{
+  input: SendContactMessageInput;
+}>;
+
+
+export type StorefrontSendContactMessageMutation = { __typename?: 'Mutation', sendContactMessage: { __typename?: 'BaseResponse', success: boolean } };
+
+export type StorefrontNegotiationAvailableQueryVariables = Exact<{
+  product_id: Scalars['String']['input'];
+  variation_option_id?: InputMaybe<Scalars['String']['input']>;
+}>;
+
+
+export type StorefrontNegotiationAvailableQuery = { __typename?: 'Query', negotiationAvailable: { __typename?: 'NegotiationAvailableResponse', success: boolean, available: boolean } };
+
+export type StorefrontAcceptNegotiationMutationVariables = Exact<{
+  input: AcceptNegotiationInput;
+  guest_key?: InputMaybe<Scalars['String']['input']>;
+}>;
+
+
+export type StorefrontAcceptNegotiationMutation = { __typename?: 'Mutation', acceptNegotiation: { __typename?: 'NegotiatedOfferResponse', success: boolean, data?: { __typename?: 'NegotiatedOfferEntry', id: string, product_id: string, variation_option_id?: string | null, original_cents: number, negotiated_cents: number, quantity: number, currency: string, status: NegotiatedOfferStatus, expires_at: any, allow_coupon_stacking: boolean } | null } };
+
+export type StorefrontAddNegotiatedOfferToCartMutationVariables = Exact<{
+  input: AddNegotiatedOfferToCartInput;
+  session_id?: InputMaybe<Scalars['String']['input']>;
+}>;
+
+
+export type StorefrontAddNegotiatedOfferToCartMutation = { __typename?: 'Mutation', addNegotiatedOfferToCart: { __typename?: 'CartResponse', success: boolean, message?: string | null, data?: { __typename?: 'CartEnvelope', id: string, items: Array<{ __typename?: 'CartItemEntry', id: string, product_id: string, quantity: number, unit_price_cents: number, total_price_cents: number, is_ai_negotiated?: boolean | null, negotiated_offer_id?: string | null, negotiated_expires_at?: any | null }> } | null } };
+
+export type OrderSummaryFieldsFragment = { __typename?: 'OrderEntry', id: string, tracking_number: string, order_status: string, financial_status: string, fulfillment_status: string, currency: string, created_at: string, pricing: { __typename?: 'OrderPricing', subtotal_cents: number, discount_cents: number, tax_cents: number, delivery_fee_cents: number, total_cents: number, paid_total_cents: number }, shop?: { __typename?: 'OrderShopRef', id: string, name: string, slug: string, logo?: any | null } | null, products: Array<{ __typename?: 'OrderProductEntry', id: string, product_id: string, name: any, slug?: string | null, image?: any | null, order_quantity: number, unit_price_cents: number, subtotal_cents: number, variation_title?: any | null }> };
+
+export type StorefrontMyOrdersQueryVariables = Exact<{
+  filters?: InputMaybe<FilterOrdersInput>;
+}>;
+
+
+export type StorefrontMyOrdersQuery = { __typename?: 'Query', orders: { __typename?: 'OrdersResponse', success: boolean, data: Array<{ __typename?: 'OrderEntry', id: string, tracking_number: string, order_status: string, financial_status: string, fulfillment_status: string, currency: string, created_at: string, pricing: { __typename?: 'OrderPricing', subtotal_cents: number, discount_cents: number, tax_cents: number, delivery_fee_cents: number, total_cents: number, paid_total_cents: number }, shop?: { __typename?: 'OrderShopRef', id: string, name: string, slug: string, logo?: any | null } | null, products: Array<{ __typename?: 'OrderProductEntry', id: string, product_id: string, name: any, slug?: string | null, image?: any | null, order_quantity: number, unit_price_cents: number, subtotal_cents: number, variation_title?: any | null }> }>, meta: { __typename?: 'OrderPaginationMeta', page: number, limit: number, total: number, total_pages: number } } };
+
+export type StorefrontOrderDetailFieldsFragment = { __typename?: 'OrderEntry', note?: string | null, language?: string | null, updated_at: string, shipping_method?: any | null, payment_expires_at?: string | null, id: string, tracking_number: string, order_status: string, financial_status: string, fulfillment_status: string, currency: string, created_at: string, payment: { __typename?: 'OrderPayment', gateway?: string | null, altered_gateway?: string | null, status: string }, delivery?: { __typename?: 'OrderDelivery', fee_cents: number, time?: string | null } | null, payment_instructions?: { __typename?: 'BankAccountSnapshot', id: string, bank_code?: string | null, bank_name?: string | null, account_holder_name: string, account_number?: string | null, iban?: string | null, swift_code?: string | null, currency: string, notes?: string | null } | null, invoices?: Array<{ __typename?: 'OrderInvoiceEntry', id: string, invoice_number: string, status?: string | null, due_date?: string | null, paid_at?: string | null }> | null, shipments?: Array<{ __typename?: 'OrderShipmentEntry', id: string, status: string, carrier_name?: string | null, tracking_number?: string | null, tracking_url?: string | null, shipped_at?: string | null, delivered_at?: string | null, created_at: string }> | null, addresses?: { __typename?: 'OrderAddresses', shipping?: any | null, billing?: any | null } | null, customer?: { __typename?: 'OrderCustomerInfo', id?: string | null, name?: string | null, email?: string | null, phone?: string | null } | null, coupons?: Array<{ __typename?: 'OrderCouponEntry', coupon_id: string, code: string, applied_discount_cents: number }> | null, pricing: { __typename?: 'OrderPricing', subtotal_cents: number, discount_cents: number, tax_cents: number, delivery_fee_cents: number, total_cents: number, paid_total_cents: number }, shop?: { __typename?: 'OrderShopRef', id: string, name: string, slug: string, logo?: any | null } | null, products: Array<{ __typename?: 'OrderProductEntry', id: string, product_id: string, name: any, slug?: string | null, image?: any | null, order_quantity: number, unit_price_cents: number, subtotal_cents: number, variation_title?: any | null }> };
+
+export type StorefrontOrderQueryVariables = Exact<{
+  id: Scalars['String']['input'];
+}>;
+
+
+export type StorefrontOrderQuery = { __typename?: 'Query', order: { __typename?: 'OrderResponse', success: boolean, data?: { __typename?: 'OrderEntry', note?: string | null, language?: string | null, updated_at: string, shipping_method?: any | null, payment_expires_at?: string | null, id: string, tracking_number: string, order_status: string, financial_status: string, fulfillment_status: string, currency: string, created_at: string, payment: { __typename?: 'OrderPayment', gateway?: string | null, altered_gateway?: string | null, status: string }, delivery?: { __typename?: 'OrderDelivery', fee_cents: number, time?: string | null } | null, payment_instructions?: { __typename?: 'BankAccountSnapshot', id: string, bank_code?: string | null, bank_name?: string | null, account_holder_name: string, account_number?: string | null, iban?: string | null, swift_code?: string | null, currency: string, notes?: string | null } | null, invoices?: Array<{ __typename?: 'OrderInvoiceEntry', id: string, invoice_number: string, status?: string | null, due_date?: string | null, paid_at?: string | null }> | null, shipments?: Array<{ __typename?: 'OrderShipmentEntry', id: string, status: string, carrier_name?: string | null, tracking_number?: string | null, tracking_url?: string | null, shipped_at?: string | null, delivered_at?: string | null, created_at: string }> | null, addresses?: { __typename?: 'OrderAddresses', shipping?: any | null, billing?: any | null } | null, customer?: { __typename?: 'OrderCustomerInfo', id?: string | null, name?: string | null, email?: string | null, phone?: string | null } | null, coupons?: Array<{ __typename?: 'OrderCouponEntry', coupon_id: string, code: string, applied_discount_cents: number }> | null, pricing: { __typename?: 'OrderPricing', subtotal_cents: number, discount_cents: number, tax_cents: number, delivery_fee_cents: number, total_cents: number, paid_total_cents: number }, shop?: { __typename?: 'OrderShopRef', id: string, name: string, slug: string, logo?: any | null } | null, products: Array<{ __typename?: 'OrderProductEntry', id: string, product_id: string, name: any, slug?: string | null, image?: any | null, order_quantity: number, unit_price_cents: number, subtotal_cents: number, variation_title?: any | null }> } | null } };
+
+export type StorefrontPayLinkOrderQueryVariables = Exact<{
+  token: Scalars['String']['input'];
+}>;
+
+
+export type StorefrontPayLinkOrderQuery = { __typename?: 'Query', payLinkOrder: { __typename?: 'OrderResponse', success: boolean, data?: { __typename?: 'OrderEntry', note?: string | null, language?: string | null, updated_at: string, shipping_method?: any | null, payment_expires_at?: string | null, id: string, tracking_number: string, order_status: string, financial_status: string, fulfillment_status: string, currency: string, created_at: string, payment: { __typename?: 'OrderPayment', gateway?: string | null, altered_gateway?: string | null, status: string }, delivery?: { __typename?: 'OrderDelivery', fee_cents: number, time?: string | null } | null, payment_instructions?: { __typename?: 'BankAccountSnapshot', id: string, bank_code?: string | null, bank_name?: string | null, account_holder_name: string, account_number?: string | null, iban?: string | null, swift_code?: string | null, currency: string, notes?: string | null } | null, invoices?: Array<{ __typename?: 'OrderInvoiceEntry', id: string, invoice_number: string, status?: string | null, due_date?: string | null, paid_at?: string | null }> | null, shipments?: Array<{ __typename?: 'OrderShipmentEntry', id: string, status: string, carrier_name?: string | null, tracking_number?: string | null, tracking_url?: string | null, shipped_at?: string | null, delivered_at?: string | null, created_at: string }> | null, addresses?: { __typename?: 'OrderAddresses', shipping?: any | null, billing?: any | null } | null, customer?: { __typename?: 'OrderCustomerInfo', id?: string | null, name?: string | null, email?: string | null, phone?: string | null } | null, coupons?: Array<{ __typename?: 'OrderCouponEntry', coupon_id: string, code: string, applied_discount_cents: number }> | null, pricing: { __typename?: 'OrderPricing', subtotal_cents: number, discount_cents: number, tax_cents: number, delivery_fee_cents: number, total_cents: number, paid_total_cents: number }, shop?: { __typename?: 'OrderShopRef', id: string, name: string, slug: string, logo?: any | null } | null, products: Array<{ __typename?: 'OrderProductEntry', id: string, product_id: string, name: any, slug?: string | null, image?: any | null, order_quantity: number, unit_price_cents: number, subtotal_cents: number, variation_title?: any | null }> } | null } };
+
+export type StorefrontCancelOrderMutationVariables = Exact<{
+  id: Scalars['String']['input'];
+}>;
+
+
+export type StorefrontCancelOrderMutation = { __typename?: 'Mutation', cancelOrder: { __typename?: 'OrderResponse', success: boolean, message?: string | null, data?: { __typename?: 'OrderEntry', id: string, order_status: string, financial_status: string } | null } };
+
+export type StorefrontShopQueryVariables = Exact<{
+  slug: Scalars['String']['input'];
+}>;
+
+
+export type StorefrontShopQuery = { __typename?: 'Query', shop: { __typename?: 'ShopResponse', success: boolean, data?: { __typename?: 'Shop', id: string, name: string, slug: string, currency: string, home_country: string, created_at: string, description?: string | null, address?: any | null, products_count?: number | null, logo?: { __typename?: 'ShopImage', id: string, original: string, thumbnail: string } | null, cover_image?: { __typename?: 'ShopImage', id: string, original: string, thumbnail: string } | null, socials?: Array<{ __typename?: 'ShopSocialEntry', id: string, name: string, link: string }> | null, settings?: { __typename?: 'ShopSettings', contact?: string | null, email?: string | null, website?: string | null, isShopUnderMaintenance?: boolean | null, location?: { __typename?: 'ShopLocation', city?: string | null, state?: string | null, country?: string | null, formattedAddress?: string | null } | null, policies?: { __typename?: 'ShopPolicies', refund_policy?: string | null, privacy_policy?: string | null, terms_of_service?: string | null, shipping_policy?: string | null } | null } | null } | null } };
+
+export type StorefrontShopsQueryVariables = Exact<{
+  page: Scalars['Int']['input'];
+  limit: Scalars['Int']['input'];
+  search?: InputMaybe<Scalars['String']['input']>;
+}>;
+
+
+export type StorefrontShopsQuery = { __typename?: 'Query', shops: { __typename?: 'ShopsResponse', success: boolean, data: Array<{ __typename?: 'Shop', id: string, name: string, slug: string, description?: string | null, products_count?: number | null, logo?: { __typename?: 'ShopImage', id: string, original: string, thumbnail: string } | null, cover_image?: { __typename?: 'ShopImage', id: string, original: string, thumbnail: string } | null }>, meta: { __typename?: 'ShopPaginationMeta', page: number, limit: number, total: number, total_pages: number } } };
+
+export type StorefrontHomeFacetsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type StorefrontHomeFacetsQuery = { __typename?: 'Query', collections: { __typename?: 'CollectionsResponse', success: boolean, data: Array<{ __typename?: 'CollectionEntry', id: string, name: any, slug: string, description?: any | null, image?: any | null }>, meta: { __typename?: 'CollectionsListMeta', total: number } }, tags: { __typename?: 'TagsResponse', success: boolean, data: Array<{ __typename?: 'TagEntry', id: string, name: any, slug: string, icon?: string | null, products_count?: number | null }>, meta: { __typename?: 'TagPaginationMeta', total: number } } };
+
+export type StorefrontSubscribeNewsletterMutationVariables = Exact<{
+  email: Scalars['String']['input'];
+  shop_id?: InputMaybe<Scalars['String']['input']>;
+  shop_slug?: InputMaybe<Scalars['String']['input']>;
+}>;
+
+
+export type StorefrontSubscribeNewsletterMutation = { __typename?: 'Mutation', subscribeNewsletter: { __typename?: 'BaseResponse', success: boolean, message?: string | null } };
+
+export type StorefrontProductCompositionQueryVariables = Exact<{
+  product_id: Scalars['String']['input'];
+}>;
+
+
+export type StorefrontProductCompositionQuery = { __typename?: 'Query', storefrontProductComposition: { __typename?: 'ProductCompositionResponse', success: boolean, data?: { __typename?: 'ProductCompositionEntry', product_id: string, min_count: number, max_count: number, vessel_cap: number, price_ladder_cents: Array<number>, groups: Array<{ __typename?: 'ProductCompositionGroupEntry', key: string, priced_by_ladder: boolean, addon_cents: number, parts: Array<{ __typename?: 'ProductCompositionPartEntry', product_id: string, addon_cents: number, cutout_url?: string | null, image_url?: string | null, name?: any | null }> }> } | null } };
+
+export type DoughnCollectionProductsQueryVariables = Exact<{
+  filters?: InputMaybe<ProductFilterInput>;
+}>;
+
+
+export type DoughnCollectionProductsQuery = { __typename?: 'Query', storefrontProducts: { __typename?: 'PublicProductsResponse', success: boolean, data: Array<{ __typename?: 'PublicProduct', name: any, slug: string, image?: any | null, selling_price_cents?: number | null, price_cents?: number | null }> } };
+
+export type StorefrontShopShellQueryVariables = Exact<{
+  slug: Scalars['String']['input'];
+}>;
+
+
+export type StorefrontShopShellQuery = { __typename?: 'Query', shop: { __typename?: 'ShopResponse', data?: { __typename?: 'Shop', id: string, name: string, slug: string, description?: string | null, logo?: { __typename?: 'ShopImage', original: string, thumbnail: string } | null, cover_image?: { __typename?: 'ShopImage', original: string } | null, settings?: { __typename?: 'ShopSettings', email?: string | null, policies?: { __typename?: 'ShopPolicies', refund_policy?: string | null, privacy_policy?: string | null, terms_of_service?: string | null, shipping_policy?: string | null } | null, brand?: { __typename?: 'ShopBrand', slogan?: string | null, square_logo?: { __typename?: 'ShopImage', original: string, thumbnail: string } | null, colors?: { __typename?: 'ShopBrandColors', primary?: { __typename?: 'ShopBrandColorPair', background?: string | null, foreground?: string | null } | null, secondary?: { __typename?: 'ShopBrandColorPair', background?: string | null, foreground?: string | null } | null } | null } | null } | null } | null } };
+
+export type StorefrontPresentationQueryVariables = Exact<{
+  slug: Scalars['String']['input'];
+}>;
+
+
+export type StorefrontPresentationQuery = { __typename?: 'Query', shop: { __typename?: 'ShopResponse', data?: { __typename?: 'Shop', name: string, storefront_template?: string | null, storefront_theme?: any | null, currency: string, timezone?: string | null, settings?: { __typename?: 'ShopSettings', location?: { __typename?: 'ShopLocation', formattedAddress?: string | null, city?: string | null, district?: string | null, lat?: number | null, lng?: number | null } | null } | null } | null } };
+
+export type StorefrontTelegramOrderUpdatesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type StorefrontTelegramOrderUpdatesQuery = { __typename?: 'Query', myTelegramOrderUpdates: { __typename?: 'TelegramOrderUpdates', available: boolean, linked: boolean, bot_username?: string | null } };
+
+export type StorefrontConnectTelegramOrderUpdatesMutationVariables = Exact<{ [key: string]: never; }>;
+
+
+export type StorefrontConnectTelegramOrderUpdatesMutation = { __typename?: 'Mutation', connectTelegramOrderUpdates?: { __typename?: 'TelegramPairingLink', url: string, expires_in: number } | null };
+
+export type StorefrontWishlistsQueryVariables = Exact<{
+  page: Scalars['Int']['input'];
+  limit: Scalars['Int']['input'];
+}>;
+
+
+export type StorefrontWishlistsQuery = { __typename?: 'Query', wishlists: { __typename?: 'WishlistsResponse', success: boolean, data: Array<{ __typename?: 'WishlistEntry', id: string, product_id: string, variation_option_id?: string | null, created_at: string, product?: { __typename?: 'WishlistProduct', id: string, name: any, slug: string, image?: any | null, price_cents?: number | null, sale_price_cents?: number | null, shop_id?: string | null } | null }>, meta: { __typename?: 'WishlistPaginationMeta', page: number, limit: number, total: number, total_pages: number } } };
+
+export type StorefrontToggleWishlistMutationVariables = Exact<{
+  input: WishlistInput;
+}>;
+
+
+export type StorefrontToggleWishlistMutation = { __typename?: 'Mutation', toggleWishlist: { __typename?: 'WishlistToggleResponse', success: boolean, message?: string | null, data: { __typename?: 'WishlistToggleData', in_wishlist: boolean } } };
+
+export type StorefrontInWishlistQueryVariables = Exact<{
+  product_id: Scalars['String']['input'];
+}>;
+
+
+export type StorefrontInWishlistQuery = { __typename?: 'Query', inWishlist: { __typename?: 'WishlistCheckResponse', success: boolean, in_wishlist: boolean } };
+
+export type StorefrontEndCustomerSessionMutationVariables = Exact<{
+  token: Scalars['String']['input'];
+}>;
+
+
+export type StorefrontEndCustomerSessionMutation = { __typename?: 'Mutation', endCustomerSession: { __typename?: 'BaseResponse', success: boolean } };
+
+export const AddressFieldsFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"AddressFields"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"AddressEntry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"type"}},{"kind":"Field","name":{"kind":"Name","value":"default"}},{"kind":"Field","name":{"kind":"Name","value":"address"}}]}}]} as unknown as DocumentNode<AddressFieldsFragment, unknown>;
+export const StorefrontCustomerSignInFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"StorefrontCustomerSignIn"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"CustomerSignInData"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"access_token"}},{"kind":"Field","name":{"kind":"Name","value":"access_token_expires_at"}},{"kind":"Field","name":{"kind":"Name","value":"refresh_token"}},{"kind":"Field","name":{"kind":"Name","value":"refresh_token_expires_at"}},{"kind":"Field","name":{"kind":"Name","value":"created"}},{"kind":"Field","name":{"kind":"Name","value":"customer"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"phone_e164"}},{"kind":"Field","name":{"kind":"Name","value":"email"}}]}}]}}]} as unknown as DocumentNode<StorefrontCustomerSignInFragment, unknown>;
+export const CartFieldsFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"CartFields"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"CartEnvelope"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"shop"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"logo"}}]}},{"kind":"Field","name":{"kind":"Name","value":"items"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"product_id"}},{"kind":"Field","name":{"kind":"Name","value":"variation_option_id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"variation_name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"image"}},{"kind":"Field","name":{"kind":"Name","value":"quantity"}},{"kind":"Field","name":{"kind":"Name","value":"unit_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"sale_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"discount_cents"}},{"kind":"Field","name":{"kind":"Name","value":"total_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"is_variation"}},{"kind":"Field","name":{"kind":"Name","value":"requires_shipping"}},{"kind":"Field","name":{"kind":"Name","value":"is_digital"}},{"kind":"Field","name":{"kind":"Name","value":"product_type"}},{"kind":"Field","name":{"kind":"Name","value":"status"}},{"kind":"Field","name":{"kind":"Name","value":"stock_status"}},{"kind":"Field","name":{"kind":"Name","value":"unavailable_reason"}},{"kind":"Field","name":{"kind":"Name","value":"custom_options"}},{"kind":"Field","name":{"kind":"Name","value":"composition"}},{"kind":"Field","name":{"kind":"Name","value":"is_ai_negotiated"}},{"kind":"Field","name":{"kind":"Name","value":"negotiated_offer_id"}},{"kind":"Field","name":{"kind":"Name","value":"negotiated_expires_at"}}]}},{"kind":"Field","name":{"kind":"Name","value":"summary"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"currency"}},{"kind":"Field","name":{"kind":"Name","value":"total_items"}},{"kind":"Field","name":{"kind":"Name","value":"subtotal_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"discount_cents"}},{"kind":"Field","name":{"kind":"Name","value":"tax_bps"}},{"kind":"Field","name":{"kind":"Name","value":"total_tax_amount_cents"}},{"kind":"Field","name":{"kind":"Name","value":"total_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"coupons"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"code"}},{"kind":"Field","name":{"kind":"Name","value":"discount_cents"}}]}}]}}]}}]} as unknown as DocumentNode<CartFieldsFragment, unknown>;
+export const ProductCardFieldsFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ProductCardFields"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"PublicProduct"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"image"}},{"kind":"Field","name":{"kind":"Name","value":"gallery"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"tags"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}}]}},{"kind":"Field","name":{"kind":"Name","value":"price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"sale_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"selling_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"compare_at_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"min_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"max_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"product_type"}},{"kind":"Field","name":{"kind":"Name","value":"in_stock"}},{"kind":"Field","name":{"kind":"Name","value":"quantity"}},{"kind":"Field","name":{"kind":"Name","value":"track_quantity"}},{"kind":"Field","name":{"kind":"Name","value":"continue_selling_when_out_of_stock"}}]}}]} as unknown as DocumentNode<ProductCardFieldsFragment, unknown>;
+export const OrderSummaryFieldsFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"OrderSummaryFields"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"OrderEntry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"tracking_number"}},{"kind":"Field","name":{"kind":"Name","value":"order_status"}},{"kind":"Field","name":{"kind":"Name","value":"financial_status"}},{"kind":"Field","name":{"kind":"Name","value":"fulfillment_status"}},{"kind":"Field","name":{"kind":"Name","value":"currency"}},{"kind":"Field","name":{"kind":"Name","value":"created_at"}},{"kind":"Field","name":{"kind":"Name","value":"pricing"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"subtotal_cents"}},{"kind":"Field","name":{"kind":"Name","value":"discount_cents"}},{"kind":"Field","name":{"kind":"Name","value":"tax_cents"}},{"kind":"Field","name":{"kind":"Name","value":"delivery_fee_cents"}},{"kind":"Field","name":{"kind":"Name","value":"total_cents"}},{"kind":"Field","name":{"kind":"Name","value":"paid_total_cents"}}]}},{"kind":"Field","name":{"kind":"Name","value":"shop"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"logo"}}]}},{"kind":"Field","name":{"kind":"Name","value":"products"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"product_id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"image"}},{"kind":"Field","name":{"kind":"Name","value":"order_quantity"}},{"kind":"Field","name":{"kind":"Name","value":"unit_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"subtotal_cents"}},{"kind":"Field","name":{"kind":"Name","value":"variation_title"}}]}}]}}]} as unknown as DocumentNode<OrderSummaryFieldsFragment, unknown>;
+export const StorefrontBankAccountSnapshotFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"StorefrontBankAccountSnapshot"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"BankAccountSnapshot"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"bank_code"}},{"kind":"Field","name":{"kind":"Name","value":"bank_name"}},{"kind":"Field","name":{"kind":"Name","value":"account_holder_name"}},{"kind":"Field","name":{"kind":"Name","value":"account_number"}},{"kind":"Field","name":{"kind":"Name","value":"iban"}},{"kind":"Field","name":{"kind":"Name","value":"swift_code"}},{"kind":"Field","name":{"kind":"Name","value":"currency"}},{"kind":"Field","name":{"kind":"Name","value":"notes"}}]}}]} as unknown as DocumentNode<StorefrontBankAccountSnapshotFragment, unknown>;
+export const StorefrontOrderDetailFieldsFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"StorefrontOrderDetailFields"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"OrderEntry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"OrderSummaryFields"}},{"kind":"Field","name":{"kind":"Name","value":"note"}},{"kind":"Field","name":{"kind":"Name","value":"language"}},{"kind":"Field","name":{"kind":"Name","value":"updated_at"}},{"kind":"Field","name":{"kind":"Name","value":"payment"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"gateway"}},{"kind":"Field","name":{"kind":"Name","value":"altered_gateway"}},{"kind":"Field","name":{"kind":"Name","value":"status"}}]}},{"kind":"Field","name":{"kind":"Name","value":"delivery"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"fee_cents"}},{"kind":"Field","name":{"kind":"Name","value":"time"}}]}},{"kind":"Field","name":{"kind":"Name","value":"shipping_method"}},{"kind":"Field","name":{"kind":"Name","value":"payment_expires_at"}},{"kind":"Field","name":{"kind":"Name","value":"payment_instructions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"StorefrontBankAccountSnapshot"}}]}},{"kind":"Field","name":{"kind":"Name","value":"invoices"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"invoice_number"}},{"kind":"Field","name":{"kind":"Name","value":"status"}},{"kind":"Field","name":{"kind":"Name","value":"due_date"}},{"kind":"Field","name":{"kind":"Name","value":"paid_at"}}]}},{"kind":"Field","name":{"kind":"Name","value":"shipments"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"status"}},{"kind":"Field","name":{"kind":"Name","value":"carrier_name"}},{"kind":"Field","name":{"kind":"Name","value":"tracking_number"}},{"kind":"Field","name":{"kind":"Name","value":"tracking_url"}},{"kind":"Field","name":{"kind":"Name","value":"shipped_at"}},{"kind":"Field","name":{"kind":"Name","value":"delivered_at"}},{"kind":"Field","name":{"kind":"Name","value":"created_at"}}]}},{"kind":"Field","name":{"kind":"Name","value":"addresses"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"shipping"}},{"kind":"Field","name":{"kind":"Name","value":"billing"}}]}},{"kind":"Field","name":{"kind":"Name","value":"customer"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"phone"}}]}},{"kind":"Field","name":{"kind":"Name","value":"coupons"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"coupon_id"}},{"kind":"Field","name":{"kind":"Name","value":"code"}},{"kind":"Field","name":{"kind":"Name","value":"applied_discount_cents"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"OrderSummaryFields"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"OrderEntry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"tracking_number"}},{"kind":"Field","name":{"kind":"Name","value":"order_status"}},{"kind":"Field","name":{"kind":"Name","value":"financial_status"}},{"kind":"Field","name":{"kind":"Name","value":"fulfillment_status"}},{"kind":"Field","name":{"kind":"Name","value":"currency"}},{"kind":"Field","name":{"kind":"Name","value":"created_at"}},{"kind":"Field","name":{"kind":"Name","value":"pricing"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"subtotal_cents"}},{"kind":"Field","name":{"kind":"Name","value":"discount_cents"}},{"kind":"Field","name":{"kind":"Name","value":"tax_cents"}},{"kind":"Field","name":{"kind":"Name","value":"delivery_fee_cents"}},{"kind":"Field","name":{"kind":"Name","value":"total_cents"}},{"kind":"Field","name":{"kind":"Name","value":"paid_total_cents"}}]}},{"kind":"Field","name":{"kind":"Name","value":"shop"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"logo"}}]}},{"kind":"Field","name":{"kind":"Name","value":"products"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"product_id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"image"}},{"kind":"Field","name":{"kind":"Name","value":"order_quantity"}},{"kind":"Field","name":{"kind":"Name","value":"unit_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"subtotal_cents"}},{"kind":"Field","name":{"kind":"Name","value":"variation_title"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"StorefrontBankAccountSnapshot"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"BankAccountSnapshot"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"bank_code"}},{"kind":"Field","name":{"kind":"Name","value":"bank_name"}},{"kind":"Field","name":{"kind":"Name","value":"account_holder_name"}},{"kind":"Field","name":{"kind":"Name","value":"account_number"}},{"kind":"Field","name":{"kind":"Name","value":"iban"}},{"kind":"Field","name":{"kind":"Name","value":"swift_code"}},{"kind":"Field","name":{"kind":"Name","value":"currency"}},{"kind":"Field","name":{"kind":"Name","value":"notes"}}]}}]} as unknown as DocumentNode<StorefrontOrderDetailFieldsFragment, unknown>;
+export const ShopSitemapProductsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"ShopSitemapProducts"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"filters"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"ProductFilterInput"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"storefrontProducts"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"filters"},"value":{"kind":"Variable","name":{"kind":"Name","value":"filters"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"slug"}}]}},{"kind":"Field","name":{"kind":"Name","value":"meta"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"total_pages"}}]}}]}}]}}]} as unknown as DocumentNode<ShopSitemapProductsQuery, ShopSitemapProductsQueryVariables>;
+export const SitemapShopsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"SitemapShops"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"page"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"limit"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"shops"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"page"},"value":{"kind":"Variable","name":{"kind":"Name","value":"page"}}},{"kind":"Argument","name":{"kind":"Name","value":"limit"},"value":{"kind":"Variable","name":{"kind":"Name","value":"limit"}}},{"kind":"Argument","name":{"kind":"Name","value":"is_approved"},"value":{"kind":"BooleanValue","value":true}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"slug"}}]}},{"kind":"Field","name":{"kind":"Name","value":"meta"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"total_pages"}}]}}]}}]}}]} as unknown as DocumentNode<SitemapShopsQuery, SitemapShopsQueryVariables>;
+export const SitemapProductsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"SitemapProducts"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"filters"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"ProductFilterInput"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"storefrontProducts"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"filters"},"value":{"kind":"Variable","name":{"kind":"Name","value":"filters"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"slug"}}]}},{"kind":"Field","name":{"kind":"Name","value":"meta"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"total_pages"}}]}}]}}]}}]} as unknown as DocumentNode<SitemapProductsQuery, SitemapProductsQueryVariables>;
+export const StorefrontMyAddressesDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"StorefrontMyAddresses"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"page"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"limit"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"myAddresses"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"page"},"value":{"kind":"Variable","name":{"kind":"Name","value":"page"}}},{"kind":"Argument","name":{"kind":"Name","value":"limit"},"value":{"kind":"Variable","name":{"kind":"Name","value":"limit"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"AddressFields"}}]}},{"kind":"Field","name":{"kind":"Name","value":"meta"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"total"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"AddressFields"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"AddressEntry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"type"}},{"kind":"Field","name":{"kind":"Name","value":"default"}},{"kind":"Field","name":{"kind":"Name","value":"address"}}]}}]} as unknown as DocumentNode<StorefrontMyAddressesQuery, StorefrontMyAddressesQueryVariables>;
+export const StorefrontCreateAddressDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"StorefrontCreateAddress"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"input"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"CreateAddressInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createAddress"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"input"},"value":{"kind":"Variable","name":{"kind":"Name","value":"input"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"AddressFields"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"AddressFields"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"AddressEntry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"type"}},{"kind":"Field","name":{"kind":"Name","value":"default"}},{"kind":"Field","name":{"kind":"Name","value":"address"}}]}}]} as unknown as DocumentNode<StorefrontCreateAddressMutation, StorefrontCreateAddressMutationVariables>;
+export const StorefrontUpdateAddressDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"StorefrontUpdateAddress"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"input"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"UpdateAddressInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"updateAddress"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"input"},"value":{"kind":"Variable","name":{"kind":"Name","value":"input"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"AddressFields"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"AddressFields"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"AddressEntry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"type"}},{"kind":"Field","name":{"kind":"Name","value":"default"}},{"kind":"Field","name":{"kind":"Name","value":"address"}}]}}]} as unknown as DocumentNode<StorefrontUpdateAddressMutation, StorefrontUpdateAddressMutationVariables>;
+export const StorefrontDeleteAddressDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"StorefrontDeleteAddress"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"deleteAddress"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"message"}}]}}]}}]} as unknown as DocumentNode<StorefrontDeleteAddressMutation, StorefrontDeleteAddressMutationVariables>;
+export const LookupNationalAddressDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"LookupNationalAddress"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"input"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"LookupNationalAddressInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"lookupNationalAddress"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"input"},"value":{"kind":"Variable","name":{"kind":"Name","value":"input"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"code"}},{"kind":"Field","name":{"kind":"Name","value":"formatted"}},{"kind":"Field","name":{"kind":"Name","value":"city"}},{"kind":"Field","name":{"kind":"Name","value":"country"}},{"kind":"Field","name":{"kind":"Name","value":"district"}},{"kind":"Field","name":{"kind":"Name","value":"street"}},{"kind":"Field","name":{"kind":"Name","value":"building_number"}},{"kind":"Field","name":{"kind":"Name","value":"postcode"}}]}}]}}]}}]} as unknown as DocumentNode<LookupNationalAddressQuery, LookupNationalAddressQueryVariables>;
+export const StorefrontPalestineCitiesDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"StorefrontPalestineCities"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"palestineCities"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"code"}},{"kind":"Field","name":{"kind":"Name","value":"country"}},{"kind":"Field","name":{"kind":"Name","value":"name_ar"}},{"kind":"Field","name":{"kind":"Name","value":"name_en"}}]}}]}}]}}]} as unknown as DocumentNode<StorefrontPalestineCitiesQuery, StorefrontPalestineCitiesQueryVariables>;
+export const StorefrontAskAssistantDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"StorefrontAskAssistant"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"input"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"AskAssistantInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"askShopAssistant"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"input"},"value":{"kind":"Variable","name":{"kind":"Name","value":"input"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"text"}},{"kind":"Field","name":{"kind":"Name","value":"escalated"}},{"kind":"Field","name":{"kind":"Name","value":"searched_for"}},{"kind":"Field","name":{"kind":"Name","value":"products"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"image"}},{"kind":"Field","name":{"kind":"Name","value":"product_type"}},{"kind":"Field","name":{"kind":"Name","value":"price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"selling_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"compare_at_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"min_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"max_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"in_stock"}},{"kind":"Field","name":{"kind":"Name","value":"quantity"}},{"kind":"Field","name":{"kind":"Name","value":"track_quantity"}},{"kind":"Field","name":{"kind":"Name","value":"continue_selling_when_out_of_stock"}}]}},{"kind":"Field","name":{"kind":"Name","value":"additions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"product_id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"quantity"}}]}},{"kind":"Field","name":{"kind":"Name","value":"negotiation_offers"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"session_id"}},{"kind":"Field","name":{"kind":"Name","value":"decision"}},{"kind":"Field","name":{"kind":"Name","value":"allowed_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"list_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"currency"}},{"kind":"Field","name":{"kind":"Name","value":"product_title"}},{"kind":"Field","name":{"kind":"Name","value":"can_accept"}}]}}]}}]}}]}}]} as unknown as DocumentNode<StorefrontAskAssistantMutation, StorefrontAskAssistantMutationVariables>;
+export const StorefrontSendSignInCodeDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"StorefrontSendSignInCode"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"input"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"SendCustomerSignInCodeInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"sendCustomerSignInCode"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"input"},"value":{"kind":"Variable","name":{"kind":"Name","value":"input"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"phone_e164"}},{"kind":"Field","name":{"kind":"Name","value":"code_length"}},{"kind":"Field","name":{"kind":"Name","value":"resend_after_seconds"}},{"kind":"Field","name":{"kind":"Name","value":"expires_in_seconds"}}]}}]}}]}}]} as unknown as DocumentNode<StorefrontSendSignInCodeMutation, StorefrontSendSignInCodeMutationVariables>;
+export const StorefrontVerifySignInCodeDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"StorefrontVerifySignInCode"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"input"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"VerifyCustomerSignInCodeInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"verifyCustomerSignInCode"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"input"},"value":{"kind":"Variable","name":{"kind":"Name","value":"input"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"StorefrontCustomerSignIn"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"StorefrontCustomerSignIn"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"CustomerSignInData"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"access_token"}},{"kind":"Field","name":{"kind":"Name","value":"access_token_expires_at"}},{"kind":"Field","name":{"kind":"Name","value":"refresh_token"}},{"kind":"Field","name":{"kind":"Name","value":"refresh_token_expires_at"}},{"kind":"Field","name":{"kind":"Name","value":"created"}},{"kind":"Field","name":{"kind":"Name","value":"customer"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"phone_e164"}},{"kind":"Field","name":{"kind":"Name","value":"email"}}]}}]}}]} as unknown as DocumentNode<StorefrontVerifySignInCodeMutation, StorefrontVerifySignInCodeMutationVariables>;
+export const StorefrontMyProfileDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"StorefrontMyProfile"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"myCustomerProfile"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"phone_e164"}},{"kind":"Field","name":{"kind":"Name","value":"email"}}]}}]}}]}}]} as unknown as DocumentNode<StorefrontMyProfileQuery, StorefrontMyProfileQueryVariables>;
+export const StorefrontUpdateMyProfileDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"StorefrontUpdateMyProfile"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"input"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"UpdateMyCustomerProfileInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"updateMyCustomerProfile"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"input"},"value":{"kind":"Variable","name":{"kind":"Name","value":"input"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"phone_e164"}},{"kind":"Field","name":{"kind":"Name","value":"email"}}]}}]}}]}}]} as unknown as DocumentNode<StorefrontUpdateMyProfileMutation, StorefrontUpdateMyProfileMutationVariables>;
+export const StorefrontPaymentOptionsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"StorefrontPaymentOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"shopPaymentOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"available_gateways"}},{"kind":"Field","name":{"kind":"Name","value":"cod_available"}},{"kind":"Field","name":{"kind":"Name","value":"card_available"}},{"kind":"Field","name":{"kind":"Name","value":"bank_transfer_available"}}]}}]}}]}}]} as unknown as DocumentNode<StorefrontPaymentOptionsQuery, StorefrontPaymentOptionsQueryVariables>;
+export const StorefrontBanksDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"StorefrontBanks"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"locale"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"banks"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"locale"},"value":{"kind":"Variable","name":{"kind":"Name","value":"locale"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"code"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"swift"}},{"kind":"Field","name":{"kind":"Name","value":"icon"}}]}}]}}]}}]} as unknown as DocumentNode<StorefrontBanksQuery, StorefrontBanksQueryVariables>;
+export const StorefrontShopBankAccountsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"StorefrontShopBankAccounts"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"shopBankAccounts"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"bank_code"}},{"kind":"Field","name":{"kind":"Name","value":"bank_name"}},{"kind":"Field","name":{"kind":"Name","value":"account_holder_name"}},{"kind":"Field","name":{"kind":"Name","value":"account_number"}},{"kind":"Field","name":{"kind":"Name","value":"iban"}},{"kind":"Field","name":{"kind":"Name","value":"swift_code"}},{"kind":"Field","name":{"kind":"Name","value":"currency"}},{"kind":"Field","name":{"kind":"Name","value":"notes"}}]}}]}}]}}]} as unknown as DocumentNode<StorefrontShopBankAccountsQuery, StorefrontShopBankAccountsQueryVariables>;
+export const StorefrontOrderBankTransfersDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"StorefrontOrderBankTransfers"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"order_id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"orderBankTransfers"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"order_id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"order_id"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"status"}},{"kind":"Field","name":{"kind":"Name","value":"bank_account_snapshot"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"StorefrontBankAccountSnapshot"}}]}},{"kind":"Field","name":{"kind":"Name","value":"amount_due_cents"}},{"kind":"Field","name":{"kind":"Name","value":"claimed_amount_cents"}},{"kind":"Field","name":{"kind":"Name","value":"currency"}},{"kind":"Field","name":{"kind":"Name","value":"sender_name"}},{"kind":"Field","name":{"kind":"Name","value":"transfer_reference"}},{"kind":"Field","name":{"kind":"Name","value":"transferred_at"}},{"kind":"Field","name":{"kind":"Name","value":"created_at"}},{"kind":"Field","name":{"kind":"Name","value":"rejection_reason"}},{"kind":"Field","name":{"kind":"Name","value":"receipt_url"}},{"kind":"Field","name":{"kind":"Name","value":"receipt_original_name"}},{"kind":"Field","name":{"kind":"Name","value":"receipt_purged_at"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"StorefrontBankAccountSnapshot"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"BankAccountSnapshot"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"bank_code"}},{"kind":"Field","name":{"kind":"Name","value":"bank_name"}},{"kind":"Field","name":{"kind":"Name","value":"account_holder_name"}},{"kind":"Field","name":{"kind":"Name","value":"account_number"}},{"kind":"Field","name":{"kind":"Name","value":"iban"}},{"kind":"Field","name":{"kind":"Name","value":"swift_code"}},{"kind":"Field","name":{"kind":"Name","value":"currency"}},{"kind":"Field","name":{"kind":"Name","value":"notes"}}]}}]} as unknown as DocumentNode<StorefrontOrderBankTransfersQuery, StorefrontOrderBankTransfersQueryVariables>;
+export const StorefrontCartDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"StorefrontCart"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"session_id"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"cart"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"session_id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"session_id"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"message"}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"CartFields"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"CartFields"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"CartEnvelope"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"shop"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"logo"}}]}},{"kind":"Field","name":{"kind":"Name","value":"items"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"product_id"}},{"kind":"Field","name":{"kind":"Name","value":"variation_option_id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"variation_name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"image"}},{"kind":"Field","name":{"kind":"Name","value":"quantity"}},{"kind":"Field","name":{"kind":"Name","value":"unit_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"sale_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"discount_cents"}},{"kind":"Field","name":{"kind":"Name","value":"total_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"is_variation"}},{"kind":"Field","name":{"kind":"Name","value":"requires_shipping"}},{"kind":"Field","name":{"kind":"Name","value":"is_digital"}},{"kind":"Field","name":{"kind":"Name","value":"product_type"}},{"kind":"Field","name":{"kind":"Name","value":"status"}},{"kind":"Field","name":{"kind":"Name","value":"stock_status"}},{"kind":"Field","name":{"kind":"Name","value":"unavailable_reason"}},{"kind":"Field","name":{"kind":"Name","value":"custom_options"}},{"kind":"Field","name":{"kind":"Name","value":"composition"}},{"kind":"Field","name":{"kind":"Name","value":"is_ai_negotiated"}},{"kind":"Field","name":{"kind":"Name","value":"negotiated_offer_id"}},{"kind":"Field","name":{"kind":"Name","value":"negotiated_expires_at"}}]}},{"kind":"Field","name":{"kind":"Name","value":"summary"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"currency"}},{"kind":"Field","name":{"kind":"Name","value":"total_items"}},{"kind":"Field","name":{"kind":"Name","value":"subtotal_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"discount_cents"}},{"kind":"Field","name":{"kind":"Name","value":"tax_bps"}},{"kind":"Field","name":{"kind":"Name","value":"total_tax_amount_cents"}},{"kind":"Field","name":{"kind":"Name","value":"total_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"coupons"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"code"}},{"kind":"Field","name":{"kind":"Name","value":"discount_cents"}}]}}]}}]}}]} as unknown as DocumentNode<StorefrontCartQuery, StorefrontCartQueryVariables>;
+export const StorefrontAddToCartDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"StorefrontAddToCart"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"input"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"AddToCartInput"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"session_id"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"addToCart"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"input"},"value":{"kind":"Variable","name":{"kind":"Name","value":"input"}}},{"kind":"Argument","name":{"kind":"Name","value":"session_id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"session_id"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"message"}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"CartFields"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"CartFields"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"CartEnvelope"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"shop"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"logo"}}]}},{"kind":"Field","name":{"kind":"Name","value":"items"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"product_id"}},{"kind":"Field","name":{"kind":"Name","value":"variation_option_id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"variation_name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"image"}},{"kind":"Field","name":{"kind":"Name","value":"quantity"}},{"kind":"Field","name":{"kind":"Name","value":"unit_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"sale_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"discount_cents"}},{"kind":"Field","name":{"kind":"Name","value":"total_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"is_variation"}},{"kind":"Field","name":{"kind":"Name","value":"requires_shipping"}},{"kind":"Field","name":{"kind":"Name","value":"is_digital"}},{"kind":"Field","name":{"kind":"Name","value":"product_type"}},{"kind":"Field","name":{"kind":"Name","value":"status"}},{"kind":"Field","name":{"kind":"Name","value":"stock_status"}},{"kind":"Field","name":{"kind":"Name","value":"unavailable_reason"}},{"kind":"Field","name":{"kind":"Name","value":"custom_options"}},{"kind":"Field","name":{"kind":"Name","value":"composition"}},{"kind":"Field","name":{"kind":"Name","value":"is_ai_negotiated"}},{"kind":"Field","name":{"kind":"Name","value":"negotiated_offer_id"}},{"kind":"Field","name":{"kind":"Name","value":"negotiated_expires_at"}}]}},{"kind":"Field","name":{"kind":"Name","value":"summary"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"currency"}},{"kind":"Field","name":{"kind":"Name","value":"total_items"}},{"kind":"Field","name":{"kind":"Name","value":"subtotal_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"discount_cents"}},{"kind":"Field","name":{"kind":"Name","value":"tax_bps"}},{"kind":"Field","name":{"kind":"Name","value":"total_tax_amount_cents"}},{"kind":"Field","name":{"kind":"Name","value":"total_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"coupons"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"code"}},{"kind":"Field","name":{"kind":"Name","value":"discount_cents"}}]}}]}}]}}]} as unknown as DocumentNode<StorefrontAddToCartMutation, StorefrontAddToCartMutationVariables>;
+export const StorefrontUpdateCartItemDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"StorefrontUpdateCartItem"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"input"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"UpdateCartItemInput"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"session_id"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"updateCartItem"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"input"},"value":{"kind":"Variable","name":{"kind":"Name","value":"input"}}},{"kind":"Argument","name":{"kind":"Name","value":"session_id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"session_id"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"message"}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"CartFields"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"CartFields"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"CartEnvelope"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"shop"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"logo"}}]}},{"kind":"Field","name":{"kind":"Name","value":"items"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"product_id"}},{"kind":"Field","name":{"kind":"Name","value":"variation_option_id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"variation_name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"image"}},{"kind":"Field","name":{"kind":"Name","value":"quantity"}},{"kind":"Field","name":{"kind":"Name","value":"unit_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"sale_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"discount_cents"}},{"kind":"Field","name":{"kind":"Name","value":"total_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"is_variation"}},{"kind":"Field","name":{"kind":"Name","value":"requires_shipping"}},{"kind":"Field","name":{"kind":"Name","value":"is_digital"}},{"kind":"Field","name":{"kind":"Name","value":"product_type"}},{"kind":"Field","name":{"kind":"Name","value":"status"}},{"kind":"Field","name":{"kind":"Name","value":"stock_status"}},{"kind":"Field","name":{"kind":"Name","value":"unavailable_reason"}},{"kind":"Field","name":{"kind":"Name","value":"custom_options"}},{"kind":"Field","name":{"kind":"Name","value":"composition"}},{"kind":"Field","name":{"kind":"Name","value":"is_ai_negotiated"}},{"kind":"Field","name":{"kind":"Name","value":"negotiated_offer_id"}},{"kind":"Field","name":{"kind":"Name","value":"negotiated_expires_at"}}]}},{"kind":"Field","name":{"kind":"Name","value":"summary"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"currency"}},{"kind":"Field","name":{"kind":"Name","value":"total_items"}},{"kind":"Field","name":{"kind":"Name","value":"subtotal_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"discount_cents"}},{"kind":"Field","name":{"kind":"Name","value":"tax_bps"}},{"kind":"Field","name":{"kind":"Name","value":"total_tax_amount_cents"}},{"kind":"Field","name":{"kind":"Name","value":"total_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"coupons"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"code"}},{"kind":"Field","name":{"kind":"Name","value":"discount_cents"}}]}}]}}]}}]} as unknown as DocumentNode<StorefrontUpdateCartItemMutation, StorefrontUpdateCartItemMutationVariables>;
+export const StorefrontRemoveCartItemDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"StorefrontRemoveCartItem"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"item_id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"session_id"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"removeCartItem"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"item_id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"item_id"}}},{"kind":"Argument","name":{"kind":"Name","value":"session_id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"session_id"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"message"}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"CartFields"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"CartFields"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"CartEnvelope"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"shop"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"logo"}}]}},{"kind":"Field","name":{"kind":"Name","value":"items"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"product_id"}},{"kind":"Field","name":{"kind":"Name","value":"variation_option_id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"variation_name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"image"}},{"kind":"Field","name":{"kind":"Name","value":"quantity"}},{"kind":"Field","name":{"kind":"Name","value":"unit_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"sale_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"discount_cents"}},{"kind":"Field","name":{"kind":"Name","value":"total_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"is_variation"}},{"kind":"Field","name":{"kind":"Name","value":"requires_shipping"}},{"kind":"Field","name":{"kind":"Name","value":"is_digital"}},{"kind":"Field","name":{"kind":"Name","value":"product_type"}},{"kind":"Field","name":{"kind":"Name","value":"status"}},{"kind":"Field","name":{"kind":"Name","value":"stock_status"}},{"kind":"Field","name":{"kind":"Name","value":"unavailable_reason"}},{"kind":"Field","name":{"kind":"Name","value":"custom_options"}},{"kind":"Field","name":{"kind":"Name","value":"composition"}},{"kind":"Field","name":{"kind":"Name","value":"is_ai_negotiated"}},{"kind":"Field","name":{"kind":"Name","value":"negotiated_offer_id"}},{"kind":"Field","name":{"kind":"Name","value":"negotiated_expires_at"}}]}},{"kind":"Field","name":{"kind":"Name","value":"summary"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"currency"}},{"kind":"Field","name":{"kind":"Name","value":"total_items"}},{"kind":"Field","name":{"kind":"Name","value":"subtotal_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"discount_cents"}},{"kind":"Field","name":{"kind":"Name","value":"tax_bps"}},{"kind":"Field","name":{"kind":"Name","value":"total_tax_amount_cents"}},{"kind":"Field","name":{"kind":"Name","value":"total_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"coupons"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"code"}},{"kind":"Field","name":{"kind":"Name","value":"discount_cents"}}]}}]}}]}}]} as unknown as DocumentNode<StorefrontRemoveCartItemMutation, StorefrontRemoveCartItemMutationVariables>;
+export const StorefrontClearCartDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"StorefrontClearCart"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"session_id"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"clearCart"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"session_id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"session_id"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"message"}}]}}]}}]} as unknown as DocumentNode<StorefrontClearCartMutation, StorefrontClearCartMutationVariables>;
+export const StorefrontApplyCartCouponDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"StorefrontApplyCartCoupon"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"code"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"session_id"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"applyCartCoupon"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"code"},"value":{"kind":"Variable","name":{"kind":"Name","value":"code"}}},{"kind":"Argument","name":{"kind":"Name","value":"session_id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"session_id"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"message"}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"CartFields"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"CartFields"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"CartEnvelope"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"shop"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"logo"}}]}},{"kind":"Field","name":{"kind":"Name","value":"items"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"product_id"}},{"kind":"Field","name":{"kind":"Name","value":"variation_option_id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"variation_name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"image"}},{"kind":"Field","name":{"kind":"Name","value":"quantity"}},{"kind":"Field","name":{"kind":"Name","value":"unit_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"sale_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"discount_cents"}},{"kind":"Field","name":{"kind":"Name","value":"total_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"is_variation"}},{"kind":"Field","name":{"kind":"Name","value":"requires_shipping"}},{"kind":"Field","name":{"kind":"Name","value":"is_digital"}},{"kind":"Field","name":{"kind":"Name","value":"product_type"}},{"kind":"Field","name":{"kind":"Name","value":"status"}},{"kind":"Field","name":{"kind":"Name","value":"stock_status"}},{"kind":"Field","name":{"kind":"Name","value":"unavailable_reason"}},{"kind":"Field","name":{"kind":"Name","value":"custom_options"}},{"kind":"Field","name":{"kind":"Name","value":"composition"}},{"kind":"Field","name":{"kind":"Name","value":"is_ai_negotiated"}},{"kind":"Field","name":{"kind":"Name","value":"negotiated_offer_id"}},{"kind":"Field","name":{"kind":"Name","value":"negotiated_expires_at"}}]}},{"kind":"Field","name":{"kind":"Name","value":"summary"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"currency"}},{"kind":"Field","name":{"kind":"Name","value":"total_items"}},{"kind":"Field","name":{"kind":"Name","value":"subtotal_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"discount_cents"}},{"kind":"Field","name":{"kind":"Name","value":"tax_bps"}},{"kind":"Field","name":{"kind":"Name","value":"total_tax_amount_cents"}},{"kind":"Field","name":{"kind":"Name","value":"total_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"coupons"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"code"}},{"kind":"Field","name":{"kind":"Name","value":"discount_cents"}}]}}]}}]}}]} as unknown as DocumentNode<StorefrontApplyCartCouponMutation, StorefrontApplyCartCouponMutationVariables>;
+export const StorefrontRemoveCartCouponDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"StorefrontRemoveCartCoupon"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"coupon_id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"session_id"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"removeCartCoupon"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"coupon_id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"coupon_id"}}},{"kind":"Argument","name":{"kind":"Name","value":"session_id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"session_id"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"message"}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"CartFields"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"CartFields"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"CartEnvelope"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"shop"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"logo"}}]}},{"kind":"Field","name":{"kind":"Name","value":"items"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"product_id"}},{"kind":"Field","name":{"kind":"Name","value":"variation_option_id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"variation_name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"image"}},{"kind":"Field","name":{"kind":"Name","value":"quantity"}},{"kind":"Field","name":{"kind":"Name","value":"unit_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"sale_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"discount_cents"}},{"kind":"Field","name":{"kind":"Name","value":"total_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"is_variation"}},{"kind":"Field","name":{"kind":"Name","value":"requires_shipping"}},{"kind":"Field","name":{"kind":"Name","value":"is_digital"}},{"kind":"Field","name":{"kind":"Name","value":"product_type"}},{"kind":"Field","name":{"kind":"Name","value":"status"}},{"kind":"Field","name":{"kind":"Name","value":"stock_status"}},{"kind":"Field","name":{"kind":"Name","value":"unavailable_reason"}},{"kind":"Field","name":{"kind":"Name","value":"custom_options"}},{"kind":"Field","name":{"kind":"Name","value":"composition"}},{"kind":"Field","name":{"kind":"Name","value":"is_ai_negotiated"}},{"kind":"Field","name":{"kind":"Name","value":"negotiated_offer_id"}},{"kind":"Field","name":{"kind":"Name","value":"negotiated_expires_at"}}]}},{"kind":"Field","name":{"kind":"Name","value":"summary"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"currency"}},{"kind":"Field","name":{"kind":"Name","value":"total_items"}},{"kind":"Field","name":{"kind":"Name","value":"subtotal_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"discount_cents"}},{"kind":"Field","name":{"kind":"Name","value":"tax_bps"}},{"kind":"Field","name":{"kind":"Name","value":"total_tax_amount_cents"}},{"kind":"Field","name":{"kind":"Name","value":"total_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"coupons"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"code"}},{"kind":"Field","name":{"kind":"Name","value":"discount_cents"}}]}}]}}]}}]} as unknown as DocumentNode<StorefrontRemoveCartCouponMutation, StorefrontRemoveCartCouponMutationVariables>;
+export const StorefrontSyncCartDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"StorefrontSyncCart"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"input"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"SyncCartInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"syncCart"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"input"},"value":{"kind":"Variable","name":{"kind":"Name","value":"input"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"message"}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"CartFields"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"CartFields"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"CartEnvelope"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"shop"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"logo"}}]}},{"kind":"Field","name":{"kind":"Name","value":"items"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"product_id"}},{"kind":"Field","name":{"kind":"Name","value":"variation_option_id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"variation_name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"image"}},{"kind":"Field","name":{"kind":"Name","value":"quantity"}},{"kind":"Field","name":{"kind":"Name","value":"unit_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"sale_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"discount_cents"}},{"kind":"Field","name":{"kind":"Name","value":"total_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"is_variation"}},{"kind":"Field","name":{"kind":"Name","value":"requires_shipping"}},{"kind":"Field","name":{"kind":"Name","value":"is_digital"}},{"kind":"Field","name":{"kind":"Name","value":"product_type"}},{"kind":"Field","name":{"kind":"Name","value":"status"}},{"kind":"Field","name":{"kind":"Name","value":"stock_status"}},{"kind":"Field","name":{"kind":"Name","value":"unavailable_reason"}},{"kind":"Field","name":{"kind":"Name","value":"custom_options"}},{"kind":"Field","name":{"kind":"Name","value":"composition"}},{"kind":"Field","name":{"kind":"Name","value":"is_ai_negotiated"}},{"kind":"Field","name":{"kind":"Name","value":"negotiated_offer_id"}},{"kind":"Field","name":{"kind":"Name","value":"negotiated_expires_at"}}]}},{"kind":"Field","name":{"kind":"Name","value":"summary"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"currency"}},{"kind":"Field","name":{"kind":"Name","value":"total_items"}},{"kind":"Field","name":{"kind":"Name","value":"subtotal_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"discount_cents"}},{"kind":"Field","name":{"kind":"Name","value":"tax_bps"}},{"kind":"Field","name":{"kind":"Name","value":"total_tax_amount_cents"}},{"kind":"Field","name":{"kind":"Name","value":"total_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"coupons"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"code"}},{"kind":"Field","name":{"kind":"Name","value":"discount_cents"}}]}}]}}]}}]} as unknown as DocumentNode<StorefrontSyncCartMutation, StorefrontSyncCartMutationVariables>;
+export const StorefrontRecordCartLinkOpenDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"StorefrontRecordCartLinkOpen"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"token"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"recordCartLinkOpen"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"token"},"value":{"kind":"Variable","name":{"kind":"Name","value":"token"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"recorded"}}]}}]}}]} as unknown as DocumentNode<StorefrontRecordCartLinkOpenMutation, StorefrontRecordCartLinkOpenMutationVariables>;
+export const StorefrontProductsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"StorefrontProducts"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"filters"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"ProductFilterInput"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"storefrontProducts"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"filters"},"value":{"kind":"Variable","name":{"kind":"Name","value":"filters"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ProductCardFields"}}]}},{"kind":"Field","name":{"kind":"Name","value":"meta"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"page"}},{"kind":"Field","name":{"kind":"Name","value":"limit"}},{"kind":"Field","name":{"kind":"Name","value":"total"}},{"kind":"Field","name":{"kind":"Name","value":"total_pages"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ProductCardFields"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"PublicProduct"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"image"}},{"kind":"Field","name":{"kind":"Name","value":"gallery"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"tags"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}}]}},{"kind":"Field","name":{"kind":"Name","value":"price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"sale_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"selling_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"compare_at_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"min_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"max_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"product_type"}},{"kind":"Field","name":{"kind":"Name","value":"in_stock"}},{"kind":"Field","name":{"kind":"Name","value":"quantity"}},{"kind":"Field","name":{"kind":"Name","value":"track_quantity"}},{"kind":"Field","name":{"kind":"Name","value":"continue_selling_when_out_of_stock"}}]}}]} as unknown as DocumentNode<StorefrontProductsQuery, StorefrontProductsQueryVariables>;
+export const StorefrontProductDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"StorefrontProduct"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"slug"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"storefrontProduct"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"slug"},"value":{"kind":"Variable","name":{"kind":"Name","value":"slug"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ProductCardFields"}},{"kind":"Field","name":{"kind":"Name","value":"video"}},{"kind":"Field","name":{"kind":"Name","value":"sku"}},{"kind":"Field","name":{"kind":"Name","value":"barcode"}},{"kind":"Field","name":{"kind":"Name","value":"brand"}},{"kind":"Field","name":{"kind":"Name","value":"views"}},{"kind":"Field","name":{"kind":"Name","value":"is_digital"}},{"kind":"Field","name":{"kind":"Name","value":"requires_shipping"}},{"kind":"Field","name":{"kind":"Name","value":"weight_grams"}},{"kind":"Field","name":{"kind":"Name","value":"weight_unit_display"}},{"kind":"Field","name":{"kind":"Name","value":"country_of_origin"}},{"kind":"Field","name":{"kind":"Name","value":"sale_type"}},{"kind":"Field","name":{"kind":"Name","value":"seo_title"}},{"kind":"Field","name":{"kind":"Name","value":"seo_description"}},{"kind":"Field","name":{"kind":"Name","value":"shop"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}}]}},{"kind":"Field","name":{"kind":"Name","value":"collections"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}}]}},{"kind":"Field","name":{"kind":"Name","value":"attributes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"key"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"type"}},{"kind":"Field","name":{"kind":"Name","value":"unit"}},{"kind":"Field","name":{"kind":"Name","value":"value"}},{"kind":"Field","name":{"kind":"Name","value":"display_value"}}]}},{"kind":"Field","name":{"kind":"Name","value":"option_definitions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"position"}},{"kind":"Field","name":{"kind":"Name","value":"values"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"label"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"variation_options"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"options"}},{"kind":"Field","name":{"kind":"Name","value":"sku"}},{"kind":"Field","name":{"kind":"Name","value":"image"}},{"kind":"Field","name":{"kind":"Name","value":"price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"sale_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"selling_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"compare_at_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"quantity"}},{"kind":"Field","name":{"kind":"Name","value":"is_disable"}},{"kind":"Field","name":{"kind":"Name","value":"position"}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ProductCardFields"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"PublicProduct"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"image"}},{"kind":"Field","name":{"kind":"Name","value":"gallery"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"tags"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}}]}},{"kind":"Field","name":{"kind":"Name","value":"price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"sale_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"selling_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"compare_at_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"min_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"max_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"product_type"}},{"kind":"Field","name":{"kind":"Name","value":"in_stock"}},{"kind":"Field","name":{"kind":"Name","value":"quantity"}},{"kind":"Field","name":{"kind":"Name","value":"track_quantity"}},{"kind":"Field","name":{"kind":"Name","value":"continue_selling_when_out_of_stock"}}]}}]} as unknown as DocumentNode<StorefrontProductQuery, StorefrontProductQueryVariables>;
+export const StorefrontRecommendationsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"StorefrontRecommendations"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"product_id"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"limit"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"storefrontRecommendations"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"product_id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"product_id"}}},{"kind":"Argument","name":{"kind":"Name","value":"limit"},"value":{"kind":"Variable","name":{"kind":"Name","value":"limit"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ProductCardFields"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ProductCardFields"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"PublicProduct"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"image"}},{"kind":"Field","name":{"kind":"Name","value":"gallery"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"tags"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}}]}},{"kind":"Field","name":{"kind":"Name","value":"price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"sale_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"selling_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"compare_at_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"min_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"max_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"product_type"}},{"kind":"Field","name":{"kind":"Name","value":"in_stock"}},{"kind":"Field","name":{"kind":"Name","value":"quantity"}},{"kind":"Field","name":{"kind":"Name","value":"track_quantity"}},{"kind":"Field","name":{"kind":"Name","value":"continue_selling_when_out_of_stock"}}]}}]} as unknown as DocumentNode<StorefrontRecommendationsQuery, StorefrontRecommendationsQueryVariables>;
+export const StorefrontProductReviewsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"StorefrontProductReviews"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"product_id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"page"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"limit"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"reviews"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"product_id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"product_id"}}},{"kind":"Argument","name":{"kind":"Name","value":"page"},"value":{"kind":"Variable","name":{"kind":"Name","value":"page"}}},{"kind":"Argument","name":{"kind":"Name","value":"limit"},"value":{"kind":"Variable","name":{"kind":"Name","value":"limit"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"rating"}},{"kind":"Field","name":{"kind":"Name","value":"comment"}},{"kind":"Field","name":{"kind":"Name","value":"photos"}},{"kind":"Field","name":{"kind":"Name","value":"created_at"}},{"kind":"Field","name":{"kind":"Name","value":"positive_feedbacks_count"}}]}},{"kind":"Field","name":{"kind":"Name","value":"meta"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"page"}},{"kind":"Field","name":{"kind":"Name","value":"limit"}},{"kind":"Field","name":{"kind":"Name","value":"total"}},{"kind":"Field","name":{"kind":"Name","value":"total_pages"}},{"kind":"Field","name":{"kind":"Name","value":"average_rating"}}]}}]}}]}}]} as unknown as DocumentNode<StorefrontProductReviewsQuery, StorefrontProductReviewsQueryVariables>;
+export const StorefrontViewProductDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"StorefrontViewProduct"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"slug"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"viewProduct"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"slug"},"value":{"kind":"Variable","name":{"kind":"Name","value":"slug"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}}]}}]}}]} as unknown as DocumentNode<StorefrontViewProductMutation, StorefrontViewProductMutationVariables>;
+export const StorefrontCatalogFacetsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"StorefrontCatalogFacets"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"tags"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"page"},"value":{"kind":"IntValue","value":"1"}},{"kind":"Argument","name":{"kind":"Name","value":"limit"},"value":{"kind":"IntValue","value":"50"}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"products_count"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"collections"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"page"},"value":{"kind":"IntValue","value":"1"}},{"kind":"Argument","name":{"kind":"Name","value":"limit"},"value":{"kind":"IntValue","value":"50"}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"product_count"}}]}}]}}]}}]} as unknown as DocumentNode<StorefrontCatalogFacetsQuery, StorefrontCatalogFacetsQueryVariables>;
+export const StorefrontProductMetaDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"StorefrontProductMeta"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"slug"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"storefrontProduct"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"slug"},"value":{"kind":"Variable","name":{"kind":"Name","value":"slug"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"image"}},{"kind":"Field","name":{"kind":"Name","value":"gallery"}},{"kind":"Field","name":{"kind":"Name","value":"seo_title"}},{"kind":"Field","name":{"kind":"Name","value":"seo_description"}},{"kind":"Field","name":{"kind":"Name","value":"price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"selling_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"in_stock"}},{"kind":"Field","name":{"kind":"Name","value":"sku"}},{"kind":"Field","name":{"kind":"Name","value":"brand"}}]}}]}}]}}]} as unknown as DocumentNode<StorefrontProductMetaQuery, StorefrontProductMetaQueryVariables>;
+export const StorefrontVerifyCheckoutDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"StorefrontVerifyCheckout"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"input"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"VerifyCheckoutInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"verifyCheckout"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"input"},"value":{"kind":"Variable","name":{"kind":"Name","value":"input"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"subtotal_cents"}},{"kind":"Field","name":{"kind":"Name","value":"shipping_fee_cents"}},{"kind":"Field","name":{"kind":"Name","value":"tax_cents"}},{"kind":"Field","name":{"kind":"Name","value":"discount_cents"}},{"kind":"Field","name":{"kind":"Name","value":"total_cents"}},{"kind":"Field","name":{"kind":"Name","value":"coupon_applied"}},{"kind":"Field","name":{"kind":"Name","value":"shipping_available"}},{"kind":"Field","name":{"kind":"Name","value":"shipping_unavailable_reason"}},{"kind":"Field","name":{"kind":"Name","value":"carrier_unavailable_reason"}},{"kind":"Field","name":{"kind":"Name","value":"shipping_options"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"type"}},{"kind":"Field","name":{"kind":"Name","value":"fee_cents"}},{"kind":"Field","name":{"kind":"Name","value":"min_delivery_days"}},{"kind":"Field","name":{"kind":"Name","value":"max_delivery_days"}},{"kind":"Field","name":{"kind":"Name","value":"channel"}},{"kind":"Field","name":{"kind":"Name","value":"carrier_name"}},{"kind":"Field","name":{"kind":"Name","value":"carrier_logo"}},{"kind":"Field","name":{"kind":"Name","value":"package_count"}}]}},{"kind":"Field","name":{"kind":"Name","value":"selected_shipping_rule_id"}},{"kind":"Field","name":{"kind":"Name","value":"unavailable_products"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"product_id"}},{"kind":"Field","name":{"kind":"Name","value":"reason"}},{"kind":"Field","name":{"kind":"Name","value":"message"}},{"kind":"Field","name":{"kind":"Name","value":"available_quantity"}}]}},{"kind":"Field","name":{"kind":"Name","value":"fulfillment"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"requires_split"}}]}}]}}]}}]}}]} as unknown as DocumentNode<StorefrontVerifyCheckoutMutation, StorefrontVerifyCheckoutMutationVariables>;
+export const StorefrontCreateOrderDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"StorefrontCreateOrder"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"input"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"CreateOrderInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createOrder"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"input"},"value":{"kind":"Variable","name":{"kind":"Name","value":"input"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"message"}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"tracking_number"}},{"kind":"Field","name":{"kind":"Name","value":"order_status"}},{"kind":"Field","name":{"kind":"Name","value":"financial_status"}},{"kind":"Field","name":{"kind":"Name","value":"currency"}},{"kind":"Field","name":{"kind":"Name","value":"created_at"}},{"kind":"Field","name":{"kind":"Name","value":"payment"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"gateway"}},{"kind":"Field","name":{"kind":"Name","value":"status"}}]}},{"kind":"Field","name":{"kind":"Name","value":"pricing"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"subtotal_cents"}},{"kind":"Field","name":{"kind":"Name","value":"discount_cents"}},{"kind":"Field","name":{"kind":"Name","value":"tax_cents"}},{"kind":"Field","name":{"kind":"Name","value":"delivery_fee_cents"}},{"kind":"Field","name":{"kind":"Name","value":"total_cents"}},{"kind":"Field","name":{"kind":"Name","value":"paid_total_cents"}}]}},{"kind":"Field","name":{"kind":"Name","value":"shop"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}}]}}]}}]}}]}}]} as unknown as DocumentNode<StorefrontCreateOrderMutation, StorefrontCreateOrderMutationVariables>;
+export const StorefrontOpenOrderPaymentDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"StorefrontOpenOrderPayment"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"token"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"openOrderPayment"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"token"},"value":{"kind":"Variable","name":{"kind":"Name","value":"token"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"state"}},{"kind":"Field","name":{"kind":"Name","value":"closed_reason"}},{"kind":"Field","name":{"kind":"Name","value":"payment_url"}},{"kind":"Field","name":{"kind":"Name","value":"order_id"}},{"kind":"Field","name":{"kind":"Name","value":"tracking_number"}},{"kind":"Field","name":{"kind":"Name","value":"total_cents"}},{"kind":"Field","name":{"kind":"Name","value":"currency"}}]}}]}}]}}]} as unknown as DocumentNode<StorefrontOpenOrderPaymentMutation, StorefrontOpenOrderPaymentMutationVariables>;
+export const StorefrontCreatePaymentLinkDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"StorefrontCreatePaymentLink"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"order_id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"payment_gateway"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createPaymentLink"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"order_id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"order_id"}}},{"kind":"Argument","name":{"kind":"Name","value":"payment_gateway"},"value":{"kind":"Variable","name":{"kind":"Name","value":"payment_gateway"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"message"}},{"kind":"Field","name":{"kind":"Name","value":"payment_url"}}]}}]}}]} as unknown as DocumentNode<StorefrontCreatePaymentLinkMutation, StorefrontCreatePaymentLinkMutationVariables>;
+export const StorefrontSendContactMessageDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"StorefrontSendContactMessage"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"input"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"SendContactMessageInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"sendContactMessage"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"input"},"value":{"kind":"Variable","name":{"kind":"Name","value":"input"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}}]}}]}}]} as unknown as DocumentNode<StorefrontSendContactMessageMutation, StorefrontSendContactMessageMutationVariables>;
+export const StorefrontNegotiationAvailableDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"StorefrontNegotiationAvailable"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"product_id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"variation_option_id"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"negotiationAvailable"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"product_id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"product_id"}}},{"kind":"Argument","name":{"kind":"Name","value":"variation_option_id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"variation_option_id"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"available"}}]}}]}}]} as unknown as DocumentNode<StorefrontNegotiationAvailableQuery, StorefrontNegotiationAvailableQueryVariables>;
+export const StorefrontAcceptNegotiationDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"StorefrontAcceptNegotiation"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"input"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"AcceptNegotiationInput"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"guest_key"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"acceptNegotiation"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"input"},"value":{"kind":"Variable","name":{"kind":"Name","value":"input"}}},{"kind":"Argument","name":{"kind":"Name","value":"guest_key"},"value":{"kind":"Variable","name":{"kind":"Name","value":"guest_key"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"product_id"}},{"kind":"Field","name":{"kind":"Name","value":"variation_option_id"}},{"kind":"Field","name":{"kind":"Name","value":"original_cents"}},{"kind":"Field","name":{"kind":"Name","value":"negotiated_cents"}},{"kind":"Field","name":{"kind":"Name","value":"quantity"}},{"kind":"Field","name":{"kind":"Name","value":"currency"}},{"kind":"Field","name":{"kind":"Name","value":"status"}},{"kind":"Field","name":{"kind":"Name","value":"expires_at"}},{"kind":"Field","name":{"kind":"Name","value":"allow_coupon_stacking"}}]}}]}}]}}]} as unknown as DocumentNode<StorefrontAcceptNegotiationMutation, StorefrontAcceptNegotiationMutationVariables>;
+export const StorefrontAddNegotiatedOfferToCartDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"StorefrontAddNegotiatedOfferToCart"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"input"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"AddNegotiatedOfferToCartInput"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"session_id"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"addNegotiatedOfferToCart"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"input"},"value":{"kind":"Variable","name":{"kind":"Name","value":"input"}}},{"kind":"Argument","name":{"kind":"Name","value":"session_id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"session_id"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"message"}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"items"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"product_id"}},{"kind":"Field","name":{"kind":"Name","value":"quantity"}},{"kind":"Field","name":{"kind":"Name","value":"unit_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"total_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"is_ai_negotiated"}},{"kind":"Field","name":{"kind":"Name","value":"negotiated_offer_id"}},{"kind":"Field","name":{"kind":"Name","value":"negotiated_expires_at"}}]}}]}}]}}]}}]} as unknown as DocumentNode<StorefrontAddNegotiatedOfferToCartMutation, StorefrontAddNegotiatedOfferToCartMutationVariables>;
+export const StorefrontMyOrdersDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"StorefrontMyOrders"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"filters"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"FilterOrdersInput"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"orders"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"filters"},"value":{"kind":"Variable","name":{"kind":"Name","value":"filters"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"OrderSummaryFields"}}]}},{"kind":"Field","name":{"kind":"Name","value":"meta"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"page"}},{"kind":"Field","name":{"kind":"Name","value":"limit"}},{"kind":"Field","name":{"kind":"Name","value":"total"}},{"kind":"Field","name":{"kind":"Name","value":"total_pages"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"OrderSummaryFields"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"OrderEntry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"tracking_number"}},{"kind":"Field","name":{"kind":"Name","value":"order_status"}},{"kind":"Field","name":{"kind":"Name","value":"financial_status"}},{"kind":"Field","name":{"kind":"Name","value":"fulfillment_status"}},{"kind":"Field","name":{"kind":"Name","value":"currency"}},{"kind":"Field","name":{"kind":"Name","value":"created_at"}},{"kind":"Field","name":{"kind":"Name","value":"pricing"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"subtotal_cents"}},{"kind":"Field","name":{"kind":"Name","value":"discount_cents"}},{"kind":"Field","name":{"kind":"Name","value":"tax_cents"}},{"kind":"Field","name":{"kind":"Name","value":"delivery_fee_cents"}},{"kind":"Field","name":{"kind":"Name","value":"total_cents"}},{"kind":"Field","name":{"kind":"Name","value":"paid_total_cents"}}]}},{"kind":"Field","name":{"kind":"Name","value":"shop"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"logo"}}]}},{"kind":"Field","name":{"kind":"Name","value":"products"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"product_id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"image"}},{"kind":"Field","name":{"kind":"Name","value":"order_quantity"}},{"kind":"Field","name":{"kind":"Name","value":"unit_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"subtotal_cents"}},{"kind":"Field","name":{"kind":"Name","value":"variation_title"}}]}}]}}]} as unknown as DocumentNode<StorefrontMyOrdersQuery, StorefrontMyOrdersQueryVariables>;
+export const StorefrontOrderDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"StorefrontOrder"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"order"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"StorefrontOrderDetailFields"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"OrderSummaryFields"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"OrderEntry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"tracking_number"}},{"kind":"Field","name":{"kind":"Name","value":"order_status"}},{"kind":"Field","name":{"kind":"Name","value":"financial_status"}},{"kind":"Field","name":{"kind":"Name","value":"fulfillment_status"}},{"kind":"Field","name":{"kind":"Name","value":"currency"}},{"kind":"Field","name":{"kind":"Name","value":"created_at"}},{"kind":"Field","name":{"kind":"Name","value":"pricing"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"subtotal_cents"}},{"kind":"Field","name":{"kind":"Name","value":"discount_cents"}},{"kind":"Field","name":{"kind":"Name","value":"tax_cents"}},{"kind":"Field","name":{"kind":"Name","value":"delivery_fee_cents"}},{"kind":"Field","name":{"kind":"Name","value":"total_cents"}},{"kind":"Field","name":{"kind":"Name","value":"paid_total_cents"}}]}},{"kind":"Field","name":{"kind":"Name","value":"shop"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"logo"}}]}},{"kind":"Field","name":{"kind":"Name","value":"products"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"product_id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"image"}},{"kind":"Field","name":{"kind":"Name","value":"order_quantity"}},{"kind":"Field","name":{"kind":"Name","value":"unit_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"subtotal_cents"}},{"kind":"Field","name":{"kind":"Name","value":"variation_title"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"StorefrontBankAccountSnapshot"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"BankAccountSnapshot"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"bank_code"}},{"kind":"Field","name":{"kind":"Name","value":"bank_name"}},{"kind":"Field","name":{"kind":"Name","value":"account_holder_name"}},{"kind":"Field","name":{"kind":"Name","value":"account_number"}},{"kind":"Field","name":{"kind":"Name","value":"iban"}},{"kind":"Field","name":{"kind":"Name","value":"swift_code"}},{"kind":"Field","name":{"kind":"Name","value":"currency"}},{"kind":"Field","name":{"kind":"Name","value":"notes"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"StorefrontOrderDetailFields"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"OrderEntry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"OrderSummaryFields"}},{"kind":"Field","name":{"kind":"Name","value":"note"}},{"kind":"Field","name":{"kind":"Name","value":"language"}},{"kind":"Field","name":{"kind":"Name","value":"updated_at"}},{"kind":"Field","name":{"kind":"Name","value":"payment"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"gateway"}},{"kind":"Field","name":{"kind":"Name","value":"altered_gateway"}},{"kind":"Field","name":{"kind":"Name","value":"status"}}]}},{"kind":"Field","name":{"kind":"Name","value":"delivery"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"fee_cents"}},{"kind":"Field","name":{"kind":"Name","value":"time"}}]}},{"kind":"Field","name":{"kind":"Name","value":"shipping_method"}},{"kind":"Field","name":{"kind":"Name","value":"payment_expires_at"}},{"kind":"Field","name":{"kind":"Name","value":"payment_instructions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"StorefrontBankAccountSnapshot"}}]}},{"kind":"Field","name":{"kind":"Name","value":"invoices"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"invoice_number"}},{"kind":"Field","name":{"kind":"Name","value":"status"}},{"kind":"Field","name":{"kind":"Name","value":"due_date"}},{"kind":"Field","name":{"kind":"Name","value":"paid_at"}}]}},{"kind":"Field","name":{"kind":"Name","value":"shipments"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"status"}},{"kind":"Field","name":{"kind":"Name","value":"carrier_name"}},{"kind":"Field","name":{"kind":"Name","value":"tracking_number"}},{"kind":"Field","name":{"kind":"Name","value":"tracking_url"}},{"kind":"Field","name":{"kind":"Name","value":"shipped_at"}},{"kind":"Field","name":{"kind":"Name","value":"delivered_at"}},{"kind":"Field","name":{"kind":"Name","value":"created_at"}}]}},{"kind":"Field","name":{"kind":"Name","value":"addresses"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"shipping"}},{"kind":"Field","name":{"kind":"Name","value":"billing"}}]}},{"kind":"Field","name":{"kind":"Name","value":"customer"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"phone"}}]}},{"kind":"Field","name":{"kind":"Name","value":"coupons"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"coupon_id"}},{"kind":"Field","name":{"kind":"Name","value":"code"}},{"kind":"Field","name":{"kind":"Name","value":"applied_discount_cents"}}]}}]}}]} as unknown as DocumentNode<StorefrontOrderQuery, StorefrontOrderQueryVariables>;
+export const StorefrontPayLinkOrderDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"StorefrontPayLinkOrder"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"token"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"payLinkOrder"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"token"},"value":{"kind":"Variable","name":{"kind":"Name","value":"token"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"StorefrontOrderDetailFields"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"OrderSummaryFields"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"OrderEntry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"tracking_number"}},{"kind":"Field","name":{"kind":"Name","value":"order_status"}},{"kind":"Field","name":{"kind":"Name","value":"financial_status"}},{"kind":"Field","name":{"kind":"Name","value":"fulfillment_status"}},{"kind":"Field","name":{"kind":"Name","value":"currency"}},{"kind":"Field","name":{"kind":"Name","value":"created_at"}},{"kind":"Field","name":{"kind":"Name","value":"pricing"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"subtotal_cents"}},{"kind":"Field","name":{"kind":"Name","value":"discount_cents"}},{"kind":"Field","name":{"kind":"Name","value":"tax_cents"}},{"kind":"Field","name":{"kind":"Name","value":"delivery_fee_cents"}},{"kind":"Field","name":{"kind":"Name","value":"total_cents"}},{"kind":"Field","name":{"kind":"Name","value":"paid_total_cents"}}]}},{"kind":"Field","name":{"kind":"Name","value":"shop"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"logo"}}]}},{"kind":"Field","name":{"kind":"Name","value":"products"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"product_id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"image"}},{"kind":"Field","name":{"kind":"Name","value":"order_quantity"}},{"kind":"Field","name":{"kind":"Name","value":"unit_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"subtotal_cents"}},{"kind":"Field","name":{"kind":"Name","value":"variation_title"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"StorefrontBankAccountSnapshot"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"BankAccountSnapshot"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"bank_code"}},{"kind":"Field","name":{"kind":"Name","value":"bank_name"}},{"kind":"Field","name":{"kind":"Name","value":"account_holder_name"}},{"kind":"Field","name":{"kind":"Name","value":"account_number"}},{"kind":"Field","name":{"kind":"Name","value":"iban"}},{"kind":"Field","name":{"kind":"Name","value":"swift_code"}},{"kind":"Field","name":{"kind":"Name","value":"currency"}},{"kind":"Field","name":{"kind":"Name","value":"notes"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"StorefrontOrderDetailFields"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"OrderEntry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"OrderSummaryFields"}},{"kind":"Field","name":{"kind":"Name","value":"note"}},{"kind":"Field","name":{"kind":"Name","value":"language"}},{"kind":"Field","name":{"kind":"Name","value":"updated_at"}},{"kind":"Field","name":{"kind":"Name","value":"payment"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"gateway"}},{"kind":"Field","name":{"kind":"Name","value":"altered_gateway"}},{"kind":"Field","name":{"kind":"Name","value":"status"}}]}},{"kind":"Field","name":{"kind":"Name","value":"delivery"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"fee_cents"}},{"kind":"Field","name":{"kind":"Name","value":"time"}}]}},{"kind":"Field","name":{"kind":"Name","value":"shipping_method"}},{"kind":"Field","name":{"kind":"Name","value":"payment_expires_at"}},{"kind":"Field","name":{"kind":"Name","value":"payment_instructions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"StorefrontBankAccountSnapshot"}}]}},{"kind":"Field","name":{"kind":"Name","value":"invoices"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"invoice_number"}},{"kind":"Field","name":{"kind":"Name","value":"status"}},{"kind":"Field","name":{"kind":"Name","value":"due_date"}},{"kind":"Field","name":{"kind":"Name","value":"paid_at"}}]}},{"kind":"Field","name":{"kind":"Name","value":"shipments"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"status"}},{"kind":"Field","name":{"kind":"Name","value":"carrier_name"}},{"kind":"Field","name":{"kind":"Name","value":"tracking_number"}},{"kind":"Field","name":{"kind":"Name","value":"tracking_url"}},{"kind":"Field","name":{"kind":"Name","value":"shipped_at"}},{"kind":"Field","name":{"kind":"Name","value":"delivered_at"}},{"kind":"Field","name":{"kind":"Name","value":"created_at"}}]}},{"kind":"Field","name":{"kind":"Name","value":"addresses"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"shipping"}},{"kind":"Field","name":{"kind":"Name","value":"billing"}}]}},{"kind":"Field","name":{"kind":"Name","value":"customer"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"phone"}}]}},{"kind":"Field","name":{"kind":"Name","value":"coupons"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"coupon_id"}},{"kind":"Field","name":{"kind":"Name","value":"code"}},{"kind":"Field","name":{"kind":"Name","value":"applied_discount_cents"}}]}}]}}]} as unknown as DocumentNode<StorefrontPayLinkOrderQuery, StorefrontPayLinkOrderQueryVariables>;
+export const StorefrontCancelOrderDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"StorefrontCancelOrder"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"cancelOrder"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"message"}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"order_status"}},{"kind":"Field","name":{"kind":"Name","value":"financial_status"}}]}}]}}]}}]} as unknown as DocumentNode<StorefrontCancelOrderMutation, StorefrontCancelOrderMutationVariables>;
+export const StorefrontShopDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"StorefrontShop"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"slug"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"shop"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"slug"},"value":{"kind":"Variable","name":{"kind":"Name","value":"slug"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"currency"}},{"kind":"Field","name":{"kind":"Name","value":"home_country"}},{"kind":"Field","name":{"kind":"Name","value":"created_at"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"logo"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"original"}},{"kind":"Field","name":{"kind":"Name","value":"thumbnail"}}]}},{"kind":"Field","name":{"kind":"Name","value":"cover_image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"original"}},{"kind":"Field","name":{"kind":"Name","value":"thumbnail"}}]}},{"kind":"Field","name":{"kind":"Name","value":"address"}},{"kind":"Field","name":{"kind":"Name","value":"socials"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"link"}}]}},{"kind":"Field","name":{"kind":"Name","value":"settings"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"contact"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"website"}},{"kind":"Field","name":{"kind":"Name","value":"isShopUnderMaintenance"}},{"kind":"Field","name":{"kind":"Name","value":"location"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"city"}},{"kind":"Field","name":{"kind":"Name","value":"state"}},{"kind":"Field","name":{"kind":"Name","value":"country"}},{"kind":"Field","name":{"kind":"Name","value":"formattedAddress"}}]}},{"kind":"Field","name":{"kind":"Name","value":"policies"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"refund_policy"}},{"kind":"Field","name":{"kind":"Name","value":"privacy_policy"}},{"kind":"Field","name":{"kind":"Name","value":"terms_of_service"}},{"kind":"Field","name":{"kind":"Name","value":"shipping_policy"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"products_count"}}]}}]}}]}}]} as unknown as DocumentNode<StorefrontShopQuery, StorefrontShopQueryVariables>;
+export const StorefrontShopsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"StorefrontShops"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"page"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"limit"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"search"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"shops"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"page"},"value":{"kind":"Variable","name":{"kind":"Name","value":"page"}}},{"kind":"Argument","name":{"kind":"Name","value":"limit"},"value":{"kind":"Variable","name":{"kind":"Name","value":"limit"}}},{"kind":"Argument","name":{"kind":"Name","value":"search"},"value":{"kind":"Variable","name":{"kind":"Name","value":"search"}}},{"kind":"Argument","name":{"kind":"Name","value":"is_approved"},"value":{"kind":"BooleanValue","value":true}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"logo"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"original"}},{"kind":"Field","name":{"kind":"Name","value":"thumbnail"}}]}},{"kind":"Field","name":{"kind":"Name","value":"cover_image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"original"}},{"kind":"Field","name":{"kind":"Name","value":"thumbnail"}}]}},{"kind":"Field","name":{"kind":"Name","value":"products_count"}}]}},{"kind":"Field","name":{"kind":"Name","value":"meta"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"page"}},{"kind":"Field","name":{"kind":"Name","value":"limit"}},{"kind":"Field","name":{"kind":"Name","value":"total"}},{"kind":"Field","name":{"kind":"Name","value":"total_pages"}}]}}]}}]}}]} as unknown as DocumentNode<StorefrontShopsQuery, StorefrontShopsQueryVariables>;
+export const StorefrontHomeFacetsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"StorefrontHomeFacets"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"collections"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"page"},"value":{"kind":"IntValue","value":"1"}},{"kind":"Argument","name":{"kind":"Name","value":"limit"},"value":{"kind":"IntValue","value":"8"}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"image"}}]}},{"kind":"Field","name":{"kind":"Name","value":"meta"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"total"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"tags"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"page"},"value":{"kind":"IntValue","value":"1"}},{"kind":"Argument","name":{"kind":"Name","value":"limit"},"value":{"kind":"IntValue","value":"12"}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"icon"}},{"kind":"Field","name":{"kind":"Name","value":"products_count"}}]}},{"kind":"Field","name":{"kind":"Name","value":"meta"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"total"}}]}}]}}]}}]} as unknown as DocumentNode<StorefrontHomeFacetsQuery, StorefrontHomeFacetsQueryVariables>;
+export const StorefrontSubscribeNewsletterDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"StorefrontSubscribeNewsletter"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"email"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"shop_id"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"shop_slug"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"subscribeNewsletter"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"email"},"value":{"kind":"Variable","name":{"kind":"Name","value":"email"}}},{"kind":"Argument","name":{"kind":"Name","value":"shop_id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"shop_id"}}},{"kind":"Argument","name":{"kind":"Name","value":"shop_slug"},"value":{"kind":"Variable","name":{"kind":"Name","value":"shop_slug"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"message"}}]}}]}}]} as unknown as DocumentNode<StorefrontSubscribeNewsletterMutation, StorefrontSubscribeNewsletterMutationVariables>;
+export const StorefrontProductCompositionDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"StorefrontProductComposition"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"product_id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"storefrontProductComposition"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"product_id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"product_id"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"product_id"}},{"kind":"Field","name":{"kind":"Name","value":"min_count"}},{"kind":"Field","name":{"kind":"Name","value":"max_count"}},{"kind":"Field","name":{"kind":"Name","value":"vessel_cap"}},{"kind":"Field","name":{"kind":"Name","value":"price_ladder_cents"}},{"kind":"Field","name":{"kind":"Name","value":"groups"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"key"}},{"kind":"Field","name":{"kind":"Name","value":"priced_by_ladder"}},{"kind":"Field","name":{"kind":"Name","value":"addon_cents"}},{"kind":"Field","name":{"kind":"Name","value":"parts"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"product_id"}},{"kind":"Field","name":{"kind":"Name","value":"addon_cents"}},{"kind":"Field","name":{"kind":"Name","value":"cutout_url"}},{"kind":"Field","name":{"kind":"Name","value":"image_url"}},{"kind":"Field","name":{"kind":"Name","value":"name"}}]}}]}}]}}]}}]}}]} as unknown as DocumentNode<StorefrontProductCompositionQuery, StorefrontProductCompositionQueryVariables>;
+export const DoughnCollectionProductsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"DoughnCollectionProducts"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"filters"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"ProductFilterInput"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"storefrontProducts"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"filters"},"value":{"kind":"Variable","name":{"kind":"Name","value":"filters"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"image"}},{"kind":"Field","name":{"kind":"Name","value":"selling_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"price_cents"}}]}}]}}]}}]} as unknown as DocumentNode<DoughnCollectionProductsQuery, DoughnCollectionProductsQueryVariables>;
+export const StorefrontShopShellDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"StorefrontShopShell"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"slug"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"shop"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"slug"},"value":{"kind":"Variable","name":{"kind":"Name","value":"slug"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"logo"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"original"}},{"kind":"Field","name":{"kind":"Name","value":"thumbnail"}}]}},{"kind":"Field","name":{"kind":"Name","value":"cover_image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"original"}}]}},{"kind":"Field","name":{"kind":"Name","value":"settings"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"policies"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"refund_policy"}},{"kind":"Field","name":{"kind":"Name","value":"privacy_policy"}},{"kind":"Field","name":{"kind":"Name","value":"terms_of_service"}},{"kind":"Field","name":{"kind":"Name","value":"shipping_policy"}}]}},{"kind":"Field","name":{"kind":"Name","value":"brand"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"slogan"}},{"kind":"Field","name":{"kind":"Name","value":"square_logo"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"original"}},{"kind":"Field","name":{"kind":"Name","value":"thumbnail"}}]}},{"kind":"Field","name":{"kind":"Name","value":"colors"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"primary"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"background"}},{"kind":"Field","name":{"kind":"Name","value":"foreground"}}]}},{"kind":"Field","name":{"kind":"Name","value":"secondary"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"background"}},{"kind":"Field","name":{"kind":"Name","value":"foreground"}}]}}]}}]}}]}}]}}]}}]}}]} as unknown as DocumentNode<StorefrontShopShellQuery, StorefrontShopShellQueryVariables>;
+export const StorefrontPresentationDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"StorefrontPresentation"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"slug"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"shop"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"slug"},"value":{"kind":"Variable","name":{"kind":"Name","value":"slug"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"storefront_template"}},{"kind":"Field","name":{"kind":"Name","value":"storefront_theme"}},{"kind":"Field","name":{"kind":"Name","value":"currency"}},{"kind":"Field","name":{"kind":"Name","value":"timezone"}},{"kind":"Field","name":{"kind":"Name","value":"settings"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"location"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"formattedAddress"}},{"kind":"Field","name":{"kind":"Name","value":"city"}},{"kind":"Field","name":{"kind":"Name","value":"district"}},{"kind":"Field","name":{"kind":"Name","value":"lat"}},{"kind":"Field","name":{"kind":"Name","value":"lng"}}]}}]}}]}}]}}]}}]} as unknown as DocumentNode<StorefrontPresentationQuery, StorefrontPresentationQueryVariables>;
+export const StorefrontTelegramOrderUpdatesDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"StorefrontTelegramOrderUpdates"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"myTelegramOrderUpdates"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"available"}},{"kind":"Field","name":{"kind":"Name","value":"linked"}},{"kind":"Field","name":{"kind":"Name","value":"bot_username"}}]}}]}}]} as unknown as DocumentNode<StorefrontTelegramOrderUpdatesQuery, StorefrontTelegramOrderUpdatesQueryVariables>;
+export const StorefrontConnectTelegramOrderUpdatesDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"StorefrontConnectTelegramOrderUpdates"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"connectTelegramOrderUpdates"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"expires_in"}}]}}]}}]} as unknown as DocumentNode<StorefrontConnectTelegramOrderUpdatesMutation, StorefrontConnectTelegramOrderUpdatesMutationVariables>;
+export const StorefrontWishlistsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"StorefrontWishlists"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"page"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"limit"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"wishlists"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"page"},"value":{"kind":"Variable","name":{"kind":"Name","value":"page"}}},{"kind":"Argument","name":{"kind":"Name","value":"limit"},"value":{"kind":"Variable","name":{"kind":"Name","value":"limit"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"product_id"}},{"kind":"Field","name":{"kind":"Name","value":"variation_option_id"}},{"kind":"Field","name":{"kind":"Name","value":"created_at"}},{"kind":"Field","name":{"kind":"Name","value":"product"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"image"}},{"kind":"Field","name":{"kind":"Name","value":"price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"sale_price_cents"}},{"kind":"Field","name":{"kind":"Name","value":"shop_id"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"meta"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"page"}},{"kind":"Field","name":{"kind":"Name","value":"limit"}},{"kind":"Field","name":{"kind":"Name","value":"total"}},{"kind":"Field","name":{"kind":"Name","value":"total_pages"}}]}}]}}]}}]} as unknown as DocumentNode<StorefrontWishlistsQuery, StorefrontWishlistsQueryVariables>;
+export const StorefrontToggleWishlistDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"StorefrontToggleWishlist"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"input"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"WishlistInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"toggleWishlist"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"input"},"value":{"kind":"Variable","name":{"kind":"Name","value":"input"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"message"}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"in_wishlist"}}]}}]}}]}}]} as unknown as DocumentNode<StorefrontToggleWishlistMutation, StorefrontToggleWishlistMutationVariables>;
+export const StorefrontInWishlistDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"StorefrontInWishlist"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"product_id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"inWishlist"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"product_id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"product_id"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"in_wishlist"}}]}}]}}]} as unknown as DocumentNode<StorefrontInWishlistQuery, StorefrontInWishlistQueryVariables>;
+export const StorefrontEndCustomerSessionDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"StorefrontEndCustomerSession"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"token"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"endCustomerSession"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"token"},"value":{"kind":"Variable","name":{"kind":"Name","value":"token"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}}]}}]}}]} as unknown as DocumentNode<StorefrontEndCustomerSessionMutation, StorefrontEndCustomerSessionMutationVariables>;

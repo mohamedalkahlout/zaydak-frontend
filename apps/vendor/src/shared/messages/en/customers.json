@@ -1,0 +1,130 @@
+{
+  "filter": {
+    "status": "Status"
+  },
+  "status": {
+    "active": "Active",
+    "inactive": "Inactive"
+  },
+  "title": "Customers",
+  "add": "Add customer",
+  "emptyTitle": "Everything customers-related in one place",
+  "emptyBody": "Manage customer details, see order history, and group customers into segments.",
+  "noMatching": "No matching customers",
+  "noMatchingBody": "Try clearing filters or searching by a different name, email or phone.",
+  "columns": {
+    "selectAll": "Select all",
+    "selectRow": "Select {name}",
+    "name": "Name",
+    "linkedCustomer": "A customer of your shop",
+    "subscription": "Email subscription",
+    "subscribed": "Subscribed",
+    "notSubscribed": "Not subscribed",
+    "location": "Location",
+    "status": "Status",
+    "score": "Lead score",
+    "tags": "Tags",
+    "added": "Added"
+  },
+  "table": {
+    "selected": "{count} selected",
+    "clearSelection": "Clear selection",
+    "showing": "Showing <b>{from}</b>–<b>{to}</b> of <b>{total}</b> customers"
+  },
+  "toolbar": {
+    "searchPlaceholder": "Search name, email, phone, location"
+  },
+  "rowActions": {
+    "label": "Row actions",
+    "copyEmail": "Copy email",
+    "copyPhone": "Copy phone",
+    "emailCopied": "Email copied",
+    "phoneCopied": "Phone copied",
+    "copyFailed": "Could not copy"
+  },
+  "delete": {
+    "title": "Delete customer?",
+    "body": "<b>{name}</b> will be removed from your customer list. This action can't be undone.",
+    "deleting": "Deleting...",
+    "deleted": "Customer deleted",
+    "failed": "Could not delete customer",
+    "tryAgain": "Please try again"
+  },
+  "summary": {
+    "title": "Customer summary",
+    "added": "Added",
+    "lastUpdated": "Last updated",
+    "leadScore": "Lead score",
+    "noScore": "No score yet"
+  },
+  "form": {
+    "newTitle": "New customer",
+    "editTitle": "Edit customer",
+    "newSubtitle": "Add a customer to your store and track their orders.",
+    "unsavedNew": "Unsaved customer",
+    "unsavedEdit": "Unsaved customer changes",
+    "back": "Back",
+    "saving": "Saving...",
+    "added": "Customer added",
+    "updated": "Customer updated",
+    "addFailed": "Could not add customer",
+    "updateFailed": "Could not update customer",
+    "tryAgain": "Please try again"
+  },
+  "overview": {
+    "title": "Customer overview",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "language": "Language",
+    "defaultLanguage": "{language} [Default]",
+    "languageHint": "This customer will receive notifications in this language.",
+    "email": "Email",
+    "phone": "Phone number",
+    "acceptsMarketing": "Customer agreed to receive marketing emails.",
+    "acceptsSms": "Customer agreed to receive SMS marketing text messages.",
+    "consentHint": "You should ask your customers for permission before you subscribe them to your marketing emails or SMS."
+  },
+  "address": {
+    "title": "Default address",
+    "subtitle": "The primary address of this customer",
+    "add": "Add address",
+    "company": "Company (optional)",
+    "line1": "Address",
+    "line2": "Apartment, suite, etc. (optional)",
+    "city": "City",
+    "postalCode": "Postal code",
+    "region": "State / Region",
+    "country": "Country / region",
+    "countryPlaceholder": "Select a country",
+    "clear": "Clear address"
+  },
+  "tax": {
+    "title": "Tax details",
+    "label": "Tax settings",
+    "options": {
+      "collect": "Collect tax",
+      "dont_collect": "Don't collect tax",
+      "exempt": "Collect tax unless exemptions apply"
+    }
+  },
+  "notes": {
+    "title": "Notes",
+    "hint": "Notes are private and won't be shared with the customer.",
+    "placeholder": "Met at Riyadh expo — interested in bulk pricing"
+  },
+  "statusCard": {
+    "title": "Status",
+    "hint": "Inactive customers are hidden from default segments."
+  },
+  "tagsCard": {
+    "title": "Tags",
+    "placeholder": "VIP, wholesale, ...",
+    "add": "Add a tag",
+    "remove": "Remove tag {tag}",
+    "hint": "Press Enter or comma to add a tag."
+  },
+  "validation": {
+    "email": "Enter a valid email",
+    "identityRequired": "Enter at least one of: first name, last name, email or phone"
+  }
+}

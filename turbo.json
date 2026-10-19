@@ -1,0 +1,65 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "ui": "tui",
+  "tasks": {
+    "build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        ".env*"
+      ],
+      "outputs": [
+        ".next/**",
+        "!.next/cache/**"
+      ],
+      "env": [
+        "ANALYZE",
+        "CI",
+        "NEXT_PUBLIC_GRAPHQL_URL",
+        "NEXT_PUBLIC_FALLBACK_CURRENCY",
+        "NEXT_PUBLIC_SITE_URL",
+        "NEXT_PUBLIC_STOREFRONT_URL",
+        "NEXT_PUBLIC_ROOT_DOMAIN",
+        "NEXT_PUBLIC_SENTRY_DSN",
+        "SENTRY_DSN",
+        "SENTRY_ORG",
+        "SENTRY_PROJECT",
+        "SENTRY_AUTH_TOKEN"
+      ]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "lint": {
+      "dependsOn": [
+        "^build"
+      ]
+    },
+    "lint:fix": {
+      "cache": false
+    },
+    "typecheck": {
+      "dependsOn": [
+        "^build"
+      ]
+    },
+    "test": {
+      "dependsOn": [
+        "^build"
+      ]
+    },
+    "codegen": {
+      "cache": false,
+      "env": [
+        "CODEGEN_SCHEMA",
+        "NEXT_PUBLIC_GRAPHQL_URL"
+      ],
+      "outputs": [
+        "src/shared/api/generated/**"
+      ]
+    }
+  }
+}

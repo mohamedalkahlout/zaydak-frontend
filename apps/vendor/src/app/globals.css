@@ -1,0 +1,163 @@
+@import '../shared/styles/_variables.scss';
+@import '../shared/styles/_keyframe-animations.scss';
+
+/* Arabic: Tajawal, loaded by next/font in app/layout.tsx and bound to
+   --font-tajawal there. next/font self-hosts the woff2 and emits its own
+   @font-face, so there is nothing to copy into public/ and nothing to import
+   here. Latin: SF system stack (see --font-sf, packages/ui tokens). */
+
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+/* Design tokens + base layer, shared with every other app in the monorepo. */
+@import "@repo/ui/styles.css";
+
+/* Tailwind skips node_modules, so point it at the shared components' source. */
+@source "../../../../packages/ui/src";
+@source "../../../../packages/storefront-templates/src";
+
+@layer base {
+  :root {
+    --font-sans: var(--font-sf);
+    --font-serif: var(--font-sf);
+    --font-heading: var(--font-sf);
+  }
+
+  html[lang="ar"] {
+    --font-sans: var(--font-tajawal), var(--font-sf);
+    --font-serif: var(--font-tajawal), var(--font-sf);
+    --font-heading: var(--font-tajawal), var(--font-sf);
+    font-family: var(--font-tajawal), var(--font-sf);
+  }
+
+  html[lang="ar"] h1,
+  html[lang="ar"] h2,
+  html[lang="ar"] h3,
+  html[lang="ar"] h4,
+  html[lang="ar"] h5,
+  html[lang="ar"] h6 {
+    font-family: var(--font-tajawal), var(--font-sf);
+  }
+
+  /* Tailwind preflight sets `button { cursor: default }` in this same layer.
+     Prefixed with `html` so we win on specificity. Must live in `@layer base`
+     — raw element selectors outside a layer are dropped from this file. */
+  html :is(a, button, [role="button"], summary) {
+    cursor: pointer;
+  }
+
+  html :is(a, button, [role="button"], summary):is(:disabled, [aria-disabled="true"]) {
+    cursor: not-allowed;
+  }
+}
+
+/* ── WhatsApp pairing: the code's own lifetime ───────────────────────
+   A pairing QR rotates every twenty to sixty seconds and looks identical
+   before and after it dies, so a still image gives a merchant no way to tell a
+   live code from a frozen screen. The bar under the QR draws that lifetime.
+
+   A keyframe rather than a timer because the alternative costs a re-render a
+   tick for a decoration: the element carries `key={qr}`, so React remounts it
+   with every new code and the animation restarts on its own. `transform-origin`
+   is set at the call site (`origin-left rtl:origin-right`) so it depletes
+   towards the reading direction's end in both. */
+@keyframes pairing-code-life {
+  from {
+    transform: scaleX(1);
+  }
+
+  to {
+    transform: scaleX(0);
+  }
+}
+
+/* ── Boneyard skeletons in RTL ─────────────────────────────────────────────
+   Boneyard has no notion of writing direction: it positions every bone with
+   `left: <x>%` measured from a capture taken in whatever direction the browser
+   was in, and `npm run bones` captures in English. Under `dir="rtl"` those
+   bones would sit on the wrong side of the card.
+
+   Mirroring the overlay is the whole fix. Bones are plain rounded rects with
+   no text, so a horizontal flip maps each one onto the position it would have
+   been captured at in Arabic — and an asymmetric corner radius flips with it,
+   which is also what RTL wants. The overlay is `position: absolute; inset: 0`,
+   so the transform costs no layout and never touches the real content, which
+   sits in the sibling `[data-boneyard-content]`. */
+[dir="rtl"] [data-boneyard-overlay]>* {
+  transform: scaleX(-1);
+}
+
+/* ── The AI composer's focus ring and inline mention tokens ────────────────
+   Both belong to `ai-chat-panel`'s composer and both are CSS rather than
+   `motion`, for the same reason `pairing-code-life` above is: they animate a
+   decoration that no React state ever needs to know about, and a spring on a
+   ring that only turns while the textarea has focus would cost a re-render a
+   frame for something the compositor draws on its own.
+
+   Every name is prefixed `compose-`. `siri-orb` already declares a global
+   `@property --angle` and a global `@keyframes rotate` from its own inline
+   `<style>`, and the panel mounts that component twice — so the two unprefixed
+   names are taken inside this exact subtree.
+
+   These rules are deliberately unlayered so they beat `@layer base`. */
+@property --compose-ring-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes compose-ring-spin {
+  to {
+    --compose-ring-angle: 360deg;
+  }
+}
+
+/* A sweep, not a full ring: three quarters of the circle is transparent, so
+   what reads is one highlight travelling around the pill rather than a glow.
+   `--ring` is chroma-0 grey in both themes, so the colour comes from opacity
+   alone and needs no second token to stay legible on the dark card. */
+.compose-ring {
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  background: conic-gradient(from var(--compose-ring-angle),
+      transparent 0deg,
+      color-mix(in srgb, var(--ring) 55%, transparent) 60deg,
+      color-mix(in srgb, var(--foreground) 30%, transparent) 108deg,
+      transparent 168deg,
+      transparent 360deg);
+}
+
+.compose-root:focus-within .compose-ring {
+  opacity: 1;
+  animation: compose-ring-spin 5s linear infinite;
+}
+
+/* The one-shot flash a token gets the moment it is inserted, so a pick that
+   lands mid-sentence is visible without moving the caret to look for it.
+   `box-shadow` rather than an outline or a scale: it costs no layout, which
+   matters because the token sits in a backdrop mirrored against the real
+   textarea and one pixel of reflow would desynchronise the two. */
+@keyframes compose-token-pop {
+  from {
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--ring) 32%, transparent);
+  }
+
+  to {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+.compose-token-pop {
+  animation: compose-token-pop 0.48s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .compose-root:focus-within .compose-ring {
+    animation: none;
+  }
+
+  .compose-token-pop {
+    animation: none;
+  }
+}

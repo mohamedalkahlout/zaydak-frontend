@@ -1,0 +1,120 @@
+{
+  "title": "Negotiation outcomes",
+  "subtitle": "Every AI price negotiation in this period: what it closed at, whether it became an order, and what each deal cost.",
+  "notOnPlan": "AI price negotiation is not included in this shop's plan.",
+  "loading": "Loading negotiations…",
+  "error": "Could not load negotiation outcomes.",
+  "definitions": "Discount from list is what the customer saved against your list price. Margin over cost is what you kept after the cost of goods and the payment processing fee, using the cost recorded when the negotiation started. They are different numbers. The totals above count redeemed deals only.",
+  "kpi": {
+    "sessions": "Negotiations",
+    "acceptedHint": "{accepted} reached a deal ({rate}%)",
+    "redeemed": "Redeemed",
+    "conversionHint": "{rate}% became orders",
+    "revenue": "Revenue on redeemed deals",
+    "revenueHint": "At the negotiated price",
+    "discount": "Discount from list",
+    "discountHint": "What customers saved on redeemed deals",
+    "margin": "Margin over cost",
+    "marginHint": "What you kept after the cost of goods and payment fees",
+    "marginMissingCost": "{count, plural, one {# redeemed deal has no cost and is left out} other {# redeemed deals have no cost and are left out}}"
+  },
+  "filters": {
+    "range": "Date range",
+    "allStatuses": "All statuses",
+    "allChannels": "All channels",
+    "redeemedOnly": "Redeemed only",
+    "product": "Product: {name}",
+    "clearProduct": "Show every product",
+    "onlyThisProduct": "Show only this product"
+  },
+  "export": "Export CSV",
+  "exporting": "Exporting…",
+  "exportFailed": "Could not export the negotiations. Try again.",
+  "columns": {
+    "date": "Date",
+    "product": "Product",
+    "customer": "Customer",
+    "channel": "Channel",
+    "rounds": "Rounds",
+    "status": "Session",
+    "listPrice": "List price",
+    "finalPrice": "Final price",
+    "quantity": "Qty",
+    "offer": "Offer",
+    "discount": "Discount from list",
+    "discountHint": "(list price − final price) × quantity",
+    "margin": "Margin over cost",
+    "marginHint": "(final price − cost) × quantity, less the deal's payment processing fee, using the cost recorded when the negotiation started",
+    "order": "Order"
+  },
+  "guest": "Guest",
+  "lastOffer": "Last offer {price}",
+  "viewOrder": "View order",
+  "channel": {
+    "WEB": "Storefront",
+    "WHATSAPP": "WhatsApp",
+    "TELEGRAM": "Telegram"
+  },
+  "sessionStatus": {
+    "ACTIVE": "Active",
+    "ACCEPTED": "Accepted",
+    "REJECTED": "Rejected",
+    "EXPIRED": "Expired",
+    "CANCELLED": "Cancelled"
+  },
+  "offerStatus": {
+    "none": "No deal",
+    "PENDING": "Pending",
+    "CLAIMED": "In cart",
+    "USED": "Redeemed",
+    "EXPIRED": "Expired",
+    "CANCELLED": "Cancelled",
+    "unwound": "Order cancelled or refunded"
+  },
+  "empty": {
+    "title": "No negotiations in this period",
+    "body": "When customers bargain with the AI negotiator, each session appears here with its outcome.",
+    "noMatch": "No negotiations match these filters."
+  },
+  "pagination": "Showing {from}–{to} of {total}",
+  "trend": {
+    "title": "Negotiations over time",
+    "hint": "Grouped by the day each negotiation started, so a deal counts on that day even if the order came later.",
+    "sessions": "Negotiations",
+    "accepted": "Reached a deal",
+    "redeemed": "Became orders",
+    "revenue": "Revenue on redeemed deals",
+    "discount": "Discount from list",
+    "empty": "No negotiations in this period",
+    "table": "Negotiations per period",
+    "period": "Period"
+  },
+  "rollups": {
+    "byProduct": "By product",
+    "byStrategy": "By strategy",
+    "total": "All negotiations",
+    "shown": "Showing {shown} of {total}",
+    "empty": "Nothing to group in this period.",
+    "error": "Could not load the breakdown.",
+    "definitions": "Averages are weighted by money and count redeemed deals only. Average discount is what customers saved as a share of the list price; average margin is what you kept after cost and payment fees as a share of the selling price. Closed at your floor counts deals agreed at the lowest price you allow.",
+    "columns": {
+      "product": "Product",
+      "strategy": "Strategy",
+      "sessions": "Negotiations",
+      "dealRate": "Deal rate",
+      "redeemed": "Became orders",
+      "avgDiscount": "Avg. discount",
+      "avgDiscountHint": "Discount from list ÷ list value, on redeemed deals",
+      "avgMargin": "Avg. margin",
+      "avgMarginHint": "Margin after cost and payment fees ÷ selling price, on redeemed deals with a cost",
+      "rounds": "Rounds to close",
+      "floorReached": "Closed at your floor",
+      "revenue": "Revenue"
+    },
+    "strategy": {
+      "conservative": "Conservative",
+      "balanced": "Balanced",
+      "aggressive": "Aggressive"
+    }
+  }
+}

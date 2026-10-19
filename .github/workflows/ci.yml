@@ -1,0 +1,93 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  NODE_VERSION: "20"
+
+jobs:
+  # ── frontends & packages ───────────────────────────────────────────────────
+  frontend:
+    name: apps + packages
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - run: npm ci
+
+      - name: GraphQL codegen is current (turbo run codegen)
+        run: |
+          npx turbo run codegen
+          generated="apps/vendor/src/shared/api/generated apps/admin/src/shared/api/generated apps/storefront/src/shared/api/generated"
+          git add -N $generated
+          git diff --exit-code -- $generated || {
+            echo "::error::Generated GraphQL types are out of date. Run 'npm run codegen' in apps/vendor, apps/admin and apps/storefront, then commit the result."
+            exit 1
+          }
+
+      - name: Lint
+        run: npx turbo run lint
+
+      - name: Typecheck
+        run: npx turbo run typecheck
+
+      - name: Unit tests
+        run: npx turbo run test
+
+      - name: Build
+        run: npx turbo run build
+
+  # ── dynamic-route smoke ────────────────────────────────────────────────────
+  smoke:
+    name: authed routes render
+    runs-on: ubuntu-latest
+    needs: frontend
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - app: vendor
+            port: 3001
+            cookie: access_token
+            routes: "/shops /create-store /store/demo-shop /store/demo-shop/products /store/demo-shop/orders /plan/demo-shop /login /register /forgot-password /verify-otp"
+          - app: admin
+            port: 3002
+            cookie: admin_access_token
+            routes: "/ /users /shops /withdrawals /commissions /plans /subscribers /otp-logs /integrations/email /integrations/sms /integrations/monitoring /settings/otp /login /forgot-password /verify-otp"
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - run: npm ci
+
+      - name: Build ${{ matrix.app }}
+        run: npx turbo run build --filter=${{ matrix.app }}
+
+      - name: Start ${{ matrix.app }}
+        run: npm run start --workspace=${{ matrix.app }} &
+
+      - name: Request every authed route
+        run: >-
+          node scripts/smoke-routes.mjs
+          http://localhost:${{ matrix.port }}
+          ${{ matrix.cookie }}
+          ${{ matrix.routes }}

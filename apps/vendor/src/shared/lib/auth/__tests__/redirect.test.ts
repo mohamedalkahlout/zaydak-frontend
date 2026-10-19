@@ -1,0 +1,40 @@
+import { describe, expect, it } from "vitest";
+import { safeRedirect } from "../redirect";
+
+describe("safeRedirect (vendor)", () => {
+  const fallback = "/store";
+
+  it("allows a plain relative path", () => {
+    expect(safeRedirect("/store/acme/products", fallback)).toBe("/store/acme/products");
+  });
+
+  it("allows a relative path with query string", () => {
+    expect(safeRedirect("/store/acme/orders?status=open", fallback)).toBe(
+      "/store/acme/orders?status=open",
+    );
+  });
+
+  it("falls back when raw is missing or empty", () => {
+    expect(safeRedirect(null, fallback)).toBe(fallback);
+    expect(safeRedirect(undefined, fallback)).toBe(fallback);
+    expect(safeRedirect("", fallback)).toBe(fallback);
+  });
+
+  it("rejects full external URLs", () => {
+    expect(safeRedirect("https://evil.example", fallback)).toBe(fallback);
+    expect(safeRedirect("http://evil.example", fallback)).toBe(fallback);
+  });
+
+  it("rejects protocol-relative URLs", () => {
+    expect(safeRedirect("//evil.example", fallback)).toBe(fallback);
+  });
+
+  it("rejects backslash authority bypasses", () => {
+    expect(safeRedirect("/\\evil.example", fallback)).toBe(fallback);
+  });
+
+  it("rejects non-http schemes", () => {
+    expect(safeRedirect("javascript:alert(1)", fallback)).toBe(fallback);
+    expect(safeRedirect("data:text/html,<script>alert(1)</script>", fallback)).toBe(fallback);
+  });
+});

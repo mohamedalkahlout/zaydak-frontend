@@ -1,0 +1,261 @@
+{
+  "title": "الشرائح",
+  "create": "إنشاء شريحة",
+  "emptyTitle": "لا توجد شرائح بعد",
+  "emptyBody": "أنشئ أول شريحة عملاء لتجميعهم حسب السلوك أو الجغرافيا أو الإنفاق — ثم استخدمها للبريد أو الخصومات أو التصدير.",
+  "noMatching": "لا توجد شرائح مطابقة",
+  "noMatchingBody": "جرّب بحثًا مختلفًا.",
+  "table": {
+    "searchPlaceholder": "ابحث في الشرائح",
+    "selectAll": "تحديد الكل",
+    "selectRow": "تحديد الصف",
+    "columns": {
+      "name": "الاسم",
+      "query": "الاستعلام",
+      "coupons": "الكوبونات",
+      "updated": "آخر تحديث"
+    },
+    "showing": "عرض <b>{from, number}</b>–<b>{to, number}</b> من {total, plural, zero {<b>#</b> شريحة} one {<b>شريحة واحدة</b>} two {<b>شريحتين</b>} few {<b>#</b> شرائح} many {<b>#</b> شريحة} other {<b>#</b> شريحة}}"
+  },
+  "relativeTime": {
+    "justNow": "الآن",
+    "minutesAgo": "{count, plural, zero {منذ # دقيقة} one {منذ دقيقة} two {منذ دقيقتين} few {منذ # دقائق} many {منذ # دقيقة} other {منذ # دقيقة}}",
+    "hoursAgo": "{count, plural, zero {منذ # ساعة} one {منذ ساعة} two {منذ ساعتين} few {منذ # ساعات} many {منذ # ساعة} other {منذ # ساعة}}",
+    "daysAgo": "{count, plural, zero {منذ # يوم} one {منذ يوم} two {منذ يومين} few {منذ # أيام} many {منذ # يومًا} other {منذ # يوم}}",
+    "monthsAgo": "{count, plural, zero {منذ # شهر} one {منذ شهر} two {منذ شهرين} few {منذ # أشهر} many {منذ # شهرًا} other {منذ # شهر}}",
+    "yearsAgo": "{count, plural, zero {منذ # سنة} one {منذ سنة} two {منذ سنتين} few {منذ # سنوات} many {منذ # سنة} other {منذ # سنة}}"
+  },
+  "rowActions": {
+    "label": "إجراءات الصف",
+    "copyQuery": "نسخ الاستعلام",
+    "queryCopied": "تم نسخ الاستعلام",
+    "copyFailed": "تعذّر النسخ"
+  },
+  "bulkBar": {
+    "selected": "{count, plural, zero {لم تُحدَّد أي شريحة} one {شريحة واحدة محددة} two {شريحتان محددتان} few {# شرائح محددة} many {# شريحة محددة} other {# شريحة محددة}}",
+    "confirmTitle": "حذف {count, plural, zero {# شريحة} one {شريحة واحدة} two {شريحتين} few {# شرائح} many {# شريحة} other {# شريحة}}؟",
+    "confirmBody": "ستُزال الشرائح من قائمتك، وأي كوبونات أو حملات مرتبطة بها ستفقد هذا الارتباط. لا يمكن التراجع عن هذا الإجراء.",
+    "deleting": "جارٍ الحذف…",
+    "deleted": "{count, plural, zero {لم تُحذف أي شريحة} one {تم حذف شريحة واحدة} two {تم حذف شريحتين} few {تم حذف # شرائح} many {تم حذف # شريحة} other {تم حذف # شريحة}}",
+    "deleteFailed": "{count, plural, zero {لم يتعذّر حذف أي شريحة} one {تعذّر حذف شريحة واحدة} two {تعذّر حذف شريحتين} few {تعذّر حذف # شرائح} many {تعذّر حذف # شريحة} other {تعذّر حذف # شريحة}}"
+  },
+  "deleteDialog": {
+    "title": "حذف الشريحة؟",
+    "body": "ستُزال <b>{name}</b> من قائمة الشرائح. لا يمكن التراجع عن هذا الإجراء.",
+    "linkedCoupons": "{count, plural, zero {لا توجد كوبونات مرتبطة بهذه الشريحة.} one {يرتبط بهذه الشريحة <b>كوبون واحد</b> وسيفقد هذا الارتباط.} two {يرتبط بهذه الشريحة <b>كوبونان</b> وسيفقدان هذا الارتباط.} few {يرتبط بهذه الشريحة <b>#</b> كوبونات وستفقد هذا الارتباط.} many {يرتبط بهذه الشريحة <b>#</b> كوبونًا وستفقد هذا الارتباط.} other {يرتبط بهذه الشريحة <b>#</b> كوبون وستفقد هذا الارتباط.}}",
+    "deleting": "جارٍ الحذف...",
+    "deleted": "تم حذف الشريحة",
+    "deleteFailed": "تعذّر حذف الشريحة",
+    "tryAgain": "يرجى المحاولة مرة أخرى"
+  },
+  "editor": {
+    "created": "تم إنشاء الشريحة",
+    "createFailed": "تعذّر إنشاء الشريحة",
+    "updated": "تم تحديث الشريحة",
+    "updateFailed": "تعذّر تحديث الشريحة",
+    "createFailedShort": "فشل الإنشاء",
+    "updateFailedShort": "فشل التحديث",
+    "tryAgain": "يرجى المحاولة مرة أخرى",
+    "addQueryFirst": "أضف استعلامًا أولًا",
+    "addQueryFirstBody": "صِف شريحتك أو اختر قالبًا، ثم احفظ.",
+    "unsavedSegment": "شريحة غير محفوظة",
+    "unsavedChanges": "تغييرات غير محفوظة",
+    "nameLabel": "الاسم",
+    "namePlaceholder": "مثال: عملاء VIP",
+    "descriptionLabel": "الوصف (اختياري)",
+    "descriptionPlaceholder": "ملاحظة قصيرة عمّن تضمّهم هذه الشريحة",
+    "undo": "تراجع",
+    "startFromTemplate": "ابدأ من قالب",
+    "queryError": "خطأ في الاستعلام",
+    "notFound": "لم يتم العثور على الشريحة."
+  },
+  "statsBar": {
+    "customers": "{count, plural, zero {# عميل} one {عميل واحد} two {عميلان} few {# عملاء} many {# عميلًا} other {# عميل}}",
+    "ofBaseUnknown": "— من قاعدة عملائك",
+    "ofBase": "<b>{percent, number}%</b> من قاعدة عملائك",
+    "edited": "تم التعديل — اضغط تشغيل",
+    "templates": "القوالب",
+    "undo": "تراجع",
+    "redo": "إعادة",
+    "run": "تشغيل",
+    "expandEditor": "توسيع المحرر",
+    "collapseEditor": "طي المحرر"
+  },
+  "queryEditor": {
+    "hint": "<kbd>Ctrl</kbd>+<kbd>Space</kbd> للإكمال التلقائي، و<kbd>Ctrl</kbd>+<kbd>Enter</kbd> للتشغيل."
+  },
+  "preview": {
+    "searchPlaceholder": "ابحث عن عملاء",
+    "customer": "العميل",
+    "contact": "البريد الإلكتروني / الهاتف",
+    "added": "تاريخ الإضافة",
+    "noMatchesTitle": "لا توجد نتائج مطابقة في العيّنة الحالية",
+    "noMatchesBody": "جرّب بحثًا مختلفًا، أو امسحه لعرض كل نتائج العيّنة.",
+    "emptyTitle": "لا يوجد عملاء يطابقون شروط هذه الشريحة",
+    "emptyBody": "جرّب تعديل الشريحة لعرض العملاء المطابقين."
+  },
+  "describePrompt": {
+    "aiNotConfigured": "الذكاء الاصطناعي غير مفعّل",
+    "aiNotConfiguredBody": "اطلب من المسؤول إعداد OPENROUTER_API_KEY على الخادم لتفعيل توليد الشرائح بالذكاء الاصطناعي.",
+    "refined": "تم تحسين الشريحة",
+    "generated": "تم توليد الشريحة",
+    "tookTwoTries": "استغرق الأمر محاولتين — الاستعلام صالح.",
+    "generateFailed": "تعذّر توليد الشريحة",
+    "tryRephrasing": "جرّب إعادة صياغة الوصف.",
+    "placeholderUnavailable": "الذكاء الاصطناعي غير مفعّل — اطلب من المسؤول إعداد OPENROUTER_API_KEY",
+    "placeholderRefine": "حسّن الشريحة (مثال: استبعد المرتجعات)",
+    "placeholderDescribe": "صِف الشريحة بلغتك (مثال: العملاء الذين أنفقوا أكثر من 1000)",
+    "refineLabel": "حسّن الشريحة",
+    "describeLabel": "صِف الشريحة",
+    "generating": "جارٍ التوليد",
+    "generate": "توليد الشريحة",
+    "collapse": "طي",
+    "expand": "توسيع",
+    "generatingStatus": "جارٍ التوليد…",
+    "outOfScopeTitle": "هذه الميزة لبناء شرائح العملاء فقط",
+    "ok": "حسنًا"
+  },
+  "refinement": {
+    "tryRefining": "جرّب تحسين الشريحة"
+  },
+  "saveDialog": {
+    "title": "حفظ كشريحة جديدة",
+    "nameLabel": "اسم الشريحة",
+    "saving": "جارٍ الحفظ..."
+  },
+  "pageHeader": {
+    "newSegment": "شريحة جديدة",
+    "duplicate": "تكرار",
+    "duplicating": "جارٍ التكرار...",
+    "duplicated": "تم تكرار الشريحة",
+    "duplicateFailed": "تعذّر التكرار",
+    "copyName": "{name} (نسخة)",
+    "tryAgain": "يرجى المحاولة مرة أخرى",
+    "moreActions": "إجراءات أخرى",
+    "copyQuery": "نسخ الاستعلام",
+    "queryCopied": "تم نسخ الاستعلام",
+    "copyFailed": "تعذّر النسخ",
+    "deleteSegment": "حذف الشريحة"
+  },
+  "useSegment": {
+    "trigger": "استخدام الشريحة",
+    "viewInsights": "عرض الرؤى",
+    "exportCsv": "تصدير CSV",
+    "exporting": "جارٍ التصدير...",
+    "createDiscount": "إنشاء خصم",
+    "sendEmail": "إرسال بريد إلكتروني",
+    "exportStarted": "بدأ التصدير",
+    "exportFailed": "فشل التصدير",
+    "tryAgain": "يرجى المحاولة مرة أخرى",
+    "emailTitle": "حملات البريد الإلكتروني",
+    "emailBody": "اربط هذه الشريحة بحملة في ميزة البريد الإلكتروني (قريبًا)."
+  },
+  "tabs": {
+    "editor": "المحرر",
+    "insights": "الرؤى"
+  },
+  "insightsPage": {
+    "segment": "الشريحة"
+  },
+  "insights": {
+    "loadFailed": "تعذّر تحميل الرؤى: {message}",
+    "empty": "لا تتوفر رؤى بعد. احفظ الشريحة أولًا، ثم عُد إلى هنا.",
+    "members": "الأعضاء",
+    "ofBase": "{percent} من إجمالي العملاء",
+    "avgSpend": "متوسط الإنفاق",
+    "medianSpend": "وسيط الإنفاق",
+    "avgOrders": "متوسط الطلبات",
+    "emailSubscribed": "مشتركون في البريد الإلكتروني",
+    "smsSubscribed": "مشتركون في الرسائل النصية",
+    "ofMembers": "من أصل {count, plural, zero {# عضو} one {عضو واحد} two {عضوين} few {# أعضاء} many {# عضوًا} other {# عضو}}",
+    "topCountries": "أبرز الدول",
+    "topCities": "أبرز المدن",
+    "topLanguages": "أبرز اللغات"
+  },
+  "sizeChart": {
+    "title": "الحجم خلال 30 يومًا",
+    "noData": "لا توجد بيانات"
+  },
+  "queryChips": {
+    "label": "عوامل التصفية النشطة",
+    "remove": "إزالة عامل التصفية {field}"
+  },
+  "templates": {
+    "title": "القوالب",
+    "description": "ابدأ من شريحة جاهزة بدلًا من كتابة ShopifyQL من الصفر. انقر على قالب ليحلّ محل الاستعلام الحالي.",
+    "all": "الكل",
+    "empty": "لا توجد قوالب في هذه الفئة.",
+    "categories": {
+      "AUDIENCE": "الجمهور",
+      "ACQUISITION": "الاكتساب",
+      "BEHAVIOUR": "السلوك",
+      "ENGAGEMENT": "التفاعل",
+      "GEOGRAPHY": "الجغرافيا",
+      "TIER": "المستوى"
+    }
+  },
+  "autocomplete": {
+    "kinds": {
+      "field": "حقل التصفية",
+      "operator": "عامل المقارنة",
+      "value": "القيمة",
+      "logic": "الربط المنطقي"
+    },
+    "operators": {
+      "eq": "يساوي",
+      "neq": "لا يساوي",
+      "gt": "أكبر من",
+      "gte": "أكبر من أو يساوي",
+      "lt": "أصغر من",
+      "lte": "أصغر من أو يساوي",
+      "in": "ضمن القائمة",
+      "notIn": "ليس ضمن القائمة",
+      "contains": "يحتوي على",
+      "notContains": "لا يحتوي على",
+      "isNull": "بلا قيمة",
+      "isNotNull": "له أي قيمة",
+      "between": "ضمن نطاق",
+      "matches": "يطابق",
+      "notMatches": "لا يطابق"
+    },
+    "logic": {
+      "and": "يجب أن تتحقق جميع الشروط",
+      "or": "يكفي أن يتحقق أي شرط"
+    }
+  },
+  "diagnostics": {
+    "parserAt": "خطأ في تحليل الاستعلام عند العمود {column}: {detail}",
+    "lexerAt": "خطأ في قراءة الاستعلام عند العمود {column}: {detail}",
+    "unknown": "خطأ غير معروف في تحليل الاستعلام",
+    "parser": {
+      "expectedToken": "يلزم {expected}، لكن وُجد {got} (''{text}'')",
+      "extraInput": "مدخلات زائدة بعد نهاية التعبير",
+      "unclosedGroup": "يلزم قوس إغلاق لإنهاء المجموعة",
+      "expectedField": "يلزم اسم حقل، لكن وُجد ''{got}''",
+      "expectedNullAfterIs": "يلزم NULL بعد IS",
+      "expectedAndInBetween": "يلزم AND ضمن BETWEEN",
+      "unexpectedAfterNot": "رمز غير متوقَّع بعد NOT: ''{got}''",
+      "expectedOperator": "يلزم عامل مقارنة، لكن وُجد ''{got}''",
+      "expectedValue": "تلزم قيمة، لكن وُجد ''{got}''",
+      "unclosedValueGroup": "يلزم قوس إغلاق لإنهاء مجموعة القيم",
+      "expectedInListOpen": "يلزم قوس فتح لبدء قائمة IN",
+      "unclosedInList": "يلزم قوس إغلاق لإنهاء قائمة IN",
+      "expectedMatchesOpen": "يلزم قوس فتح لبدء وسائط MATCHES",
+      "unclosedMatches": "يلزم قوس إغلاق لإنهاء وسائط MATCHES",
+      "expectedArgName": "يلزم اسم وسيط (مثل count أو date أو id)",
+      "invalidDateOffset": "إزاحة تاريخ غير صالحة ''{got}''"
+    },
+    "lexer": {
+      "expectedEqAfterBang": "يلزم ''='' بعد ''!''",
+      "unexpectedChar": "حرف غير متوقَّع ''{got}''",
+      "unterminatedString": "نص بين علامتي اقتباس غير مغلق",
+      "invalidNumber": "رقم غير صالح ''{got}''"
+    }
+  },
+  "validation": {
+    "nameRequired": "الاسم مطلوب",
+    "nameTooLong": "الاسم طويل جدًا (الحد الأقصى 255 حرفًا)",
+    "descriptionTooLong": "الوصف طويل جدًا (الحد الأقصى 500 حرف)",
+    "queryRequired": "الاستعلام مطلوب (استخدم منتقي القوالب أو اكتب ShopifyQL)"
+  }
+}

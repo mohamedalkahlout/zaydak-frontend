@@ -1,0 +1,20 @@
+{
+  "name": "@repo/fonts",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "license": "UNLICENSED",
+  "description": "Archive for the platform's licensed webfonts (Thmanyah, IBM Plex Sans Arabic) and their licences. No app imports it: Arabic is Tajawal via next/font, Latin is the SF system stack.",
+  "exports": {
+    "./fonts.css": "./fonts.css",
+    "./sync.mjs": "./sync.mjs"
+  },
+  "files": [
+    "assets",
+    "fonts.css",
+    "sync.mjs",
+    "LICENSE.pdf",
+    "POLICY-ar.pdf",
+    "IBM-Plex-Sans-Arabic-OFL.txt"
+  ]
+}

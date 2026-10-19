@@ -1,0 +1,182 @@
+{
+  "exit": "Exit",
+  "templates": {
+    "home": "Home page"
+  },
+  "unsavedChanges": "Unsaved changes",
+  "undo": "Undo",
+  "redo": "Redo",
+  "devices": {
+    "desktop": "Desktop",
+    "tablet": "Tablet",
+    "mobile": "Mobile"
+  },
+  "themeSettings": "Theme settings",
+  "saving": "Saving",
+  "save": "Save",
+  "discard": "Discard",
+  "publishing": "Publishing",
+  "publish": "Publish",
+  "surfaces": {
+    "tree": "Sections",
+    "preview": "Preview",
+    "inspector": "Settings"
+  },
+  "loading": "Loading editor",
+  "themesTitle": "Themes",
+  "themesSubtitle": "Shape a storefront that feels at home in the Gulf. Start with Zaydak Default — more themes can join later.",
+  "currentTheme": "Current theme",
+  "customize": "Customize",
+  "placeholders": {
+    "navigationTitle": "Navigation",
+    "navigationBody": "Menus your shoppers follow from header to checkout. Coming in a later release.",
+    "preferencesTitle": "Preferences",
+    "preferencesBody": "Password protection and storefront preferences. Coming in a later release."
+  },
+  "selectASection": "Select a section to edit its settings.",
+  "titles": {
+    "hero": "Hero",
+    "facets": "Search and filters",
+    "trending": "Trending products",
+    "popular": "Popular products",
+    "deals": "Deals",
+    "newest": "New arrivals",
+    "featuredCollection": "Featured collection",
+    "collection_bento": "Collections",
+    "collection_ticker": "Collection ticker",
+    "values": "Store values",
+    "story": "Store story"
+  },
+  "sections": {
+    "hero": "Hero",
+    "facets": "Search and filters",
+    "product_rail": "Product rail",
+    "product_grid": "Product grid",
+    "collection_bento": "Collection grid",
+    "collection_ticker": "Collection ticker",
+    "values": "Store values",
+    "story": "Store story"
+  },
+  "storeContent": "Store content",
+  "heroContentHint": "Store name, description and logo are managed from Brand and General settings.",
+  "editStoreInformation": "Edit store information",
+  "sectionSettings": "Section settings",
+  "showStats": "Show store statistics",
+  "showBrowseCta": "Show Browse products button",
+  "showNewCta": "Show New arrivals button",
+  "showSearch": "Show search",
+  "showAllChip": "Show All chip",
+  "collections": "Collections",
+  "tags": "Tags",
+  "source": "Source",
+  "sources": {
+    "trending": "Trending",
+    "most_viewed": "Most viewed",
+    "newest": "New arrivals",
+    "markdowns": "Discounted products",
+    "collection": "Featured collection"
+  },
+  "collection": "Collection",
+  "productsToShow": "Products to show",
+  "showHeading": "Show section heading",
+  "showViewAll": "Show View all",
+  "layout": "Layout",
+  "layouts": {
+    "slider": "Slider",
+    "grid": "Grid"
+  },
+  "collectionOrderHint": "Selected collections appear in this order.",
+  "valuesHint": "This section contains platform-provided customer trust information. The text is managed by Zaydak and cannot be edited.",
+  "storyHint": "Content comes from your store information.",
+  "showDetails": "Show contact details",
+  "visibility": "Visibility",
+  "pageStructure": "Page structure",
+  "header": "Header",
+  "headerPlaceholder": "Shared storefront header. Not editable in this version.",
+  "template": "Template",
+  "addSection": "Add section",
+  "footer": "Footer",
+  "footerPlaceholder": "Shared storefront footer. Not editable in this version.",
+  "showSection": "Show section",
+  "hideSection": "Hide section",
+  "sectionMenu": "Section actions",
+  "moveUp": "Move up",
+  "moveDown": "Move down",
+  "duplicate": "Duplicate",
+  "remove": "Remove",
+  "searchSections": "Search sections",
+  "noSectionsMatch": "No sections match that search.",
+  "categories": {
+    "products": "Products",
+    "collections": "Collections",
+    "content": "Content",
+    "banners": "Banners"
+  },
+  "removeItem": "Remove {name}",
+  "change": "Change",
+  "selectCollections": "Select collections",
+  "selectCollection": "Select collection",
+  "selectTags": "Select tags",
+  "searchPlaceholder": "Search",
+  "cancel": "Cancel",
+  "done": "Done",
+  "brandColors": "Brand colors",
+  "primary": "Primary",
+  "secondary": "Secondary",
+  "brandColorsHint": "Brand colors are managed from Store settings.",
+  "editBrandColors": "Edit brand colors",
+  "storeIdentity": "Store identity",
+  "previewLocale": "Preview locale",
+  "previewLocaleHint": "The preview uses mock storefront copy. Dashboard language and the live storefront language can differ.",
+  "hiddenFromStorefront": "Hidden from storefront",
+  "warningDeals": "This section will not currently appear to shoppers. At least 3 discounted products are required.",
+  "warningTrending": "This section will not currently appear to shoppers until enough products have recent views.",
+  "warningTicker": "This section will not currently appear to shoppers until enough collections or tags are selected.",
+  "browseProducts": "Browse products",
+  "newArrivals": "New arrivals",
+  "all": "All",
+  "viewAll": "View all",
+  "valueShip": "Fast Gulf delivery",
+  "valuePay": "Secure payment",
+  "valueReturn": "Easy returns",
+  "preview": "Preview",
+  "productCount": "{count} products",
+  "collectionCount": "{count} collections",
+  "library": {
+    "title": "Theme library",
+    "subtitle": "Examples of a custom theme. Preview one, and contact us if you want a theme made for your store.",
+    "preview": "Preview",
+    "contact": "Contact us",
+    "inUse": "In use",
+    "opensInNewTab": "(opens in a new tab)",
+    "previewTitle": "{name} preview",
+    "previewCheckout": "Checkout",
+    "previewShop": "Shop",
+    "themes": {
+      "doughn": {
+        "name": "Doughn",
+        "description": "A bakery that opens at 4 a.m. The shutter rolls up as shoppers scroll, the sun comes up, and the bread lands on a live bake board."
+      },
+      "hullo": {
+        "name": "Hullo",
+        "description": "A walk-up coffee window. The sign lands on the wall as you scroll, then a menu, a cup you build, and a camera roll."
+      },
+      "drip": {
+        "name": "Drip",
+        "description": "A gelato bar in Jeddah. Stack scoops on a cone, then scroll through how it's made."
+      },
+      "rail": {
+        "name": "Rail",
+        "description": "Pieces on a rail. Hover turns one toward you, and a click opens it."
+      },
+      "personne": {
+        "name": "Personne",
+        "description": "A coat on nobody. Scroll and it fills out, then six pieces wait on a rail."
+      },
+      "jurat": {
+        "name": "Jurat",
+        "description": "An oud workshop in Riyadh. Scroll builds one rib by rib, then the wall of ouds, strings, and the bench."
+      }
+    }
+  }
+}

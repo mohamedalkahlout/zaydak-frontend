@@ -1,0 +1,147 @@
+{
+  "detail": {
+    "fileName": "اسم الملف",
+    "altText": "النص البديل",
+    "altPlaceholder": "اوصف هذا الملف لتسهيل الوصول وتحسين الظهور",
+    "notUsed": "غير مستخدم",
+    "unsavedChanges": "تغييرات غير محفوظة",
+    "nameRequired": "اسم الملف لا يمكن أن يكون فارغاً.",
+    "usedIn": "مستخدم في",
+    "referencedBy": "مُشار إليه من",
+    "copyLink": "نسخ الرابط",
+    "download": "تنزيل",
+    "size": "الحجم",
+    "type": "النوع",
+    "added": "أُضيف",
+    "delete": "حذف",
+    "suggestAi": "اقتراح بالذكاء الاصطناعي",
+    "productsCount": "{count, plural, =0 {غير مستخدم} one {منتج واحد} two {منتجان} few {# منتجات} other {# منتجاً}}",
+    "confirmDelete": "هل أنت متأكد من حذف \"{name}\"؟ لا يمكن التراجع عن هذا الإجراء."
+  },
+  "toolbar": {
+    "all": "الكل",
+    "images": "صور",
+    "videos": "فيديوهات",
+    "pdfs": "ملفات PDF",
+    "searchPlaceholder": "ابحث وفلتر",
+    "toGridView": "التبديل إلى عرض الشبكة",
+    "toListView": "التبديل إلى عرض القائمة",
+    "gridView": "عرض شبكي",
+    "listView": "عرض قائمة"
+  },
+  "list": {
+    "selectAll": "تحديد كل الملفات",
+    "dateAdded": "تاريخ الإضافة",
+    "size": "الحجم",
+    "prevPage": "الصفحة السابقة",
+    "nextPage": "الصفحة التالية",
+    "fileName": "اسم الملف",
+    "altText": "النص البديل",
+    "noAltText": "لا نص بديل",
+    "selectFile": "تحديد {name}",
+    "openFile": "فتح {name}",
+    "actions": "إجراءات"
+  },
+  "bulk": {
+    "clearSelection": "إلغاء التحديد",
+    "selectAllOnPage": "تحديد كل ما في الصفحة",
+    "deselectAll": "إلغاء تحديد الكل",
+    "selected": "{count, plural, one {محدَّد واحد} two {محدَّدان} few {# محدَّدة} other {# محدَّد}}",
+    "showAllSelected": "إظهار كل المحدَّد",
+    "deleteFiles": "{count, plural, one {حذف الملف} other {حذف الملفات}}",
+    "confirmDelete": "هل أنت متأكد من حذف {count, plural, one {هذا الملف} two {هذين الملفين} few {هذه الـ # ملفات} other {هذه الـ # ملفاً}}؟ لا يمكن التراجع عن هذا الإجراء.",
+    "enhance": "{count, plural, one {تحسين الصورة} two {تحسين صورتين} few {تحسين # صور} other {تحسين # صورة}}",
+    "enhanceCapped": "يمكن تحسين أول {count} فقط في المرة الواحدة"
+  },
+  "rowActions": {
+    "enhance": "تحسين بالذكاء الاصطناعي",
+    "enhanceNamed": "تحسين {name} بالذكاء الاصطناعي",
+    "replace": "استبدال الملف",
+    "replaceNamed": "استبدال {name}",
+    "copyLink": "نسخ الرابط",
+    "copyLinkNamed": "نسخ رابط {name}",
+    "download": "تنزيل",
+    "downloadNamed": "تنزيل {name}"
+  },
+  "empty": {
+    "noMatch": "لا ملفات تطابق الفلاتر",
+    "uploadFirst": "ارفع ملفك الأول",
+    "tryDifferent": "جرّب بحثاً مختلفاً أو امسح الفلاتر.",
+    "clearFilters": "مسح الفلاتر",
+    "dragHint": "اسحب وأفلت، أو ارفع صوراً وفيديوهات وملفات PDF لاستخدامها في متجرك. حد كل ملف 10 ميجابايت."
+  },
+  "fromUrl": {
+    "title": "رفع من رابط",
+    "description": "الصق رابطاً مباشراً لملف الصورة. سنقوم بجلبه وإضافته إلى مكتبتك.",
+    "upload": "رفع",
+    "failed": "تعذّر الرفع من هذا الرابط.",
+    "cancel": "إلغاء"
+  },
+  "unavailable": {
+    "fallbackName": "ملف",
+    "notImage": "هذا الملف لا يمكن تحريره",
+    "notFound": "الملف غير موجود",
+    "notImageHint": "المحرر يعمل على الصور. افتح هذا الملف من قائمة الملفات لرؤية تفاصيله.",
+    "notFoundHint": "قد يكون محذوفاً، أو الرابط غير صحيح.",
+    "filesLabel": "الملفات",
+    "backToFiles": "الرجوع للملفات"
+  },
+  "toast": {
+    "updated": "تم تحديث الملف",
+    "saveFailed": "تعذّر حفظ الملف.",
+    "linkCopied": "تم نسخ الرابط",
+    "copyFailed": "تعذّر نسخ الرابط",
+    "altFailed": "تعذّر توليد النص البديل",
+    "deleted": "تم حذف الملف",
+    "deleteFailed": "تعذّر حذف الملف",
+    "filesDeleted": "تم حذف الملفات",
+    "deleteFilesFailed": "تعذّر حذف الملفات",
+    "replaced": "تم استبدال الملف",
+    "replaceFailed": "تعذّر استبدال الملف",
+    "uploaded": "تم رفع الملف",
+    "uploadedCount": "{count, plural, one {تم رفع ملف واحد} two {تم رفع ملفين} few {تم رفع # ملفات} other {تم رفع # ملفاً}}"
+  },
+  "header": {
+    "title": "الملفات",
+    "aiStudio": "استوديو الذكاء الاصطناعي",
+    "uploadFromUrl": "رفع من رابط",
+    "uploadFiles": "رفع ملفات"
+  },
+  "page": {
+    "dropToUpload": "أفلت الملفات للرفع",
+    "showing": "عرض",
+    "of": "من أصل",
+    "filesCount": "{count, plural, one {ملف} two {ملفان} few {ملفات} other {ملفاً}}",
+    "learnMore": "تعرّف على المزيد حول",
+    "filesLink": "الملفات"
+  },
+  "sort": {
+    "date-desc": "تاريخ الإضافة (الأحدث)",
+    "date-asc": "تاريخ الإضافة (الأقدم)",
+    "name-asc": "اسم الملف (أ–ي)",
+    "name-desc": "اسم الملف (ي–أ)",
+    "size-desc": "الحجم (الأكبر)",
+    "size-asc": "الحجم (الأصغر)"
+  },
+  "sizeRange": {
+    "label": "نطاق حجم الملف",
+    "sm": "أقل من 1 ميجابايت",
+    "md": "1–5 ميجابايت",
+    "lg": "أكثر من 5 ميجابايت"
+  },
+  "errors": {
+    "noShop": "يجب أن تكون مسجّل الدخول ولديك متجر نشط.",
+    "replaceFailed": "تعذّر الاستبدال ({status}).",
+    "replaceNetwork": "خطأ في الشبكة أثناء الاستبدال. يرجى المحاولة مرة أخرى.",
+    "uploadFailed": "تعذّر الرفع ({status}).",
+    "uploadNetwork": "خطأ في الشبكة أثناء الرفع. يرجى المحاولة مرة أخرى."
+  },
+  "studioSource": {
+    "importFailed": "تعذّر الاستيراد من هذا الرابط.",
+    "importUnreadable": "تم الاستيراد، لكن الاستوديو لم يتمكن من قراءته. اختره من مكتبتك.",
+    "fallbackName": "صورة"
+  },
+  "grid": {
+    "uploading": "جارٍ الرفع…"
+  }
+}

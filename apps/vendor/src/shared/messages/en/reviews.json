@@ -1,0 +1,71 @@
+{
+  "title": "Reviews",
+  "subtitle": "What your customers said about the products they bought.",
+  "summary": {
+    "averageLabel": "Rated {rating} out of 5",
+    "total": "{count, plural, =0 {No reviews yet} one {# review} other {# reviews}}",
+    "last30": "In the last 30 days",
+    "withPhotos": "With photos",
+    "reported": "Reported to the platform"
+  },
+  "filters": {
+    "searchPlaceholder": "Search a comment, a name or an email",
+    "rating": "Rating",
+    "allRatings": "All ratings",
+    "starsWithCount": "{rating, plural, one {# star} other {# stars}}",
+    "product": "Product",
+    "allProducts": "All products",
+    "searchProducts": "Search products",
+    "noProducts": "No products match",
+    "clearProduct": "Clear product filter",
+    "clear": "Clear",
+    "sort": "Sort",
+    "sortBy": {
+      "NEWEST": "Newest first",
+      "OLDEST": "Oldest first",
+      "HIGHEST": "Highest rated",
+      "LOWEST": "Lowest rated"
+    }
+  },
+  "list": {
+    "unknownCustomer": "Deleted customer",
+    "noComment": "Rating left without a comment.",
+    "deletedProduct": "Product no longer available",
+    "reported": "{count, plural, one {# report} other {# reports}}",
+    "helpful": "{count, plural, one {# found this helpful} other {# found this helpful}}"
+  },
+  "actions": {
+    "menu": "Review actions",
+    "viewProduct": "View product",
+    "showOnlyProduct": "Show only this product",
+    "report": "Report to the platform"
+  },
+  "report": {
+    "title": "Report this review?",
+    "description": "The review stays visible. A platform admin reviews your report and decides whether to remove it.",
+    "reason": "Why are you reporting it?",
+    "reasonPlaceholder": "Spam, abusive language, not about this product...",
+    "reasonHint": "{remaining} characters left",
+    "cancel": "Cancel",
+    "submit": "Send report",
+    "submitting": "Sending...",
+    "success": "Report sent to the platform",
+    "error": "Could not send the report"
+  },
+  "empty": {
+    "title": "No reviews yet",
+    "body": "Once a customer rates something they bought, it lands here with their comment and photos.",
+    "filteredTitle": "No reviews match",
+    "filteredBody": "Try a different rating or product, or clear the search."
+  },
+  "pagination": {
+    "showing": "Showing {from}-{to} of {total}",
+    "page": "Page {page} of {total}",
+    "previous": "Previous",
+    "next": "Next"
+  },
+  "error": {
+    "title": "Could not load reviews",
+    "retry": "Try again"
+  }
+}

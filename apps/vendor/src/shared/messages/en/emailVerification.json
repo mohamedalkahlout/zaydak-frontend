@@ -1,0 +1,7 @@
+{
+  "title": "Verify your email",
+  "desc": "We already sent an activation link. Some financial actions will require a verified email soon.",
+  "sent": "Verification email sent",
+  "sentDesc": "Check your inbox for a new activation link.",
+  "resend": "Resend verification email"
+}

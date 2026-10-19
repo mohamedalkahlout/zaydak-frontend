@@ -1,0 +1,182 @@
+{
+  "exit": "خروج",
+  "templates": {
+    "home": "الصفحة الرئيسية"
+  },
+  "unsavedChanges": "تغييرات غير محفوظة",
+  "undo": "تراجع",
+  "redo": "إعادة",
+  "devices": {
+    "desktop": "سطح المكتب",
+    "tablet": "جهاز لوحي",
+    "mobile": "جوال"
+  },
+  "themeSettings": "إعدادات القالب",
+  "saving": "جارٍ الحفظ",
+  "save": "حفظ",
+  "discard": "تجاهل",
+  "publishing": "جارٍ النشر",
+  "publish": "نشر",
+  "surfaces": {
+    "tree": "الأقسام",
+    "preview": "المعاينة",
+    "inspector": "الإعدادات"
+  },
+  "loading": "جارٍ تحميل المحرر",
+  "themesTitle": "القوالب",
+  "themesSubtitle": "صمّم واجهة تناسب السوق الخليجي. ابدأ بقالب Zaydak Default، ويمكن إضافة قوالب أخرى لاحقاً.",
+  "currentTheme": "القالب الحالي",
+  "customize": "تخصيص",
+  "placeholders": {
+    "navigationTitle": "التنقل",
+    "navigationBody": "القوائم التي يتبعها المتسوق من الترويسة حتى الدفع. قريباً في إصدار لاحق.",
+    "preferencesTitle": "التفضيلات",
+    "preferencesBody": "حماية بكلمة مرور وتفضيلات الواجهة. قريباً في إصدار لاحق."
+  },
+  "selectASection": "اختر قسماً لتعديل إعداداته.",
+  "titles": {
+    "hero": "القسم الرئيسي",
+    "facets": "البحث والتصفية",
+    "trending": "المنتجات الرائجة",
+    "popular": "المنتجات الشائعة",
+    "deals": "العروض",
+    "newest": "وصل حديثاً",
+    "featuredCollection": "مجموعة مميزة",
+    "collection_bento": "المجموعات",
+    "collection_ticker": "شريط المجموعات",
+    "values": "قيم المتجر",
+    "story": "قصة المتجر"
+  },
+  "sections": {
+    "hero": "القسم الرئيسي",
+    "facets": "البحث والتصفية",
+    "product_rail": "شريط المنتجات",
+    "product_grid": "شبكة المنتجات",
+    "collection_bento": "شبكة المجموعات",
+    "collection_ticker": "شريط المجموعات",
+    "values": "قيم المتجر",
+    "story": "قصة المتجر"
+  },
+  "storeContent": "محتوى المتجر",
+  "heroContentHint": "اسم المتجر ووصفه والشعار تُدار من إعدادات الهوية والإعدادات العامة.",
+  "editStoreInformation": "تعديل معلومات المتجر",
+  "sectionSettings": "إعدادات القسم",
+  "showStats": "إظهار إحصاءات المتجر",
+  "showBrowseCta": "إظهار زر تصفح المنتجات",
+  "showNewCta": "إظهار زر وصل حديثاً",
+  "showSearch": "إظهار البحث",
+  "showAllChip": "إظهار شريحة الكل",
+  "collections": "المجموعات",
+  "tags": "الوسوم",
+  "source": "المصدر",
+  "sources": {
+    "trending": "رائج",
+    "most_viewed": "الأكثر مشاهدة",
+    "newest": "وصل حديثاً",
+    "markdowns": "منتجات مخفضة",
+    "collection": "مجموعة مميزة"
+  },
+  "collection": "المجموعة",
+  "productsToShow": "عدد المنتجات",
+  "showHeading": "إظهار عنوان القسم",
+  "showViewAll": "إظهار عرض الكل",
+  "layout": "التخطيط",
+  "layouts": {
+    "slider": "شريط تمرير",
+    "grid": "شبكة"
+  },
+  "collectionOrderHint": "تظهر المجموعات المحددة بهذا الترتيب.",
+  "valuesHint": "يحتوي هذا القسم على معلومات ثقة يقدمها المنصة. النص تديره زيداك ولا يمكن تعديله.",
+  "storyHint": "المحتوى يأتي من معلومات متجرك.",
+  "showDetails": "إظهار بيانات التواصل",
+  "visibility": "الظهور",
+  "pageStructure": "هيكل الصفحة",
+  "header": "الترويسة",
+  "headerPlaceholder": "ترويسة الواجهة المشتركة. غير قابلة للتحرير في هذا الإصدار.",
+  "template": "القالب",
+  "addSection": "إضافة قسم",
+  "footer": "التذييل",
+  "footerPlaceholder": "تذييل الواجهة المشتركة. غير قابل للتحرير في هذا الإصدار.",
+  "showSection": "إظهار القسم",
+  "hideSection": "إخفاء القسم",
+  "sectionMenu": "إجراءات القسم",
+  "moveUp": "تحريك لأعلى",
+  "moveDown": "تحريك لأسفل",
+  "duplicate": "تكرار",
+  "remove": "إزالة",
+  "searchSections": "البحث في الأقسام",
+  "noSectionsMatch": "لا توجد أقسام مطابقة لهذا البحث.",
+  "categories": {
+    "products": "المنتجات",
+    "collections": "المجموعات",
+    "content": "المحتوى",
+    "banners": "البنرات"
+  },
+  "removeItem": "إزالة {name}",
+  "change": "تغيير",
+  "selectCollections": "اختيار مجموعات",
+  "selectCollection": "اختيار مجموعة",
+  "selectTags": "اختيار وسوم",
+  "searchPlaceholder": "بحث",
+  "cancel": "إلغاء",
+  "done": "تم",
+  "brandColors": "ألوان الهوية",
+  "primary": "أساسي",
+  "secondary": "ثانوي",
+  "brandColorsHint": "تُدار ألوان الهوية من إعدادات المتجر.",
+  "editBrandColors": "تعديل ألوان الهوية",
+  "storeIdentity": "هوية المتجر",
+  "previewLocale": "لغة المعاينة",
+  "previewLocaleHint": "تستخدم المعاينة نصوص واجهة تجريبية. لغة لوحة التحكم ولغة المتجر الحي يمكن أن تختلفا.",
+  "hiddenFromStorefront": "مخفي عن المتجر",
+  "warningDeals": "لن يظهر هذا القسم للمتسوقين حالياً. يلزم وجود ٣ منتجات مخفضة على الأقل.",
+  "warningTrending": "لن يظهر هذا القسم للمتسوقين حتى تتوفر مشاهدات كافية للمنتجات.",
+  "warningTicker": "لن يظهر هذا القسم للمتسوقين حتى يتم اختيار مجموعات أو وسوم كافية.",
+  "browseProducts": "تصفح المنتجات",
+  "newArrivals": "وصل حديثاً",
+  "all": "الكل",
+  "viewAll": "عرض الكل",
+  "valueShip": "توصيل سريع في الخليج",
+  "valuePay": "دفع آمن",
+  "valueReturn": "إرجاع سهل",
+  "preview": "معاينة",
+  "productCount": "{count} منتجات",
+  "collectionCount": "{count} مجموعات",
+  "library": {
+    "title": "مكتبة القوالب",
+    "subtitle": "أمثلة على قالب مخصّص. عاين أحدها، وتواصل معنا إن أردت قالبًا لمتجرك.",
+    "preview": "معاينة",
+    "contact": "تواصل معنا",
+    "inUse": "مستخدم",
+    "opensInNewTab": "(تُفتح في تبويب جديد)",
+    "previewTitle": "معاينة {name}",
+    "previewCheckout": "الدفع",
+    "previewShop": "المتجر",
+    "themes": {
+      "doughn": {
+        "name": "Doughn",
+        "description": "مخبز يفتح الساعة الرابعة فجرًا: يرتفع الباب المعدني مع التمرير، وتشرق الشمس، ويحطّ الخبز على لوحة خبز حيّة."
+      },
+      "hullo": {
+        "name": "Hullo",
+        "description": "نافذة قهوة للطلب من الشارع. تنزل اللافتة على الجدار مع التمرير، ثم قائمة، وكوب تركّبه بنفسك، وصور من الكاميرا."
+      },
+      "drip": {
+        "name": "Drip",
+        "description": "بار جيلاتو في جدة. تختار النكهة فتنزل الكورة على الكون، والتمرير يبرّد طريقة الصنع."
+      },
+      "rail": {
+        "name": "Rail",
+        "description": "قطع على علاقة. التمرير يقلب واحدة نحوك، والضغط يفتحها."
+      },
+      "personne": {
+        "name": "Personne",
+        "description": "معطف على لا أحد. التمرير يملأه، ثم ست قطع تنتظر على السكة."
+      },
+      "jurat": {
+        "name": "جرعة فن",
+        "description": "ورشة عود في الرياض. التمرير يبنيه ضلعًا ضلعًا، ثم جدار الأعواد والأوتار والطاولة."
+      }
+    }
+  }
+}

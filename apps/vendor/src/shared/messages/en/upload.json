@@ -1,0 +1,8 @@
+{
+  "signedOut": "You must be signed in with an active shop to upload.",
+  "tooMany": "You can upload at most {max, plural, one {# file} other {# files}} at once.",
+  "unsupportedType": "{name}: unsupported file type.",
+  "tooLarge": "{name} is {size} — the limit is {limit}.",
+  "failed": "Upload failed ({status}).",
+  "network": "Network error during upload. Please try again."
+}

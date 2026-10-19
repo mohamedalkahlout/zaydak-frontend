@@ -1,0 +1,93 @@
+{
+  "breakpoints": {
+    "375": {
+      "name": "analytics-kpi-total-sales",
+      "viewportWidth": 320,
+      "width": 320,
+      "height": 35,
+      "bones": [
+        [
+          0,
+          0,
+          18.3838,
+          35,
+          8
+        ],
+        [
+          19.6338,
+          0,
+          80.3662,
+          35,
+          8
+        ]
+      ]
+    },
+    "768": {
+      "name": "analytics-kpi-total-sales",
+      "viewportWidth": 320,
+      "width": 320,
+      "height": 35,
+      "bones": [
+        [
+          0,
+          0,
+          18.3838,
+          35,
+          8
+        ],
+        [
+          19.6338,
+          0,
+          80.3662,
+          35,
+          8
+        ]
+      ]
+    },
+    "1280": {
+      "name": "analytics-kpi-total-sales",
+      "viewportWidth": 320,
+      "width": 320,
+      "height": 35,
+      "bones": [
+        [
+          0,
+          0,
+          18.3838,
+          35,
+          8
+        ],
+        [
+          19.6338,
+          0,
+          80.3662,
+          35,
+          8
+        ]
+      ]
+    },
+    "1536": {
+      "name": "analytics-kpi-total-sales",
+      "viewportWidth": 320,
+      "width": 320,
+      "height": 35,
+      "bones": [
+        [
+          0,
+          0,
+          18.3838,
+          35,
+          8
+        ],
+        [
+          19.6338,
+          0,
+          80.3662,
+          35,
+          8
+        ]
+      ]
+    }
+  },
+  "_hash": "261688942a33a1f901afefb6898c3386"
+}

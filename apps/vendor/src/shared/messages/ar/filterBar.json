@@ -1,0 +1,23 @@
+{
+  "is": "هو",
+  "isAnyOf": "أي من",
+  "label": "عوامل التصفية",
+  "add": "تصفية",
+  "empty": "إضافة عامل تصفية",
+  "selectValue": "اختر…",
+  "search": "تصفية…",
+  "noMatches": "لا توجد نتائج",
+  "loading": "جارٍ تحميل الخيارات…",
+  "loadError": "تعذر تحميل الخيارات.",
+  "retry": "حاول مرة أخرى",
+  "clear": "مسح",
+  "reset": "إعادة تعيين",
+  "addFilter": "إضافة عامل تصفية…",
+  "noFiltersLeft": "كل عوامل التصفية مطبّقة",
+  "display": "العرض",
+  "columns": "الأعمدة",
+  "editField": "التصفية حسب {field}",
+  "editOperator": "شرط {field}",
+  "editValue": "قيمة {field}: {value}",
+  "remove": "إزالة عامل تصفية {field}"
+}

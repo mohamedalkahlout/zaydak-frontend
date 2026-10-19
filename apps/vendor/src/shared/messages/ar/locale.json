@@ -1,0 +1,9 @@
+{
+  "english": "English",
+  "arabic": "العربية",
+  "switchTo": "التحويل إلى {locale}",
+  "dialog": {
+    "searchPlaceholder": "ابحث عن لغة...",
+    "noResults": "لا توجد لغات تطابق بحثك"
+  }
+}

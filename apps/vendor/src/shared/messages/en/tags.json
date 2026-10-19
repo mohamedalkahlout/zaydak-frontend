@@ -1,0 +1,46 @@
+{
+  "title": "Tags",
+  "subtitle": "Lightweight labels for merchandising (e.g. “summer”, “new”).",
+  "new": "New tag",
+  "search": "Search tags…",
+  "noMatch": "No tags match “{query}”.",
+  "productCount": "{count, plural, one {# product} other {# products}}",
+  "emptyTitle": "No tags yet",
+  "emptyBody": "Use tags to group products for promotions or filters.",
+  "createFirst": "Create first tag",
+  "form": {
+    "createTitle": "Create tag",
+    "editTitle": "Edit tag",
+    "description": "Tags are flat labels for quick filtering & merchandising.",
+    "nameEn": "Name (English)",
+    "nameAr": "Name (Arabic)",
+    "slug": "Slug",
+    "slugHintEdit": "Changing the slug may break existing links.",
+    "slugHintNew": "Leave empty to auto-generate from the English name.",
+    "icon": "Icon (optional)",
+    "detailsEn": "Description (English)",
+    "detailsAr": "Description (Arabic)",
+    "saving": "Saving…",
+    "creating": "Creating…",
+    "save": "Save changes",
+    "create": "Create",
+    "created": "Tag created",
+    "updated": "Tag updated",
+    "createFailed": "Could not create tag",
+    "updateFailed": "Could not update tag",
+    "tryAgain": "Please try again"
+  },
+  "rowActions": {
+    "label": "Row actions",
+    "deleteTitle": "Delete tag?",
+    "deleteBody": "This will remove “{name}” from the shop. Products tagged with it will lose the label.",
+    "deleting": "Deleting…",
+    "deleted": "Tag deleted",
+    "deleteFailed": "Could not delete tag"
+  },
+  "validation": {
+    "nameEnRequired": "English name is required",
+    "nameArRequired": "Arabic name is required",
+    "slugFormat": "Use letters, numbers and dashes only"
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "or": "Or",
+  "back": "Back",
+  "continue": "Continue",
+  "sending": "Sending...",
+  "checking": "Checking...",
+  "terms": "By continuing, you agree to the Terms and Privacy Policy.",
+  "rail": {
+    "eyebrow": "Sign up",
+    "title": "Create your store",
+    "percentComplete": "{percent}% complete",
+    "done": "Complete",
+    "backToLogin": "Back to login"
+  },
+  "steps": {
+    "start": {
+      "title": "Get started",
+      "description": "Enter your email to start"
+    },
+    "personal": {
+      "title": "Your info",
+      "description": "Add your personal details"
+    },
+    "store": {
+      "title": "Your store",
+      "description": "What can we help you do?"
+    }
+  },
+  "email": {
+    "title": "Let’s get started",
+    "subtitle": "Enter your email and we will set your store up.",
+    "label": "Email",
+    "placeholder": "Eg. example@gmail.com",
+    "submit": "Create your store",
+    "signInWithCode": "Sign in with a code",
+    "haveAccount": "Already have an account?",
+    "login": "Login",
+    "taken": "This email already has an account. Log in instead."
+  },
+  "personal": {
+    "title": "Your personal info",
+    "subtitle": "We need a few details to get to know you.",
+    "name": "Full name",
+    "namePlaceholder": "Eg. Mohammed Ahmed",
+    "phone": "Phone",
+    "phonePlaceholder": "055433332",
+    "phoneTaken": "This number already has an account."
+  },
+  "otp": {
+    "title": "Enter the verification code",
+    "verify": "Verify",
+    "verifying": "Verifying...",
+    "didntReceive": "Didn’t get the code?",
+    "resend": "Resend",
+    "resendIn": "Resend in {seconds}s",
+    "incorrect": "That code is not correct",
+    "expired": "This code has expired. Request a new one.",
+    "locked": "Too many attempts. Request a new code.",
+    "sessionExpired": "Your signup session expired. Please start again.",
+    "sentTo": {
+      "EMAIL": "We sent a verification code to {destination}",
+      "SMS": "We sent a verification code to your number ending in {destination}",
+      "BOTH": "We sent a verification code to {destination} and to your phone"
+    }
+  },
+  "store": {
+    "created": "Your store is ready",
+    "failed": "We could not create your store. Please try again.",
+    "sessionExpired": "Your signup session expired. Please start again.",
+    "identifierTaken": "That email or phone was registered in the meantime."
+  },
+  "countries": {
+    "SA": "Saudi Arabia",
+    "AE": "United Arab Emirates",
+    "KW": "Kuwait",
+    "QA": "Qatar",
+    "BH": "Bahrain",
+    "OM": "Oman",
+    "JO": "Jordan",
+    "PS": "Palestine",
+    "EG": "Egypt",
+    "IQ": "Iraq",
+    "LB": "Lebanon",
+    "MA": "Morocco",
+    "DZ": "Algeria",
+    "TN": "Tunisia",
+    "TR": "Turkey",
+    "GB": "United Kingdom",
+    "US": "United States"
+  },
+  "validation": {
+    "emailRequired": "Email is required",
+    "emailInvalid": "Enter a valid email address",
+    "nameRequired": "Enter your full name",
+    "phoneInvalid": "Enter a valid phone number",
+    "phoneDigitsOnly": "Digits only",
+    "codeLength": "Code must be {length} digits",
+    "codeDigitsOnly": "Code must be digits only"
+  },
+  "phoneField": {
+    "countryCode": "Country code"
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "title": "الإحصائيات",
+  "subtitle": "أداء المبيعات والطلبات والعملاء لمتجرك.",
+  "compare": "مقارنة",
+  "lastRefreshed": "آخر تحديث: {time}",
+  "moreActions": "إجراءات أخرى",
+  "refresh": "تحديث",
+  "newExploration": "استكشاف جديد",
+  "empty": "لا توجد بيانات لهذا النطاق الزمني",
+  "comparison": {
+    "aria": "فترة المقارنة",
+    "none": "بدون مقارنة",
+    "previous": "الفترة السابقة"
+  },
+  "currency": {
+    "aria": "عملة التقارير",
+    "hint": "تُعرض التقارير بعملة متجرك."
+  },
+  "ranges": {
+    "today": "اليوم",
+    "last_7_days": "آخر 7 أيام",
+    "last_30_days": "آخر 30 يوماً",
+    "last_90_days": "آخر 90 يوماً",
+    "this_month": "هذا الشهر",
+    "this_year": "هذه السنة",
+    "yesterday": "أمس",
+    "last_month": "الشهر الماضي",
+    "custom": "مخصص"
+  },
+  "dateFilter": {
+    "apply": "تطبيق",
+    "cancel": "إلغاء",
+    "customRange": "نطاق مخصّص",
+    "aria": "النطاق الزمني"
+  },
+  "targets": {
+    "button": "جرّب الأهداف",
+    "add": "إنشاء هدف",
+    "suggested": "أهداف مقترحة",
+    "viewAll": "عرض كل الأهداف",
+    "title": "الأهداف"
+  },
+  "insights": {
+    "title": "رؤى",
+    "dismiss": "إخفاء",
+    "dismissFailed": "تعذّر إخفاء الرؤية"
+  },
+  "kpi": {
+    "totalSales": "إجمالي المبيعات",
+    "orders": "الطلبات",
+    "fulfilled": "طلبات منفَّذة",
+    "avgOrderValue": "متوسط قيمة الطلب",
+    "returningRate": "معدل العملاء العائدين"
+  },
+  "chart": {
+    "title": "إجمالي المبيعات عبر الزمن",
+    "current": "الحالي",
+    "previous": "السابق"
+  },
+  "aovChart": {
+    "title": "متوسط قيمة الطلب عبر الزمن"
+  },
+  "viewReport": "عرض التقرير",
+  "sellThrough": {
+    "title": "المنتجات حسب معدل البيع",
+    "soldLeft": "{sold} مباع · {left} متبقٍ"
+  },
+  "cohorts": {
+    "title": "تحليل أفواج العملاء",
+    "cohort": "الفوج",
+    "size": "الحجم"
+  },
+  "topCustomers": {
+    "title": "أفضل العملاء",
+    "orders": "{count} طلب",
+    "guest": "عميل"
+  },
+  "channels": {
+    "title": "المبيعات حسب مصدر الزيارة",
+    "orders": "{count} طلب"
+  },
+  "salesChannels": {
+    "title": "المبيعات حسب القناة",
+    "subtitle": "أين تُنشأ الطلبات: متجرك الإلكتروني، أو مساعدك في المحادثات، أو أنت من مسودة.",
+    "measure": {
+      "aria": "عرض الأرقام حسب",
+      "sales": "المبيعات",
+      "orders": "الطلبات"
+    },
+    "headline": {
+      "leader": "<strong>{share}</strong> من {measure, select, sales {مبيعاتك} other {طلباتك}} في هذه الفترة جاءت عبر <mark>{channel}</mark>",
+      "all": "كل {measure, select, sales {مبيعاتك} other {طلباتك}} في هذه الفترة جاءت عبر <mark>{channel}</mark>",
+      "none": "لا توجد {measure, select, sales {مبيعات} other {طلبات}} في هذه الفترة بعد"
+    },
+    "ribbon": "حصة كل قناة من {measure, select, sales {المبيعات} other {الطلبات}}: {shares}",
+    "ribbonItem": "{channel} {share}",
+    "share": "{share} من {measure, select, sales {المبيعات} other {الطلبات}}",
+    "shareBelow": "أقل من {share}",
+    "orders": "{count, plural, zero {لا طلبات} one {طلب واحد} two {طلبان} few {# طلبات} many {# طلباً} other {# طلب}}",
+    "customers": "{count, plural, zero {لا عملاء} one {عميل واحد} two {عميلان} few {# عملاء} many {# عميلاً} other {# عميل}}",
+    "aov": "متوسط الطلب {amount}",
+    "salesAmount": "{amount} مبيعات",
+    "notConnected": "غير متصل",
+    "connect": {
+      "TELEGRAM": "ربط تيليجرام",
+      "WHATSAPP": "ربط واتساب"
+    },
+    "drafts": "فتح مسودات الطلبات",
+    "chart": {
+      "title": "توزيع القنوات عبر الزمن",
+      "total": "الإجمالي",
+      "table": "{measure, select, sales {المبيعات} other {الطلبات}} حسب القناة لكل فترة",
+      "period": "الفترة"
+    },
+    "empty": "لا توجد طلبات في هذه الفترة. تظهر هنا طلبات متجرك الإلكتروني ومساعدك في المحادثات وطلباتك اليدوية موزّعة حسب القناة.",
+    "error": {
+      "title": "تعذّر تحميل المبيعات حسب القناة",
+      "body": "حاول مرة أخرى بعد بضع دقائق.",
+      "retry": "حاول مرة أخرى"
+    }
+  },
+  "breakdown": {
+    "title": "تفصيل إجمالي المبيعات",
+    "gross_sales_cents": "إجمالي المبيعات",
+    "discounts_cents": "الخصومات",
+    "returns_cents": "المرتجعات",
+    "net_sales_cents": "صافي المبيعات",
+    "shipping_cents": "رسوم الشحن",
+    "taxes_cents": "الضرائب",
+    "total_sales_cents": "إجمالي المبيعات",
+    "return_fees_cents": "رسوم إرجاع محتفظ بها",
+    "cogs_cents": "تكلفة البضاعة",
+    "gross_profit_cents": "إجمالي الربح",
+    "fees_cents": "رسوم الدفع",
+    "net_profit_cents": "صافي الربح",
+    "margin": "هامش الربح الصافي",
+    "estimatedNote": "الربح تقديري — {count} وحدة بدون تكلفة"
+  },
+  "topProducts": {
+    "title": "إجمالي المبيعات حسب المنتج",
+    "ordersCount": "{count} طلب"
+  },
+  "ordersByStatus": {
+    "title": "الطلبات حسب الحالة"
+  },
+  "status": {
+    "pending": "قيد الانتظار",
+    "processing": "قيد المعالجة",
+    "at_local_facility": "في المنشأة المحلية",
+    "out_for_delivery": "قيد التوصيل",
+    "completed": "مكتمل",
+    "cancelled": "ملغي",
+    "refunded": "مسترد",
+    "failed": "فشل"
+  },
+  "lowStock": {
+    "title": "مخزون منخفض",
+    "empty": "جميع المنتجات بمخزون جيد",
+    "left": "{count} متبقي"
+  },
+  "categorySales": {
+    "title": "المبيعات حسب الفئة",
+    "sold": "{count} مباع"
+  },
+  "export": "تصدير CSV"
+}

@@ -1,0 +1,41 @@
+You are working inside the Zaydak monorepo, specifically on brand identity and frontend
+presentation. Follow these rules on every task without exception:
+
+SCOPE
+- You may edit: apps/storefront (primary), packages/ui (shared components/tokens), and — only
+  when explicitly asked — apps/vendor's presentational layer (never its data/business logic).
+- Never touch back-end/, GraphQL schema/resolvers, Prisma models, or apps/*/src/features/*/api.ts
+  query/mutation definitions. If a task seems to need a new field or query that doesn't exist,
+  STOP and tell me instead of inventing one.
+- Never touch auth, checkout payment logic, or anything under */features/*/lib unless the task is
+  explicitly about that logic (visual-only changes only).
+
+DESIGN SYSTEM DISCIPLINE
+- Every color, radius, spacing, and font must resolve through packages/ui/src/styles/tokens.css
+  (via Tailwind's @theme tokens) or through apps/storefront/src/app/globals.css if it's a
+  storefront-only override. Never hardcode a hex color, an arbitrary Tailwind color class
+  (e.g. bg-[#ff5500]), or a one-off font-family in a component.
+- Reuse existing @repo/ui primitives (Button, Card, Input, Dialog, etc.) before writing a new one.
+  If a needed primitive doesn't exist, propose adding it to packages/ui, not a local one-off.
+- Respect the per-shop theming seam in apps/storefront/src/features/shop/lib/brand-theme.ts —
+  don't bypass it with component-level inline styles.
+
+REFERENCE COMPONENTS (Figma / 21st.dev / any external source)
+- Treat any pasted component (e.g. from 21st.dev) as a LAYOUT AND MOTION reference only — copy the
+  structure and interaction idea, never the raw color/font values. Rebuild it using our tokens and
+  @repo/ui primitives so it inherits per-shop theming automatically. Note the source in a one-line
+  comment above the component.
+
+WORKFLOW DISCIPLINE
+- One feature/section per task. Don't refactor unrelated files "while you're in there."
+- Before editing a feature, read its doc in apps/storefront/docs/features/<feature>.md if one
+  exists, and follow its stated conventions (routes, state, GraphQL ops already in use).
+- After every change: run `npm run lint` and `npm run typecheck` scoped to storefront
+  (`npx turbo run lint typecheck --filter=storefront`) and fix anything you introduced.
+- Show me a diff-level summary of what changed and why before considering a task done.
+- If a request is ambiguous or would require a backend change, ask me first — don't guess.
+
+OUTPUT STYLE
+- Keep components server-rendered (RSC) by default; only add "use client" where interaction
+  genuinely requires it — this project is deliberately careful about that split (see the
+  storefront architecture doc).

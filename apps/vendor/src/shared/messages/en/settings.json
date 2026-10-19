@@ -1,0 +1,1320 @@
+{
+  "title": "Settings",
+  "close": "Close settings",
+  "searchNav": "Search",
+  "noNavMatch": "No matches",
+  "comingSoon": "This section isn't available yet — it's coming soon.",
+  "unsavedChanges": "Unsaved changes",
+  "fixTheForm": "Please fix the form errors",
+  "nav": {
+    "general": "General",
+    "plan": "Plan",
+    "billing": "Billing",
+    "users": "Users",
+    "payments": "Payments",
+    "checkout": "Checkout",
+    "abandonedCarts": "Abandoned cart reminders",
+    "customerAccounts": "Customer accounts",
+    "shipping": "Shipping and delivery",
+    "taxes": "Taxes and duties",
+    "locations": "Locations",
+    "markets": "Markets",
+    "apps": "Apps",
+    "salesChannels": "Sales channels",
+    "domains": "Domains",
+    "customerEvents": "Customer events",
+    "notifications": "Notifications",
+    "metafields": "Metafields and metaobjects",
+    "languages": "Languages",
+    "customerPrivacy": "Customer privacy",
+    "policies": "Policies",
+    "whatsapp": "WhatsApp",
+    "telegram": "Telegram",
+    "instagram": "Instagram",
+    "shein": "Shein"
+  },
+  "taxes": {
+    "title": "Sales tax",
+    "description": "Default tax rate for products that have no tax class. Checkout and new orders use this fallback.",
+    "rateLabel": "Tax rate",
+    "rateHint": "Enter a percentage from 0 to 100 (for example 15 for 15%). Stored as basis points on the shop.",
+    "invalidRate": "Enter a number between 0 and 100",
+    "saved": "Tax settings saved",
+    "historicalNote": "Changing this rate does not rewrite tax on orders that already exist — those keep the amounts stored when they were placed."
+  },
+  "abandonedCarts": {
+    "title": "Automatic abandoned-cart reminders",
+    "description": "When a signed-in customer leaves items in their cart, the shop can email them on this schedule after the cart is marked abandoned. This is not a copy of the abandoned-carts list — send a reminder by hand from there.",
+    "enabled": "Send automatic recovery emails",
+    "enabledHint": "Off stops the scheduled emails. You can still send a reminder yourself from the abandoned carts list.",
+    "stepsLabel": "When emails go out",
+    "step": "{when} after the cart is abandoned",
+    "stepsHint": "Each reminder is measured from the moment the cart is marked abandoned. At most four, at least an hour apart, nothing sooner than 30 minutes or later than 30 days.",
+    "amountLabel": "Reminder {n} delay",
+    "unitLabel": "Reminder {n} unit",
+    "unitMinutes": "minutes",
+    "unitHours": "hours",
+    "unitDays": "days",
+    "addStep": "Add reminder",
+    "removeStep": "Remove reminder {n}",
+    "resetDefault": "Reset to 1 hour, 1 day, 3 days",
+    "stepsRules": "The shop sends at most four emails per cart, at least an hour apart. Closer or extra steps are dropped when you save.",
+    "stepsClampHint": "Some times sit closer than {spacing} minutes apart, or outside the allowed window. Save stores the safe list.",
+    "listHint": "The abandoned carts list is under Marketing.",
+    "listLink": "Open abandoned carts",
+    "saved": "Automatic reminders updated",
+    "saveFailed": "Could not save automatic reminders"
+  },
+  "policies": {
+    "title": "Store Policies",
+    "description": "Define return, privacy, terms of service, and shipping policies visible to shoppers in your store.",
+    "save": "Save Policies",
+    "saved": "Policies saved successfully",
+    "saveFailed": "Failed to save policies, please try again",
+    "unsavedChanges": "You have unsaved changes in your store policies",
+    "useTemplate": "Use suggested template",
+    "refund": {
+      "title": "Refund & Return Policy",
+      "description": "Clarify terms and instructions for returns or exchanges, timeframes, and item eligibility.",
+      "placeholder": "Write your refund and return policy here..."
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "description": "Explain how customer data is collected, used, and protected according to privacy best practices.",
+      "placeholder": "Write your privacy policy here..."
+    },
+    "terms": {
+      "title": "Terms of Service",
+      "description": "Establish legal rules and commitments for browsing, ordering, and store terms.",
+      "placeholder": "Write your terms of service here..."
+    },
+    "shipping": {
+      "title": "Shipping Policy",
+      "description": "State expected processing and delivery times, carrier options, and shipping costs.",
+      "placeholder": "Write your shipping policy here..."
+    },
+    "templates": {
+      "defaultShopName": "Our Store",
+      "refund": "Refund & Return Policy for {shop}:\n\n1. Timeframe:\nCustomers may request a return or exchange within 14 days of receiving their order.\n\n2. Return Conditions:\n- The product must be unused, in its original packaging with all tags and accessories attached.\n- A proof of purchase or order confirmation must be provided.\n- Perishable goods, personalized items, and personal care products are non-returnable.\n\n3. Refunds:\nOnce returned items are received and inspected, refunds will be issued to the original payment method or bank account within 5–10 business days.",
+      "privacy": "Privacy Policy for {shop}:\n\nWe are committed to safeguarding your privacy and personal data:\n\n1. Information We Collect:\nWe collect information required to fulfill your orders, including your name, shipping address, phone number, and email address.\n\n2. How We Use Your Information:\n- To process, fulfill, and deliver your orders.\n- To communicate updates regarding your shipment or support inquiries.\n- To improve our storefront and services.\n\n3. Data Security & Sharing:\nWe never sell or rent your personal information to third parties. Data is only shared with trusted delivery and payment partners to fulfill your purchase.",
+      "terms": "Terms of Service for {shop}:\n\nWelcome to our store. By accessing and purchasing from our store, you agree to the following terms:\n\n1. Pricing & Payment:\nAll prices listed are accurate to the best of our knowledge. We reserve the right to correct pricing errors and cancel orders placed under erroneous terms.\n\n2. Availability & Fulfillment:\nAll orders are subject to stock availability. In the event an item becomes unavailable, we will notify you promptly and offer a replacement or full refund.\n\n3. Intellectual Property:\nAll content, photos, and branding on this store belong to the store owner and may not be reproduced without written permission.",
+      "shipping": "Shipping & Delivery Policy for {shop}:\n\n1. Processing & Delivery Times:\n- Orders are processed and prepared within 24–48 business hours.\n- Standard shipping takes 1–3 business days for major cities and 3–5 business days for other regions.\n\n2. Shipping Rates:\nShipping charges are calculated and displayed at checkout before order finalization.\n\n3. Shipment Tracking:\nOnce your order ships, you will receive an update with tracking details to follow your package until delivery."
+    },
+    "discard": "Discard",
+    "saving": "Saving...",
+    "characters": "{count, plural, one {# character} other {# characters}}",
+    "notSet": "Not set yet"
+  },
+  "plan": {
+    "detailsTitle": "Plan details",
+    "active": "Active",
+    "ending": "Ending",
+    "trialEndsOn": "Trial ends {date}",
+    "cancelTrial": "Cancel trial",
+    "confirmCancelTrialTitle": "Cancel your trial?",
+    "confirmCancelTrialBody": "Your trial keeps running until {date} and your card is not charged. After that your store moves to the Free plan. You can undo this at any time before then.",
+    "confirmCancelTrialBodyNoDate": "Your trial keeps running until it ends and your card is not charged. After that your store moves to the Free plan. You can undo this at any time before then.",
+    "subscriptionsTitle": "Subscriptions",
+    "subscriptionsDesc": "What you are billed for on a recurring basis",
+    "viewAllSubscriptions": "View all subscriptions"
+  },
+  "general": {
+    "saved": "Settings saved",
+    "noEmail": "No email",
+    "noPhone": "No phone number",
+    "noAddress": "No address",
+    "notSet": "Not set",
+    "businessDetails": "Business details",
+    "businessDetailsDesc": "Business entity used for financial products, markets, apps, and taxes in this shop",
+    "entityName": "{name} — entity",
+    "contactDetails": "Store contact details",
+    "storeName": "Store name",
+    "contactEmail": "Store contact email",
+    "emailManagedElsewhere": "Managed from your account settings",
+    "phone": "Phone number",
+    "phonePlaceholder": "Add a phone number",
+    "website": "Website",
+    "storeAddress": "Store address",
+    "address": "Address",
+    "city": "City",
+    "stateRegion": "State / Region",
+    "district": "District",
+    "zip": "ZIP / Postal code",
+    "country": "Country/region",
+    "storeDefaults": "Store defaults",
+    "currencyDisplay": "Currency display",
+    "currencyDisplayDesc": "To manage the currencies customers see, go to Markets",
+    "currencyValue": "—",
+    "backupRegion": "Backup region",
+    "backupRegionDesc": "Determines settings for customers outside of your markets",
+    "unitSystem": "Unit system",
+    "metricSystem": "Metric system",
+    "weightUnit": "Default weight unit",
+    "kilogram": "Kilogram (kg)",
+    "timeZone": "Time zone",
+    "timeZoneDesc": "Sets the time for when orders and analytics are recorded",
+    "timeZoneValue": "(GMT+00:00) UTC",
+    "orderIdFormat": "Order ID format",
+    "orderIdFormatDesc": "Shown on the order page, customer pages, and customer order notifications to identify orders",
+    "prefix": "Prefix",
+    "suffix": "Suffix",
+    "orderIdHint": "Your order ID will appear as #1001, #1002, #1003, …",
+    "orderProcessing": "Order processing",
+    "afterPaid": "After an order has been paid",
+    "fulfillAll": "Automatically fulfill the order's line items",
+    "fulfillGiftCards": "Automatically fulfill only the gift cards of the order",
+    "none": "Don't fulfill any of the order's line items automatically",
+    "afterFulfilled": "After an order has been fulfilled and paid, or when all items have been refunded",
+    "autoArchive": "Automatically archive the order",
+    "autoArchiveDesc": "The order will be removed from your list of open orders.",
+    "storeAssets": "Store assets",
+    "metafields": "Metafields",
+    "metafieldsDesc": "Available in themes and configurable for Storefront API",
+    "brand": "Brand",
+    "brandDesc": "Integrate brand assets across sales channels, themes and apps",
+    "resources": "Resources",
+    "changeLog": "Change log",
+    "viewChangeLog": "View change log",
+    "helpCenter": "Help Center",
+    "getHelp": "Get help",
+    "hirePartner": "Hire a Partner",
+    "hirePartnerAction": "Hire a Partner",
+    "keyboardShortcuts": "Keyboard shortcuts",
+    "storeActivityLog": "Store activity log",
+    "transferStore": "Transfer store",
+    "transferStoreDesc": "Move this store into an organization or transfer to an external owner.",
+    "manage": "Manage",
+    "storeNameHint": "Appears on your online store",
+    "editAddress": "Edit store address",
+    "addressVisible": "Your customers can see this information",
+    "addressPlaceholder": "Street name and building number",
+    "storeEmail": "Store email",
+    "storeEmailHint": "Where customers and the platform write to your store. Falls back to your account email.",
+    "accountEmail": "Account email",
+    "companyName": "Company name",
+    "apartment": "Apartment, suite, etc.",
+    "postalFormatHint": "That does not match this country's format ({format}). You can still save it.",
+    "postalUnexpected": "That does not look like a postal code for this country. You can still save it.",
+    "invalidEmail": "Please enter a valid email address.",
+    "invalidPhone": "Please enter a valid phone number.",
+    "deleteStore": {
+      "title": "Delete store",
+      "cardDesc": "Remove this store from your account. Platform staff can restore it later.",
+      "cardBody": "The storefront goes offline and this store leaves your list. Your data is kept so support can restore it if you change your mind.",
+      "action": "Delete store",
+      "dialogTitle": "Delete {name}?",
+      "dialogBody": "“{name}” will be soft-deleted: the storefront goes offline and this store leaves your list. Platform staff can restore it later — contact support if you need it back. You cannot undo this from here.",
+      "confirm": "Delete store",
+      "cancel": "Cancel",
+      "deleting": "Deleting…",
+      "done": "Store deleted",
+      "failed": "Could not delete this store",
+      "activeOrders": "This store still has open orders. Complete or cancel them before deleting."
+    }
+  },
+  "shipping": {
+    "zonesTitle": "Your own delivery — zones and rates",
+    "zonesDescription": "What you charge to deliver orders yourself. A zone is a set of destinations and the rate to reach them; the most specific match wins. Shipping companies price their own options and nothing here changes them.",
+    "noZonesTitle": "No zones yet",
+    "noZonesBody": "Without a zone your shop falls back to the flat rate below. Add zones when you want to charge different destinations differently.",
+    "addZone": "Add zone",
+    "editZone": "Edit zone",
+    "deleteZone": "Delete zone",
+    "restOfWorld": "Rest of world",
+    "catchAllBadge": "Catch-all",
+    "zoneHasNoRate": "No rate on this zone — checkout refuses orders to its destinations until you add one.",
+    "addRate": "Add rate",
+    "editRate": "Edit rate",
+    "deleteRate": "Delete rate",
+    "rateShadowed": "not charged",
+    "rateFixed": "{amount} per order",
+    "rateFree": "Free",
+    "ratePercentage": "{percent}% of the order",
+    "rateWeight": "{base} + {perKg} per kg",
+    "freeOver": "free over {amount}",
+    "unzonedTitle": "Flat rate (no zone)",
+    "unzonedActiveDesc": "Charged on every destination, because this shop has no zones.",
+    "unzonedShadowedDesc": "Not charged. As soon as a shop has one zone, rates without a zone stop being used.",
+    "quickStartTitle": "Start with one flat rate",
+    "quickStartBody": "One rate with no zone applies everywhere. It is the quickest way to make checkout work; you can split it into zones later.",
+    "addFlatRate": "Add a flat rate",
+    "newZoneTitle": "New zone",
+    "editZoneTitle": "Edit zone",
+    "zoneDialogHint": "Name it for yourself — customers never see it.",
+    "zoneName": "Zone name",
+    "zoneNamePlaceholder": "Gulf, Local, Rest of world…",
+    "countries": "Countries",
+    "countriesEmpty": "Everywhere else",
+    "countriesHint": "Only these destinations match this zone.",
+    "cities": "Cities",
+    "citiesEmpty": "Leave empty to cover every city in Palestine.",
+    "citiesHint": "Only selected cities match this zone.",
+    "catchAllHint": "Leave empty and this zone catches every destination no other zone covers. Keep exactly one of these.",
+    "catchAllConflict": "“{name}” is already the catch-all. Give this zone its countries, or make “{name}” specific first.",
+    "priority": "Priority",
+    "priorityHint": "Only breaks a tie between two equally specific zones. Lower wins.",
+    "zoneCreated": "Zone created",
+    "zoneUpdated": "Zone updated",
+    "zoneDeleted": "Zone deleted",
+    "newRateTitle": "New rate",
+    "editRateTitle": "Edit rate",
+    "rateDialogHint": "What this zone charges for delivery.",
+    "unzonedRateHint": "A rate with no zone. It applies everywhere, and only while the shop has no zones.",
+    "rateName": "Rate name",
+    "rateNamePlaceholder": "Standard delivery",
+    "rateNameHint": "Shown to the customer at checkout.",
+    "rateType": "How it is calculated",
+    "amount": "Amount ({currency})",
+    "baseAmount": "Handling fee ({currency})",
+    "percentOfOrder": "Percent of order",
+    "perKilo": "Per kilogram ({currency})",
+    "perKiloHint": "Weight is rounded up to the next whole kilogram.",
+    "freeOverLabel": "Free above ({currency})",
+    "freeOverPlaceholder": "No threshold",
+    "freeOverHint": "Orders at or over this subtotal ship free. Leave empty for none.",
+    "rateCreated": "Rate created",
+    "rateUpdated": "Rate updated",
+    "rateDeleted": "Rate deleted",
+    "deleteZoneTitle": "Delete this zone?",
+    "deleteZoneBody": "“{name}” and its rates are removed. Any destination it covered stops being quotable unless another zone catches it.",
+    "deleteRateTitle": "Delete this rate?",
+    "deleteRateBody": "“{name}” is removed. If it was your only flat rate, orders go through with no delivery charge until you add another.",
+    "deleteLastRateTitle": "This is the zone’s only rate",
+    "deleteLastRateBody": "“{name}” is the only rate on “{zone}”. Without it, checkout refuses every order to that zone’s destinations. Add another rate first, or delete the zone itself.",
+    "deleteZoneInstead": "Delete the zone instead",
+    "rateTypes": {
+      "fixed": "Flat rate",
+      "free": "Free shipping",
+      "percentage": "Percent of order",
+      "weight_based": "By weight"
+    },
+    "diagnostics": {
+      "nothingConfigured": "No shipping is configured, so checkout cannot quote delivery to any address. Add a flat rate to start accepting orders.",
+      "noCatchAll": "No catch-all zone. Any destination outside the countries you listed cannot be quoted. Add a zone with no countries selected.",
+      "multipleCatchAlls": "More than one catch-all zone: {zones}. They match the same destinations, so only the one with the lowest priority is ever charged — give the others their countries or delete them.",
+      "unzonedShadowed": "{count, plural, one {One rate has no zone and is no longer charged} other {# rates have no zone and are no longer charged}} — zones take over completely once one exists.",
+      "multipleRatesOnZone": "Only the newest rate on a zone is charged. Extra rates on: {zones}",
+      "zoneWithoutRate": "These zones match orders but carry no rate, so checkout refuses every order to their destinations: {zones}"
+    },
+    "mode": {
+      "title": "Shipping method",
+      "description": "Who delivers your orders. This is separate from what the customer pays for shipping.",
+      "merchantTitle": "I deliver my own orders",
+      "merchantBody": "You arrange delivery yourself and enter tracking numbers by hand. No carrier account needed.",
+      "providerTitle": "A carrier delivers",
+      "providerBody": "Shipments are booked with a shipping company, which returns the tracking number and the label.",
+      "providerBlocked": "Connect and verify a carrier account first.",
+      "notReady": "This shop is set to ship through a carrier, but no carrier account is enabled and verified — shipments cannot be booked until one is.",
+      "pricingNote": "What the customer pays for shipping is always set by your own zones and rates below. A carrier changes who delivers, not the price.",
+      "saved": "Shipping method updated",
+      "saveFailed": "Could not change the shipping method"
+    },
+    "carrier": {
+      "noCarriersTitle": "No carriers available yet",
+      "noCarriersBody": "No shipping company can be connected on this server yet.",
+      "noCarriersHint": "You can keep delivering your own orders in the meantime — nothing else on this screen is affected.",
+      "verified": "Verified",
+      "notVerified": "Not verified",
+      "sandboxBadge": "Test mode",
+      "sandboxLabel": "Test mode",
+      "sandboxHint": "Bookings go to the carrier's test system and no real pickup is created.",
+      "enabledLabel": "Use this carrier",
+      "save": "Save credentials",
+      "verify": "Verify",
+      "delete": "Remove",
+      "saved": "Credentials saved",
+      "saveFailed": "Could not save the credentials",
+      "verifyOk": "The carrier accepted these credentials",
+      "verifyFailed": "The carrier rejected these credentials",
+      "toggleFailed": "Could not change the carrier",
+      "deleted": "Carrier account removed",
+      "deleteFailed": "Could not remove the account",
+      "verifyFirst": "Verify these credentials before enabling the account — an unverified carrier fails at the first real shipment.",
+      "carriersTitle": "Shipping companies",
+      "carriersDescription": "Choose which carriers your store offers at checkout. Only carriers your own account has a contract with can be booked.",
+      "usingPlatformDefaults": "Offering every carrier your account can book with. Turning one off starts customising the list.",
+      "allCarriersOffWarning": "Every carrier is off, so carrier delivery cannot be booked. Turn one on, or switch the channel off and deliver the orders yourself.",
+      "resetToDefaults": "Offer all of them",
+      "carriersSaved": "Carriers updated",
+      "carriersReset": "Offering every carrier again",
+      "connectTitle": "Your carrier account",
+      "connectBody": "Shipping is booked with the carrier under your own account, so the rates and the invoices are yours. Connect it here, then verify it.",
+      "connectFirst": "Connect and verify a carrier account above to choose carriers and register your warehouses.",
+      "deleteConfirm": "Remove this carrier account? Orders already booked keep their tracking, but nothing new can be booked until you connect one again.",
+      "onboardingTitle": "How to connect your OTO account",
+      "onboardingDesc": "OTO aggregates multiple carriers (Aramex, SMSA, SPL, DHL, etc.) under your own contract and negotiated rates.",
+      "onboardingCta": "Create OTO Account",
+      "onboardingStepsTitle": "Step-by-step connection guide:",
+      "onboardingStep1": "Register or sign in to your account at OTO (tryoto.com).",
+      "onboardingStep2": "From the OTO dashboard, go to Settings → Developers → Connected Apps / API Tokens.",
+      "onboardingStep3": "Generate or copy your Refresh Token and paste it below.",
+      "onboardingStep4": "Turn on Test mode (Sandbox) if you are testing, or turn it off for live shipments.",
+      "onboardingToggleHide": "Hide guide",
+      "onboardingToggleShow": "Need help connecting?"
+    },
+    "mapping": {
+      "title": "Warehouse to carrier branch",
+      "description": "Give each of your locations the id the carrier knows it by. Orders keep using your own location — this is only the translation.",
+      "unmappedWarning": "{count, plural, one {# location has no carrier branch} other {# locations have no carrier branch}}. Shipping from an unmapped location is refused rather than sent from a different branch.",
+      "noLocations": "This shop has no location that fulfils online orders.",
+      "noAddress": "No address",
+      "idPlaceholder": "Branch id",
+      "save": "Save",
+      "cancel": "Cancel",
+      "edit": "Change",
+      "saved": "Branch saved",
+      "saveFailed": "Could not save the branch id",
+      "removeFailed": "Could not remove the mapping"
+    },
+    "etaMinLabel": "Delivery from (days)",
+    "etaMaxLabel": "Delivery up to (days)",
+    "etaHint": "Shown beside this rate at checkout, e.g. “3–5 days”. Leave empty to promise nothing.",
+    "packages": {
+      "title": "Packages",
+      "description": "Packages you use to ship products. When fulfilling an order, package dimensions and weights are used to calculate shipping rates.",
+      "aboutPackages": "About packages",
+      "aboutPackagesTooltip": "Custom packages let you set accurate dimensions and tare weights for automatic rate calculation.",
+      "addPackage": "Add package",
+      "managePackages": "Manage packages",
+      "editTitle": "Edit package",
+      "addTitle": "Add package",
+      "dialogSubtitle": "Packages are used to calculate shipping rates at checkout and fulfill orders.",
+      "packageType": "Package type",
+      "types": {
+        "box": "Box",
+        "envelope": "Envelope",
+        "softPackage": "Soft package"
+      },
+      "length": "Length",
+      "width": "Width",
+      "height": "Height",
+      "emptyWeight": "Empty package weight",
+      "packageName": "Package name",
+      "packageNamePlaceholder": "e.g. Sample box",
+      "useAsDefault": "Use this package to calculate rates at checkout",
+      "defaultSubtitle": "This package will be selected by default when calculating shipping rates for your products.",
+      "savePackage": "Save package",
+      "storeDefault": "Store default",
+      "makeDefault": "Set as default",
+      "noPackages": "No packages added yet",
+      "deletedToast": "Package deleted successfully",
+      "defaultUpdatedToast": "Default package updated successfully",
+      "cannotDeleteOnlyPackage": "Cannot delete the only remaining package",
+      "createdToast": "Package created successfully",
+      "updatedToast": "Package updated successfully",
+      "errorToast": "Failed to save package",
+      "validation": {
+        "nameRequired": "Package name is required",
+        "positiveDimensions": "Dimensions must be greater than zero",
+        "nonNegativeWeight": "Weight cannot be negative"
+      },
+      "suggest": {
+        "button": "Suggest a box",
+        "title": "What are the product's dimensions?",
+        "hint": "We add {allowance} cm on every side for packing. These measurements are only used to pick a box and are not saved.",
+        "find": "Find a matching box",
+        "sizeError": "Enter all three measurements in centimetres, above zero.",
+        "badge": "Suggested",
+        "noFit": "None of your boxes fits — we suggest creating this one",
+        "proposedName": "Box {size} cm",
+        "create": "Create and use this box",
+        "edit": "Edit before creating",
+        "unitCm": "cm",
+        "unitKg": "kg"
+      }
+    },
+    "pickup": {
+      "title": "Carrier pickup",
+      "description": "Which of your locations the carrier can collect from. Registering one sends its address to the carrier — you never handle a code.",
+      "loading": "Loading locations…",
+      "empty": "No active locations yet. Add one under Locations first.",
+      "noneReady": "No location is registered with the carrier yet, so shipments cannot be booked. Register at least one below.",
+      "citylessOne": "“{name}” has no city, so shipping companies cannot price an order leaving it. Add the city under Locations.",
+      "citylessMany": "{count} locations have no city, so shipping companies cannot price an order leaving them: {names}. Add the city under Locations.",
+      "noCity": "No city set",
+      "ready": "Ready to ship",
+      "registering": "Registering…",
+      "enable": "Enable carrier shipping",
+      "requirements": "A location needs a national address code and a phone number before it can be registered — add them under Locations.",
+      "readyToast": "{name} is ready to ship",
+      "alreadyRegistered": "{name} was already registered",
+      "registerFailed": "Could not register"
+    },
+    "channels": {
+      "saved": "Delivery options saved",
+      "title": "What customers can choose",
+      "description": "Offer your own delivery, shipping companies, or both — the customer picks at checkout.",
+      "merchantLabel": "My own delivery",
+      "merchantHint": "Priced by your zones and rates below.",
+      "carrierLabel": "Shipping companies",
+      "carrierHint": "Live prices from the carriers, charged to the customer exactly as quoted — you add nothing and lose nothing.",
+      "bothOff": "No delivery option will be shown at checkout. Customers will only be able to buy items that need no delivery.",
+      "carrierUnavailable": "No carrier prices will appear until you connect your own OTO account and verify it — in the card just below. This setting is saved either way and applies as soon as the account is verified.",
+      "carrierOff": "Your carrier account is connected and verified, but shipping companies are switched off — so customers are not offered any carrier prices at checkout. Turn the switch on and save to start offering them.",
+      "weightLabel": "Assumed weight per item",
+      "grams": "grams",
+      "weightHint": "Used only for products with no weight of their own. Carriers price by weight, so setting this too low means quotes come back cheaper than the shipment actually costs.",
+      "weightInvalid": "Enter a weight above zero."
+    }
+  },
+  "brand": {
+    "logos": "Logos",
+    "logosDesc": "Used across your storefront, invoices and shared links.",
+    "defaultLogo": "Default logo",
+    "squareLogo": "Square logo",
+    "coverImage": "Cover image",
+    "coverImageDesc": "The banner shown at the top of your storefront.",
+    "colors": "Colors",
+    "colorsDesc": "Used for backgrounds and text across your brand assets.",
+    "primary": "Primary",
+    "secondary": "Secondary",
+    "backgroundColor": "Background",
+    "foregroundColor": "Text",
+    "contrastOk": "Contrast {ratio}:1 — passes WCAG AA.",
+    "contrastLow": "Contrast {ratio}:1 — below WCAG AA (4.5:1). Text may be hard to read.",
+    "slogan": "Slogan",
+    "sloganDesc": "A short line that sums up your store.",
+    "sloganPlaceholder": "Everything for your kitchen",
+    "shortDescription": "Short description",
+    "shortDescriptionDesc": "Shown on your storefront and in the shop directory.",
+    "shortDescriptionPlaceholder": "Tell customers what you sell and what makes you different.",
+    "socialLinks": "Social links",
+    "socialLinksDesc": "Shown in your storefront footer.",
+    "invalidUrl": "Enter a full link, for example https://instagram.com/yourshop",
+    "upload": "Upload",
+    "replace": "Replace",
+    "fromLibrary": "From library",
+    "uploadFailed": "That image could not be uploaded.",
+    "whatToAdd": "What should you add?",
+    "essential": "Essential",
+    "essentialDesc": "Common brand assets used across your storefront and channels",
+    "additional": "Additional",
+    "additionalDesc": "Used by some apps and social media channels",
+    "defaultGroup": "Default",
+    "defaultGroupDesc": "Used for most common logo applications",
+    "squareGroup": "Square",
+    "squareGroupDesc": "Used by some social media channels. May be cropped into a circle.",
+    "primaryDesc": "The brand colors that appear on your store, social media, and more",
+    "secondaryDesc": "Supporting colors used for accents and additional detail",
+    "addDefaultLogo": "Add a default logo",
+    "addSquareLogo": "Add a square logo",
+    "addCoverImage": "Add a cover image",
+    "addPrimaryColor": "Add a primary color",
+    "addSecondaryColor": "Add a secondary color",
+    "addSlogan": "Add a slogan",
+    "addShortDescription": "Add a short description",
+    "addSocialLink": "Add social link",
+    "removeLink": "Remove {network}",
+    "hintWide": "SVG, PNG, WebP or JPG, up to {size}MB. Recommended width: 512 pixels minimum.",
+    "hintSquare": "SVG, PNG, WebP or JPG, up to {size}MB. Recommended: 512×512 pixels minimum.",
+    "hintCover": "SVG, PNG, WebP or JPG, up to {size}MB. Recommended: 1920×1080 pixels minimum.",
+    "noLogoYet": "No logo yet?",
+    "noLogoYetLink": "Pick one from your media library",
+    "learnMore": "These assets are used across your storefront, invoices and shared links."
+  },
+  "whatsapp": {
+    "title": "WhatsApp",
+    "description": "Your store's own WhatsApp number, and the Zaydak assistant you can message about your store.",
+    "group": {
+      "store": {
+        "title": "Your store WhatsApp",
+        "description": "The number your customers message you on."
+      },
+      "assistant": {
+        "title": "Zaydak vendor bot",
+        "description": "A number you message, to manage your store from your phone."
+      }
+    },
+    "card": {
+      "title": "WhatsApp",
+      "subtitle": "Customers can contact your store through this number."
+    },
+    "state": {
+      "unavailable": {
+        "label": "Unavailable",
+        "body": "WhatsApp has not been set up on this platform yet. Ask the platform administrator to configure it before connecting a number."
+      },
+      "connecting": {
+        "label": "Connecting",
+        "body": "Waiting for WhatsApp to finish pairing. Open the code again and scan it from your phone — this page updates on its own once it connects."
+      },
+      "connected": {
+        "label": "Connected",
+        "body": "Customers can message your store on this number."
+      },
+      "disconnected": {
+        "label": "Disconnected",
+        "body": "This number is offline, so messages sent to it do not reach your store. It happens on its own when the phone is off for a long time or its linked devices are cleared — reconnecting takes one scan."
+      },
+      "error": {
+        "label": "Needs attention",
+        "body": "The last attempt to connect did not finish. Nothing has been deleted — your settings are still here and you can try again."
+      }
+    },
+    "field": {
+      "since": "Connected since {when}"
+    },
+    "consent": {
+      "title": "This links your whole WhatsApp account",
+      "body": "Scanning the code links this platform as a device on your WhatsApp, the same way WhatsApp Web does. That means access to every conversation on the account, not only the ones about your shop. Use a number you keep for the business."
+    },
+    "action": {
+      "connect": "Connect WhatsApp",
+      "reconnect": "Reconnect",
+      "resume": "Show the code again",
+      "cancelPairing": "Cancel",
+      "disconnect": "Disconnect",
+      "test": "Send test message",
+      "refresh": "Refresh status"
+    },
+    "empty": {
+      "title": "Connect WhatsApp",
+      "body": "Connect your store's WhatsApp number so customers can message your store — and, if you want it, have an assistant reply for you.",
+      "facts": {
+        "oneNumber": "One WhatsApp number per store.",
+        "qr": "You connect by scanning a code, like WhatsApp Web.",
+        "existing": "The WhatsApp account you already use works — no new number needed.",
+        "noTyping": "Nothing to type: we read the number from the phone that scans."
+      }
+    },
+    "pairing": {
+      "title": "Connect your WhatsApp",
+      "subtitle": "Three steps on your phone. Keep this window open while you scan.",
+      "tabQr": "Scan QR Code",
+      "tabPhone": "Link with Phone Number",
+      "recommended": "Recommended",
+      "copyCode": "Copy Code",
+      "codeCopied": "Code copied",
+      "secureSession": "Secure, encrypted multi-device WhatsApp session",
+      "step1": "Open WhatsApp on your phone.",
+      "step2": "Go to Settings, then Linked devices, then Link a device.",
+      "step3": "Point your phone at the code below.",
+      "qrAlt": "WhatsApp pairing code",
+      "waiting": "Getting a code…",
+      "refreshes": "The code refreshes automatically",
+      "listening": "Waiting for connection",
+      "streamError": "Lost contact with the server, so the code has stopped refreshing. Retrying.",
+      "deviceLimit": "WhatsApp allows four linked devices. If you already use WhatsApp Web or the desktop app on several machines, the scan will do nothing — remove one under Linked devices first.",
+      "useCode": "Use an 8-character code instead",
+      "phoneLabel": "Your WhatsApp number",
+      "phoneHelp": "Include the country code. Then on your phone: Linked devices → Link with phone number instead.",
+      "getCode": "Get code",
+      "codeHelp": "Enter this on your phone under Linked devices → Link with phone number instead.",
+      "codeFailed": "Could not get a code for that number. Check the country code and try again.",
+      "backToQr": "Back to the QR code",
+      "cancel": "Cancel"
+    },
+    "success": {
+      "title": "WhatsApp connected",
+      "body": "Your number is linked. Customers can message your store on it from now on.",
+      "next": "Next, choose whether an assistant should answer them for you.",
+      "continue": "Continue"
+    },
+    "bot": {
+      "title": "Customer AI bot",
+      "subtitle": "Replies to your customers on this number.",
+      "on": "On",
+      "off": "Off",
+      "onBody": "Your assistant answers incoming customer messages automatically, in your store's name. Every message still appears in your dashboard, and you can take over any conversation at any time.",
+      "offBody": "Incoming messages still arrive and are still saved to your dashboard — nobody replies to them automatically, so you answer them yourself.",
+      "topics": {
+        "products": "Products",
+        "prices": "Prices",
+        "availability": "Availability",
+        "orders": "Orders",
+        "shipping": "Shipping",
+        "store": "Store information"
+      },
+      "ask": {
+        "title": "Should the assistant answer your customers?",
+        "body": "It is off until you say otherwise. Turn it on and it replies to incoming messages for you; leave it off and every message waits for you.",
+        "enable": "Turn on the assistant",
+        "decline": "Not now",
+        "reversible": "You can change this at any time."
+      },
+      "confirmOff": {
+        "title": "Turn off the customer AI bot?",
+        "body": "New customer messages will stop getting automatic replies.",
+        "keeps": {
+          "received": "Your number keeps receiving messages.",
+          "stored": "Every message still appears in your dashboard.",
+          "manual": "You can keep replying yourself."
+        },
+        "turnOff": "Turn off",
+        "keepOn": "Keep it on"
+      },
+      "toast": {
+        "enabled": "Customer AI bot is on",
+        "disabled": "Customer AI bot is off",
+        "failed": "Could not change the assistant setting"
+      },
+      "orders": {
+        "title": "Take orders in the chat",
+        "body": "When a customer wants to buy, the assistant sends them a summary with your prices, their address and the payment method they chose, and places the order only when they reply to confirm it. Orders appear in Orders, marked as placed on WhatsApp.",
+        "on": "On",
+        "off": "Off",
+        "notOnPlan": "Not included in your plan. Contact us to have it enabled for your shop.",
+        "toast": {
+          "enabled": "The assistant can now take orders",
+          "disabled": "The assistant no longer takes orders",
+          "failed": "Could not change the ordering setting"
+        },
+        "confirmOn": {
+          "title": "Let the assistant take orders?",
+          "body": "Orders placed in the chat are real orders in your store, and you fulfil them like any other.",
+          "points": {
+            "summary": "The customer is sent a summary with every price and the total, taken from your store, and must reply to confirm it.",
+            "cod": "They pay with the methods your store takes: cash on delivery, a card on a secure payment page, or a bank transfer you review. No card details are ever asked for in the chat.",
+            "orders": "Each order appears in Orders, marked as placed on WhatsApp."
+          },
+          "turnOn": "Turn on",
+          "cancel": "Cancel"
+        }
+      }
+    },
+    "vendorBot": {
+      "title": "Zaydak AI assistant",
+      "subtitle": "Zaydak's own number — not your store's.",
+      "body": "Message this number from WhatsApp to check orders, search products, look up store information and ask about how your business is doing.",
+      "numberLabel": "Zaydak WhatsApp",
+      "open": "Chat on WhatsApp",
+      "unlink": "Remove this phone",
+      "linked": "{phone} can message the assistant about this store",
+      "lastMessage": "Last message {when}",
+      "noPairing": "You do not connect this number — Zaydak runs it. Connect this store’s WhatsApp above and the phone that scans becomes the one that can ask about this store.",
+      "enrolled": "You do not connect this number — Zaydak runs it. Write to it from the same phone you scanned this store’s code with.",
+      "readOnly": "The assistant reads your store; it does not change it.",
+      "toast": {
+        "unlinked": "Phone removed",
+        "unlinkFailed": "Could not remove the phone"
+      },
+      "pill": {
+        "unavailable": "Unavailable",
+        "unlinked": "Not connected",
+        "linked": "Connected"
+      },
+      "answersHere": "It answers about this store only. To use it for another store, connect that store’s WhatsApp from the same phone."
+    },
+    "disconnect": {
+      "title": "Disconnect WhatsApp?",
+      "body": "Your WhatsApp session is logged out, but your Zaydak configuration and assistant settings stay exactly as they are. You can connect this number, or a different one, again later."
+    },
+    "toast": {
+      "disconnected": "WhatsApp disconnected",
+      "disconnectFailed": "Could not disconnect",
+      "testQueued": "Test message queued — it will arrive shortly",
+      "testFailed": "Could not queue the test message"
+    },
+    "test": {
+      "title": "Send a test message",
+      "body": "Sends one real WhatsApp message from your shop's number, through the same path every notification takes.",
+      "phone": "Send to",
+      "hint": "Use a different phone, not the one you linked — a phone messaging itself succeeds even when sending is broken.",
+      "send": "Send",
+      "sending": "Sending…"
+    }
+  },
+  "telegram": {
+    "title": "Telegram",
+    "description": "Your store's own bot for customers, and the Zaydak assistant you can message to manage your store from your phone.",
+    "group": {
+      "shop": {
+        "title": "Your store's Telegram bot",
+        "description": "A bot your customers message. You create it in Telegram and paste its token here."
+      },
+      "assistant": {
+        "title": "Zaydak vendor bot",
+        "description": "A bot you message, to check on your store from your phone."
+      }
+    },
+    "shopBot": {
+      "title": "Store customer bot",
+      "subtitle": "Your store's own bot — where your customers write.",
+      "connected": "Connected",
+      "notConnected": "Not connected",
+      "attention": "Needs attention",
+      "body": "Customers who message this bot reach your store. Their messages land in your inbox, and you reply from there.",
+      "steps": {
+        "title": "Create the bot in Telegram",
+        "one": "Open @BotFather in Telegram and send /newbot.",
+        "two": "Give it a name, and a username that ends in “bot”.",
+        "three": "Copy the token BotFather sends and paste it below."
+      },
+      "tokenLabel": "Bot token",
+      "tokenPlaceholder": "123456789:AA…",
+      "tokenHint": "Numbers, a colon, then letters. Once saved, nobody at Zaydak can read it back — keep your own copy in BotFather.",
+      "consent": "Connecting registers this bot to your store. Every message sent to it arrives in your Zaydak inbox.",
+      "connect": "Connect bot",
+      "reconnect": "Connect again",
+      "botLabel": "Your store's bot",
+      "connectedAs": "{handle} is connected. Customers who message it reach your inbox.",
+      "connectedAt": "Connected {when}",
+      "open": "Open the bot",
+      "errorTitle": "Telegram could not register the bot",
+      "errorHint": "Fix what Telegram reports, then try again. Your token is still saved, so you only need to paste it again if it has changed.",
+      "retry": "Retry registration",
+      "retryHint": "Asks Telegram to register the saved bot again, without the token.",
+      "inboxNote": "Every message to this bot is saved to your inbox. Turn on the customer AI bot below to have the assistant reply, or leave it off and reply yourself.",
+      "disconnect": "Disconnect",
+      "confirmDisconnect": {
+        "title": "Disconnect your store's bot?",
+        "body": "Customers who message it will no longer reach your inbox. To connect again you will paste the token from BotFather once more.",
+        "confirm": "Disconnect",
+        "cancel": "Keep it"
+      },
+      "bot": {
+        "title": "Customer AI bot",
+        "subtitle": "Replies to your customers on this bot.",
+        "on": "On",
+        "off": "Off",
+        "onBody": "Your assistant answers messages sent to your bot automatically, in your store's name. Every message still appears in your dashboard, and you can take over any conversation at any time.",
+        "offBody": "Messages sent to your bot still arrive and are still saved to your dashboard — nobody replies to them automatically, so you answer them yourself.",
+        "topics": {
+          "products": "Products",
+          "prices": "Prices",
+          "availability": "Availability",
+          "orders": "Orders",
+          "shipping": "Shipping",
+          "store": "Store information"
+        },
+        "ask": {
+          "title": "Should the assistant answer your customers on Telegram?",
+          "body": "It is off until you say otherwise. Turn it on and it replies to messages sent to your bot for you; leave it off and every message waits for you.",
+          "enable": "Turn on the assistant",
+          "decline": "Not now",
+          "reversible": "You can change this at any time."
+        },
+        "confirmOff": {
+          "title": "Turn off the customer AI bot?",
+          "body": "New messages to your bot will stop getting automatic replies.",
+          "keeps": {
+            "received": "Your bot keeps receiving messages.",
+            "stored": "Every message still appears in your dashboard.",
+            "manual": "You can keep replying yourself."
+          },
+          "turnOff": "Turn off",
+          "keepOn": "Keep it on"
+        },
+        "toast": {
+          "enabled": "Customer AI bot is on",
+          "disabled": "Customer AI bot is off",
+          "failed": "Could not change the assistant setting"
+        },
+        "orders": {
+          "title": "Take orders in the chat",
+          "body": "When a customer wants to buy, the assistant asks them to share their phone number with a button, then sends a summary with your prices, their address and the payment method they chose. The order is placed only when they press Confirm or reply to confirm it. Orders appear in Orders, marked as placed on Telegram.",
+          "on": "On",
+          "off": "Off",
+          "notOnPlan": "Not included in your plan. Contact us to have it enabled for your shop.",
+          "toast": {
+            "enabled": "The assistant can now take orders",
+            "disabled": "The assistant no longer takes orders",
+            "failed": "Could not change the ordering setting"
+          },
+          "confirmOn": {
+            "title": "Let the assistant take orders?",
+            "body": "Orders placed in the chat are real orders in your store, and you fulfil them like any other.",
+            "points": {
+              "summary": "The customer shares their phone number with a button, then gets a summary with every price and the total, taken from your store, and must confirm it.",
+              "cod": "They pay with the methods your store takes: cash on delivery, a card on a secure payment page, or a bank transfer you review. No card details are ever asked for in the chat.",
+              "orders": "Each order appears in Orders, marked as placed on Telegram."
+            },
+            "turnOn": "Turn on",
+            "cancel": "Cancel"
+          }
+        }
+      },
+      "toast": {
+        "connected": "Store bot connected",
+        "connectFailed": "Could not connect the bot",
+        "disconnected": "Store bot disconnected",
+        "disconnectFailed": "Could not disconnect",
+        "retried": "Store bot registered again",
+        "retryFailed": "Telegram still could not register the bot"
+      }
+    },
+    "vendorBot": {
+      "title": "Zaydak AI assistant",
+      "subtitle": "Zaydak's own bot — not your store's.",
+      "body": "Message this bot on Telegram to check stock, look up prices, search products and ask how your business is doing.",
+      "connected": "Connected",
+      "notConnected": "Not connected",
+      "unavailable": "Unavailable",
+      "botLabel": "Zaydak Telegram",
+      "notConfigured": "The Zaydak assistant is not set up on Telegram yet. This is on the platform side — there is nothing for you to do.",
+      "consent": "Connecting gives this store an assistant on the Telegram account that opens the link. Open it from the phone you want to use — the link works once and lasts ten minutes. One Telegram account serves one store: opening a link for another store moves it.",
+      "connect": "Connect Telegram",
+      "linkReady": "Your link is ready. Open it in Telegram and press Start.",
+      "openLink": "Open in Telegram",
+      "copyLink": "Copy link",
+      "linkExpires": "Works once, for {minutes} minutes. Press Connect again for a new one.",
+      "open": "Open the bot",
+      "disconnect": "Disconnect",
+      "linkedAs": "{handle} can message the assistant about this store",
+      "linkedAnon": "Your Telegram account can message the assistant about this store",
+      "linkedAt": "Connected {when}",
+      "readOnly": "The assistant reads your store; it does not change it.",
+      "toast": {
+        "connectFailed": "Could not create a link",
+        "disconnected": "Telegram disconnected",
+        "disconnectFailed": "Could not disconnect",
+        "copied": "Link copied",
+        "copyFailed": "Could not copy the link"
+      },
+      "answersHere": "It answers about this store only. To use it for another store, press Connect on that store’s Telegram settings."
+    }
+  },
+  "domains": {
+    "title": "Domains",
+    "primary": "Primary",
+    "changed": "Store address changed",
+    "learnMore": "Learn more about domains",
+    "learnMorePrompt": "Explain how domains work for my store: what my platform address is, how I connect a custom domain I already own, what DNS records it needs, and what changes when I make a domain primary.",
+    "banner": {
+      "body": "Connect a domain you already own, or buy a new one, to give your store an address that matches your brand. Your <ltr>{address}</ltr> address keeps working alongside it.",
+      "disabled": "Custom domains are not available on this deployment yet. Customers reach your store at <ltr>{address}</ltr>.",
+      "pendingApproval": "Customers can reach your store's addresses once the platform approves your store.",
+      "inactive": "Your storefront is switched off, so customers who open any of these addresses see nothing until you turn it back on."
+    },
+    "buy": {
+      "action": "Buy new domain",
+      "title": "Buy a new domain",
+      "body": "We don't sell domains yet. Buy one from a registrar, then come back and connect it here — it takes a few minutes.",
+      "registrars": "Where to buy a domain",
+      "then": "Already own a domain? Connect it instead.",
+      "close": "Close",
+      "connect": "Connect existing domain"
+    },
+    "connect": {
+      "action": "Connect existing",
+      "more": "More ways to add a domain",
+      "menu": "Connect existing domain",
+      "title": "Connect existing domain",
+      "body": "Point a domain you already own at your store.",
+      "label": "Domain",
+      "placeholder": "example.com, shop.example.com",
+      "cancel": "Cancel",
+      "next": "Next",
+      "connecting": "Connecting..."
+    },
+    "change": {
+      "title": "Change to a new {root} domain",
+      "titlePath": "Change your store address",
+      "body": "Update your current store address for free to better match your brand. You can also buy or connect a custom domain.",
+      "action": "Change {root} domain",
+      "actionPath": "Change store address",
+      "menu": "Change store address",
+      "dialogTitle": "Change your store address",
+      "dialogBody": "This is the handle in your storefront URL. It also scopes every request this dashboard makes.",
+      "label": "Store address",
+      "warning": "Your old address keeps working — links to it redirect here, and nobody else can take it.",
+      "cancel": "Cancel",
+      "confirm": "Change address",
+      "saving": "Changing...",
+      "checking": "Checking..."
+    },
+    "errors": {
+      "tooShort": "Use at least {min} characters.",
+      "malformed": "Lowercase letters, numbers and single dashes only, and it cannot start or end with a dash.",
+      "taken": "That address is already taken. Try another.",
+      "reserved": "That address is reserved by the platform. Try another."
+    },
+    "table": {
+      "domain": "Domain",
+      "status": "Status",
+      "view": "View",
+      "remove": "Delete domain",
+      "viewNamed": "View {hostname}",
+      "removeNamed": "Delete {hostname}",
+      "changeType": "Change domain type",
+      "changeTypeNamed": "Change domain type for {hostname}"
+    },
+    "status": {
+      "NEEDS_SETUP": "Needs setup",
+      "INVALID_DNS": "Invalid DNS",
+      "PROVISIONING": "Provisioning TLS",
+      "CONNECTED": "Connected",
+      "ERROR": "Error"
+    },
+    "remove": {
+      "title": "Delete <ltr>{hostname}</ltr>?",
+      "body": "Customers who open this address will no longer reach your store. You can connect it again later.",
+      "cancel": "Cancel",
+      "confirm": "Delete domain",
+      "deleting": "Deleting...",
+      "done": "Domain deleted"
+    },
+    "target": {
+      "title": "Domain target and type",
+      "infoLabel": "About domain target and type",
+      "info": "The target is where this address sends visitors. The type says whether it is the primary domain your store's links are built from, redirects to it, or serves the store alongside it.",
+      "target": "Target",
+      "onlineStore": "Online Store",
+      "type": "Type",
+      "primary": "Primary domain",
+      "redirects": "Redirects to <ltr>{hostname}</ltr>",
+      "change": "Change",
+      "alias": "Serves your store alongside the primary domain"
+    },
+    "detail": {
+      "notFoundTitle": "Domain not found",
+      "notFoundBody": "This domain is no longer connected to your store.",
+      "back": "Back to domains",
+      "managedBy": "Managed by {provider}",
+      "managedByUnknown": "DNS provider not detected",
+      "addedOn": "Added on {date}",
+      "view": "View",
+      "login": "Log in to {provider}",
+      "settings": "Domain settings",
+      "delete": "Delete domain"
+    },
+    "hero": {
+      "greeting": "Hey {name}, need help with your domain?",
+      "greetingAnon": "Need help with your domain?",
+      "connected": "<ltr>{hostname}</ltr> is connected to your store.",
+      "help": "Help set up domain",
+      "prompt": "Help me set up my custom domain {hostname}. Walk me through the DNS records I need to change at my DNS provider, then how to check that they are working."
+    },
+    "steps": {
+      "configure": "Configure DNS records on {provider}",
+      "configureUnknown": "Configure DNS records at your DNS provider",
+      "dnsNotDetected": "DNS records not yet detected at {provider}",
+      "dnsNotDetectedUnknown": "DNS records not yet detected",
+      "dnsNotDetectedHint": "Verify the DNS records match the values below",
+      "dnsDone": "DNS records are pointing to your store",
+      "issue": "Issue",
+      "issueIntro": "Your domain is connected, but we recommend you review the following:",
+      "collapse": "Hide details",
+      "expand": "Show details",
+      "login": "Log in to {provider} and open DNS management for <ltr>{hostname}</ltr>",
+      "loginUnknown": "Log in to your DNS provider and open DNS management for <ltr>{hostname}</ltr>",
+      "loginAction": "Log in",
+      "live": "Domain is not live yet",
+      "liveDone": "Domain is live",
+      "notLive": "Domain is not live",
+      "notLiveHint": "Ensure the DNS records are pointing to your store",
+      "waitPropagation": "Waiting for the DNS changes to reach every resolver",
+      "waitOwnership": "Verifying that you control the domain",
+      "waitRouting": "Routing the domain to your store",
+      "lastChecked": "Last checked at {time}",
+      "tlsPending": "TLS certificate is not provisioned",
+      "tlsProvisioning": "Provisioning TLS certificate for secure connections",
+      "tlsRequesting": "Requesting TLS certificate",
+      "tlsEstimate": "Estimated: a few minutes",
+      "tlsReady": "TLS certificate provisioned",
+      "tlsFailed": "TLS certificate could not be issued",
+      "iUpdated": "I updated DNS records",
+      "recheck": "Check again",
+      "checking": "Checking...",
+      "connected": "{hostname} is connected",
+      "stillWaiting": "Not there yet",
+      "propagationHint": "DNS changes can take up to 48 hours to reach everyone. Try again shortly.",
+      "zoneUnreachable": "We could not read the DNS for <ltr>{hostname}</ltr> yet, so we cannot show what it currently holds. A domain registered in the last hour or so often takes that long to appear — if it has been longer, check that the domain is registered and that its nameservers are answering. You can add the records below either way.",
+      "loadError": "We could not check this domain right now.",
+      "retry": "Try again"
+    },
+    "resolvers": {
+      "title": "What public resolvers see",
+      "checkedAt": "Checked at {time}",
+      "agrees": "Sees your records",
+      "differs": "Still sees the old records",
+      "silent": "Did not answer",
+      "unknown": "Nothing to compare with"
+    },
+    "dnsIssues": {
+      "DNS_PROXY_INTERCEPTING_SAME_PROVIDER": "This domain resolves to {provider}’s network ({addresses}) rather than to your store, so no traffic reaches us and no certificate can be issued. {provider} also runs your DNS, so this is the proxy setting rather than the record: set it to DNS only. The record itself is correct and does not need changing.",
+      "DNS_PROXY_INTERCEPTING_OTHER_PROVIDER": "This domain resolves to {provider}’s network ({addresses}) rather than to your store, so no traffic reaches us and no certificate can be issued. Your DNS is not run by {provider}, so this is most likely a record still pointing at a previous host that sits behind {provider}. Check what your {required_type} record for “{required_name}” points at, and change it to {required_value}.",
+      "DNS_DNSSEC_BOGUS": "DNSSEC is switched on for this domain but is failing validation, so around two in five visitors cannot reach it at all — their internet provider refuses to look it up. This usually happens when nameservers or DNS records change while DNSSEC is still on. Turn DNSSEC off at the company you bought the domain from (the registrar, not your DNS host), then allow up to 24 hours for the old signature to expire.",
+      "DNS_CAA_BLOCKED": "A CAA record on “{owner}” says which certificate authorities may issue for this domain, and ours is not among them ({permitted}). No certificate can be issued until that record allows it. After you fix it, issuance can take up to an hour to retry.",
+      "DNS_APEX_CNAME": "The root of this domain has a CNAME record pointing at {value}. A root domain cannot use a CNAME, and it may stop other records in the zone from working.",
+      "DNS_PROXY_POSSIBLE": "If this record is proxied by {provider}, traffic will not reach your store. Set it to DNS only.",
+      "DNS_WILDCARD_POINTS_AT_PLATFORM": "Every name under this domain resolves here, including {probe_hostname}, which does not exist. That is a wildcard record (a record named “*”) pointing at your store, so a mistyped address and a subdomain you use for something else both land on it. Remove the wildcard and name the records you actually want.",
+      "DNS_WILDCARD_CATCH_ALL": "{probe_hostname} does not exist and still resolves, to {values}. Something between this domain and its visitors answers for every name — a wildcard record, or an internet provider that redirects unknown addresses. It is not pointing at your store, so it is not why the checks above read as they do."
+    },
+    "platform": {
+      "managedBy": "Managed by the platform · Always available",
+      "aboutTitle": "Your store address",
+      "aboutBody": "Every store gets <ltr>{hostname}</ltr>, and it keeps working whatever else you connect. There are no DNS records to set up and it cannot be removed. To change the handle in front of it, use “Change store address” on the domains list.",
+      "noneTitle": "No store subdomain on this deployment",
+      "noneBody": "This platform gives each store a path on the main site rather than a subdomain of its own, so there is no separate address to manage here."
+    },
+    "dns": {
+      "type": "Type",
+      "name": "Name",
+      "value": "Value",
+      "currentValue": "Current value",
+      "currentValues": "Current values",
+      "updateTo": "Update to",
+      "empty": "(empty)",
+      "copy": "Copy value",
+      "copied": "Copied",
+      "verified": "Verified",
+      "replacesWholeSet": "This name answers with more than one value today. It must end up holding exactly the values shown, and nothing else.",
+      "requiresWholeSet": "This name must end up holding all of the values shown, and nothing else."
+    },
+    "diff": {
+      "remove": "Remove these existing records",
+      "add": "Add these new DNS records",
+      "update": "Update these existing records",
+      "correct": "Already configured correctly"
+    },
+    "list": {
+      "loadError": "We could not load your domains right now.",
+      "retry": "Try again"
+    },
+    "type": {
+      "title": "Change domain type for <ltr>{hostname}</ltr>",
+      "description": "Choose what this address does for your store.",
+      "primary": "Primary domain",
+      "primaryHint": "Displayed in the address bar when visitors browse your store.",
+      "redirect": "Redirecting domain",
+      "redirectHint": "Directs visitors to the primary domain.",
+      "alias": "Alias domain",
+      "aliasHint": "Serves your store without redirecting or changing the address bar.",
+      "current": "(Current)",
+      "needsConnected": "Connect this domain first. A domain has to be live before it can be your primary address.",
+      "stepDownHint": "Your store address becomes the primary domain again, and this one starts redirecting to it.",
+      "platformAlwaysServes": "Your store address always serves your store. It redirects only while one of your own domains is primary.",
+      "cancel": "Cancel",
+      "confirm": "Change domain type",
+      "saving": "Changing...",
+      "changed": "Domain type updated"
+    }
+  },
+  "shein": {
+    "title": "Shein shopping",
+    "description": "Customers send a Shein cart link. You price it, they pay you, and you buy from Shein. Turning this off stops new imports. Orders already placed stay.",
+    "model": "How this shop sells",
+    "own": "Own products",
+    "agent": "Shopping agent",
+    "hybrid": "Both",
+    "enabled": "Accept Shein cart links",
+    "profitMode": "Your markup",
+    "profitFixed": "Fixed amount per item",
+    "profitPercent": "Percentage of the item price",
+    "fixedAmount": "Amount added to each item",
+    "fixedHint": "In {currency}. 5 means 5 {currency} on every piece, whatever Shein charged.",
+    "profit": "Your margin (%)",
+    "rate": "Exchange rate",
+    "rateHint": "How many {currency} equal 1 {source}. Example: 3.70.",
+    "sourceCurrency": "Shein currency",
+    "example": "A {sourceAmount} {source} item is {charged} {currency} for the customer.",
+    "exampleFixed": "{sourceAmount} {currency} from Shein plus {markup} {currency} is {charged} {currency}.",
+    "save": "Save",
+    "saved": "Shein settings saved",
+    "failed": "Could not save Shein settings"
+  },
+  "instagram": {
+    "title": "Instagram",
+    "subtitle": "Sales Hub, Customer Engagement & Conversational AI Agent",
+    "description": "Convert followers into actual sales: automated DM commerce, instant price replies on post comments, and visual product tagging.",
+    "card": {
+      "title": "Instagram Business Account",
+      "subtitle": "Connected account & automated sales via Meta"
+    },
+    "status": {
+      "connected": "Connected",
+      "actionRequired": "Action Required",
+      "disconnected": "Disconnected"
+    },
+    "setupJourney": {
+      "title": "Instagram Channel Setup Journey",
+      "step1": "Connect Account",
+      "step2": "Enable AI Agent",
+      "step3": "Tag Post Products",
+      "step4": "Activate Live Sales",
+      "completed": "Completed",
+      "active": "Active",
+      "inProgress": "In Progress",
+      "ready": "Ready to Sell"
+    },
+    "stats": {
+      "window": "Last {days} days",
+      "conversations": {
+        "title": "Conversations",
+        "desc": "Customers who wrote to you in DMs"
+      },
+      "answered": {
+        "title": "Assistant replies",
+        "desc": "Messages answered, of {received} received"
+      },
+      "comments": {
+        "title": "Comments answered",
+        "desc": "Public replies or private messages"
+      },
+      "replyRate": {
+        "title": "Reply rate",
+        "desc": "Messages the assistant answered"
+      }
+    },
+    "smartSelling": {
+      "title": "Smart Commerce Settings",
+      "subtitle": "Configure how your AI assistant interacts and drives sales on Instagram"
+    },
+    "postsHub": {
+      "title": "Tag Products to Posts",
+      "description": "Click any post to link its corresponding catalog product. When a customer comments, the AI instantly recognizes the product and sends purchase details.",
+      "filterAll": "All Posts",
+      "filterLinked": "Tagged ({count})",
+      "filterUnlinked": "Untagged ({count})",
+      "statusLinked": "Product Tagged",
+      "statusUnlinked": "Untagged",
+      "linkAction": "Tag Product",
+      "changeAction": "Change Product",
+      "unlinkAction": "Unlink",
+      "unlinkConfirm": "Are you sure you want to unlink the product from this post?",
+      "emptyNotice": "No posts matching the selected filter.",
+      "notConnected": "Connect your Instagram account to see your posts here.",
+      "loading": "Loading your posts from Instagram…",
+      "loadFailed": "Your posts could not be loaded from Instagram right now. Try again shortly."
+    },
+    "picker": {
+      "title": "Tag Product to Post",
+      "description": "Choose the product featured in this post so the AI can automatically provide its price and details upon customer inquiries.",
+      "selectedPost": "Selected Post",
+      "searchPlaceholder": "Search by product name, SKU, or category...",
+      "inStock": "In Stock: {count} units",
+      "outOfStock": "Out of Stock",
+      "select": "Select Product",
+      "selected": "Selected",
+      "confirm": "Confirm & Tag Product",
+      "cancel": "Cancel",
+      "successToast": "Product successfully tagged to post!"
+    },
+    "advanced": {
+      "title": "Advanced Settings & Manual Mapping",
+      "description": "Manual ID-based mapping for developers. You normally do not need to use this.",
+      "mediaIdLabel": "Instagram Media ID",
+      "mediaIdPlaceholder": "e.g. 178923489201",
+      "productIdLabel": "Catalog Product ID",
+      "productIdPlaceholder": "e.g. prod_sneakers_beige",
+      "permalinkLabel": "Post Permalink",
+      "permalinkPlaceholder": "https://instagram.com/p/...",
+      "submit": "Save Manual Mapping",
+      "saved": "Manual mapping saved successfully"
+    },
+    "onboarding": {
+      "title": "Instagram Connection Requirements",
+      "description": "To enable Meta conversational commerce, Meta requires your account to meet official platform prerequisites:",
+      "req1": "An Instagram Professional/Business Account.",
+      "req2": "Linked to a Facebook Page where you have admin permissions.",
+      "req3": "Permissions granted for messaging and comments via official Meta login."
+    },
+    "actions": {
+      "connect": "Connect Instagram Account",
+      "disconnect": "Disconnect Account",
+      "sync": "Sync Now",
+      "viewProfile": "View Profile on Instagram",
+      "reconnect": "Reconnect Instagram"
+    },
+    "notice": {
+      "connected": "Your Instagram account is connected.",
+      "connectFailed": "Instagram could not be connected ({reason}). Please try again.",
+      "unavailable": "Instagram is not available on this platform yet.",
+      "healthFailed": "The connection could not be checked right now. Please try again shortly.",
+      "reconnectNeeded": "Instagram asked for this account to be connected again. Until then, messages and comments are not answered.",
+      "linkFailed": "The product link could not be saved. Please try again.",
+      "reasons": {
+        "instagram_in_use": "This Instagram account is already connected to another shop. Disconnect it there first, then connect it here.",
+        "account_in_use": "This Instagram account is already connected to another shop. Disconnect it there first, then connect it here.",
+        "oauth_denied": "Instagram’s permissions were not granted. Try again and accept the permissions.",
+        "invalid_state": "The connect link expired. Please start again."
+      }
+    },
+    "meta": {
+      "connectedAt": "Connected on {when}",
+      "businessAccount": "Active Business Account",
+      "syncing": "Syncing..."
+    },
+    "error": {
+      "title": "Connection Notice"
+    },
+    "aiSettings": {
+      "title": "Smart Sales Assistant",
+      "enableAi": {
+        "label": "AI Automated Direct Message Replies",
+        "description": "The assistant explains specs, checks stock, and answers customer questions 24/7."
+      },
+      "enableOrders": {
+        "label": "In-Chat Checkout & Order Placement",
+        "description": "Collect shipping addresses, calculate delivery rates, and confirm orders with instant payment links or COD."
+      },
+      "mode": {
+        "label": "AI Operating Mode",
+        "description": "Configure how the AI agent interacts with inbound DM inquiries.",
+        "auto": "Full Auto (Instant reply & order completion)",
+        "assisted": "AI-Assisted (Draft suggestions for review)",
+        "human": "Human Only (Pause AI assistant)"
+      }
+    },
+    "comments": {
+      "title": "Automated Comment-to-DM Replies",
+      "enable": {
+        "label": "Send instant Private DM on Post Comments",
+        "description": "When someone comments asking for price or details, the assistant sends product info directly to their DMs."
+      },
+      "keywords": {
+        "label": "Trigger Keywords",
+        "placeholder": "Type keyword like: price, details...",
+        "add": "Add"
+      },
+      "mode": {
+        "label": "How to reply to a comment",
+        "options": {
+          "PRIVATE": "Private message",
+          "PUBLIC": "Public reply under the comment",
+          "PUBLIC_AND_PRIVATE": "Private message + a public note",
+          "DISABLED": "Do not reply"
+        },
+        "hints": {
+          "PRIVATE": "The answer goes to the commenter in one private message. Instagram allows one per comment, within 7 days.",
+          "PUBLIC": "The answer is posted publicly under the comment, where everyone can see it.",
+          "PUBLIC_AND_PRIVATE": "The answer goes privately, and a short public reply tells them to check their messages.",
+          "DISABLED": "Comments are saved but not answered."
+        }
+      }
+    },
+    "mediaMapping": {
+      "title": "Post to Product Mapping",
+      "description": "Map an Instagram post Media ID to a catalog product to send accurate prices and specs automatically on comments.",
+      "mediaId": {
+        "label": "Instagram Media ID",
+        "placeholder": "1789..."
+      },
+      "productId": {
+        "label": "Catalog Product ID",
+        "placeholder": "prod_123..."
+      },
+      "permalink": {
+        "label": "Post Permalink (Optional)",
+        "placeholder": "https://instagram.com/p/..."
+      },
+      "saved": "Post mapping saved successfully",
+      "submit": "Save Mapping"
+    },
+    "disconnectDialog": {
+      "title": "Disconnect Instagram Account?",
+      "description": "This will revoke messaging permissions. The AI assistant will no longer receive or respond to customer inquiries on Instagram.",
+      "cancel": "Cancel",
+      "confirm": "Confirm Disconnect"
+    },
+    "assistant": {
+      "title": "Assistant behaviour",
+      "subtitle": "How the assistant writes on Instagram, and when it steps back.",
+      "instructions": {
+        "label": "Instructions for Instagram",
+        "placeholder": "For example: reply warmly and briefly, and mention that delivery is free over 200.",
+        "hint": "The assistant follows these on Instagram only. They never change prices, stock or the shop’s rules.",
+        "counter": "{count}/{max}",
+        "tooLong": "The instructions are longer than {max} characters."
+      },
+      "takeover": {
+        "label": "Step back when you reply yourself",
+        "description": "When you reply to a customer from the Instagram app, the assistant stays quiet in that conversation for 3 hours."
+      },
+      "saved": "Instagram settings saved",
+      "saveFailed": "The settings could not be saved.",
+      "unsavedChanges": "Unsaved Instagram changes"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "title": "Inventory analytics",
+  "subtitle": "What your stock is worth, how fast it sells, and what is sitting still.",
+  "kpi": {
+    "inventoryValue": "Inventory value",
+    "atCost": "At cost",
+    "retailValue": "Retail value",
+    "atRetail": "At selling price",
+    "totalUnits": "Units in stock",
+    "onHand": "{count, plural, one {Across # product} other {Across # products}}",
+    "sellThrough": "Sell-through rate",
+    "window": "This period",
+    "unitsSold": "Units sold",
+    "outOfStock": "Out of stock",
+    "lowStock": "Low stock",
+    "deadStock": "Dead stock"
+  },
+  "abc": {
+    "title": "ABC analysis",
+    "subtitle": "Products grouped by their share of revenue: A are your best sellers, C the long tail.",
+    "count": "{count, plural, one {# product} other {# products}}"
+  },
+  "tables": {
+    "topMovers": "Top movers",
+    "deadStock": "Dead stock",
+    "slowMovers": "Slow movers",
+    "empty": "No products to show for this period.",
+    "emptyDead": "No dead stock in this period."
+  },
+  "col": {
+    "product": "Product",
+    "qty": "In stock",
+    "sold": "Sold",
+    "sellThrough": "Sell-through",
+    "doi": "Days of stock",
+    "abc": "ABC",
+    "cost": "Value at cost",
+    "daysValue": "{days}d"
+  }
+}

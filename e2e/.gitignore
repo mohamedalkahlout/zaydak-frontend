@@ -1,0 +1,6 @@
+# Written by the session setup project — a real access/refresh token pair.
+.auth/
+# Screenshots and the HTML report from the last run.
+.artifacts/
+.report/
+test-results/

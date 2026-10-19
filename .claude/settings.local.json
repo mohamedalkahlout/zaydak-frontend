@@ -1,0 +1,46 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e \"const slugify = require\\('slugify'\\); console.log\\(slugify\\('كفر ايفون 16', { lower: true, strict: true }\\)\\);\")",
+      "Bash(node -e ':*)",
+      "Bash(npx ts-node --project tsconfig.json -e ':*)",
+      "Bash(npm search:*)",
+      "Bash(npm view:*)",
+      "Bash(pip install:*)",
+      "Bash(python -c \"from camel_tools.disambig.mle import MLEDisambiguator; print\\('CAMeL import OK'\\)\")",
+      "Bash(python -c ':*)",
+      "Bash(timeout 30 python -c ':*)",
+      "Bash(grep -E \"\\\\.ts$\")",
+      "Bash(npm outdated *)",
+      "Bash(xargs -I {} sh -c 'echo \"=== $\\(basename {}\\) ===\" && grep -A 7 \"readonly definition\" {}')"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ ! -f \"${CLAUDE_PROJECT_DIR}/.claude/skills/impeccable/scripts/impeccable\" ] || \"${CLAUDE_PROJECT_DIR}/.claude/skills/impeccable/scripts/impeccable\" hook",
+            "timeout": 5,
+            "statusMessage": "Checking UI changes"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ ! -f \"${CLAUDE_PROJECT_DIR}/.claude/skills/impeccable/scripts/impeccable\" ] || \"${CLAUDE_PROJECT_DIR}/.claude/skills/impeccable/scripts/impeccable\" hook",
+            "timeout": 30,
+            "statusMessage": "Design deep pass"
+          }
+        ]
+      }
+    ]
+  },
+  "description": "Impeccable design detector: immediate-tier checks after Edit/Write on UI files, full-rule deep pass on Stop."
+}

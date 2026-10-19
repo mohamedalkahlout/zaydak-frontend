@@ -1,0 +1,15 @@
+{
+  "selectCountry": "اختر دولة",
+  "searchCountry": "ابحث عن دولة",
+  "noCountry": "لا توجد دولة مطابقة",
+  "selectRegion": "اختر منطقة",
+  "searchRegion": "ابحث عن منطقة",
+  "noRegion": "لا توجد منطقة مطابقة",
+  "selectCity": "اختر مدينة",
+  "searchCity": "ابحث عن مدينة",
+  "noCity": "لا توجد مدينة مطابقة",
+  "selectDistrict": "اختر حياً",
+  "searchDistrict": "ابحث عن حي",
+  "noDistrict": "لا يوجد حي مطابق",
+  "moreResults": "و{count} نتيجة أخرى — تابع الكتابة لتضييق القائمة"
+}

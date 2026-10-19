@@ -1,0 +1,113 @@
+{
+  "toolbar": "شريط الأدوات",
+  "contentArea": "منطقة تحرير المحتوى",
+  "undoRedo": {
+    "undo": "تراجع",
+    "redo": "إعادة"
+  },
+  "heading": {
+    "label": "عنوان",
+    "level": "عنوان {level}",
+    "format": "تنسيق النص كعنوان"
+  },
+  "list": {
+    "label": "قائمة",
+    "options": "خيارات القائمة",
+    "bulletList": "قائمة نقطية",
+    "orderedList": "قائمة مرقّمة",
+    "taskList": "قائمة مهام"
+  },
+  "blockquote": {
+    "label": "اقتباس"
+  },
+  "codeBlock": {
+    "label": "كتلة برمجية"
+  },
+  "mark": {
+    "bold": "غامق",
+    "italic": "مائل",
+    "strike": "يتوسطه خط",
+    "code": "رمز برمجي",
+    "underline": "تسطير",
+    "superscript": "نص مرتفع",
+    "subscript": "نص منخفض"
+  },
+  "highlight": {
+    "label": "تمييز",
+    "trigger": "تمييز النص",
+    "palette": "ألوان التمييز",
+    "toggle": "تبديل التمييز ({color})",
+    "swatch": "لون التمييز: {color}",
+    "remove": "إزالة التمييز",
+    "colors": {
+      "default": "الخلفية الافتراضية",
+      "gray": "خلفية رمادية",
+      "brown": "خلفية بنية",
+      "orange": "خلفية برتقالية",
+      "yellow": "خلفية صفراء",
+      "green": "خلفية خضراء",
+      "blue": "خلفية زرقاء",
+      "purple": "خلفية بنفسجية",
+      "pink": "خلفية وردية",
+      "red": "خلفية حمراء"
+    }
+  },
+  "link": {
+    "label": "رابط",
+    "placeholder": "الصق رابطًا…",
+    "apply": "تطبيق الرابط",
+    "open": "فتح في نافذة جديدة",
+    "remove": "إزالة الرابط"
+  },
+  "textAlign": {
+    "left": "محاذاة إلى اليسار",
+    "center": "توسيط",
+    "right": "محاذاة إلى اليمين",
+    "justify": "ضبط"
+  },
+  "imageUpload": {
+    "addImage": "إضافة صورة",
+    "add": "إضافة",
+    "dropzone": "<em>انقر للرفع</em> أو اسحب وأفلت",
+    "limits": "{limit, plural, zero {# ملفات} one {ملف واحد} two {ملفان} few {# ملفات} many {# ملفًا} other {# ملف}} كحد أقصى، بحجم {size} ميغابايت لكل ملف.",
+    "uploading": "جارٍ رفع {count, plural, zero {# ملفات} one {ملف واحد} two {ملفين} few {# ملفات} many {# ملفًا} other {# ملف}}",
+    "clearAll": "مسح الكل",
+    "errors": {
+      "noFile": "اختر صورة لرفعها.",
+      "tooLarge": "هذه الصورة أكبر من {size} ميغابايت.",
+      "tooMany": "يمكنك إضافة {limit, plural, zero {# صور} one {صورة واحدة} two {صورتين} few {# صور} many {# صورة} other {# صورة}} دفعة واحدة.",
+      "cancelled": "أُلغي الرفع.",
+      "failed": "تعذّر رفع الصورة."
+    }
+  },
+  "ai": {
+    "ask": "اسأل الذكاء الاصطناعي",
+    "askPlaceholder": "صف ما تريد أن يكتبه الذكاء الاصطناعي أو يعيد صياغته…",
+    "working": "جارٍ التنفيذ…",
+    "runPrompt": "تنفيذ الطلب",
+    "runCustomPrompt": "تنفيذ طلب مخصص",
+    "selectionTitle": "الذكاء الاصطناعي للنص المحدد",
+    "documentTitle": "مساعد الكتابة بالذكاء الاصطناعي",
+    "selectionPlaceholder": "اطلب من الذكاء الاصطناعي إعادة صياغة النص المحدد…",
+    "documentPlaceholder": "أنشئ الوصف أو أعد صياغته…",
+    "applied": "تم تطبيق اقتراح الذكاء الاصطناعي",
+    "failed": "تعذّر تنفيذ إجراء الذكاء الاصطناعي",
+    "tryAgain": "يُرجى المحاولة مرة أخرى",
+    "actions": {
+      "improve": "تحسين",
+      "shorten": "اختصار",
+      "extend": "توسيع",
+      "simplify": "تبسيط",
+      "translate-en": "ترجمة إلى الإنجليزية",
+      "translate-ar": "ترجمة إلى العربية"
+    },
+    "errors": {
+      "startingUp": "لا يزال المحرر قيد التحميل. حاول مرة أخرى بعد لحظات.",
+      "requestFailed": "فشل طلب الذكاء الاصطناعي."
+    }
+  },
+  "themeToggle": {
+    "toLight": "التبديل إلى الوضع الفاتح",
+    "toDark": "التبديل إلى الوضع الداكن"
+  }
+}

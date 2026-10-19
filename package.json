@@ -1,0 +1,27 @@
+{
+  "name": "zaydak",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Zaydak – Multi-Tenant E-Commerce Frontend Ecosystem (Next.js 16, Turborepo, TypeScript, Tailwind CSS, GraphQL)",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "lint:fix": "turbo run lint:fix",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "codegen": "turbo run codegen"
+  },
+  "devDependencies": {
+    "turbo": "^2.10.4",
+    "typescript": "^5"
+  },
+  "packageManager": "npm@11.4.2",
+  "engines": {
+    "node": ">=20"
+  }
+}

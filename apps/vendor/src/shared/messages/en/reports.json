@@ -1,0 +1,33 @@
+{
+  "title": "Reports",
+  "subtitle": "Build your own report — pick dimensions and measures.",
+  "build": "Build report",
+  "dimensions": "Group by",
+  "measures": "Measures",
+  "run": "Run report",
+  "running": "Running…",
+  "results": "Results",
+  "total": "Total",
+  "truncated": "Showing the first rows — narrow the range or filters to see all.",
+  "pending": "with traffic analytics",
+  "dim": {
+    "PAYMENT_GATEWAY": "Payment method",
+    "LOGISTICS_PROVIDER": "Shipping method",
+    "COUNTRY": "Country",
+    "DAY": "Day",
+    "WEEK": "Week",
+    "MONTH": "Month"
+  },
+  "measure": {
+    "GROSS_SALES": "Gross sales",
+    "DISCOUNTS": "Discounts",
+    "SHIPPING": "Shipping",
+    "TAXES": "Taxes",
+    "ORDERS_COUNT": "Orders",
+    "NET_SALES": "Net sales",
+    "TOTAL_SALES": "Total sales",
+    "AOV": "Avg order value",
+    "SESSIONS": "Sessions",
+    "CONVERSION": "Conversion"
+  }
+}

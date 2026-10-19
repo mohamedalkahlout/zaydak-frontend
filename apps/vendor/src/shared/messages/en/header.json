@@ -1,0 +1,19 @@
+{
+  "search": "Search",
+  "discard": "Discard",
+  "saving": "Saving...",
+  "retry": "Retry",
+  "save": "Save",
+  "pendingApproval": "Pending approval",
+  "createStore": "Create store",
+  "changePassword": "Change password",
+  "logOut": "Log out",
+  "loggedOut": "Logged out",
+  "aiAssistant": "AI assistant",
+  "aiAssistantUnread": "AI assistant, new reply",
+  "darkMode": "Dark mode",
+  "lightMode": "Light mode",
+  "theme": "Theme",
+  "language": "Language",
+  "home": "Home"
+}

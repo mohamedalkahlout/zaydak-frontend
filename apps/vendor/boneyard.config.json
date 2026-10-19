@@ -1,0 +1,136 @@
+{
+  "out": "./src/bones",
+  "breakpoints": [
+    375,
+    768,
+    1280,
+    1536
+  ],
+  "wait": 2000,
+  "color": "#f6f6f7",
+  "darkColor": "#262626",
+  "animate": "pulse",
+  "resolveEnvVars": true,
+  "auth": {
+    "cookies": [
+      {
+        "name": "access_token",
+        "value": "env[BONEYARD_ACCESS_TOKEN]",
+        "domain": "localhost",
+        "path": "/"
+      },
+      {
+        "name": "refresh_token",
+        "value": "env[BONEYARD_REFRESH_TOKEN]",
+        "domain": "localhost",
+        "path": "/"
+      }
+    ]
+  },
+  "skeletons": {
+    "analytics-kpi-total-sales": {
+      "route": "/store/ahmed-electronics/analytics",
+      "wait": 5000
+    },
+    "analytics-kpi-figure": {
+      "route": "/store/ahmed-electronics/analytics",
+      "wait": 5000
+    },
+    "analytics-sales-over-time-total": {
+      "route": "/store/ahmed-electronics/analytics",
+      "wait": 5000
+    },
+    "analytics-sales-over-time-chart": {
+      "route": "/store/ahmed-electronics/analytics",
+      "wait": 5000
+    },
+    "analytics-aov-total": {
+      "route": "/store/ahmed-electronics/analytics",
+      "wait": 5000
+    },
+    "analytics-aov-chart": {
+      "route": "/store/ahmed-electronics/analytics",
+      "wait": 5000
+    },
+    "analytics-breakdown": {
+      "route": "/store/ahmed-electronics/analytics",
+      "wait": 5000
+    },
+    "analytics-sales-by-channel": {
+      "route": "/store/ahmed-electronics/analytics",
+      "wait": 5000
+    },
+    "analytics-sales-channels-headline": {
+      "route": "/store/entaj/analytics",
+      "wait": 5000
+    },
+    "analytics-sales-channels-tiles": {
+      "route": "/store/entaj/analytics",
+      "wait": 5000
+    },
+    "analytics-sales-channels-chart": {
+      "route": "/store/entaj/analytics",
+      "wait": 5000
+    },
+    "analytics-sell-through": {
+      "route": "/store/ahmed-electronics/analytics",
+      "wait": 5000
+    },
+    "analytics-cohorts": {
+      "route": "/store/ahmed-electronics/analytics",
+      "wait": 5000
+    },
+    "analytics-top-customers": {
+      "route": "/store/ahmed-electronics/analytics",
+      "wait": 5000
+    },
+    "analytics-top-products": {
+      "route": "/store/ahmed-electronics/analytics",
+      "wait": 5000
+    },
+    "analytics-orders-by-status": {
+      "route": "/store/ahmed-electronics/analytics",
+      "wait": 5000
+    },
+    "analytics-low-stock": {
+      "route": "/store/ahmed-electronics/analytics",
+      "wait": 5000
+    },
+    "analytics-category-sales": {
+      "route": "/store/ahmed-electronics/analytics",
+      "wait": 5000
+    },
+    "customer-analytics-cohorts": {
+      "route": "/store/ahmed-electronics/analytics/customers",
+      "wait": 5000
+    },
+    "customer-analytics-top": {
+      "route": "/store/ahmed-electronics/analytics/customers",
+      "wait": 5000
+    },
+    "inventory-stock-table": {
+      "route": "/store/ahmed-electronics/analytics/inventory",
+      "wait": 5000
+    },
+    "attribution-revenue-chart": {
+      "route": "/store/ahmed-electronics/analytics/attribution",
+      "wait": 5000
+    },
+    "attribution-breakdown": {
+      "route": "/store/ahmed-electronics/analytics/attribution",
+      "wait": 5000
+    },
+    "ad-spend-table": {
+      "route": "/store/ahmed-electronics/analytics/attribution/ad-spend",
+      "wait": 5000
+    },
+    "report-builder-controls": {
+      "route": "/store/ahmed-electronics/analytics/reports",
+      "wait": 4000
+    },
+    "targets-grid": {
+      "route": "/store/ahmed-electronics/analytics/targets",
+      "wait": 4000
+    }
+  }
+}

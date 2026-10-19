@@ -1,0 +1,36 @@
+/* The bag: a kraft side sheet with quantities, a pickup slot and a paper ticket. */
+
+.bag { position: fixed; inset: 0; z-index: 95; background: rgba(8, 6, 5, .45); }
+.sheet { position: absolute; top: 0; bottom: 0; right: 0; width: min(430px, 100vw); overflow-y: auto; overscroll-behavior: contain; padding: 26px 26px 40px; background: #d9bb8e url(../art/grain.png); color: #2b1d12; box-shadow: -20px 0 50px rgba(0, 0, 0, .35); }
+.sheet:dir(rtl) { right: auto; left: 0; }
+.top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+.sheet .kraftPill { background: rgba(43, 29, 18, .12); color: #2b1d12; }
+.title { margin: 0; font-family: var(--f-display); font-weight: 400; font-size: 44px; line-height: 1; text-transform: lowercase; }
+
+.list { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.item { display: grid; grid-template-columns: 64px minmax(0, 1fr) auto; align-items: center; gap: 12px; padding: 10px; border-radius: 16px; background: rgba(255, 255, 255, .28); }
+.item img { display: block; justify-self: center; width: auto; height: auto; max-width: 64px; max-height: 50px; }
+.item b { display: block; font-size: 16px; text-transform: lowercase; }
+.item small { font-family: var(--f-dot); font-weight: 800; font-size: 14px; }
+.qty { display: flex; align-items: center; gap: 6px; }
+.qty button { width: 30px; height: 30px; padding: 0; border: 0; border-radius: 50%; background: rgba(43, 29, 18, .14); color: inherit; font-family: inherit; font-weight: 700; cursor: pointer; }
+.qty bdi { min-width: 1.4em; text-align: center; font-weight: 700; }
+.empty { margin: 8px 0 0; font-size: 15px; }
+
+.form { display: grid; gap: 14px; margin-top: 22px; padding-top: 18px; border-top: 1.5px dashed rgba(43, 29, 18, .35); }
+.form label { display: grid; gap: 6px; font-size: 14px; font-weight: 600; }
+.form input,
+.form select { height: 46px; padding: 0 14px; border: 0; border-radius: 12px; background-color: rgba(255, 255, 255, .55); color: #2b1d12; font: inherit; font-size: 16px; }
+/* the chevron: background-color above, never the shorthand, or it tiles */
+.form select { -webkit-appearance: none; appearance: none; background-image: linear-gradient(45deg, transparent 50%, #2b1d12 50%), linear-gradient(135deg, #2b1d12 50%, transparent 50%); background-position: calc(100% - 20px) 50%, calc(100% - 14px) 50%; background-size: 6px 6px, 6px 6px; background-repeat: no-repeat; }
+.form select:dir(rtl) { background-position: 20px 50%, 14px 50%; }
+.form .invalid { box-shadow: inset 0 0 0 2px #b23b12; }
+.total { display: flex; justify-content: space-between; align-items: baseline; font-weight: 700; }
+.total bdi { font-family: var(--f-dot); font-weight: 800; font-size: 26px; }
+.note { margin: 0; font-size: 12.5px; opacity: .8; }
+
+.ticket { margin-top: 24px; padding: 22px; border-radius: 6px; background: #fbf6ec; color: #2b1d12; text-align: center; box-shadow: 0 10px 30px rgba(0, 0, 0, .18); transform-origin: top center; }
+.ticketH { margin: 0; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; }
+.ticketNo { margin: 6px 0; font-family: var(--f-dot); font-weight: 800; font-size: 64px; line-height: 1; color: var(--crust); }
+.ticketLine { margin: 0 0 12px; font-size: 15px; }
+.ticketItems { display: grid; gap: 4px; margin: 0 0 16px; padding: 12px 0 0; list-style: none; border-top: 1.5px dashed rgba(43, 29, 18, .3); font-size: 14px; }

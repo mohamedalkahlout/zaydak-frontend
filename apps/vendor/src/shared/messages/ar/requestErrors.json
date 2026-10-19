@@ -1,0 +1,36 @@
+{
+  "networkError": {
+    "title": "خطأ في الشبكة",
+    "description": "تحقّق من اتصالك بالإنترنت"
+  },
+  "suspiciousActivity": {
+    "title": "رُصد نشاط مريب",
+    "description": "أُلغيت جميع الجلسات. يُرجى تسجيل الدخول مرة أخرى."
+  },
+  "accountLocked": {
+    "title": "الحساب مقفل",
+    "description": "محاولات فاشلة كثيرة. حاول مرة أخرى بعد 15 دقيقة."
+  },
+  "otpLocked": {
+    "title": "رمز التحقق مقفل",
+    "description": "محاولات فاشلة كثيرة. اطلب رمزًا جديدًا."
+  },
+  "otpCooldown": {
+    "title": "يُرجى الانتظار",
+    "description": "يمكنك طلب رمز آخر بعد 60 ثانية تقريبًا."
+  },
+  "emailNotVerified": {
+    "title": "أكّد بريدك الإلكتروني أولًا",
+    "description": "افتح رابط التفعيل من بريدك الوارد أو أعد إرساله من حسابك."
+  },
+  "tooManyRequests": {
+    "title": "طلبات كثيرة جدًا",
+    "description": "يُرجى الانتظار قليلًا ثم المحاولة مرة أخرى.",
+    "descriptionWait": "يُرجى المحاولة مرة أخرى بعد {wait}."
+  },
+  "wait": {
+    "seconds": "{count, plural, zero {# ثانية} one {ثانية واحدة} two {ثانيتين} few {# ثوانٍ} many {# ثانية} other {# ثانية}}",
+    "minutes": "{count, plural, zero {# دقيقة} one {دقيقة} two {دقيقتين} few {# دقائق} many {# دقيقة} other {# دقيقة}}"
+  },
+  "fallback": "حدث خطأ ما"
+}

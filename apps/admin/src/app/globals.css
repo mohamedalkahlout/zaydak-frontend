@@ -1,0 +1,50 @@
+/* Arabic: Tajawal, loaded by next/font in app/layout.tsx and bound to
+   --font-tajawal there. next/font self-hosts the woff2 and emits its own
+   @font-face, so there is nothing to copy into public/ and nothing to import
+   here. Latin: SF system stack (see --font-sf, packages/ui tokens). */
+
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+/* Design tokens + base layer, shared with the vendor dashboard. */
+@import "@repo/ui/styles.css";
+
+/* Tailwind skips node_modules, so point it at the shared components' source. */
+@source "../../../../packages/ui/src";
+
+@layer base {
+  :root {
+    --font-sans: var(--font-sf);
+    --font-serif: var(--font-sf);
+    --font-heading: var(--font-sf);
+  }
+
+  html[lang="ar"] {
+    --font-sans: var(--font-tajawal), var(--font-sf);
+    --font-serif: var(--font-tajawal), var(--font-sf);
+    --font-heading: var(--font-tajawal), var(--font-sf);
+    font-family: var(--font-tajawal), var(--font-sf);
+  }
+
+  html[lang="ar"] h1,
+  html[lang="ar"] h2,
+  html[lang="ar"] h3,
+  html[lang="ar"] h4,
+  html[lang="ar"] h5,
+  html[lang="ar"] h6 {
+    font-family: var(--font-tajawal), var(--font-sf);
+  }
+}
+
+/* ── Boneyard skeletons in RTL ─────────────────────────────────────────────
+   Same rule as the vendor dashboard's. Boneyard has no notion of writing
+   direction: it positions every bone with `left: <x>%` measured from a capture
+   taken in English, so under `dir="rtl"` the bones would sit on the wrong side.
+   Mirroring the overlay is the whole fix — bones are text-free rects, so a
+   horizontal flip maps each onto where it would have been captured in Arabic.
+   The overlay is `position: absolute; inset: 0`, so this costs no layout and
+   never touches the real content in the sibling `[data-boneyard-content]`. */
+[dir="rtl"] [data-boneyard-overlay]>* {
+  transform: scaleX(-1);
+}

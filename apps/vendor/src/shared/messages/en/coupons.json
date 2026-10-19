@@ -1,0 +1,377 @@
+{
+  "toasts": {
+    "created": "Coupon created",
+    "updated": "Coupon updated",
+    "createFailed": "Could not create coupon",
+    "updateFailed": "Could not update coupon",
+    "tryAgain": "Please try again",
+    "fixForm": "Please fix the form",
+    "fieldsNeedAttention": "Some fields need attention",
+    "invalidValue": "Invalid"
+  },
+  "title": "Coupons",
+  "create": "Create coupon",
+  "kinds": {
+    "title": "Select coupon type",
+    "amount_off_products": {
+      "label": "Amount off products",
+      "description": "Discount specific products or collections of products"
+    },
+    "buy_x_get_y": {
+      "label": "Buy X get Y",
+      "description": "Discount specific products or collections of products"
+    },
+    "amount_off_order": {
+      "label": "Amount off order",
+      "description": "Discount the total order amount"
+    },
+    "free_shipping": {
+      "label": "Free shipping",
+      "description": "Offer free shipping on an order"
+    }
+  },
+  "empty": {
+    "noMatch": "No matching coupons",
+    "noMatchHint": "Try clearing filters or searching by a different code.",
+    "title": "Manage discounts and promotions",
+    "body": "Add discount codes and automatic discounts that apply at checkout. You can also use discounts with compare at prices."
+  },
+  "filter": {
+    "statuses": "Status",
+    "types": "Type",
+    "scopes": "Scope"
+  },
+  "status": {
+    "active": "Active",
+    "scheduled": "Scheduled",
+    "expired": "Expired"
+  },
+  "scope": {
+    "general": "No restrictions",
+    "scoped": "Restricted"
+  },
+  "columns": {
+    "selectAll": "Select all",
+    "selectRow": "Select {code}",
+    "code": "Code",
+    "type": "Type",
+    "value": "Value",
+    "minCart": "Min. cart",
+    "scope": "Scope",
+    "status": "Status",
+    "maxUses": "Max uses",
+    "expires": "Expires",
+    "unlimited": "Unlimited",
+    "never": "Never"
+  },
+  "counts": {
+    "products": "{count, plural, one {# product} other {# products}}",
+    "collections": "{count, plural, one {# collection} other {# collections}}",
+    "customers": "{count, plural, one {# customer} other {# customers}}",
+    "segments": "{count, plural, one {# segment} other {# segments}}",
+    "countries": "{count, plural, one {# country} other {# countries}}"
+  },
+  "value": {
+    "percentUpTo": "{percent}% · up to {max}",
+    "amountOff": "{amount} off",
+    "bogo": "Buy {buy} get {get}",
+    "bogoFree": "Buy {buy} get {get} free",
+    "bogoAmountOff": "Buy {buy} get {get} ({amount} off each)",
+    "bogoPercentOff": "Buy {buy} get {get} ({percent}% off)"
+  },
+  "scopeSummary": {
+    "allCountries": "All countries",
+    "entireOrder": "Entire order",
+    "allProducts": "All products"
+  },
+  "copy": {
+    "copied": "Code copied",
+    "failed": "Could not copy",
+    "action": "Copy code",
+    "done": "Copied!"
+  },
+  "rowActions": {
+    "label": "Row actions",
+    "duplicate": "Duplicate"
+  },
+  "table": {
+    "selected": "{count} selected",
+    "clearSelection": "Clear selection",
+    "showing": "Showing <b>{start}</b>–<b>{end}</b> of <b>{total}</b> coupons"
+  },
+  "toolbar": {
+    "searchPlaceholder": "Search by code"
+  },
+  "deleteDialog": {
+    "title": "Delete coupon?",
+    "description": "The coupon <b>{code}</b> will be removed. Customers can no longer redeem it. This action can't be undone.",
+    "deleted": "Coupon deleted",
+    "failed": "Could not delete coupon",
+    "deleting": "Deleting..."
+  },
+  "performance": {
+    "label": "Coupon performance",
+    "title": "Performance",
+    "unavailable": "Analytics are not available for this coupon yet.",
+    "noRedemptions": "No redemptions recorded yet.",
+    "redemptions": "Redemptions",
+    "discountGiven": "Discount given",
+    "revenueAttributed": "Revenue attributed",
+    "avgOrderValue": "Avg. order value",
+    "firstUsed": "First used",
+    "lastUsed": "Last used"
+  },
+  "form": {
+    "back": "Back",
+    "saving": "Saving...",
+    "unsavedChanges": "Unsaved changes",
+    "unsavedDiscount": "Unsaved discount",
+    "productDiscount": "Product discount",
+    "orderDiscount": "Order discount",
+    "shippingDiscount": "Shipping discount",
+    "discountValue": "Discount value",
+    "valueType": "Value type",
+    "percentage": "Percentage",
+    "fixedAmount": "Fixed amount",
+    "amount": "Amount",
+    "maxDiscount": "Max discount (optional)",
+    "allProducts": "All products",
+    "specificProducts": "Specific products",
+    "specificCollections": "Specific collections",
+    "browse": "Browse",
+    "namesAndMore": "{names} +{count} more"
+  },
+  "amountOffOrderForm": {
+    "editTitle": "Edit amount off order",
+    "discountValueHint": "How much to knock off the cart total."
+  },
+  "amountOffProductsForm": {
+    "editTitle": "Edit amount off products",
+    "subtitle": "Discount specific products or collections",
+    "discountValueHint": "How much to knock off eligible items.",
+    "appliesTo": "Applies to",
+    "appliesToHint": "Scope the discount to specific products or collections.",
+    "scope": "Scope"
+  },
+  "bogoForm": {
+    "editTitle": "Edit buy X get Y",
+    "subtitle": "Buy some items and get others free or discounted",
+    "eligibleItems": "Eligible items",
+    "eligibleItemsHint": "Choose whether buys and gets share a pool or target different products.",
+    "scopeMode": "Scope mode",
+    "sameItems": "Same items for buys & gets",
+    "differentItems": "Different items",
+    "sameItemsHint": "One scope used for both the purchase requirement and the reward (e.g. buy 2 shirts, get 1 shirt free).",
+    "differentItemsHint": "Two separate pools (e.g. buy a pair of shoes, get a sock free).",
+    "customerBuys": "Customer buys",
+    "customerBuysHint": "Define what the shopper must add to unlock the deal.",
+    "purchaseRequirement": "Purchase requirement",
+    "minimumQuantity": "Minimum quantity",
+    "minimumAmount": "Minimum amount",
+    "quantity": "Quantity",
+    "anyProductQualifies": "Any product in the store will qualify.",
+    "anyProductTriggers": "Any product in the store can trigger the deal.",
+    "customerGets": "Customer gets",
+    "customerGetsHint": "Define the reward once the purchase requirement is met.",
+    "sameScopeAsBuys": "Uses the same scope as the buys side.",
+    "anyProductReward": "Any product in the store is eligible to receive the reward.",
+    "discountedValue": "Discounted value",
+    "percentageHint": "% off each item",
+    "amountOff": "Amount off",
+    "amountOffHint": "Fixed SAR per item",
+    "free": "Free",
+    "freeHint": "100% off",
+    "percentOff": "Percent off",
+    "amountOffEach": "Amount off each",
+    "maxUsesPerOrder": "Set a maximum number of uses per order",
+    "maxUsesPerOrderHint": "Cap how many times this deal can stack inside a single cart.",
+    "previewEmpty": "Configure buy and get quantities to see a preview.",
+    "previewTitle": "Deal preview",
+    "previewBuy": "Buy {count}",
+    "previewGet": "Get {count}",
+    "previewFree": "FREE",
+    "previewAmountOff": "{amount} SAR off",
+    "previewPercentOff": "{percent}% off",
+    "mirrorProducts": "{count, plural, one {# product (same as buys)} other {# products (same as buys)}}",
+    "mirrorCollections": "{count, plural, one {# collection (same as buys)} other {# collections (same as buys)}}"
+  },
+  "freeShippingForm": {
+    "editTitle": "Edit free shipping",
+    "subtitle": "Waive shipping fees at checkout",
+    "forSelectedCountries": "For selected countries",
+    "forAllCountries": "For all countries",
+    "countries": "Countries",
+    "countriesHint": "Where the free-shipping waiver applies.",
+    "countryScope": "Country scope",
+    "allCountries": "All countries",
+    "selectedCountries": "Selected countries",
+    "noCountries": "No countries selected",
+    "pickCountriesHint": "Pick the ISO country codes where the waiver applies.",
+    "shippingRates": "Shipping rates",
+    "shippingRatesHint": "Limit which rates the waiver covers.",
+    "excludeRates": "Exclude shipping rates over a certain amount",
+    "excludeRatesHint": "Prevents misuse on expensive rates (e.g. cold-chain or international express).",
+    "maxShippingRate": "Maximum shipping rate"
+  },
+  "summary": {
+    "noCode": "No discount code yet",
+    "code": "Code",
+    "type": "Type",
+    "details": "Details",
+    "salesChannels": "Sales channel access",
+    "salesChannelsFeatured": "Allow discount to be featured on selected channels",
+    "comingSoon": "Coming soon.",
+    "tags": "Tags",
+    "addTags": "Add tags",
+    "tagsHint": "Tags help organize discounts. Coming soon.",
+    "specificCustomersCount": "{count, plural, one {# specific customer} other {# specific customers}}",
+    "specificCustomers": "Specific customers",
+    "segmentsCount": "{count, plural, one {# customer segment} other {# customer segments}}",
+    "specificSegments": "Specific segments",
+    "allCustomers": "All customers",
+    "minimumAmount": "Minimum purchase of {amount} SAR",
+    "minimumQuantity": "{count, plural, one {Minimum of # item} other {Minimum of # items}}",
+    "noMinimum": "No minimum purchase requirement",
+    "usageLimit": "{count, plural, one {Limit of # use} other {Limit of # uses}}",
+    "oncePerCustomer": "One use per customer",
+    "noUsageLimits": "No usage limits",
+    "exclusive": "Can’t combine with other discounts (exclusive)",
+    "productDiscounts": "product discounts",
+    "orderDiscounts": "order discounts",
+    "shippingDiscounts": "shipping discounts",
+    "combinesWith": "Combines with {list}",
+    "noCombinations": "Can’t combine with other discounts",
+    "activeFromToday": "Active from today",
+    "activeFrom": "Active from {date}",
+    "endsOn": "Ends {date}",
+    "neverExpires": "Never expires"
+  },
+  "headerCard": {
+    "method": "Method",
+    "discountCode": "Discount code",
+    "automaticDiscount": "Automatic discount",
+    "automaticHint": "Automatic discounts apply silently at checkout — no code to share. The server will assign an internal identifier (AUTO-XXXX).",
+    "generateCode": "Generate random code",
+    "codeHint": "Customers must enter this code at checkout."
+  },
+  "activeDates": {
+    "title": "Active dates",
+    "startDate": "Start date",
+    "startTime": "Start time ({timezone})",
+    "timezone": "Timezone",
+    "setEndDate": "Set end date",
+    "endDate": "End date",
+    "endTime": "End time ({timezone})"
+  },
+  "advanced": {
+    "title": "Advanced",
+    "campaignTag": "Campaign tag",
+    "campaignTagPlaceholder": "e.g. spring-sale-2026",
+    "campaignTagHint": "Internal marketing tag. Shows up in analytics, not visible to customers.",
+    "priority": "Priority",
+    "priorityHint": "Higher numbers are tried first when multiple automatic discounts match. Leave blank for the default."
+  },
+  "combinations": {
+    "title": "Combinations",
+    "productDiscounts": "Product discounts",
+    "productDiscountsHint": "Each eligible item in the cart may receive up to one product discount",
+    "orderDiscounts": "Order discounts",
+    "orderDiscountsHint": "All eligible order discounts will apply in addition to eligible product discounts",
+    "shippingDiscounts": "Shipping discounts",
+    "shippingDiscountsHint": "The largest eligible shipping discount will apply in addition to eligible product discounts",
+    "exclusive": "Exclusive — can't combine with any other discount",
+    "exclusiveNote": "This discount won't combine with any other discount at checkout"
+  },
+  "eligibility": {
+    "title": "Eligibility",
+    "channels": "Available on all sales channels",
+    "allCustomers": "All customers",
+    "specificSegments": "Specific customer segments",
+    "specificCustomers": "Specific customers",
+    "searchSegments": "Search customer segments",
+    "searchCustomers": "Search customers",
+    "remove": "Remove {name}",
+    "selectedSegment": "Selected segment"
+  },
+  "maximumUses": {
+    "title": "Maximum discount uses",
+    "limitTotal": "Limit number of times this discount can be used in total",
+    "placeholder": "Maximum uses",
+    "oncePerCustomer": "Limit to one use per customer"
+  },
+  "minimumPurchase": {
+    "title": "Minimum purchase requirements",
+    "none": "No minimum requirements",
+    "amount": "Minimum purchase amount (SAR)",
+    "quantity": "Minimum quantity of items"
+  },
+  "pickers": {
+    "add": "Add"
+  },
+  "productPicker": {
+    "title": "Add products",
+    "search": "Search products",
+    "empty": "No products found",
+    "outOfStock": "Out of stock",
+    "selected": "{selected}/{max} products selected"
+  },
+  "collectionPicker": {
+    "title": "Add collections",
+    "search": "Search collections",
+    "empty": "No collections found",
+    "selected": "{selected}/{max} collections selected"
+  },
+  "customerPicker": {
+    "title": "Add customers",
+    "search": "Search by name, email or phone",
+    "empty": "No customers found",
+    "selected": "{selected}/{max} customers selected"
+  },
+  "segmentPicker": {
+    "title": "Add customer segments",
+    "search": "Search segments by name",
+    "empty": "No segments found",
+    "emptyHint": "Build one from the Segments page to use it here.",
+    "selected": "{selected}/{max} segments selected"
+  },
+  "countryPicker": {
+    "title": "Select countries",
+    "search": "Search by name or code",
+    "empty": "No countries match",
+    "selected": "{count} selected"
+  },
+  "scopePreview": {
+    "productsNone": "No products selected",
+    "collectionsNone": "No collections selected",
+    "pickHint": "Pick at least one to scope the deal.",
+    "editHint": "Click edit to change."
+  },
+  "dateField": {
+    "placeholder": "Select date"
+  },
+  "validation": {
+    "invalidTime": "Invalid time",
+    "codeTooLong": "Code is too long",
+    "required": "Required",
+    "tooLong": "Too long",
+    "endAfterStart": "End must be after start",
+    "minimumAmount": "Enter a minimum amount",
+    "minimumQuantity": "Enter a minimum quantity",
+    "usageLimit": "Enter a usage limit",
+    "selectCustomer": "Select at least one customer",
+    "selectSegment": "Select at least one customer segment",
+    "codeTooShort": "Code must be at least 2 characters",
+    "codeCharacters": "Only letters, digits, - and _",
+    "greaterThanZero": "Must be greater than 0",
+    "maxPercent": "Cannot exceed 100%",
+    "selectProductOrCollection": "Select at least one product or collection",
+    "selectCountry": "Select at least one country",
+    "atLeastOne": "Must be ≥ 1",
+    "purchaseAmount": "Enter a purchase amount",
+    "amountOffEach": "Enter an amount off each",
+    "selectBuyProduct": "Select at least one product for buys",
+    "selectBuyCollection": "Select at least one collection for buys",
+    "selectGetProduct": "Select at least one product for gets",
+    "selectGetCollection": "Select at least one collection for gets"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "promoText": "Get 3 months for $1/month",
+  "selectPlan": "Select a plan",
+  "welcomeTitle": "Welcome to Zaydak!",
+  "welcomeSubtitle": "Where do you want to start?",
+  "askPlaceholder": "Help me come up with a business idea",
+  "attach": "Add",
+  "send": "Send",
+  "tasks": {
+    "addProduct": {
+      "title": "Add your first product",
+      "desc": "All you need to get started is a title, price, and photo."
+    },
+    "storeDesign": {
+      "title": "Choose your store design",
+      "desc": "Give your online store a design that fits your brand."
+    },
+    "payments": {
+      "title": "Set up payments",
+      "desc": "Choose a payment provider to let customers pay by card or digital wallet."
+    },
+    "nameStore": {
+      "title": "Name your store",
+      "desc": "Customers will see this across your online store, emails, and checkout."
+    },
+    "customDomain": {
+      "badge": "Get $20 back",
+      "title": "Get a custom domain",
+      "desc": "Give your store a branded URL that customers will remember and trust."
+    },
+    "shipping": {
+      "title": "Review shipping rates",
+      "desc": "Look over the defaults set up for you based on your location."
+    }
+  }
+}

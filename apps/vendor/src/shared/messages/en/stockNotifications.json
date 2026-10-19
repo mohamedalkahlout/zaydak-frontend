@@ -1,0 +1,8 @@
+{
+  "title": "Back-in-stock subscribers",
+  "hide": "Hide",
+  "view": "View",
+  "empty": "No customers waiting. Subscribers appear here when shoppers drop their email on an out-of-stock listing.",
+  "variant": "variant",
+  "footnote": "Subscribers get one notification when `available` flips from 0 to positive — they drop off this list automatically once the restock fires."
+}

@@ -1,0 +1,28 @@
+/* Visit: open or shut right now, where, when, and how to get there. */
+
+.visit { position: relative; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 40px 70px; padding: clamp(90px, 10vw, 150px) var(--gutter) clamp(90px, 10vw, 140px); background: var(--flour) url(../art/grain.png); color: var(--ink); }
+.status { margin: 0; font-family: var(--f-display); font-weight: 400; font-size: clamp(52px, 8vw, 128px); line-height: .92; letter-spacing: -.015em; text-transform: lowercase; }
+.status:lang(ar) { line-height: 1.15; }
+.line { max-width: 34ch; margin: 18px 0 0; font-size: 18px; }
+.line bdi { font-family: var(--f-dot); font-weight: 800; font-size: 26px; color: var(--crust); }
+
+/* a little shutter that is up while the shop is open */
+.mini { position: relative; width: 230px; height: 150px; margin-top: 34px; border-radius: 6px; overflow: hidden; background: #2a1a10; }
+.miniGlow { position: absolute; inset: 14px 0 0; background: radial-gradient(90% 90% at 50% 100%, #ffc27a, #e0782d 45%, #5a2610); }
+.miniDrum { position: absolute; left: 0; right: 0; top: 0; z-index: 2; height: 14px; background: url(../art/drum.webp) center / 100% 100%; }
+.miniCurtain { position: absolute; left: 0; right: 0; top: 14px; z-index: 1; height: calc(100% - 14px); background: url(../art/slats-tile.webp) center top / 230px auto repeat-y; transform: translateY(0%); transition: transform 1.4s var(--ease); }
+.mini[data-open] .miniCurtain { transform: translateY(-100%); }
+
+.facts { display: grid; gap: 26px; align-content: start; margin: 0; padding-top: 8px; }
+.facts div { padding-top: 16px; border-top: 1px solid rgba(31, 22, 17, .18); }
+.facts dt { font-family: var(--f-dot); font-weight: 800; font-size: 15px; color: var(--crust); text-transform: lowercase; }
+.facts dt:lang(ar) { font-family: var(--f-body); }
+.facts dd { max-width: 40ch; margin: 6px 0 0; font-size: 18px; line-height: 1.5; }
+.links { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* the last screen of the page: the closing shutter comes down over it */
+.closeRun { height: 100vh; height: 100svh; background: var(--flour) url(../art/grain.png); }
+
+@media (max-width: 900px) {
+  .visit { grid-template-columns: minmax(0, 1fr); }
+}

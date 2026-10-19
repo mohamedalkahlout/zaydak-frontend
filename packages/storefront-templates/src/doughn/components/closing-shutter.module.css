@@ -1,0 +1,15 @@
+/* The closing shutter: pulled down over the last screen of the page. */
+
+.closing { position: fixed; inset: 0; z-index: 60; pointer-events: none; visibility: hidden; }
+.closing[data-live] { visibility: visible; }
+.closing[data-down] { pointer-events: auto; }
+.drum { position: absolute; left: 0; right: 0; top: 0; z-index: 2; height: clamp(34px, 5vw, 60px); background: url(../art/drum.webp) center / 100% 100%; box-shadow: 0 6px 18px rgba(0, 0, 0, .45); transform: translateY(-100%); will-change: transform; }
+.curtain { position: absolute; inset: 0; display: grid; place-items: center; background: #3b3530 url(../art/slats-tile.webp) center top / max(100%, 1100px) auto repeat-y; transform: translateY(-100%); will-change: transform; }
+.curtain::before { content: ""; position: absolute; inset: 0; background: linear-gradient(100deg, rgba(0, 0, 0, .35), transparent 40%, rgba(0, 0, 0, .25)); pointer-events: none; }
+.bar { position: absolute; left: 0; right: 0; bottom: 0; height: clamp(26px, 3.5vw, 44px); background: url(../art/shutter-bar.webp) center / 100% 100%; }
+.paint { position: relative; padding: 0 20px; text-align: center; color: var(--paint); }
+.mark { margin: 0; font-size: clamp(96px, 20vw, 300px); line-height: 1.12; opacity: .94; }
+.line { margin: 0; font-family: var(--f-display); font-size: clamp(30px, 4vw, 56px); line-height: 1.05; text-transform: lowercase; }
+.small { margin: 14px 0 26px; font-family: var(--f-dot); font-weight: 800; font-size: 18px; }
+.small:lang(ar) { font-family: var(--f-body); font-weight: 600; }
+.demo { margin: 26px 0 0; font-size: 13px; color: rgba(239, 226, 204, .7); }

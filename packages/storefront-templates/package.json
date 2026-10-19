@@ -1,0 +1,59 @@
+{
+  "name": "@repo/storefront-templates",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "license": "UNLICENSED",
+  "description": "Storefront template presentation (doughn, drip, rail, hullo, personne, jurat). Markup, CSS, motion, fonts, and art. Apps pass products, cart lines, and copy in.",
+  "exports": {
+    "./doughn": "./src/doughn/index.ts",
+    "./doughn/theme": "./src/doughn/theme.ts",
+    "./doughn/checkout": "./src/doughn/checkout-frame.tsx",
+    "./doughn/thumbnail": "./src/doughn/thumbnail.ts",
+    "./drip": "./src/drip/index.ts",
+    "./drip/checkout": "./src/drip/checkout-frame.tsx",
+    "./drip/thumbnail": "./src/drip/thumbnail.ts",
+    "./hullo": "./src/hullo/index.ts",
+    "./hullo/checkout": "./src/hullo/checkout-frame.tsx",
+    "./hullo/thumbnail": "./src/hullo/thumbnail.ts",
+    "./rail": "./src/rail/index.ts",
+    "./rail/checkout": "./src/rail/checkout-frame.tsx",
+    "./rail/thumbnail": "./src/rail/thumbnail.ts",
+    "./personne": "./src/personne/index.ts",
+    "./personne/checkout": "./src/personne/checkout-frame.tsx",
+    "./personne/thumbnail": "./src/personne/thumbnail.ts",
+    "./jurat": "./src/jurat/index.ts",
+    "./jurat/checkout": "./src/jurat/checkout-frame.tsx",
+    "./jurat/thumbnail": "./src/jurat/thumbnail.ts",
+    "./checkout-frame": "./src/checkout-frame.ts"
+  },
+  "scripts": {
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "gsap": "^3.15.0",
+    "lenis": "^1.3.26"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "*",
+    "@repo/typescript-config": "*",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/react": "^16.3.2",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "jsdom": "^29.1.1",
+    "next": "16.3.5",
+    "typescript": "^5",
+    "vitest": "^4.1.7"
+  },
+  "peerDependencies": {
+    "next": "^16",
+    "react": "^19",
+    "react-dom": "^19"
+  }
+}

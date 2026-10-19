@@ -1,0 +1,113 @@
+{
+  "toolbar": "toolbar",
+  "contentArea": "Content editor area",
+  "undoRedo": {
+    "undo": "Undo",
+    "redo": "Redo"
+  },
+  "heading": {
+    "label": "Heading",
+    "level": "Heading {level}",
+    "format": "Format text as heading"
+  },
+  "list": {
+    "label": "List",
+    "options": "List options",
+    "bulletList": "Bullet List",
+    "orderedList": "Ordered List",
+    "taskList": "Task List"
+  },
+  "blockquote": {
+    "label": "Blockquote"
+  },
+  "codeBlock": {
+    "label": "Code Block"
+  },
+  "mark": {
+    "bold": "Bold",
+    "italic": "Italic",
+    "strike": "Strike",
+    "code": "Code",
+    "underline": "Underline",
+    "superscript": "Superscript",
+    "subscript": "Subscript"
+  },
+  "highlight": {
+    "label": "Highlight",
+    "trigger": "Highlight text",
+    "palette": "Highlight colors",
+    "toggle": "Toggle highlight ({color})",
+    "swatch": "{color} highlight color",
+    "remove": "Remove highlight",
+    "colors": {
+      "default": "Default background",
+      "gray": "Gray background",
+      "brown": "Brown background",
+      "orange": "Orange background",
+      "yellow": "Yellow background",
+      "green": "Green background",
+      "blue": "Blue background",
+      "purple": "Purple background",
+      "pink": "Pink background",
+      "red": "Red background"
+    }
+  },
+  "link": {
+    "label": "Link",
+    "placeholder": "Paste a link...",
+    "apply": "Apply link",
+    "open": "Open in new window",
+    "remove": "Remove link"
+  },
+  "textAlign": {
+    "left": "Align left",
+    "center": "Align center",
+    "right": "Align right",
+    "justify": "Align justify"
+  },
+  "imageUpload": {
+    "addImage": "Add image",
+    "add": "Add",
+    "dropzone": "<em>Click to upload</em> or drag and drop",
+    "limits": "Maximum {limit, plural, one {# file} other {# files}}, {size}MB each.",
+    "uploading": "Uploading {count, plural, one {# file} other {# files}}",
+    "clearAll": "Clear All",
+    "errors": {
+      "noFile": "Choose an image to upload.",
+      "tooLarge": "That image is larger than {size}MB.",
+      "tooMany": "You can add up to {limit, plural, one {# image} other {# images}} at once.",
+      "cancelled": "The upload was cancelled.",
+      "failed": "The image could not be uploaded."
+    }
+  },
+  "ai": {
+    "ask": "Ask AI",
+    "askPlaceholder": "Describe what you want AI to write or rewrite...",
+    "working": "Working...",
+    "runPrompt": "Run prompt",
+    "runCustomPrompt": "Run custom prompt",
+    "selectionTitle": "AI for selected text",
+    "documentTitle": "AI writing assistant",
+    "selectionPlaceholder": "Ask AI to rewrite the selected text...",
+    "documentPlaceholder": "Generate or rewrite the description...",
+    "applied": "AI suggestion applied",
+    "failed": "AI action failed",
+    "tryAgain": "Please try again",
+    "actions": {
+      "improve": "Improve",
+      "shorten": "Shorten",
+      "extend": "Extend",
+      "simplify": "Simplify",
+      "translate-en": "To English",
+      "translate-ar": "To Arabic"
+    },
+    "errors": {
+      "startingUp": "The editor is still starting up. Try again in a moment.",
+      "requestFailed": "The AI request failed."
+    }
+  },
+  "themeToggle": {
+    "toLight": "Switch to light mode",
+    "toDark": "Switch to dark mode"
+  }
+}

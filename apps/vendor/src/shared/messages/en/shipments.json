@@ -1,0 +1,80 @@
+{
+  "title": "Shipments",
+  "unknownLocation": "Unknown location",
+  "unitCount": "{count, plural, one {# item} other {# items}}",
+  "createShipment": "Create shipment",
+  "noShipmentYet": "Nothing has been shipped from here yet.",
+  "unlinkedTitle": "Shipments not linked to a fulfillment",
+  "providerManual": "Delivered by the shop",
+  "providerUnknown": "Carrier not recorded",
+  "boxCount": "{count, plural, one {# box} other {# boxes}}",
+  "label": "Label",
+  "cost": "Carrier cost",
+  "costUnknown": "Not recorded",
+  "historyCount": "{count, plural, one {# tracking update} other {# tracking updates}}",
+  "refresh": "Refresh",
+  "refreshed": "Tracking updated",
+  "refreshFailed": "Could not refresh tracking",
+  "cancel": "Cancel",
+  "cancelled": "Shipment cancelled",
+  "cancelFailed": "Could not cancel the shipment",
+  "status": {
+    "pending": "Pending",
+    "processing": "Processing",
+    "shipped": "Shipped",
+    "delivered": "Delivered",
+    "cancelled": "Cancelled",
+    "in_transit": "In transit",
+    "picked_up": "Picked up"
+  },
+  "source": {
+    "provider": "from the carrier",
+    "manual": "entered by hand",
+    "system": "automatic"
+  },
+  "costSource": {
+    "provider": "from the carrier",
+    "manual": "entered by hand"
+  },
+  "economics": {
+    "charged": "Customer paid",
+    "cost": "Carrier cost",
+    "subsidy": "Shop absorbed",
+    "margin": "Shop kept",
+    "unknown": "Not recorded",
+    "partial": "Some shipments on this order have no cost recorded yet, so these figures are incomplete."
+  },
+  "costDialog": {
+    "title": "Carrier cost",
+    "description": "What you actually paid to ship this. Works whether a carrier delivered it or you did — enter what the driver cost you.",
+    "amount": "Amount",
+    "zeroNote": "Leave empty if the invoice has not arrived. Zero means it genuinely cost nothing — the two are different.",
+    "save": "Save",
+    "saved": "Cost saved",
+    "failed": "Could not save the cost",
+    "cancel": "Cancel"
+  },
+  "createDialog": {
+    "title": "Create shipment",
+    "description": "Books a shipment for this fulfillment — the items leaving one location.",
+    "tracking": "Tracking number",
+    "trackingPlaceholder": "Optional",
+    "trackingHint": "If a carrier books this, its own tracking number replaces anything entered here.",
+    "carrier": "Carrier name",
+    "carrierPlaceholder": "e.g. your own driver",
+    "carrierHint": "Used only when you deliver the order yourself. A carrier booking takes its name from the provider.",
+    "packages": "Packages",
+    "addBox": "Add box",
+    "noPackagesHint": "No boxes added — this books a single unmeasured package.",
+    "box": {
+      "weight": "Weight (g)",
+      "length": "Length (mm)",
+      "width": "Width (mm)",
+      "height": "Height (mm)"
+    },
+    "create": "Create",
+    "created": "Shipment created",
+    "failed": "Could not create the shipment",
+    "cancel": "Cancel"
+  }
+}

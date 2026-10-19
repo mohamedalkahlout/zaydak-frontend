@@ -1,0 +1,36 @@
+{
+  "networkError": {
+    "title": "Network error",
+    "description": "Check your connection"
+  },
+  "suspiciousActivity": {
+    "title": "Suspicious activity detected",
+    "description": "All sessions were revoked. Please sign in again."
+  },
+  "accountLocked": {
+    "title": "Account locked",
+    "description": "Too many failed attempts. Try again in 15 minutes."
+  },
+  "otpLocked": {
+    "title": "OTP locked",
+    "description": "Too many failed attempts. Request a new code."
+  },
+  "otpCooldown": {
+    "title": "Please wait",
+    "description": "You can request another code in about 60 seconds."
+  },
+  "emailNotVerified": {
+    "title": "Verify your email first",
+    "description": "Open the activation link from your inbox or resend it from your account."
+  },
+  "tooManyRequests": {
+    "title": "Too many requests",
+    "description": "Please wait a moment and try again.",
+    "descriptionWait": "Please try again in {wait}."
+  },
+  "wait": {
+    "seconds": "{count, plural, one {# second} other {# seconds}}",
+    "minutes": "{count, plural, one {a minute} other {# minutes}}"
+  },
+  "fallback": "Something went wrong"
+}

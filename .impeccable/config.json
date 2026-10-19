@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "packages/storefront-templates/src/doughn/components/street.module.css"
+        ],
+        "createdAt": "2026-10-04T10:34:47.331Z",
+        "reason": "Claude triage: L73 .slatLast::after is a 7px lamplight gradient under the shop shutter in the scroll scene (ported from the doughn demo), not a card accent border"
+      }
+    ]
+  }
+}

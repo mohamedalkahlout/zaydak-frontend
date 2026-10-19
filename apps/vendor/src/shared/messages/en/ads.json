@@ -1,0 +1,183 @@
+{
+  "title": "Ads",
+  "subtitle": "Connect ad platforms, draft campaigns, and review performance from one place.",
+  "sectionsLabel": "Ads sections",
+  "createAd": "Create ad",
+  "unsavedChanges": "Unsaved changes",
+  "tab": {
+    "dashboard": "Dashboard",
+    "campaigns": "Ad management",
+    "integrations": "Integration tools",
+    "audiences": "Audience manager"
+  },
+  "platforms": {
+    "label": "Ad platforms",
+    "meta": "Meta",
+    "google": "Google Ads",
+    "tiktok": "TikTok",
+    "snapchat": "Snapchat"
+  },
+  "status": {
+    "draft": "Draft",
+    "active": "Active",
+    "paused": "Paused",
+    "ended": "Ended"
+  },
+  "objective": {
+    "sales": "Sales",
+    "traffic": "Traffic",
+    "awareness": "Awareness"
+  },
+  "range": {
+    "last_7_days": "Last 7 days",
+    "last_30_days": "Last 30 days",
+    "last_90_days": "Last 90 days"
+  },
+  "kpi": {
+    "impressions": "Impressions",
+    "avgCpc": "Avg. CPC",
+    "clicks": "Clicks",
+    "spend": "Spend"
+  },
+  "chart": {
+    "title": "Performance",
+    "empty": "No performance data yet. Connect a platform and launch a campaign to see impressions and spend here.",
+    "emptyHint": "Figures stay empty until live ad-platform reporting is wired."
+  },
+  "latest": {
+    "title": "Latest campaigns",
+    "subtitle": "Drafts saved on this device until the ads API ships.",
+    "viewAll": "View all",
+    "emptyTitle": "No campaigns yet",
+    "emptyBody": "Create a draft to try Ad management. Launching on Meta, Google, TikTok, or Snapchat is not available yet."
+  },
+  "create": {
+    "title": "Create ad campaign",
+    "description": "Saves a local draft only. Platform launch and billing are not connected yet.",
+    "name": "Campaign name",
+    "namePlaceholder": "Summer sale",
+    "platform": "Platform",
+    "untitled": "Untitled campaign",
+    "cancel": "Cancel",
+    "submit": "Create draft"
+  },
+  "management": {
+    "listTitle": "Campaigns",
+    "listCount": "{count, plural, one {# campaign} other {# campaigns}}",
+    "emptyTitle": "No campaigns yet",
+    "emptyBody": "Create a draft campaign to open the detail pane. Editing and launch to a live ad account come later.",
+    "edit": "Edit",
+    "delete": "Delete",
+    "created": "Created {date}",
+    "draftBannerTitle": "Finish this draft before you launch",
+    "draftBannerBody": "Review the creative and budget in a later release. For now you can keep drafts on this device or delete them.",
+    "fields": {
+      "status": "Status",
+      "dates": "Schedule",
+      "noDates": "No dates set"
+    }
+  },
+  "integrations": {
+    "connected": "Connected",
+    "notConnected": "Not connected",
+    "connect": "Connect {platform}",
+    "disconnect": "Disconnect",
+    "startCampaign": "Start your first campaign",
+    "demoNote": "Connect stores a demo connection on this device. Real OAuth and pixel install are not wired yet.",
+    "pixelTitle": "Pixel & conversion",
+    "active": "Active",
+    "inactive": "Inactive",
+    "pixelMissing": "No pixel ID yet",
+    "linked": "Connected",
+    "notLinked": "Not linked",
+    "catalogTitle": {
+      "meta": "Product catalog",
+      "google": "Merchant Center",
+      "tiktok": "Catalog feed",
+      "snapchat": "Product catalog feed"
+    },
+    "catalogDetail": {
+      "meta": "Catalog sync will appear here after Meta OAuth.",
+      "google": "Merchant Center link status after Google OAuth.",
+      "tiktok": "TikTok catalog feed after Events API setup.",
+      "snapchat": "Catalog feed sync after Snapchat OAuth."
+    },
+    "benefitsHeading": "Why connect",
+    "benefitsIntro": {
+      "meta": "With Meta pixel and conversion events you get cleaner targeting and reporting.",
+      "google": "With Google tag and conversion tracking you get accurate data to improve performance.",
+      "tiktok": "With TikTok Pixel and the Events API you measure visits, carts, and purchases.",
+      "snapchat": "With Snap Pixel and catalog sync you retarget shoppers who already know your store."
+    },
+    "benefits": {
+      "0": {
+        "title": "Know what works",
+        "body": "Track visits, adds to cart, and purchases in one place so spend follows real outcomes."
+      },
+      "1": {
+        "title": "A second chance to sell",
+        "body": "Retarget people who saw an ad or left mid-checkout instead of starting cold every time."
+      },
+      "2": {
+        "title": "Find lookalike audiences",
+        "body": "Use your best customers as a seed once platform audiences are connected."
+      },
+      "3": {
+        "title": "Let algorithms help",
+        "body": "Hand platforms cleaner conversion signals so their bidding can optimise toward buyers."
+      }
+    },
+    "footerHint": "To finish setup later, launch a sales campaign after OAuth is available — that activates the pixel and catalog sync.",
+    "hero": {
+      "meta": {
+        "title": "Connect Meta to run smarter ads from here",
+        "body": "Link Facebook and Instagram ads so pixel events and catalog products stay in sync with this store."
+      },
+      "google": {
+        "title": "Connect Google to run smarter ads from here",
+        "body": "Link Google Ads and Merchant Center so conversions and product feeds stay accurate."
+      },
+      "tiktok": {
+        "title": "Connect TikTok to run smarter ads from here",
+        "body": "Link TikTok Pixel and the Events API so catalog and conversion data stay trustworthy."
+      },
+      "snapchat": {
+        "title": "Connect Snapchat to run smarter ads from here",
+        "body": "Link Snap Pixel and your catalog feed so product sets and conversions stay aligned."
+      }
+    },
+    "snapchat": {
+      "pixelHeading": "Snap Pixel",
+      "pixelHint": "Paste the pixel ID from Snapchat Ads Manager. Saved on this device until the API exists.",
+      "pixelLabel": "Pixel ID",
+      "pixelPlaceholder": "e.g. 12a3b4c5d6e7f8",
+      "accountsHeading": "Connected accounts",
+      "accountsHint": "Ad accounts returned after OAuth will list here.",
+      "accountsEmpty": "No Snapchat accounts yet.",
+      "catalogHeading": "Product catalog feed",
+      "catalogHint": "Sync status for products pushed to Snapchat.",
+      "catalogProgress": "{synced} of {total} products synced",
+      "catalogLastSync": "Last sync {when}",
+      "catalogNeverSynced": "Not synced yet",
+      "setsHeading": "Product sets",
+      "setsHint": "Optional subsets of the catalog for specific campaigns.",
+      "setsAdd": "New product set",
+      "setsDefaultName": "New product set",
+      "setsEmpty": "No product sets yet."
+    }
+  },
+  "audiences": {
+    "title": "Audience manager",
+    "subtitle": "Custom and lookalike audiences from connected platforms.",
+    "emptyTitle": "Audiences coming soon",
+    "emptyBody": "Once Meta, Google, TikTok, or Snapchat OAuth ships, synced audiences will appear here. Customer segments in the Customers area stay available today."
+  },
+  "toasts": {
+    "draftCreated": "Draft campaign created",
+    "draftDeleted": "Campaign deleted",
+    "editSoon": "Campaign editing is not available yet",
+    "connectedDemo": "Demo connection saved on this device",
+    "disconnected": "Platform disconnected",
+    "pixelSaved": "Pixel ID saved"
+  }
+}

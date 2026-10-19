@@ -1,0 +1,27 @@
+{
+  "title": "Cross-sells & upsells",
+  "types": {
+    "RELATED": {
+      "label": "Related",
+      "hint": "Generic “you may also like” carousel on the PDP."
+    },
+    "UPSELL": {
+      "label": "Upsell",
+      "hint": "Higher-tier swap shown on the PDP and at cart."
+    },
+    "CROSS_SELL": {
+      "label": "Cross-sell",
+      "hint": "Complementary item shown in cart and post-purchase."
+    },
+    "COMPLEMENTARY": {
+      "label": "Bundle",
+      "hint": "Frequently bought together — full set suggestion."
+    }
+  },
+  "removeFailed": "Could not remove relation",
+  "addFailed": "Could not add relation",
+  "tryAgain": "Try again",
+  "empty": "No products linked yet. Search below to add some.",
+  "searchPlaceholder": "Search products to link…",
+  "noMatches": "No matches"
+}

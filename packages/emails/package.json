@@ -1,0 +1,37 @@
+{
+  "name": "@repo/emails",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Zaydak transactional email templates built with React Email.",
+  "license": "UNLICENSED",
+  "main": "./dist/src/index.js",
+  "types": "./dist/src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "require": "./dist/src/index.js",
+      "default": "./dist/src/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "emails"
+  ],
+  "scripts": {
+    "dev": "email dev --dir ./emails --port 3005",
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.build.json --noEmit",
+    "export": "email export --outDir ./out"
+  },
+  "dependencies": {
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "react-email": "6.9.5"
+  },
+  "devDependencies": {
+    "@react-email/ui": "6.9.5",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "typescript": "^5"
+  }
+}

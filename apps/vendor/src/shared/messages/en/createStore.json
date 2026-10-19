@@ -1,0 +1,36 @@
+{
+  "skip": "Skip",
+  "back": "Back",
+  "continue": "Continue",
+  "creating": "Creating...",
+  "created": "Store created",
+  "createdRename": "Rename it any time in Settings.",
+  "temporaryName": "My Store",
+  "temporaryNote": "We'll set up your store. You can name it later in Settings.",
+  "countryRequired": "Choose where your business operates.",
+  "noMarkets": "No markets are open for new stores yet. Check back soon.",
+  "step": {
+    "country": {
+      "title": "Where does your business operate?",
+      "subtitle": "We use this country to set your currency, payments, and shipping options."
+    },
+    "model": {
+      "title": "How will you use Zaydak?",
+      "subtitle": "You can change this later. Products and orders stay.",
+      "own": "Sell my own products",
+      "agent": "Shopping agent",
+      "hybrid": "Both"
+    },
+    "types": {
+      "title": "What can we help you do?",
+      "subtitle": "Select all that apply. We'll tailor your setup."
+    }
+  },
+  "types": {
+    "sellOnline": "Sell online",
+    "sellInStore": "Sell in-store",
+    "dropshipping": "Dropshipping",
+    "sellDigital": "Sell digital products",
+    "moveExisting": "Move existing store"
+  }
+}

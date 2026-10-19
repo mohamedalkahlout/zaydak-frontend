@@ -1,0 +1,125 @@
+{
+  "breakpoints": {
+    "375": {
+      "name": "analytics-category-sales",
+      "viewportWidth": 311,
+      "width": 311,
+      "height": 30,
+      "bones": [
+        [
+          0,
+          0,
+          45.9254,
+          20,
+          8
+        ],
+        [
+          87.7412,
+          0,
+          12.2588,
+          20,
+          8
+        ],
+        [
+          0,
+          24,
+          100,
+          6,
+          9999,
+          true
+        ]
+      ]
+    },
+    "768": {
+      "name": "analytics-category-sales",
+      "viewportWidth": 448,
+      "width": 448,
+      "height": 30,
+      "bones": [
+        [
+          0,
+          0,
+          31.8813,
+          20,
+          8
+        ],
+        [
+          91.49,
+          0,
+          8.51,
+          20,
+          8
+        ],
+        [
+          0,
+          24,
+          100,
+          6,
+          9999,
+          true
+        ]
+      ]
+    },
+    "1280": {
+      "name": "analytics-category-sales",
+      "viewportWidth": 456,
+      "width": 456,
+      "height": 30,
+      "bones": [
+        [
+          0,
+          0,
+          31.322,
+          20,
+          8
+        ],
+        [
+          91.6393,
+          0,
+          8.3607,
+          20,
+          8
+        ],
+        [
+          0,
+          24,
+          100,
+          6,
+          9999,
+          true
+        ]
+      ]
+    },
+    "1536": {
+      "name": "analytics-category-sales",
+      "viewportWidth": 512,
+      "width": 512,
+      "height": 30,
+      "bones": [
+        [
+          0,
+          0,
+          27.8961,
+          20,
+          8
+        ],
+        [
+          92.5537,
+          0,
+          7.4463,
+          20,
+          8
+        ],
+        [
+          0,
+          24,
+          100,
+          6,
+          9999,
+          true
+        ]
+      ]
+    }
+  },
+  "_hash": "b14723d8434540080fc79180b6f66418"
+}

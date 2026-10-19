@@ -1,0 +1,892 @@
+{
+  "title": "المساعد الذكي",
+  "newConversation": "محادثة جديدة",
+  "expand": "توسيع",
+  "collapse": "تصغير",
+  "close": "إغلاق",
+  "howCanIHelp": "كيف أقدر أساعدك؟",
+  "placeholder": "اسأل أي شيء...",
+  "send": "إرسال",
+  "attach": "إرفاق",
+  "voice": "تسجيل صوتي",
+  "preview": "معاينة",
+  "loadingConversation": "جاري تحميل المحادثة...",
+  "jumpToLatest": "اقفز للأحدث",
+  "transcript": "المحادثة",
+  "replyInProgress": "لسه عم يكتب",
+  "processing": "جاري المعالجة...",
+  "running": "يعمل...",
+  "resize": "تغيير عرض اللوحة",
+  "errorGeneric": "حدث خطأ ما. حاول مرة أخرى.",
+  "errorNetwork": "تعذر الوصول للمساعد. تحقق من الاتصال.",
+  "errorRateLimit": "وصلت للحد الأقصى لرسائل المساعد الذكي، حاول لاحقاً.",
+  "errorBudget": "الدردشة غير متاحة حالياً، حاول مجدداً غداً.",
+  "errorConversationMissing": "هذه المحادثة لم تعد متاحة. سيتم بدء محادثة جديدة.",
+  "greeting": {
+    "morning": "صباح الخير",
+    "afternoon": "مساء الخير",
+    "evening": "مساء الخير",
+    "night": "أهلاً",
+    "withName": "{greeting}، {name}"
+  },
+  "suggestions": {
+    "whatsNew": "ما الجديد؟",
+    "draftProduct": "اكتب وصف لمنتج",
+    "summarizeOrders": "لخّص طلبات اليوم"
+  },
+  "approval": {
+    "title": "يحتاج موافقتك",
+    "prompt": "هذا الإجراء يغيّر متجرك. وافق لتنفيذه، أو ارفض ولا يصير شي.",
+    "approve": "موافقة",
+    "reject": "رفض",
+    "approved": "تمت الموافقة",
+    "rejected": "مرفوض",
+    "waiting": "بانتظار الموافقة.",
+    "affected": "{count, plural, zero {لا منتجات} one {منتج واحد} two {منتجان} few {# منتجات} many {# منتجاً} other {# منتج}} سيتأثر.",
+    "noPreview": "ما نقدر نعرض الأثر بالضبط قبل التنفيذ.",
+    "previewFailed": "ما قدرنا نحسب المعاينة.",
+    "expired": "هذه الموافقة ما عادت معلّقة — ما تغيّر شي. اطلبها مرة ثانية.",
+    "tools": {
+      "bulk_update_price": "تغيير الأسعار بالجملة",
+      "bulk_update_tags": "تغيير الوسوم بالجملة",
+      "import_products_csv": "استيراد منتجات من CSV",
+      "set_inventory": "ضبط كمية المخزون",
+      "transfer_inventory": "نقل مخزون بين المواقع"
+    }
+  },
+  "mention": {
+    "addReference": "أضف مرجعاً",
+    "noMatches": "لا نتائج مطابقة",
+    "loadFailed": "ما قدرنا نجيب القائمة",
+    "back": "رجوع",
+    "navigate": "تنقل",
+    "open": "افتح",
+    "select": "اختر",
+    "close": "إغلاق",
+    "categories": {
+      "product": "المنتجات",
+      "collection": "الأقسام",
+      "order": "الطلبات",
+      "customer": "العملاء",
+      "coupon": "الكوبونات"
+    },
+    "collectionHint": "قسم",
+    "unnamed": "بدون اسم",
+    "announce": "{token}، {category}"
+  },
+  "composer": {
+    "remove": "إزالة",
+    "attachImage": "إرفاق صورة",
+    "voiceInput": "تسجيل صوتي",
+    "stopRecording": "إيقاف التسجيل",
+    "listening": "يسمعك...",
+    "stop": "إيقاف",
+    "copy": "نسخ",
+    "regenerate": "إعادة التوليد"
+  },
+  "page": {
+    "subtitle": "مساعد إدارة المتجر",
+    "dropImages": "أفلت الصورة هنا",
+    "dropImagesHint": "سترفع وتضاف للرسالة",
+    "export": "تصدير",
+    "newShort": "جديدة",
+    "findPlaceholder": "ابحث في هذه المحادثة...",
+    "findPrevious": "السابق",
+    "findNext": "التالي",
+    "welcome": "أهلاً {name}، كيف أقدر أساعدك؟",
+    "welcomeAnonymous": "أهلاً، كيف أقدر أساعدك؟",
+    "welcomeBody": "اسألني عن متجرك، اطلب إحصائيات، أو جهّز منتج/قسم جديد.",
+    "thinking": "يفكر...",
+    "inputPlaceholder": "اسأل عن متجرك، أو @ لتذكر منتج...",
+    "categories": {
+      "create": "إنشاء",
+      "insights": "إحصائيات",
+      "inventory": "مخزون"
+    },
+    "quickActions": {
+      "stats": "الإحصائيات",
+      "lowStock": "مخزون ناقص",
+      "topSellers": "الأكثر مبيعاً",
+      "newProduct": "منتج جديد"
+    }
+  },
+  "panel": {
+    "menu": {
+      "files": "ملفات",
+      "upload": "رفع من الجهاز",
+      "target": "هدف",
+      "mention": "إشارة",
+      "skills": "مهارات",
+      "generateApp": "إنشاء تطبيق",
+      "apps": "التطبيقات"
+    }
+  },
+  "conversations": {
+    "newChat": "محادثة جديدة",
+    "untitled": "محادثة بدون عنوان",
+    "empty": "ما في محادثات محفوظة بعد.",
+    "noMatches": "لا نتائج مطابقة للبحث"
+  },
+  "sidebar": {
+    "trigger": "المحادثات",
+    "title": "المحادثات السابقة",
+    "loading": "جاري التحميل...",
+    "select": "تحديد",
+    "tabActive": "النشطة",
+    "tabArchived": "المؤرشفة",
+    "searchPlaceholder": "بحث في العناوين والرسائل...",
+    "copyLinkPrompt": "انسخ الرابط:",
+    "titlePlaceholder": "عنوان المحادثة",
+    "messageCount": "{count, plural, zero {لا رسائل} one {رسالة واحدة} two {رسالتان} few {# رسائل} many {# رسالة} other {# رسالة}}",
+    "linkCopied": "✓ تم نسخ الرابط",
+    "restore": "استرداد",
+    "pin": "تثبيت",
+    "unpin": "إلغاء التثبيت",
+    "rename": "إعادة تسمية",
+    "share": "مشاركة",
+    "shareExpired": "منتهي",
+    "shareDaysLeft": "{days} ي",
+    "shareActive": "مشارك",
+    "pinProtected": "محمي بـ PIN",
+    "ttlNever": "أبداً",
+    "ttlDay": "24 ساعة",
+    "ttlWeek": "7 أيام",
+    "ttlMonth": "30 يوم",
+    "protectWithPin": "حماية بـ PIN",
+    "pinPlaceholder": "PIN",
+    "pinTooShort": "PIN لازم 4 أحرف فأكثر",
+    "removePin": "إزالة الحماية بـ PIN (إن وُجدت)",
+    "selectedCount": "{count} محدد",
+    "bulkPin": "تثبيت",
+    "bulkUnpin": "فك"
+  },
+  "search": {
+    "title": "المحادثات",
+    "description": "ابحث في محادثاتك أو ابدأ محادثة جديدة",
+    "placeholder": "بحث في المحادثات...",
+    "current": "الحالية",
+    "hintNavigate": "تنقّل",
+    "hintOpen": "فتح",
+    "groups": {
+      "results": "النتائج",
+      "today": "اليوم",
+      "yesterday": "أمس",
+      "week": "آخر 7 أيام",
+      "older": "أقدم"
+    }
+  },
+  "briefing": {
+    "greeting": {
+      "morning": "صباح الخير",
+      "afternoon": "أهلاً",
+      "evening": "مساء الخير",
+      "night": "مرحباً"
+    },
+    "subtitle": "ملخص متجرك اليوم",
+    "outOfStock": "{count, plural, zero {لا منتجات نفد مخزونها} one {منتج واحد نفد مخزونه} two {منتجان نفد مخزونهما} few {# منتجات نفد مخزونها} many {# منتجاً نفد مخزونه} other {# منتج نفد مخزونه}}",
+    "pendingRefunds": "{count, plural, zero {لا طلبات استرجاع بانتظارك} one {طلب استرجاع واحد بانتظارك} two {طلبا استرجاع بانتظارك} few {# طلبات استرجاع بانتظارك} many {# طلب استرجاع بانتظارك} other {# طلب استرجاع بانتظارك}}",
+    "ordersToday": "طلبات اليوم",
+    "revenueToday": "إيراد اليوم",
+    "lowStock": "مخزون ناقص",
+    "newCustomers": "عملاء جدد"
+  },
+  "weekly": {
+    "title": "آخر 7 أيام كاملة",
+    "analyze": "تحليل ←",
+    "revenue": "الإيرادات",
+    "orders": "الطلبات",
+    "ordersValue": "{count, plural, zero {# طلب} one {طلب واحد} two {طلبان} few {# طلبات} many {# طلباً} other {# طلب}}",
+    "prior": "السابق: {value}",
+    "priorWeek": "(الأسبوع السابق)"
+  },
+  "taskPlan": {
+    "stepOf": "الخطوة {current} من {total}",
+    "working": "جارٍ التنفيذ",
+    "waiting": "بانتظارك",
+    "title": "المهام"
+  },
+  "export": {
+    "defaultTitle": "محادثة Sidekick",
+    "exported": "مُصدَّرة {date}",
+    "user": "المستخدم",
+    "assistant": "المساعد",
+    "toolCalls": "استدعاءات الأدوات",
+    "ok": "نجحت",
+    "failed": "فشلت"
+  },
+  "filledMark": {
+    "label": "عبّأه المساعد"
+  },
+  "liveFormChip": {
+    "new": {
+      "product_create": "منتج جديد",
+      "coupon_create": "كوبون جديد",
+      "collection_create": "مجموعة جديدة"
+    },
+    "editing": "تعديل: <title>{name}</title>",
+    "editingUnnamed": {
+      "product_edit": "تعديل منتج",
+      "coupon_edit": "تعديل كوبون"
+    },
+    "hint": "المساعد يرى هذا النموذج ويمكنه التعديل عليه. لا يُحفظ شيء حتى تضغط حفظ."
+  },
+  "upload": {
+    "notSignedIn": "سجّل الدخول واختر متجراً قبل رفع الصور.",
+    "failedStatus": "فشل الرفع ({status}).",
+    "noUrl": "تم الرفع لكن لم يصل رابط الملف.",
+    "failed": "فشل الرفع."
+  },
+  "voiceInput": {
+    "notSupported": "الإدخال الصوتي غير مدعوم في هذا المتصفح.",
+    "failed": "تعذّر الإدخال الصوتي.",
+    "startFailed": "تعذّر تشغيل الميكروفون."
+  },
+  "agent": {
+    "loadHistoryFailed": "تعذّر تحميل المحادثة.",
+    "notSignedIn": "لم تسجّل الدخول أو لا يوجد متجر نشط.",
+    "requestFailed": "تعذّر إرسال الطلب ({status}).",
+    "noBody": "وصل الرد فارغاً.",
+    "stoppedEarly": "توقف المساعد عن الرد قبل أن يُكمل.",
+    "connectionDropped": "انقطع الاتصال بالمساعد."
+  },
+  "toolLog": {
+    "tools": {
+      "list_collections": {
+        "running": "يبحث في الأقسام",
+        "done": "راجع الأقسام",
+        "doneCount": "الأقسام: {count}"
+      },
+      "create_collection": {
+        "running": "يجهّز قسماً جديداً",
+        "done": "جهّز نموذج القسم"
+      },
+      "list_system_categories": {
+        "running": "يطابق التصنيف",
+        "done": "اقترح تصنيفات",
+        "doneCount": "تصنيفات مطابقة: {count}",
+        "matched": "طابق التصنيف: {name}",
+        "none": "ما لقى تصنيف مطابق"
+      },
+      "create_product": {
+        "running": "يجهّز منتجاً جديداً",
+        "done": "جهّز نموذج المنتج",
+        "askedLocation": "سأل عن المخزن"
+      },
+      "search_products": {
+        "running": "يبحث في المنتجات",
+        "done": "بحث في المنتجات",
+        "doneCount": "وجد منتجات: {count}"
+      },
+      "get_product": {
+        "running": "يفتح المنتج",
+        "done": "جلب المنتج"
+      },
+      "update_product": {
+        "running": "يجهّز تعديل المنتج",
+        "done": "جهّز التعديلات على المنتج"
+      },
+      "patch_form": {
+        "running": "يعدّل النموذج المفتوح",
+        "done": "عدّل النموذج المفتوح"
+      },
+      "prepare_delete_product": {
+        "running": "يتحقق قبل الحذف",
+        "done": "بانتظار تأكيد الحذف"
+      },
+      "delete_product": {
+        "running": "يحذف المنتج",
+        "done": "حذف المنتج"
+      },
+      "get_shop_stats": {
+        "running": "يجمع الإحصائيات",
+        "done": "جلب الإحصائيات"
+      },
+      "get_low_stock_products": {
+        "running": "يفحص المخزون",
+        "done": "فحص المخزون",
+        "doneCount": "مخزون ناقص: {count}"
+      },
+      "get_top_products": {
+        "running": "يرتّب الأكثر مبيعاً",
+        "done": "جلب الأكثر مبيعاً"
+      },
+      "get_yearly_sales": {
+        "running": "يجمع مبيعات السنة",
+        "done": "جلب مبيعات السنة"
+      },
+      "get_category_sales": {
+        "running": "يجمع مبيعات التصنيفات",
+        "done": "جلب مبيعات التصنيفات"
+      },
+      "get_custom_range_stats": {
+        "running": "يجمع إحصائيات الفترة",
+        "done": "جلب إحصائيات الفترة"
+      },
+      "list_inventory_locations": {
+        "running": "يراجع المخازن",
+        "done": "راجع المخازن",
+        "doneCount": "المخازن: {count}"
+      },
+      "set_inventory": {
+        "running": "يحدّث المخزون",
+        "done": "حدّث المخزون"
+      },
+      "inventory_history": {
+        "running": "يجلب سجل المخزون",
+        "done": "جلب سجل المخزون"
+      },
+      "transfer_inventory": {
+        "running": "ينقل المخزون",
+        "done": "نقل المخزون"
+      },
+      "bulk_update_price": {
+        "running": "يحدّث الأسعار",
+        "done": "حدّث الأسعار"
+      },
+      "bulk_update_tags": {
+        "running": "يحدّث الوسوم",
+        "done": "حدّث الوسوم"
+      },
+      "export_products_csv": {
+        "running": "يصدّر المنتجات",
+        "done": "صدّر المنتجات (CSV)"
+      },
+      "import_products_csv": {
+        "running": "يستورد المنتجات",
+        "done": "استورد المنتجات (CSV)"
+      },
+      "update_collection": {
+        "running": "يحدّث القسم",
+        "done": "حدّث القسم"
+      },
+      "prepare_delete_collection": {
+        "running": "يتحقق قبل حذف القسم",
+        "done": "بانتظار تأكيد الحذف"
+      },
+      "delete_collection": {
+        "running": "يحذف القسم",
+        "done": "حذف القسم"
+      },
+      "add_product_to_collection": {
+        "running": "يضيف المنتج للقسم",
+        "done": "أضاف المنتج للقسم"
+      },
+      "remove_product_from_collection": {
+        "running": "يزيل المنتج من القسم",
+        "done": "أزال المنتج من القسم"
+      },
+      "list_coupons": {
+        "running": "يبحث في الكوبونات",
+        "done": "راجع الكوبونات",
+        "doneCount": "كوبونات: {count}"
+      },
+      "get_coupon": {
+        "running": "يفتح الكوبون",
+        "done": "جلب الكوبون"
+      },
+      "create_coupon": {
+        "running": "يجهّز كوبوناً",
+        "done": "جهّز نموذج الكوبون"
+      },
+      "update_coupon": {
+        "running": "يجهّز تعديل الكوبون",
+        "done": "جهّز تعديلات الكوبون"
+      },
+      "prepare_delete_coupon": {
+        "running": "يتحقق قبل حذف الكوبون",
+        "done": "بانتظار تأكيد الحذف"
+      },
+      "delete_coupon": {
+        "running": "يحذف الكوبون",
+        "done": "حذف الكوبون"
+      },
+      "generate_product_image": {
+        "running": "يولّد صور المنتج",
+        "done": "بدأ توليد الصور"
+      },
+      "set_task_plan": {
+        "running": "يخطّط الخطوات",
+        "done": "حدّث خطة المهام"
+      },
+      "get_orders": {
+        "running": "يقرأ الطلبات",
+        "done": "قرأ الطلبات",
+        "doneCount": "{count, plural, zero {لم يجد طلبات} one {وجد طلباً واحداً} two {وجد طلبين} few {وجد # طلبات} many {وجد # طلباً} other {وجد # طلب}}"
+      },
+      "get_order": {
+        "running": "يفتح الطلب",
+        "done": "قرأ الطلب"
+      },
+      "get_shipments": {
+        "running": "يتابع الشحنات",
+        "done": "تابع الشحنات"
+      },
+      "get_refund_requests": {
+        "running": "يراجع طلبات الاسترجاع",
+        "done": "راجع الاسترجاعات",
+        "doneCount": "{count, plural, zero {لا استرجاعات قيد الانتظار} one {استرجاع واحد قيد الانتظار} two {استرجاعان قيد الانتظار} few {# استرجاعات قيد الانتظار} many {# استرجاعاً قيد الانتظار} other {# استرجاع قيد الانتظار}}"
+      },
+      "get_fulfillment_speed": {
+        "running": "يقيس سرعة الشحن",
+        "done": "قاس سرعة الشحن"
+      },
+      "get_shop_balance": {
+        "running": "يقرأ الرصيد",
+        "done": "قرأ الرصيد"
+      },
+      "get_daily_digest": {
+        "running": "يلخّص آخر ٢٤ ساعة",
+        "done": "لخّص آخر ٢٤ ساعة"
+      },
+      "get_conversion_funnel": {
+        "running": "يحسب معدّل التحويل",
+        "done": "حسب معدّل التحويل"
+      },
+      "get_peak_hours": {
+        "running": "يحلّل أوقات الذروة",
+        "done": "حلّل أوقات الذروة"
+      },
+      "get_product_trends": {
+        "running": "يرصد الاتجاهات",
+        "done": "رصد الاتجاهات"
+      },
+      "get_product_performance": {
+        "running": "يقيّم أداء المنتجات",
+        "done": "قيّم أداء المنتجات"
+      },
+      "get_store_health": {
+        "running": "يفحص حالة المتجر",
+        "done": "فحص حالة المتجر"
+      },
+      "get_profit_breakdown": {
+        "running": "يحسب الربح",
+        "done": "حسب الربح"
+      },
+      "get_revenue_forecast": {
+        "running": "يتوقّع الإيراد",
+        "done": "توقّع الإيراد"
+      },
+      "get_review_summary": {
+        "running": "يقرأ التقييمات",
+        "done": "قرأ التقييمات",
+        "doneCount": "{count, plural, zero {لا تقييمات} one {قرأ تقييماً واحداً} two {قرأ تقييمين} few {قرأ # تقييمات} many {قرأ # تقييماً} other {قرأ # تقييم}}"
+      },
+      "get_abandoned_carts": {
+        "running": "يراجع السلات المتروكة",
+        "done": "راجع السلات",
+        "doneCount": "{count, plural, zero {لا سلات متروكة} one {سلة متروكة واحدة} two {سلتان متروكتان} few {# سلات متروكة} many {# سلة متروكة} other {# سلة متروكة}}"
+      },
+      "get_wishlist_demand": {
+        "running": "يقرأ قوائم الرغبات",
+        "done": "قرأ قوائم الرغبات"
+      },
+      "get_stock_forecast": {
+        "running": "يتوقّع نفاد المخزون",
+        "done": "توقّع نفاد المخزون"
+      },
+      "get_return_rates": {
+        "running": "يحلّل نسب الإرجاع",
+        "done": "حلّل نسب الإرجاع"
+      },
+      "get_customer_segments": {
+        "running": "يصنّف العملاء",
+        "done": "صنّف العملاء"
+      },
+      "get_customer_questions": {
+        "running": "يقرأ أسئلة العملاء",
+        "done": "قرأ الأسئلة",
+        "doneCount": "{count, plural, zero {لا أسئلة} one {سؤال واحد} two {سؤالان} few {# أسئلة} many {# سؤالاً} other {# سؤال}}"
+      },
+      "get_price_suggestions": {
+        "running": "يراجع التسعير",
+        "done": "راجع التسعير"
+      },
+      "get_bundle_suggestions": {
+        "running": "يبحث عن باقات",
+        "done": "اقترح باقات"
+      },
+      "compare_products": {
+        "running": "يقارن المنتجات",
+        "done": "قارن المنتجات",
+        "doneCount": "{count, plural, zero {لا منتجات للمقارنة} one {قارن منتجاً واحداً} two {قارن منتجين} few {قارن # منتجات} many {قارن # منتجاً} other {قارن # منتج}}"
+      },
+      "get_flash_sales": {
+        "running": "يقرأ العروض",
+        "done": "قرأ العروض"
+      },
+      "suggest_campaign": {
+        "running": "يخطّط حملة",
+        "done": "اقترح حملة"
+      },
+      "suggest_notification": {
+        "running": "يقترح رسالة للعملاء",
+        "done": "اقترح رسالة"
+      },
+      "generate_product_description": {
+        "running": "يكتب وصفاً",
+        "done": "كتب مسودّة وصف"
+      },
+      "generate_product_seo": {
+        "running": "يكتب بيانات SEO",
+        "done": "كتب مسودّة SEO"
+      },
+      "translate_product_content": {
+        "running": "يترجم المنتج",
+        "done": "كتب مسودّة ترجمة"
+      },
+      "generate_faq": {
+        "running": "يكتب أسئلة شائعة",
+        "done": "كتب مسودّة أسئلة"
+      },
+      "draft_review_reply": {
+        "running": "يكتب رداً على تقييم",
+        "done": "كتب مسودّة رد"
+      },
+      "create_tag": {
+        "running": "ينشئ وسماً",
+        "created": "أنشأ الوسم",
+        "existed": "الوسم موجود مسبقاً"
+      }
+    },
+    "generic": {
+      "running": "يشتغل",
+      "done": "تمت الخطوة"
+    },
+    "failed": "تعذّر تنفيذ الخطوة",
+    "formAlreadyOpen": "النموذج مفتوح عندك أصلاً على الشاشة",
+    "repeated": "نفس البحث تكرر",
+    "phases": {
+      "tags": "ينشئ الوسوم",
+      "validating": "يفحص الصفوف",
+      "validated": "تم فحص الصفوف",
+      "importing": "يستورد المنتجات",
+      "imported": "تم استيراد المنتجات",
+      "matching": "يحدّد المنتجات",
+      "matched": "تم تحديد المنتجات",
+      "applying": "يطبّق الأسعار",
+      "applied": "تم تطبيق الأسعار",
+      "previewed": "المعاينة جاهزة",
+      "enqueuing": "يبدأ التوليد",
+      "enqueued": "التوليد في الطابور"
+    }
+  },
+  "toolCards": {
+    "generic": {
+      "tool": "أداة: <code>{name}</code>"
+    },
+    "error": {
+      "title": "فشلت العملية",
+      "unknown": "خطأ غير معروف"
+    },
+    "productStatus": {
+      "DRAFT": "مسودة",
+      "PUBLISH": "نشط",
+      "UNLISTED": "غير مُدرج"
+    },
+    "productType": {
+      "SIMPLE": "بسيط",
+      "VARIABLE": "بخيارات",
+      "DIGITAL": "رقمي",
+      "SERVICE": "خدمة"
+    },
+    "collectionType": {
+      "MANUAL": "يدوي",
+      "AUTOMATED": "تلقائي"
+    },
+    "collectionsList": {
+      "title": "البحث في الأقسام",
+      "empty": "ما في قسم مطابق للبحث",
+      "items": "{count, plural, zero {لا منتجات} one {منتج واحد} two {منتجان} few {# منتجات} many {# منتجاً} other {# منتج}}"
+    },
+    "collectionCreated": {
+      "title": "تم إنشاء القسم"
+    },
+    "collectionUpdated": {
+      "title": "تم تحديث القسم"
+    },
+    "collectionDeleted": {
+      "title": "تم حذف القسم",
+      "body": "تم نقل القسم للمحذوفات. المنتجات ما انحذفت — بس الربط انفك."
+    },
+    "collectionMembership": {
+      "attached": "تم ربط المنتج بالقسم",
+      "detached": "تم فصل المنتج عن القسم",
+      "count": "{count, plural, zero {لا منتجات في القسم} one {منتج واحد في القسم} two {منتجان في القسم} few {# منتجات في القسم} many {# منتجاً في القسم} other {# منتج في القسم}}"
+    },
+    "productList": {
+      "title": "نتائج البحث",
+      "empty": "ما في منتجات مطابقة",
+      "quantity": "متاح: {count}"
+    },
+    "productDetails": {
+      "title": "تفاصيل المنتج",
+      "price": "السعر",
+      "sale": "المخفّض",
+      "stock": "المخزون",
+      "type": "النوع",
+      "sku": "رمز التخزين",
+      "version": "الإصدار"
+    },
+    "productCreated": {
+      "title": "تم إنشاء المنتج",
+      "quantity": "الكمية",
+      "type": "النوع",
+      "slug": "الرابط"
+    },
+    "productUpdated": {
+      "title": "تم تحديث المنتج",
+      "stock": "المخزون: {count}"
+    },
+    "productDeleted": {
+      "title": "تم حذف المنتج",
+      "body": "تم نقل المنتج للمحذوفات. ممكن تسترجعه من لوحة التحكم.",
+      "id": "المعرّف: {id}"
+    },
+    "salesStats": {
+      "sales": "المبيعات",
+      "orders": "الطلبات",
+      "placedOf": "من أصل {placed}",
+      "averageOrder": "متوسط قيمة الطلب",
+      "afterReturns": "بعد خصم مرتجعات بقيمة {amount}",
+      "byChannel": "المبيعات حسب القناة",
+      "channelOrders": "{count, plural, zero {لا طلبات} one {طلب واحد} two {طلبان} few {# طلبات} many {# طلباً} other {# طلب}}",
+      "share": "{value}%",
+      "basis": "المبيعات هي كل الطلبات في هذه الفترة عدا الملغية والفاشلة، مطروحاً منها المبالغ المستردة.",
+      "legacyNote": "من نسخة سابقة من Sidekick: الإيرادات هنا تحسب الطلبات المكتملة فقط."
+    },
+    "shopStats": {
+      "title": "إحصائيات المتجر",
+      "period": {
+        "today": "اليوم",
+        "weekly": "آخر 7 أيام",
+        "monthly": "آخر 30 يوماً",
+        "yearly": "هذه السنة"
+      },
+      "totalRevenue": "إجمالي الإيرادات منذ البداية",
+      "todayRevenue": "إيرادات اليوم",
+      "totalOrders": "إجمالي الطلبات منذ البداية",
+      "newCustomers": "عملاء جدد",
+      "newCustomers30d": "عملاء جدد (آخر 30 يوماً)",
+      "lifetime": "منذ البداية: {sales} · {orders, plural, zero {لا طلبات} one {طلب واحد} two {طلبان} few {# طلبات} many {# طلباً} other {# طلب}}",
+      "byStatus": "الطلبات حسب الحالة",
+      "status": {
+        "pending": "قيد الانتظار",
+        "processing": "قيد المعالجة",
+        "completed": "مكتمل",
+        "cancelled": "ملغي",
+        "refunded": "مُسترد",
+        "failed": "فاشل",
+        "at_local_facility": "في المركز",
+        "out_for_delivery": "خرج للتوصيل"
+      }
+    },
+    "lowStock": {
+      "title": "منتجات مخزونها قليل",
+      "threshold": "{count, plural, zero {الحد: # قطعة} one {الحد: قطعة واحدة} two {الحد: قطعتان} few {الحد: # قطع} many {الحد: # قطعة} other {الحد: # قطعة}}",
+      "empty": "ما في منتجات تحت الحد",
+      "left": "{count} قطع"
+    },
+    "topProducts": {
+      "title": "الأكثر مبيعاً",
+      "empty": "لا توجد مبيعات بعد",
+      "orders": "{count, plural, zero {لا طلبات} one {طلب واحد} two {طلبان} few {# طلبات} many {# طلباً} other {# طلب}}",
+      "allTime": "منذ البداية",
+      "since": "منذ {date}",
+      "until": "حتى {date}",
+      "range": "{start} – {end}",
+      "emptyInRange": "لا مبيعات في هذه الأيام"
+    },
+    "yearlySales": {
+      "title": "مبيعات {year}",
+      "total": "الإجمالي: <strong>{amount}</strong>"
+    },
+    "categorySales": {
+      "title": "المبيعات حسب القسم",
+      "empty": "لا يوجد بيانات",
+      "sold": "{count} قطعة",
+      "products": "{count, plural, zero {لا منتجات} one {منتج واحد} two {منتجان} few {# منتجات} many {# منتجاً} other {# منتج}}"
+    },
+    "customRange": {
+      "title": "إحصائيات الفترة",
+      "since": "منذ {date}",
+      "range": "{start} – {end}",
+      "revenue": "الإيراد (الطلبات المكتملة)",
+      "totalOrders": "إجمالي الطلبات",
+      "completed": "طلبات مكتملة",
+      "cancelled": "طلبات ملغية",
+      "failed": "طلبات فاشلة"
+    },
+    "coupons": {
+      "type": {
+        "amount_off_order": "خصم على الطلب",
+        "amount_off_products": "خصم على منتجات",
+        "free_shipping": "شحن مجاني",
+        "buy_x_get_y": "اشترِ واحصل"
+      },
+      "freeShipping": "شحن مجاني",
+      "status": {
+        "active": "فعّال",
+        "scheduled": "مجدوَل",
+        "expired": "منتهٍ"
+      },
+      "automatic": "تلقائي",
+      "listTitle": "كوبوناتك",
+      "min": "حد أدنى {amount}",
+      "used": "{usage} استُخدم",
+      "details": {
+        "type": "النوع",
+        "discount": "الخصم",
+        "rule": "الشرط",
+        "ruleValue": "اشترِ {buy} واحصل {get}",
+        "minCart": "الحد الأدنى للسلة",
+        "maxDiscount": "أقصى خصم",
+        "usage": "الاستخدام",
+        "starts": "يبدأ",
+        "expires": "ينتهي",
+        "combines": "الدمج",
+        "exclusive": "حصري (لا يُدمج)"
+      },
+      "deleted": "تم حذف الكوبون"
+    },
+    "saveReceipt": {
+      "open": "{entity, select, product {افتح المنتج} collection {افتح القسم} coupon {افتح الكوبون} other {افتح}}"
+    },
+    "inventoryLocations": {
+      "title": "المخازن",
+      "empty": "ما في مخازن مسجّلة",
+      "default": "الافتراضي",
+      "off": "موقوف",
+      "notOnline": "لا يخدم الطلبات الأونلاين",
+      "committed": "محجوز {count}"
+    },
+    "categoryMatch": {
+      "title": "التصنيفات المقترحة",
+      "bestMatch": "الأنسب",
+      "use": "اختر",
+      "noMatchQuery": "ما في تصنيف يطابق «{query}»",
+      "noMatch": "ما في تصنيف مطابق",
+      "showMore": "عرض {count} إضافية"
+    },
+    "turnError": {
+      "platformTitle": "المساعد متوقف مؤقتاً",
+      "planQuotaTitle": "انتهت حصتك لهذه الفترة",
+      "rateLimitedTitle": "أسئلة كثيرة بوقت قصير",
+      "genericTitle": "ما اكتمل الرد",
+      "retry": "أعد المحاولة",
+      "viewPlan": "عرض الباقة",
+      "platformNote": "تم إبلاغ فريق المنصة. ما في شي مطلوب منك.",
+      "rateLimitNote": "الحد بيرجع تلقائياً خلال ساعة."
+    },
+    "navigateToForm": {
+      "title": {
+        "product_create": "جاهز لإنشاء المنتج",
+        "product_edit": "تعديل مقترح للمنتج",
+        "collection_create": "جاهز لإنشاء القسم",
+        "coupon_create": "جاهز لإنشاء الكوبون",
+        "coupon_edit": "تعديل مقترح للكوبون",
+        "store_import": "استيراد المتجر قيد التشغيل"
+      },
+      "description": {
+        "product_create": "افتح النموذج لمراجعة البيانات والضغط على إنشاء.",
+        "product_edit": "التغييرات مطبّقة فوق القيم الحالية — افتح صفحة التعديل وراجعها قبل الحفظ.",
+        "collection_create": "افتح نموذج القسم للمراجعة.",
+        "coupon_create": "افتح نموذج الكوبون لمراجعة التفاصيل قبل الحفظ.",
+        "coupon_edit": "التغييرات مطبّقة فوق القيم الحالية — افتح صفحة تعديل الكوبون وراجعها قبل الحفظ.",
+        "store_import": "الفحص يعمل في الخلفية ولم يُكتب شيء في كتالوجك. افتح الشاشة لمتابعته والموافقة على الأرقام."
+      },
+      "openImport": "افتح شاشة الاستيراد",
+      "openEdit": "افتح التعديل الآن",
+      "openForm": "افتح النموذج الآن",
+      "alreadyOpen": "هالنموذج مفتوح عندك أصلاً على الشاشة. اطلب التعديل هون بالمحادثة، أو احفظه أو تجاهله قبل ما تفتح هالمسودة.",
+      "summary": {
+        "warehouse": "المخزن",
+        "name": "الاسم",
+        "slug": "الرابط",
+        "price": "السعر",
+        "salePrice": "السعر بعد الخصم",
+        "quantity": "الكمية",
+        "status": "الحالة",
+        "sku": "رمز التخزين",
+        "code": "الرمز",
+        "discount": "الخصم",
+        "freeShipping": "شحن مجاني",
+        "buyGet": "اشترِ {buy} واحصل {get}"
+      }
+    },
+    "formPatch": {
+      "title": "تعديل على النموذج المفتوح",
+      "footer": "لا يُحفظ شيء حتى تضغط حفظ في النموذج.",
+      "stale": "أُغلق النموذج قبل وصول التعديل، فلم يتغيّر شيء.",
+      "on": "مفعّل",
+      "off": "متوقف",
+      "updated": "تغيّر",
+      "values": {
+        "methodCode": "رمز خصم",
+        "methodAutomatic": "تلقائي",
+        "percentage": "نسبة مئوية",
+        "fixedAmount": "مبلغ ثابت",
+        "none": "بدون",
+        "minimumAmount": "مبلغ الشراء",
+        "minimumQuantity": "عدد القطع",
+        "percentOff": "نسبة خصم",
+        "amountOff": "مبلغ خصم",
+        "free": "مجاني"
+      },
+      "fields": {
+        "name": "الاسم",
+        "description": "الوصف",
+        "price": "السعر",
+        "salePrice": "السعر بعد الخصم",
+        "costPerItem": "تكلفة القطعة",
+        "quantity": "الكمية",
+        "sku": "رمز التخزين",
+        "barcode": "الباركود",
+        "status": "الحالة",
+        "trackQuantity": "تتبّع الكمية",
+        "continueSelling": "البيع عند نفاد المخزون",
+        "requiresShipping": "يحتاج إلى شحن",
+        "weight": "الوزن (غرام)",
+        "category": "التصنيف",
+        "seoTitle": "عنوان SEO",
+        "seoDescription": "وصف SEO",
+        "slug": "معرّف الرابط",
+        "code": "الرمز",
+        "method": "طريقة التطبيق",
+        "valueType": "نوع القيمة",
+        "amount": "قيمة الخصم",
+        "maxDiscount": "الحد الأقصى للخصم",
+        "minimumMode": "الحد الأدنى للشراء",
+        "minimumCartAmount": "الحد الأدنى لمبلغ الشراء",
+        "minimumQuantity": "الحد الأدنى لعدد القطع",
+        "limitUses": "تحديد عدد مرات الاستخدام",
+        "maxUses": "الحد الأقصى للاستخدام",
+        "limitOnePerCustomer": "استخدام واحد لكل عميل",
+        "isExclusive": "لا يُجمع مع خصومات أخرى",
+        "allowProduct": "يُجمع مع خصومات المنتجات",
+        "allowOrder": "يُجمع مع خصومات الطلبات",
+        "allowShipping": "يُجمع مع خصومات الشحن",
+        "activeFromDate": "تاريخ البداية",
+        "activeFromTime": "وقت البداية",
+        "setEndDate": "تحديد تاريخ الانتهاء",
+        "expireAtDate": "تاريخ الانتهاء",
+        "expireAtTime": "وقت الانتهاء",
+        "campaignTag": "وسم الحملة",
+        "priority": "الأولوية",
+        "excludeShippingRates": "تحديد أسعار الشحن",
+        "maxShippingRate": "الحد الأقصى لسعر الشحن",
+        "buyQuantity": "ما يشتريه العميل",
+        "getQuantity": "ما يحصل عليه العميل",
+        "getDiscountMode": "الخصم على ما يحصل عليه",
+        "getDiscountPercent": "نسبة الخصم",
+        "getDiscountAmount": "مبلغ الخصم لكل قطعة"
+      }
+    },
+    "aiImage": {
+      "title": "صور بالذكاء الاصطناعي",
+      "failed": "فشل إنشاء الصور.",
+      "moderated": "لم تُرجِع صورة آمنة. جرّب وصفًا مختلفًا.",
+      "addHint": "افتح وسائط المنتج لإضافة الصور التي تعجبك.",
+      "generating": "جارٍ الإنشاء…"
+    }
+  }
+}

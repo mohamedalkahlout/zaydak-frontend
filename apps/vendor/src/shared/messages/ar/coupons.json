@@ -1,0 +1,377 @@
+{
+  "toasts": {
+    "created": "تم إنشاء الكوبون",
+    "updated": "تم تحديث الكوبون",
+    "createFailed": "تعذّر إنشاء الكوبون",
+    "updateFailed": "تعذّر تحديث الكوبون",
+    "tryAgain": "حاول مرة ثانية",
+    "fixForm": "يرجى تصحيح النموذج",
+    "fieldsNeedAttention": "بعض الحقول تحتاج إلى مراجعة",
+    "invalidValue": "قيمة غير صالحة"
+  },
+  "title": "الكوبونات",
+  "create": "إنشاء كوبون",
+  "kinds": {
+    "title": "اختر نوع الكوبون",
+    "amount_off_products": {
+      "label": "خصم على منتجات",
+      "description": "خصم على منتجات أو مجموعات محددة"
+    },
+    "buy_x_get_y": {
+      "label": "اشترِ X واحصل على Y",
+      "description": "خصم على منتجات أو مجموعات محددة"
+    },
+    "amount_off_order": {
+      "label": "خصم على إجمالي الطلب",
+      "description": "خصم على قيمة الطلب كاملة"
+    },
+    "free_shipping": {
+      "label": "شحن مجاني",
+      "description": "قدّم شحنًا مجانيًا على الطلب"
+    }
+  },
+  "empty": {
+    "noMatch": "لا توجد كوبونات مطابقة",
+    "noMatchHint": "جرّب مسح الفلاتر أو البحث برمز آخر.",
+    "title": "أدر الخصومات والعروض",
+    "body": "أضف رموز خصم وخصومات تلقائية تُطبَّق عند الدفع. يمكنك أيضًا استخدام الخصومات مع أسعار المقارنة."
+  },
+  "filter": {
+    "statuses": "الحالة",
+    "types": "النوع",
+    "scopes": "النطاق"
+  },
+  "status": {
+    "active": "نشط",
+    "scheduled": "مجدول",
+    "expired": "منتهٍ"
+  },
+  "scope": {
+    "general": "بلا قيود",
+    "scoped": "مقيّد"
+  },
+  "columns": {
+    "selectAll": "تحديد الكل",
+    "selectRow": "تحديد {code}",
+    "code": "الرمز",
+    "type": "النوع",
+    "value": "القيمة",
+    "minCart": "الحد الأدنى للسلة",
+    "scope": "النطاق",
+    "status": "الحالة",
+    "maxUses": "الحد الأقصى للاستخدام",
+    "expires": "تاريخ الانتهاء",
+    "unlimited": "غير محدود",
+    "never": "لا ينتهي"
+  },
+  "counts": {
+    "products": "{count, plural, zero {لا منتجات} one {منتج واحد} two {منتجان} few {# منتجات} many {# منتجًا} other {# منتج}}",
+    "collections": "{count, plural, zero {لا مجموعات} one {مجموعة واحدة} two {مجموعتان} few {# مجموعات} many {# مجموعة} other {# مجموعة}}",
+    "customers": "{count, plural, zero {لا عملاء} one {عميل واحد} two {عميلان} few {# عملاء} many {# عميلًا} other {# عميل}}",
+    "segments": "{count, plural, zero {لا شرائح} one {شريحة واحدة} two {شريحتان} few {# شرائح} many {# شريحة} other {# شريحة}}",
+    "countries": "{count, plural, zero {لا دول} one {دولة واحدة} two {دولتان} few {# دول} many {# دولة} other {# دولة}}"
+  },
+  "value": {
+    "percentUpTo": "{percent}% · بحد أقصى {max}",
+    "amountOff": "خصم {amount}",
+    "bogo": "اشترِ {buy} واحصل على {get}",
+    "bogoFree": "اشترِ {buy} واحصل على {get} مجانًا",
+    "bogoAmountOff": "اشترِ {buy} واحصل على {get} (خصم {amount} لكل قطعة)",
+    "bogoPercentOff": "اشترِ {buy} واحصل على {get} (خصم {percent}%)"
+  },
+  "scopeSummary": {
+    "allCountries": "جميع الدول",
+    "entireOrder": "الطلب بالكامل",
+    "allProducts": "جميع المنتجات"
+  },
+  "copy": {
+    "copied": "تم نسخ الرمز",
+    "failed": "تعذّر النسخ",
+    "action": "نسخ الرمز",
+    "done": "تم النسخ!"
+  },
+  "rowActions": {
+    "label": "إجراءات الصف",
+    "duplicate": "تكرار"
+  },
+  "table": {
+    "selected": "{count, plural, zero {لم يُحدَّد أي كوبون} one {كوبون واحد محدد} two {كوبونان محددان} few {# كوبونات محددة} many {# كوبونًا محددًا} other {# كوبون محدد}}",
+    "clearSelection": "إلغاء التحديد",
+    "showing": "عرض <b>{start}</b>–<b>{end}</b> من <b>{total}</b>"
+  },
+  "toolbar": {
+    "searchPlaceholder": "ابحث بالرمز"
+  },
+  "deleteDialog": {
+    "title": "حذف الكوبون؟",
+    "description": "سيُحذف الكوبون <b>{code}</b> ولن يتمكن العملاء من استخدامه بعد الآن. لا يمكن التراجع عن هذا الإجراء.",
+    "deleted": "تم حذف الكوبون",
+    "failed": "تعذّر حذف الكوبون",
+    "deleting": "جارٍ الحذف..."
+  },
+  "performance": {
+    "label": "أداء الكوبون",
+    "title": "الأداء",
+    "unavailable": "التحليلات غير متاحة لهذا الكوبون بعد.",
+    "noRedemptions": "لم يُسجَّل أي استخدام بعد.",
+    "redemptions": "مرات الاستخدام",
+    "discountGiven": "الخصم الممنوح",
+    "revenueAttributed": "الإيرادات المنسوبة",
+    "avgOrderValue": "متوسط قيمة الطلب",
+    "firstUsed": "أول استخدام",
+    "lastUsed": "آخر استخدام"
+  },
+  "form": {
+    "back": "رجوع",
+    "saving": "جارٍ الحفظ...",
+    "unsavedChanges": "تغييرات غير محفوظة",
+    "unsavedDiscount": "خصم غير محفوظ",
+    "productDiscount": "خصم على المنتجات",
+    "orderDiscount": "خصم على الطلب",
+    "shippingDiscount": "خصم على الشحن",
+    "discountValue": "قيمة الخصم",
+    "valueType": "نوع القيمة",
+    "percentage": "نسبة مئوية",
+    "fixedAmount": "مبلغ ثابت",
+    "amount": "المبلغ",
+    "maxDiscount": "أقصى خصم (اختياري)",
+    "allProducts": "جميع المنتجات",
+    "specificProducts": "منتجات محددة",
+    "specificCollections": "مجموعات محددة",
+    "browse": "تصفّح",
+    "namesAndMore": "{names} و{count} أخرى"
+  },
+  "amountOffOrderForm": {
+    "editTitle": "تعديل الخصم على إجمالي الطلب",
+    "discountValueHint": "المبلغ الذي يُخصم من إجمالي السلة."
+  },
+  "amountOffProductsForm": {
+    "editTitle": "تعديل الخصم على المنتجات",
+    "subtitle": "خصم على منتجات أو مجموعات محددة",
+    "discountValueHint": "المبلغ الذي يُخصم من المنتجات المؤهلة.",
+    "appliesTo": "يُطبَّق على",
+    "appliesToHint": "حدّد المنتجات أو المجموعات التي يشملها الخصم.",
+    "scope": "النطاق"
+  },
+  "bogoForm": {
+    "editTitle": "تعديل عرض اشترِ X واحصل على Y",
+    "subtitle": "اشترِ بعض المنتجات واحصل على غيرها مجانًا أو بخصم",
+    "eligibleItems": "المنتجات المؤهلة",
+    "eligibleItemsHint": "اختر ما إذا كان الشراء والمكافأة يشتركان في المنتجات نفسها أو يستهدفان منتجات مختلفة.",
+    "scopeMode": "وضع النطاق",
+    "sameItems": "المنتجات نفسها للشراء والمكافأة",
+    "differentItems": "منتجات مختلفة",
+    "sameItemsHint": "نطاق واحد لشرط الشراء والمكافأة معًا (مثال: اشترِ قميصين واحصل على قميص مجانًا).",
+    "differentItemsHint": "مجموعتان منفصلتان من المنتجات (مثال: اشترِ حذاءً واحصل على جورب مجانًا).",
+    "customerBuys": "ما يشتريه العميل",
+    "customerBuysHint": "حدّد ما يجب أن يضيفه المتسوق للاستفادة من العرض.",
+    "purchaseRequirement": "شرط الشراء",
+    "minimumQuantity": "حد أدنى للكمية",
+    "minimumAmount": "حد أدنى للمبلغ",
+    "quantity": "الكمية",
+    "anyProductQualifies": "أي منتج في المتجر مؤهل.",
+    "anyProductTriggers": "يمكن لأي منتج في المتجر أن يفعّل العرض.",
+    "customerGets": "ما يحصل عليه العميل",
+    "customerGetsHint": "حدّد المكافأة عند استيفاء شرط الشراء.",
+    "sameScopeAsBuys": "يستخدم نطاق الشراء نفسه.",
+    "anyProductReward": "أي منتج في المتجر مؤهل للحصول على المكافأة.",
+    "discountedValue": "قيمة الخصم",
+    "percentageHint": "نسبة خصم على كل قطعة",
+    "amountOff": "مبلغ الخصم",
+    "amountOffHint": "مبلغ ثابت (SAR) لكل قطعة",
+    "free": "مجاني",
+    "freeHint": "خصم 100%",
+    "percentOff": "نسبة الخصم",
+    "amountOffEach": "مبلغ الخصم لكل قطعة",
+    "maxUsesPerOrder": "تحديد حد أقصى لعدد مرات الاستخدام في الطلب الواحد",
+    "maxUsesPerOrderHint": "حدّد عدد المرات التي يمكن أن يتكرر فيها هذا العرض في سلة واحدة.",
+    "previewEmpty": "حدّد كميات الشراء والمكافأة لعرض المعاينة.",
+    "previewTitle": "معاينة العرض",
+    "previewBuy": "اشترِ {count}",
+    "previewGet": "احصل على {count}",
+    "previewFree": "مجانًا",
+    "previewAmountOff": "خصم {amount} SAR",
+    "previewPercentOff": "خصم {percent}%",
+    "mirrorProducts": "{count, plural, zero {لا منتجات (كما في الشراء)} one {منتج واحد (كما في الشراء)} two {منتجان (كما في الشراء)} few {# منتجات (كما في الشراء)} many {# منتجًا (كما في الشراء)} other {# منتج (كما في الشراء)}}",
+    "mirrorCollections": "{count, plural, zero {لا مجموعات (كما في الشراء)} one {مجموعة واحدة (كما في الشراء)} two {مجموعتان (كما في الشراء)} few {# مجموعات (كما في الشراء)} many {# مجموعة (كما في الشراء)} other {# مجموعة (كما في الشراء)}}"
+  },
+  "freeShippingForm": {
+    "editTitle": "تعديل الشحن المجاني",
+    "subtitle": "إلغاء رسوم الشحن عند الدفع",
+    "forSelectedCountries": "للدول المحددة",
+    "forAllCountries": "لجميع الدول",
+    "countries": "الدول",
+    "countriesHint": "الدول التي يُطبَّق فيها الشحن المجاني.",
+    "countryScope": "نطاق الدول",
+    "allCountries": "جميع الدول",
+    "selectedCountries": "دول محددة",
+    "noCountries": "لم تُحدَّد أي دولة",
+    "pickCountriesHint": "اختر رموز الدول (ISO) التي يُطبَّق فيها الإعفاء.",
+    "shippingRates": "أسعار الشحن",
+    "shippingRatesHint": "حدّد أسعار الشحن التي يشملها الإعفاء.",
+    "excludeRates": "استبعاد أسعار الشحن التي تتجاوز مبلغًا معيّنًا",
+    "excludeRatesHint": "يمنع إساءة الاستخدام على أسعار الشحن المرتفعة (مثل الشحن المبرّد أو الشحن الدولي السريع).",
+    "maxShippingRate": "الحد الأقصى لسعر الشحن"
+  },
+  "summary": {
+    "noCode": "لا يوجد رمز خصم بعد",
+    "code": "الرمز",
+    "type": "النوع",
+    "details": "التفاصيل",
+    "salesChannels": "الوصول إلى قنوات البيع",
+    "salesChannelsFeatured": "السماح بإبراز الخصم في القنوات المحددة",
+    "comingSoon": "قريبًا.",
+    "tags": "الوسوم",
+    "addTags": "أضف وسومًا",
+    "tagsHint": "تساعد الوسوم في تنظيم الخصومات. قريبًا.",
+    "specificCustomersCount": "{count, plural, zero {لا عملاء محددون} one {عميل محدد واحد} two {عميلان محددان} few {# عملاء محددون} many {# عميلًا محددًا} other {# عميل محدد}}",
+    "specificCustomers": "عملاء محددون",
+    "segmentsCount": "{count, plural, zero {لا شرائح عملاء} one {شريحة عملاء واحدة} two {شريحتا عملاء} few {# شرائح عملاء} many {# شريحة عملاء} other {# شريحة عملاء}}",
+    "specificSegments": "شرائح محددة",
+    "allCustomers": "جميع العملاء",
+    "minimumAmount": "الحد الأدنى للشراء: {amount} SAR",
+    "minimumQuantity": "{count, plural, zero {الحد الأدنى: لا قطع} one {الحد الأدنى: قطعة واحدة} two {الحد الأدنى: قطعتان} few {الحد الأدنى: # قطع} many {الحد الأدنى: # قطعة} other {الحد الأدنى: # قطعة}}",
+    "noMinimum": "لا يوجد حد أدنى للشراء",
+    "usageLimit": "{count, plural, zero {الحد الأقصى: لا استخدامات} one {الحد الأقصى: استخدام واحد} two {الحد الأقصى: استخدامان} few {الحد الأقصى: # استخدامات} many {الحد الأقصى: # استخدامًا} other {الحد الأقصى: # استخدام}}",
+    "oncePerCustomer": "استخدام واحد لكل عميل",
+    "noUsageLimits": "لا حدود للاستخدام",
+    "exclusive": "لا يُجمع مع خصومات أخرى (حصري)",
+    "productDiscounts": "خصومات المنتجات",
+    "orderDiscounts": "خصومات الطلب",
+    "shippingDiscounts": "خصومات الشحن",
+    "combinesWith": "يُجمع مع {list}",
+    "noCombinations": "لا يُجمع مع خصومات أخرى",
+    "activeFromToday": "نشط من اليوم",
+    "activeFrom": "نشط من {date}",
+    "endsOn": "ينتهي في {date}",
+    "neverExpires": "لا ينتهي"
+  },
+  "headerCard": {
+    "method": "الطريقة",
+    "discountCode": "رمز الخصم",
+    "automaticDiscount": "خصم تلقائي",
+    "automaticHint": "تُطبَّق الخصومات التلقائية دون تدخل عند الدفع — لا يوجد رمز لمشاركته. سيعيّن الخادم معرّفًا داخليًا (AUTO-XXXX).",
+    "generateCode": "إنشاء رمز عشوائي",
+    "codeHint": "يجب على العملاء إدخال هذا الرمز عند الدفع."
+  },
+  "activeDates": {
+    "title": "فترة التفعيل",
+    "startDate": "تاريخ البداية",
+    "startTime": "وقت البداية ({timezone})",
+    "timezone": "المنطقة الزمنية",
+    "setEndDate": "تحديد تاريخ الانتهاء",
+    "endDate": "تاريخ الانتهاء",
+    "endTime": "وقت الانتهاء ({timezone})"
+  },
+  "advanced": {
+    "title": "خيارات متقدمة",
+    "campaignTag": "وسم الحملة",
+    "campaignTagPlaceholder": "مثال: spring-sale-2026",
+    "campaignTagHint": "وسم تسويقي داخلي يظهر في التحليلات ولا يراه العملاء.",
+    "priority": "الأولوية",
+    "priorityHint": "تُجرَّب الأرقام الأعلى أولًا عند تطابق أكثر من خصم تلقائي. اتركه فارغًا لاستخدام القيمة الافتراضية."
+  },
+  "combinations": {
+    "title": "الجمع مع الخصومات",
+    "productDiscounts": "خصومات المنتجات",
+    "productDiscountsHint": "يمكن أن يحصل كل منتج مؤهل في السلة على خصم منتج واحد كحد أقصى",
+    "orderDiscounts": "خصومات الطلب",
+    "orderDiscountsHint": "ستُطبَّق جميع خصومات الطلب المؤهلة إضافةً إلى خصومات المنتجات المؤهلة",
+    "shippingDiscounts": "خصومات الشحن",
+    "shippingDiscountsHint": "سيُطبَّق أكبر خصم شحن مؤهل إضافةً إلى خصومات المنتجات المؤهلة",
+    "exclusive": "حصري — لا يُجمع مع أي خصم آخر",
+    "exclusiveNote": "لن يُجمع هذا الخصم مع أي خصم آخر عند الدفع"
+  },
+  "eligibility": {
+    "title": "الأهلية",
+    "channels": "متاح على جميع قنوات البيع",
+    "allCustomers": "جميع العملاء",
+    "specificSegments": "شرائح عملاء محددة",
+    "specificCustomers": "عملاء محددون",
+    "searchSegments": "ابحث في شرائح العملاء",
+    "searchCustomers": "ابحث عن عملاء",
+    "remove": "إزالة {name}",
+    "selectedSegment": "الشريحة المحددة"
+  },
+  "maximumUses": {
+    "title": "الحد الأقصى لاستخدام الخصم",
+    "limitTotal": "تحديد إجمالي عدد مرات استخدام هذا الخصم",
+    "placeholder": "الحد الأقصى للاستخدامات",
+    "oncePerCustomer": "استخدام واحد فقط لكل عميل"
+  },
+  "minimumPurchase": {
+    "title": "متطلبات الحد الأدنى للشراء",
+    "none": "بدون حد أدنى",
+    "amount": "الحد الأدنى لمبلغ الشراء (SAR)",
+    "quantity": "الحد الأدنى لعدد القطع"
+  },
+  "pickers": {
+    "add": "إضافة"
+  },
+  "productPicker": {
+    "title": "إضافة منتجات",
+    "search": "ابحث عن منتجات",
+    "empty": "لا توجد منتجات",
+    "outOfStock": "غير متوفر",
+    "selected": "المنتجات المحددة: {selected}/{max}"
+  },
+  "collectionPicker": {
+    "title": "إضافة مجموعات",
+    "search": "ابحث عن مجموعات",
+    "empty": "لا توجد مجموعات",
+    "selected": "المجموعات المحددة: {selected}/{max}"
+  },
+  "customerPicker": {
+    "title": "إضافة عملاء",
+    "search": "ابحث بالاسم أو البريد الإلكتروني أو رقم الهاتف",
+    "empty": "لا يوجد عملاء",
+    "selected": "العملاء المحددون: {selected}/{max}"
+  },
+  "segmentPicker": {
+    "title": "إضافة شرائح عملاء",
+    "search": "ابحث في الشرائح بالاسم",
+    "empty": "لا توجد شرائح",
+    "emptyHint": "أنشئ شريحة من صفحة الشرائح لاستخدامها هنا.",
+    "selected": "الشرائح المحددة: {selected}/{max}"
+  },
+  "countryPicker": {
+    "title": "اختر الدول",
+    "search": "ابحث بالاسم أو الرمز",
+    "empty": "لا توجد دول مطابقة",
+    "selected": "{count, plural, zero {لم تُحدَّد أي دولة} one {دولة واحدة محددة} two {دولتان محددتان} few {# دول محددة} many {# دولة محددة} other {# دولة محددة}}"
+  },
+  "scopePreview": {
+    "productsNone": "لم تُحدَّد أي منتجات",
+    "collectionsNone": "لم تُحدَّد أي مجموعات",
+    "pickHint": "اختر عنصرًا واحدًا على الأقل لتحديد نطاق العرض.",
+    "editHint": "انقر على «تعديل» للتغيير."
+  },
+  "dateField": {
+    "placeholder": "اختر تاريخًا"
+  },
+  "validation": {
+    "invalidTime": "وقت غير صالح",
+    "codeTooLong": "الرمز طويل جدًا",
+    "required": "مطلوب",
+    "tooLong": "النص طويل جدًا",
+    "endAfterStart": "يجب أن يكون الانتهاء بعد البداية",
+    "minimumAmount": "أدخل الحد الأدنى للمبلغ",
+    "minimumQuantity": "أدخل الحد الأدنى للكمية",
+    "usageLimit": "أدخل حد الاستخدام",
+    "selectCustomer": "اختر عميلًا واحدًا على الأقل",
+    "selectSegment": "اختر شريحة عملاء واحدة على الأقل",
+    "codeTooShort": "يجب ألا يقل الرمز عن حرفين",
+    "codeCharacters": "يُسمح فقط بالأحرف والأرقام و- و_",
+    "greaterThanZero": "يجب أن تكون القيمة أكبر من 0",
+    "maxPercent": "لا يمكن أن تتجاوز 100%",
+    "selectProductOrCollection": "اختر منتجًا أو مجموعة واحدة على الأقل",
+    "selectCountry": "اختر دولة واحدة على الأقل",
+    "atLeastOne": "يجب ألا تقل القيمة عن 1",
+    "purchaseAmount": "أدخل مبلغ الشراء",
+    "amountOffEach": "أدخل مبلغ الخصم لكل قطعة",
+    "selectBuyProduct": "اختر منتجًا واحدًا على الأقل لجانب الشراء",
+    "selectBuyCollection": "اختر مجموعة واحدة على الأقل لجانب الشراء",
+    "selectGetProduct": "اختر منتجًا واحدًا على الأقل لجانب المكافأة",
+    "selectGetCollection": "اختر مجموعة واحدة على الأقل لجانب المكافأة"
+  }
+}

@@ -1,0 +1,635 @@
+/* Arabic: Tajawal, loaded by next/font in app/layout.tsx and bound to
+   --font-tajawal there. next/font self-hosts the woff2 and emits its own
+   @font-face, so there is nothing to copy into public/ and nothing to import
+   here. Latin: SF system stack (see --font-sf, packages/ui tokens). */
+
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+/* Primitives + base layer, shared with both consoles. */
+@import "@repo/ui/styles.css";
+
+/* Tailwind skips node_modules, so point it at the shared components' source. */
+@source "../../../../packages/ui/src";
+@source "../../../../packages/storefront-templates/src";
+
+/* ── Storefront identity ───────────────────────────────────────────────────
+   The two consoles are workspaces: dense, grey, Shopify-admin neutral. A
+   storefront is a shop window, and it needs the opposite posture — paper-warm
+   ground, ink-black type, one saturated accent that only ever means "buy", and
+   far more air between things.
+
+   These are *overrides on the shared tokens*, not a second token file. Every
+   `@repo/ui` primitive keeps working untouched: `Button` still reads
+   `--primary`, `Card` still reads `--card`. Redefining the values is what
+   re-skins ~40 components at once without forking one of them. */
+:root {
+   /* Zaydak storefront: Sand ground and Charcoal ink from the delivered logo
+     package, not the consoles' grey and not the previous warm-paper set. */
+   --background: #F6F7F5;
+   --foreground: #111827;
+   --card: #ffffff;
+   --card-foreground: #111827;
+   --popover: #ffffff;
+   --popover-foreground: #111827;
+
+   /* Ink, not brand colour. The accent below is reserved for commerce, so the
+     default button stays neutral and the "Add to cart" button is the only
+     saturated thing on the screen. */
+   --primary: #111827;
+   --primary-foreground: #F6F7F5;
+
+   /* Sky Mint as a wash into Sand — secondary/tint only, never a second
+     commerce hue. Aqua is the slightly stronger hover of the same family. */
+   --secondary: color-mix(in srgb, #8EEBD7 18%, #F6F7F5);
+   --secondary-foreground: #111827;
+   --muted: color-mix(in srgb, #8EEBD7 14%, #F6F7F5);
+   --muted-foreground: color-mix(in srgb, #111827 58%, #F6F7F5);
+   --accent: color-mix(in srgb, #8EEBD7 22%, #F6F7F5);
+   --accent-foreground: #111827;
+   --destructive: #b42318;
+
+   --border: color-mix(in srgb, #111827 12%, #F6F7F5);
+   --input: color-mix(in srgb, #111827 12%, #F6F7F5);
+   --ring: #111827;
+
+   /* Slightly softer corners than the consoles — a product card wants to look
+     handled, not filed. */
+   --radius: 0.75rem;
+
+   /* ── Commerce accent ────────────────────────────────────────────────────
+     One hue, used for exactly three things: the buy action, the sale price,
+     and the cart badge. Anything else that wants attention uses weight or
+     space instead. Keeping it that scarce is what makes a "Sale" chip read as
+     information rather than decoration. */
+   /* Teal from the logo package — the single commerce colour. Aqua and Sky Mint
+     tint around it; they never become a second buy/sale/badge hue. */
+   --shop-accent: #00C2A8;
+   --shop-accent-foreground: #F6F7F5;
+   --shop-accent-soft: color-mix(in srgb, #8EEBD7 36%, #F6F7F5);
+
+   /* Stock + price semantics, so no component hard-codes a green or a red. */
+   --shop-sale: #b42318;
+   --shop-in-stock: #2f6f4f;
+   --shop-low-stock: #b7791f;
+   --shop-out-of-stock: #6f665c;
+
+   /* The hairline every surface in this app shares. Lighter than `--border`,
+     which stays the input/control colour. */
+   --shop-hairline: rgba(17, 24, 39, 0.08);
+
+   /* ── Checkout tiles ────────────────────────────────────────────────────
+     Three pastel grounds for the saved-address tiles on the checkout.
+
+     They are tokens rather than hexes at the call site because those tiles are
+     the one place in this app where colour carries *identification* — "Home"
+     has to be told from "Work" at a glance, before either label is read — and
+     a pastel written into a class name would have no dark-mode answer. The
+     accent stays reserved for buy/sale/badge; these never mean an action. */
+   --shop-tile-1: #dfe3fa;
+   --shop-tile-1-ink: #39408f;
+   --shop-tile-2: #f9dcbb;
+   --shop-tile-2-ink: #8a4a15;
+   --shop-tile-3: #d6e9cf;
+   --shop-tile-3-ink: #2f6f4f;
+
+   /* The sunken ground the checkout's white form card floats on. Everywhere
+     else a panel sits directly on the page; the checkout is the one screen
+     with a card inside a card, and it needs a third step to read as depth. */
+   --shop-sunken: color-mix(in srgb, #8EEBD7 16%, #F6F7F5);
+
+   /* ── Footer ─────────────────────────────────────────────────────────────
+     The footer is a **white slab on the warm paper ground**, and it used to be
+     the opposite: a near-black inversion, the one dark surface in the app.
+
+     The inversion was doing one job — telling a shopper the document had
+     ended — and it did it by shouting. A footer this tall is also the last
+     thing on every route, so on a marketplace the loudest surface in the app
+     was the one nobody came for. White does the same job quietly: it is the
+     `--card`-on-`--background` step the whole app already reads as "a surface
+     laid on the page", plus a hairline along the top edge, and it lets the
+     footer carry four columns of small type at page-body contrast instead of
+     the reduced contrast an off-white on ink can safely reach.
+
+     The tokens keep their names rather than the footer switching to plain page
+     tokens, for two reasons. `brand-theme.ts` writes `--shop-footer-accent` and
+     `--shop-footer-accent-ink` from a vendor's *secondary* brand pair, so those
+     two are a public contract with the vendor dashboard. And a footer that
+     borrowed `--muted-foreground` and `--border` outright would have no way to
+     be retuned later without dragging every card and input in the app with it.
+
+     `--shop-footer-accent` is no longer a second saturated hue — it is the
+     footer's own ink, which is what the social buttons and the subscribe
+     control are painted in. A vendor who publishes a secondary brand colour
+     recolours exactly those; one who publishes only a primary gets the primary
+     there, because `brand-theme.ts` falls the pair back rather than leaving a
+     branded storefront to end in a slab that belongs to nobody. Ink is the
+     default only for a shop that published no colour at all. `--shop-accent`
+     itself stays scarce and untouched: it means buy, sale or cart. */
+   --shop-footer-ground: #ffffff;
+   --shop-footer-ink: #111827;
+   /* The page's own `--muted-foreground`, not an alpha of the ink. On a white
+     ground that is the value already proven everywhere else in the app, and it
+     is 5.6:1 — comfortably past 4.5:1, which the old 0.56-alpha off-white on
+     near-black was not asked to reach because it sat on a dark slab. */
+   --shop-footer-muted: color-mix(in srgb, #111827 58%, #F6F7F5);
+   /* The divider between the three bands. 0.12 rather than the page's
+     `--shop-hairline` 0.08: this rule runs the full width of the container
+     with type either side of it, where 0.08 disappears. */
+   --shop-footer-rule: rgba(17, 24, 39, 0.12);
+   /* The top edge, where the slab meets the Sand ground. White on #F6F7F5 is a
+     ~1.03:1 step, so without this the footer has no silhouette at all — the
+     same reason `--shop-notch-edge` exists for the header. */
+   --shop-footer-edge: rgba(17, 24, 39, 0.08);
+   /* The contact chips under the brand mark. `--secondary`'s value, held
+     separately so they can be retuned without moving every secondary button in
+     the app. The subscribe button is NOT painted from this — it takes the
+     footer accent, so it follows the shop's brand. */
+   --shop-footer-field: color-mix(in srgb, #8EEBD7 18%, #F6F7F5);
+   --shop-footer-accent: #16130f;
+   --shop-footer-accent-ink: #ffffff;
+
+   /* ── Notch header ───────────────────────────────────────────────────────
+     The slabs are **white** in light mode, not the footer's near-black. The
+     footer is the document's hard bottom edge and can afford to be a slab of
+     ink; the header sits over the hero on the home route, where a near-black
+     bar read as a second header laid on top of the artwork rather than as
+     something cut out of it. White over artwork is a cut-out, and white over
+     the paper ground is the card-on-paper relationship `--card` already
+     carries. Dark mode keeps its near-black slab below — there, white is
+     the thing that would shout.
+
+     It is its own token set rather than the footer's precisely because of
+     that: the two are no longer twins, and each will be retuned alone.
+
+     `--shop-notch` is also what the fillet wings are painted in. They are what
+     turns three floating bars into notches cut out of the top edge, so the
+     ground colour is load-bearing geometry here, not just a surface. */
+   --shop-notch: #ffffff;
+   --shop-notch-ink: #111827;
+   --shop-notch-muted: rgba(17, 24, 39, 0.56);
+   /* The pill that slides under the active link. An alpha of the ink rather
+     than a fixed grey, so it stays right if the ground is ever re-tuned. It is
+     weaker than the dark slab's 0.14 because dark-on-white at that strength is
+     a solid grey chip rather than a hint of one. */
+   --shop-notch-pill: rgba(17, 24, 39, 0.07);
+   /* The hairline around the slabs' exposed edges. White-on-Sand is a
+     ~1.03:1 step, so without it the bar has no silhouette at all on the routes
+     that are not the hero — and the silhouette *is* the design here. Alpha
+     of the ink rather than a flat grey, so it survives a re-tune of either
+     ground, and its own token rather than `--shop-hairline` because that one
+     is the page's rule colour and sits on paper, not on white. */
+   --shop-notch-edge: rgba(17, 24, 39, 0.14);
+
+   /* ── Photo card ─────────────────────────────────────────────────────────
+     The product tile is a photograph with its caption laid over the bottom
+     of it, so everything on it is coloured against the *photo*, not against
+     the page — and a photo is the same in both themes. That is why this set
+     has no `.dark` counterpart: white type, a translucent chip and a white
+     pill are right on a picture whichever ground the page around it has.
+     The one exception is `--shop-photo-ground`, the fill a tile shows when
+     the product has no photo; it stays dark so the same white caption reads
+     on it too. */
+   --shop-photo-ink: #ffffff;
+   --shop-photo-muted: rgba(255, 255, 255, 0.72);
+   /* The scrim the caption sits on: an alpha ramp of warm ink, so the photo's
+     own colour deepens into it rather than being replaced by grey. */
+   --shop-photo-scrim: #100f0d;
+   --shop-photo-chip: rgba(255, 255, 255, 0.18);
+   --shop-photo-chip-edge: rgba(255, 255, 255, 0.12);
+   --shop-photo-pill: #ffffff;
+   --shop-photo-pill-hover: #F6F7F5;
+   --shop-photo-pill-ink: #111827;
+   --shop-photo-ground: #2a241d;
+}
+/*
+ * The storefront ships **no dark mode**, deliberately.
+ *
+ * A `.dark` token block lived here and nothing could ever reach it: this app
+ * has no `next-themes`, no `prefers-color-scheme` rule and nothing that puts
+ * the class on `<html>` — the root layout's className is four font variables
+ * plus `h-full antialiased`. The two consoles do wire a toggle; the storefront
+ * never did. So the block was a palette no shopper could see, and a trap for
+ * the next person to grep for the brand colours and find two answers.
+ *
+ * The `dark` variant itself stays in `@repo/ui`'s tokens.css — it is shared,
+ * and the consoles genuinely use it. Recover the deleted block from git history
+ * if dark mode is ever wired up here; it had been retuned to the Deep Teal /
+ * Sand reading of the logo package, so it is worth reading before rewriting.
+ */
+
+/* Expose the storefront-only tokens to Tailwind so `bg-shop-accent`,
+   `text-shop-sale`, `border-shop-hairline` are real utilities. Without this
+   they would only be usable through `var()` in arbitrary values. */
+@theme inline {
+   --color-shop-accent: var(--shop-accent);
+   --color-shop-accent-foreground: var(--shop-accent-foreground);
+   --color-shop-accent-soft: var(--shop-accent-soft);
+   --color-shop-sale: var(--shop-sale);
+   --color-shop-in-stock: var(--shop-in-stock);
+   --color-shop-low-stock: var(--shop-low-stock);
+   --color-shop-out-of-stock: var(--shop-out-of-stock);
+   --color-shop-hairline: var(--shop-hairline);
+   --color-shop-tile-1: var(--shop-tile-1);
+   --color-shop-tile-1-ink: var(--shop-tile-1-ink);
+   --color-shop-tile-2: var(--shop-tile-2);
+   --color-shop-tile-2-ink: var(--shop-tile-2-ink);
+   --color-shop-tile-3: var(--shop-tile-3);
+   --color-shop-tile-3-ink: var(--shop-tile-3-ink);
+   --color-shop-sunken: var(--shop-sunken);
+   --color-shop-footer-ground: var(--shop-footer-ground);
+   --color-shop-footer-ink: var(--shop-footer-ink);
+   --color-shop-footer-muted: var(--shop-footer-muted);
+   --color-shop-footer-rule: var(--shop-footer-rule);
+   --color-shop-footer-edge: var(--shop-footer-edge);
+   --color-shop-footer-field: var(--shop-footer-field);
+   --color-shop-footer-accent: var(--shop-footer-accent);
+   --color-shop-footer-accent-ink: var(--shop-footer-accent-ink);
+   --color-shop-notch: var(--shop-notch);
+   --color-shop-notch-ink: var(--shop-notch-ink);
+   --color-shop-notch-muted: var(--shop-notch-muted);
+   --color-shop-notch-pill: var(--shop-notch-pill);
+   --color-shop-notch-edge: var(--shop-notch-edge);
+   --color-shop-photo-ink: var(--shop-photo-ink);
+   --color-shop-photo-muted: var(--shop-photo-muted);
+   --color-shop-photo-scrim: var(--shop-photo-scrim);
+   --color-shop-photo-chip: var(--shop-photo-chip);
+   --color-shop-photo-chip-edge: var(--shop-photo-chip-edge);
+   --color-shop-photo-pill: var(--shop-photo-pill);
+   --color-shop-photo-pill-hover: var(--shop-photo-pill-hover);
+   --color-shop-photo-pill-ink: var(--shop-photo-pill-ink);
+   --color-shop-photo-ground: var(--shop-photo-ground);
+
+   /* Restrained storefront type scale. Hierarchy comes from the jump between
+     display / title / body, not from six nearby sizes. Components opt in via
+     `text-shop-display` / `text-shop-title`. */
+   --text-shop-display: clamp(2rem, 1.2rem + 2.6vw, 3rem);
+   --text-shop-display--line-height: 1.12;
+   --text-shop-title: clamp(1.375rem, 1.15rem + 0.7vw, 1.75rem);
+   --text-shop-title--line-height: 1.28;
+   --text-shop-body: 1rem;
+   --text-shop-body--line-height: 1.65;
+}
+
+@layer base {
+   :root {
+      --font-sans: var(--font-sf);
+      --font-serif: var(--font-sf);
+      --font-heading: var(--font-sf);
+   }
+
+   html[lang="ar"] {
+      --font-sans: var(--font-tajawal), var(--font-sf);
+      --font-serif: var(--font-tajawal), var(--font-sf);
+      --font-heading: var(--font-tajawal), var(--font-sf);
+      font-family: var(--font-tajawal), var(--font-sf);
+   }
+
+   html[lang="ar"] h1,
+   html[lang="ar"] h2,
+   html[lang="ar"] h3,
+   html[lang="ar"] h4,
+   html[lang="ar"] h5,
+   html[lang="ar"] h6 {
+      font-family: var(--font-tajawal), var(--font-sf);
+   }
+
+   body {
+      line-height: 1.6;
+   }
+
+   h1 {
+      font-family: var(--font-heading);
+      font-size: var(--text-shop-display);
+      line-height: var(--text-shop-display--line-height);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+   }
+
+   h2 {
+      font-family: var(--font-heading);
+      font-size: var(--text-shop-title);
+      line-height: var(--text-shop-title--line-height);
+      font-weight: 600;
+      letter-spacing: -0.015em;
+   }
+
+   h3 {
+      font-family: var(--font-heading);
+      font-size: 1.125rem;
+      line-height: 1.35;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+   }
+}
+
+@layer components {
+
+   /* The storefront's one repeated surface: a white panel on Sand, held
+     by a hairline instead of a shadow. Used by product cards, the cart lines,
+     the checkout panels and the order rows, so the whole app shares one edge. */
+   .shop-panel {
+      background-color: var(--card);
+      border-radius: var(--radius-xl);
+      box-shadow: inset 0 0 0 1px var(--shop-hairline);
+   }
+
+   /* Page gutter. Every route body uses this so the header, the hero and the
+     grids all line up on the same two edges at every breakpoint. */
+   .shop-container {
+      width: 100%;
+      margin-inline: auto;
+      max-width: 80rem;
+      padding-inline: 1.25rem;
+   }
+
+   @media (min-width: 640px) {
+      .shop-container {
+         padding-inline: 2rem;
+      }
+   }
+
+   @media (min-width: 1024px) {
+      .shop-container {
+         padding-inline: 2.5rem;
+      }
+   }
+
+   /* Vertical rhythm for homepage (and any other) sections. Air, not extra
+     chrome, is what makes the page feel simple. */
+   .shop-section {
+      padding-block: 3.25rem;
+   }
+
+   @media (min-width: 640px) {
+      .shop-section {
+         padding-block: 4.25rem;
+      }
+   }
+
+   @media (min-width: 1024px) {
+      .shop-section {
+         padding-block: 5.25rem;
+      }
+   }
+}
+
+/* Clamp a product title to two lines without importing a plugin — a grid where
+   one card is a line taller than its neighbours is the most common way a
+   catalogue looks broken. */
+@utility line-clamp-2-title {
+   display: -webkit-box;
+   -webkit-line-clamp: 2;
+   -webkit-box-orient: vertical;
+   overflow: hidden;
+}
+
+/* ── Homepage primitives ───────────────────────────────────────────────────
+   Four utilities the front page is built from. They live in CSS rather than in
+   Tailwind class soup because each one is a *rule* the sections share, and a
+   rule that is retyped at six call sites is a rule that drifts at the seventh.
+
+   None of them are decoration for its own sake: the rule carries the section
+   index, the rail hides a scrollbar the rail replaces with its own control, and
+   the marquee is the only moving thing on the page — which is why it is also
+   the only thing with a reduced-motion branch. */
+
+/* The hairline that runs from a section heading to the edge of the gutter. It
+   is the page's spine: every section starts on the same line, so the eye reads
+   the front page as one document rather than as stacked cards. */
+@utility rule-line {
+   flex: 1 1 0%;
+   height: 1px;
+   background-color: var(--shop-hairline);
+}
+
+/* A horizontal snap rail. `scroll-padding-inline` (logical, not `-left`) is
+   what makes the first card land against the gutter in both writing
+   directions. */
+@utility snap-rail {
+   display: flex;
+   overflow-x: auto;
+   scroll-snap-type: x mandatory;
+   scroll-behavior: smooth;
+   scroll-padding-inline-start: 0;
+   scrollbar-width: none;
+   -ms-overflow-style: none;
+}
+
+@utility snap-rail-item {
+   scroll-snap-align: start;
+   flex: none;
+}
+
+/* The rail draws its own prev/next buttons and a progress hairline, so the
+   native bar would be a second, uglier answer to the same question. Keyboard
+   and trackpad scrolling are untouched. */
+@utility no-scrollbar {
+   scrollbar-width: none;
+   -ms-overflow-style: none;
+
+   &::-webkit-scrollbar {
+      display: none;
+   }
+}
+
+/* The collection ticker. Two identical rows translate by exactly -50% of the
+   track, so the loop is seamless with no JS and no measurement.
+
+   It animates `translate` rather than `transform` so a call site's own
+   transform still composes, and it is paused on hover because a shopper trying
+   to click a collection name should not have to chase it. */
+@keyframes shop-ticker {
+   from {
+      translate: 0 0;
+   }
+
+   to {
+      translate: -50% 0;
+   }
+}
+
+@utility ticker-track {
+   display: flex;
+   width: max-content;
+   animation: shop-ticker 45s linear infinite;
+}
+
+/* RTL runs the same track the other way, so the names still enter from the
+   side the language reads from. */
+[dir="rtl"] .ticker-track {
+   animation-direction: reverse;
+}
+
+.ticker-track:hover,
+.ticker-track:focus-within {
+   animation-play-state: paused;
+}
+
+/* Home hero product marquee — same loop/pause contract as the collection
+   ticker: two copies translated by -50%, pause on hover and focus-within so a
+   shopper reaching for a frame does not chase it, reverse under RTL. */
+@keyframes shop-hero-marquee {
+   from {
+      translate: 0 0;
+   }
+
+   to {
+      translate: -50% 0;
+   }
+}
+
+@utility hero-marquee-track {
+   display: flex;
+   width: max-content;
+   animation: shop-hero-marquee 48s linear infinite;
+}
+
+[dir="rtl"] .hero-marquee-track {
+   animation-direction: reverse;
+}
+
+.hero-marquee:hover .hero-marquee-track,
+.hero-marquee:focus-within .hero-marquee-track {
+   animation-play-state: paused;
+}
+
+/* The ring the bag button throws off when an added photo lands in it.
+
+   A ring rather than a scale on the button: the badge sitting on its corner
+   carries rolling digits, and scaling the whole control would drag those
+   through the transform mid-count. This draws over the button instead and
+   touches nothing that is already animating.
+
+   One-shot, and restarted by remounting the element rather than by toggling a
+   class — a CSS animation with an unchanged `animation-name` does not replay,
+   so two adds in a row would otherwise pulse once. */
+@keyframes cart-land {
+   0% {
+      opacity: 0;
+      scale: 1;
+   }
+
+   35% {
+      opacity: 1;
+      scale: 1.18;
+   }
+
+   100% {
+      opacity: 0;
+      scale: 1.3;
+   }
+}
+
+@utility animate-cart-land {
+   animation: cart-land 460ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+/* ── Footer type ───────────────────────────────────────────────────────────
+   The footer sets almost everything in one of two voices, and both are shared
+   by enough elements — five nav links, two reach links, the field, the three
+   items in the bottom bar — that writing the same four declarations at each
+   call site is how the eleventh one ends up half a step off. */
+
+/* The small letter-spaced cap. Every label on the slab except the display
+   wordmark and the newsletter line. */
+@utility footer-caps {
+   font-size: 0.6875rem;
+   line-height: 1.4;
+   font-weight: 500;
+   text-transform: uppercase;
+   letter-spacing: 0.14em;
+}
+
+/* The grow-on-hover underline, drawn as a background rather than a
+   `text-decoration`.
+
+   The point is that **nothing moves**. A footer is a list of small targets, and
+   the usual ways of making one feel alive — a translate, a scale, a magnetic
+   pull — all shift the target while the shopper is aiming at it. A background
+   that grows from zero width changes no box and no layout: the link is exactly
+   where it was before the pointer arrived, and the underline is the whole of
+   the feedback.
+
+   It draws the record row's two items only. The four link columns are
+   underlined *at rest* with a plain `text-decoration`, because a column of
+   short phrases with no other affordance does not read as a list of links
+   until it is — there the hover darkens the rule instead, which moves nothing
+   either.
+
+   `background-size` is the only animated property, and it composites. */
+@utility footer-link {
+   background-image: linear-gradient(currentColor, currentColor);
+   background-repeat: no-repeat;
+   background-position: 0 100%;
+   background-size: 0% 1px;
+   transition:
+      background-size 220ms cubic-bezier(0.16, 1, 0.3, 1),
+      color 220ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* The underline grows from the side the language starts on, so it tracks the
+   reading direction instead of always unrolling from the left. Declared outside
+   `@layer` for the same reason `[dir="rtl"] .ticker-track` is. */
+[dir="rtl"] .footer-link {
+   background-position: 100% 100%;
+}
+
+.footer-link:hover,
+.footer-link:focus-visible {
+   background-size: 100% 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+   /* The underline still appears — it is the affordance, not the decoration —
+     it simply stops being animated into place. */
+   .footer-link {
+      transition: none;
+   }
+}
+
+/* Arabic joins its letters, and `letter-spacing` pulls those joins apart —
+   the word stops being a word and becomes a row of disconnected shapes. It is
+   the single most common way a Latin-first design breaks Arabic, and it is
+   silent: nothing errors, the text is simply wrong to anyone who reads it.
+
+   So the spacing is dropped for Arabic rather than the design being abandoned;
+   the size, weight and word-spacing all still apply. `text-transform` needs no
+   branch, having no effect on a script with no letter case.
+
+   Deliberately outside `@layer`, so it wins over the utility above without a
+   specificity contest — the same placement `[dir="rtl"] .ticker-track` uses. */
+html[lang="ar"] .footer-caps {
+   letter-spacing: normal;
+}
+
+@media (prefers-reduced-motion: reduce) {
+   .ticker-track {
+      animation: none;
+      /* With the animation off the duplicate row is dead weight the screen
+       reader would read twice — the second copy is `aria-hidden`, and this
+       keeps it out of the visual line too. */
+      width: 100%;
+      justify-content: center;
+      flex-wrap: wrap;
+   }
+
+   .hero-marquee-track {
+      animation: none;
+   }
+
+   .snap-rail {
+      scroll-behavior: auto;
+   }
+
+   /* The flying photo is refused at the source — `useCartFlightStore.launch`
+     checks this same query and returns false, which also tells the add gesture
+     to open the drawer immediately instead of holding it back for an animation
+     that is not playing. This only covers the pulse it would have landed with,
+     which is CSS and has no such gate. */
+   .animate-cart-land {
+      animation: none;
+   }
+}

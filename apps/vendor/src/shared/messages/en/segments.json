@@ -1,0 +1,261 @@
+{
+  "title": "Segments",
+  "create": "Create segment",
+  "emptyTitle": "No segments yet",
+  "emptyBody": "Create your first customer segment to group customers by behaviour, geography, or spend — then use it for email, discounts, or exports.",
+  "noMatching": "No matching segments",
+  "noMatchingBody": "Try a different search.",
+  "table": {
+    "searchPlaceholder": "Search segments",
+    "selectAll": "Select all",
+    "selectRow": "Select row",
+    "columns": {
+      "name": "Name",
+      "query": "Query",
+      "coupons": "Coupons",
+      "updated": "Updated"
+    },
+    "showing": "Showing <b>{from}</b>–<b>{to}</b> of <b>{total}</b> segments"
+  },
+  "relativeTime": {
+    "justNow": "just now",
+    "minutesAgo": "{count}m ago",
+    "hoursAgo": "{count}h ago",
+    "daysAgo": "{count}d ago",
+    "monthsAgo": "{count}mo ago",
+    "yearsAgo": "{count}y ago"
+  },
+  "rowActions": {
+    "label": "Row actions",
+    "copyQuery": "Copy query",
+    "queryCopied": "Query copied",
+    "copyFailed": "Could not copy"
+  },
+  "bulkBar": {
+    "selected": "{count} selected",
+    "confirmTitle": "Delete {count, plural, one {# segment} other {# segments}}?",
+    "confirmBody": "The segments will be removed from your list. Any coupons or campaigns linked to these segments will lose the link. This action can’t be undone.",
+    "deleting": "Deleting…",
+    "deleted": "{count, plural, one {# segment deleted} other {# segments deleted}}",
+    "deleteFailed": "{count, plural, one {# segment couldn’t be deleted} other {# segments couldn’t be deleted}}"
+  },
+  "deleteDialog": {
+    "title": "Delete segment?",
+    "body": "<b>{name}</b> will be removed from your segments list. This action can't be undone.",
+    "linkedCoupons": "{count, plural, one {<b>#</b> coupon is linked to this segment and will lose the link.} other {<b>#</b> coupons are linked to this segment and will lose the link.}}",
+    "deleting": "Deleting...",
+    "deleted": "Segment deleted",
+    "deleteFailed": "Could not delete segment",
+    "tryAgain": "Please try again"
+  },
+  "editor": {
+    "created": "Segment created",
+    "createFailed": "Could not create segment",
+    "updated": "Segment updated",
+    "updateFailed": "Could not update segment",
+    "createFailedShort": "Create failed",
+    "updateFailedShort": "Update failed",
+    "tryAgain": "Please try again",
+    "addQueryFirst": "Add a query first",
+    "addQueryFirstBody": "Describe your segment or pick a template, then save.",
+    "unsavedSegment": "Unsaved segment",
+    "unsavedChanges": "Unsaved changes",
+    "nameLabel": "Name",
+    "namePlaceholder": "e.g. VIP customers",
+    "descriptionLabel": "Description (optional)",
+    "descriptionPlaceholder": "Short note about who's in this segment",
+    "undo": "Undo",
+    "startFromTemplate": "Start from a template",
+    "queryError": "Query error",
+    "notFound": "Segment not found."
+  },
+  "statsBar": {
+    "customers": "{count, plural, one {# customer} other {# customers}}",
+    "ofBaseUnknown": "— of your customer base",
+    "ofBase": "<b>{percent, number}%</b> of your customer base",
+    "edited": "Edited — press Run",
+    "templates": "Templates",
+    "undo": "Undo",
+    "redo": "Redo",
+    "run": "Run",
+    "expandEditor": "Expand editor",
+    "collapseEditor": "Collapse editor"
+  },
+  "queryEditor": {
+    "hint": "<kbd>Ctrl</kbd>+<kbd>Space</kbd> for autocomplete, <kbd>Ctrl</kbd>+<kbd>Enter</kbd> to run."
+  },
+  "preview": {
+    "searchPlaceholder": "Search customers",
+    "customer": "Customer",
+    "contact": "Email / phone",
+    "added": "Added",
+    "noMatchesTitle": "No matches in the current sample",
+    "noMatchesBody": "Try a different search, or clear it to see all sample matches.",
+    "emptyTitle": "No customers match this segment criteria",
+    "emptyBody": "Try editing the segment to view matching customers."
+  },
+  "describePrompt": {
+    "aiNotConfigured": "AI not configured",
+    "aiNotConfiguredBody": "Ask your admin to set OPENROUTER_API_KEY on the backend to enable AI-generated segments.",
+    "refined": "Segment refined",
+    "generated": "Segment generated",
+    "tookTwoTries": "Took two tries — query is valid.",
+    "generateFailed": "Could not generate segment",
+    "tryRephrasing": "Try rephrasing your description.",
+    "placeholderUnavailable": "AI not configured — ask admin to set OPENROUTER_API_KEY",
+    "placeholderRefine": "Refine your segment (e.g. exclude refunds)",
+    "placeholderDescribe": "Describe your segment (e.g. customers who spent over $1000)",
+    "refineLabel": "Refine your segment",
+    "describeLabel": "Describe your segment",
+    "generating": "Generating",
+    "generate": "Generate segment",
+    "collapse": "Collapse",
+    "expand": "Expand",
+    "generatingStatus": "Generating…",
+    "outOfScopeTitle": "This feature only builds customer segments",
+    "ok": "OK"
+  },
+  "refinement": {
+    "tryRefining": "Try refining"
+  },
+  "saveDialog": {
+    "title": "Save as new segment",
+    "nameLabel": "Segment name",
+    "saving": "Saving..."
+  },
+  "pageHeader": {
+    "newSegment": "New segment",
+    "duplicate": "Duplicate",
+    "duplicating": "Duplicating...",
+    "duplicated": "Segment duplicated",
+    "duplicateFailed": "Could not duplicate",
+    "copyName": "{name} (copy)",
+    "tryAgain": "Please try again",
+    "moreActions": "More actions",
+    "copyQuery": "Copy query",
+    "queryCopied": "Query copied",
+    "copyFailed": "Could not copy",
+    "deleteSegment": "Delete segment"
+  },
+  "useSegment": {
+    "trigger": "Use segment",
+    "viewInsights": "View insights",
+    "exportCsv": "Export CSV",
+    "exporting": "Exporting...",
+    "createDiscount": "Create discount",
+    "sendEmail": "Send email",
+    "exportStarted": "Export started",
+    "exportFailed": "Export failed",
+    "tryAgain": "Please try again",
+    "emailTitle": "Email campaigns",
+    "emailBody": "Wire this segment to a campaign in the email feature (coming soon)."
+  },
+  "tabs": {
+    "editor": "Editor",
+    "insights": "Insights"
+  },
+  "insightsPage": {
+    "segment": "Segment"
+  },
+  "insights": {
+    "loadFailed": "Couldn’t load insights: {message}",
+    "empty": "No insights available yet. Save the segment first, then come back.",
+    "members": "Members",
+    "ofBase": "{percent} of base",
+    "avgSpend": "Avg spend",
+    "medianSpend": "Median spend",
+    "avgOrders": "Avg orders",
+    "emailSubscribed": "Email subscribed",
+    "smsSubscribed": "SMS subscribed",
+    "ofMembers": "of {count, plural, one {# member} other {# members}}",
+    "topCountries": "Top countries",
+    "topCities": "Top cities",
+    "topLanguages": "Top languages"
+  },
+  "sizeChart": {
+    "title": "Size over 30 days",
+    "noData": "No data"
+  },
+  "queryChips": {
+    "label": "Active filters",
+    "remove": "Remove {field} filter"
+  },
+  "templates": {
+    "title": "Templates",
+    "description": "Start from a pre-built segment instead of writing ShopifyQL from scratch. Click a template to replace the current query.",
+    "all": "All",
+    "empty": "No templates in this category.",
+    "categories": {
+      "AUDIENCE": "Audience",
+      "ACQUISITION": "Acquisition",
+      "BEHAVIOUR": "Behaviour",
+      "ENGAGEMENT": "Engagement",
+      "GEOGRAPHY": "Geography",
+      "TIER": "Tier"
+    }
+  },
+  "autocomplete": {
+    "kinds": {
+      "field": "Filter field",
+      "operator": "Operator",
+      "value": "Value",
+      "logic": "Logic"
+    },
+    "operators": {
+      "eq": "Equals",
+      "neq": "Not equals",
+      "gt": "Greater than",
+      "gte": "Greater or equal",
+      "lt": "Less than",
+      "lte": "Less or equal",
+      "in": "In list",
+      "notIn": "Not in list",
+      "contains": "Contains",
+      "notContains": "Doesn’t contain",
+      "isNull": "Has no value",
+      "isNotNull": "Has any value",
+      "between": "Between range",
+      "matches": "Matches",
+      "notMatches": "Doesn’t match"
+    },
+    "logic": {
+      "and": "All conditions must match",
+      "or": "Any condition can match"
+    }
+  },
+  "diagnostics": {
+    "parserAt": "Parser error at column {column}: {detail}",
+    "lexerAt": "Lexer error at column {column}: {detail}",
+    "unknown": "Unknown parse error",
+    "parser": {
+      "expectedToken": "expected {expected}, got {got} (''{text}'')",
+      "extraInput": "extra input after expression",
+      "unclosedGroup": "expected ) closing group",
+      "expectedField": "expected field name, got ''{got}''",
+      "expectedNullAfterIs": "expected NULL after IS",
+      "expectedAndInBetween": "expected AND in BETWEEN",
+      "unexpectedAfterNot": "unexpected token after NOT: ''{got}''",
+      "expectedOperator": "expected operator, got ''{got}''",
+      "expectedValue": "expected value, got ''{got}''",
+      "unclosedValueGroup": "expected ) closing value group",
+      "expectedInListOpen": "expected ( starting IN list",
+      "unclosedInList": "expected ) closing IN list",
+      "expectedMatchesOpen": "expected ( starting MATCHES args",
+      "unclosedMatches": "expected ) closing MATCHES args",
+      "expectedArgName": "expected argument name (e.g. count, date, id)",
+      "invalidDateOffset": "invalid date offset ''{got}''"
+    },
+    "lexer": {
+      "expectedEqAfterBang": "expected ''='' after ''!''",
+      "unexpectedChar": "unexpected character ''{got}''",
+      "unterminatedString": "unterminated string literal",
+      "invalidNumber": "invalid number ''{got}''"
+    }
+  },
+  "validation": {
+    "nameRequired": "Name is required",
+    "nameTooLong": "Name is too long (max 255 chars)",
+    "descriptionTooLong": "Description is too long (max 500 chars)",
+    "queryRequired": "Query is required (use the templates picker or write ShopifyQL)"
+  }
+}

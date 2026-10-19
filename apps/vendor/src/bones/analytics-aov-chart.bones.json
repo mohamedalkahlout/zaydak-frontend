@@ -1,0 +1,33 @@
+{
+  "breakpoints": {
+    "375": {
+      "name": "analytics-aov-chart",
+      "viewportWidth": 327,
+      "width": 327,
+      "height": 0,
+      "bones": []
+    },
+    "768": {
+      "name": "analytics-aov-chart",
+      "viewportWidth": 464,
+      "width": 464,
+      "height": 0,
+      "bones": []
+    },
+    "1280": {
+      "name": "analytics-aov-chart",
+      "viewportWidth": 304,
+      "width": 304,
+      "height": 0,
+      "bones": []
+    },
+    "1536": {
+      "name": "analytics-aov-chart",
+      "viewportWidth": 341,
+      "width": 341,
+      "height": 0,
+      "bones": []
+    }
+  },
+  "_hash": "68752041724ea5e503810582a2661e21"
+}

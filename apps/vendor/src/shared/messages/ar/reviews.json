@@ -1,0 +1,71 @@
+{
+  "title": "التقييمات",
+  "subtitle": "ما قاله عملاؤك عن المنتجات التي اشتروها.",
+  "summary": {
+    "averageLabel": "التقييم {rating} من ٥",
+    "total": "{count, plural, =0 {لا توجد تقييمات بعد} one {تقييم واحد} two {تقييمان} few {# تقييمات} many {# تقييمًا} other {# تقييم}}",
+    "last30": "خلال آخر ٣٠ يومًا",
+    "withPhotos": "مع صور",
+    "reported": "مُبلَّغ عنها للمنصة"
+  },
+  "filters": {
+    "searchPlaceholder": "ابحث في التعليقات أو الأسماء أو البريد",
+    "rating": "التقييم",
+    "allRatings": "كل التقييمات",
+    "starsWithCount": "{rating, plural, one {نجمة واحدة} two {نجمتان} few {# نجوم} other {# نجمة}}",
+    "product": "المنتج",
+    "allProducts": "كل المنتجات",
+    "searchProducts": "ابحث عن منتج",
+    "noProducts": "لا توجد منتجات مطابقة",
+    "clearProduct": "مسح تصفية المنتج",
+    "clear": "مسح",
+    "sort": "الترتيب",
+    "sortBy": {
+      "NEWEST": "الأحدث أولًا",
+      "OLDEST": "الأقدم أولًا",
+      "HIGHEST": "الأعلى تقييمًا",
+      "LOWEST": "الأدنى تقييمًا"
+    }
+  },
+  "list": {
+    "unknownCustomer": "عميل محذوف",
+    "noComment": "تقييم بدون تعليق.",
+    "deletedProduct": "المنتج لم يعد متاحًا",
+    "reported": "{count, plural, one {بلاغ واحد} two {بلاغان} few {# بلاغات} other {# بلاغًا}}",
+    "helpful": "{count, plural, one {شخص واحد وجده مفيدًا} two {شخصان وجداه مفيدًا} few {# أشخاص وجدوه مفيدًا} other {# شخصًا وجدوه مفيدًا}}"
+  },
+  "actions": {
+    "menu": "إجراءات التقييم",
+    "viewProduct": "عرض المنتج",
+    "showOnlyProduct": "عرض تقييمات هذا المنتج فقط",
+    "report": "إبلاغ المنصة"
+  },
+  "report": {
+    "title": "الإبلاغ عن هذا التقييم؟",
+    "description": "يبقى التقييم ظاهرًا. يراجع أحد مشرفي المنصة بلاغك ويقرر ما إذا كان سيُحذف.",
+    "reason": "ما سبب الإبلاغ؟",
+    "reasonPlaceholder": "رسائل مزعجة، ألفاظ مسيئة، لا علاقة له بالمنتج...",
+    "reasonHint": "بقي {remaining} حرفًا",
+    "cancel": "إلغاء",
+    "submit": "إرسال البلاغ",
+    "submitting": "جارٍ الإرسال...",
+    "success": "تم إرسال البلاغ إلى المنصة",
+    "error": "تعذر إرسال البلاغ"
+  },
+  "empty": {
+    "title": "لا توجد تقييمات بعد",
+    "body": "عندما يقيّم عميل منتجًا اشتراه، سيظهر هنا مع تعليقه وصوره.",
+    "filteredTitle": "لا توجد تقييمات مطابقة",
+    "filteredBody": "جرّب تقييمًا أو منتجًا آخر، أو امسح البحث."
+  },
+  "pagination": {
+    "showing": "عرض {from}-{to} من {total}",
+    "page": "صفحة {page} من {total}",
+    "previous": "السابق",
+    "next": "التالي"
+  },
+  "error": {
+    "title": "تعذر تحميل التقييمات",
+    "retry": "إعادة المحاولة"
+  }
+}

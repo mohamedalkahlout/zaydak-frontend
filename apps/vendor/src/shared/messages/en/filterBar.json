@@ -1,0 +1,23 @@
+{
+  "is": "is",
+  "isAnyOf": "is any of",
+  "label": "Filters",
+  "add": "Filter",
+  "empty": "Add filter",
+  "selectValue": "Select…",
+  "search": "Filter…",
+  "noMatches": "No matches",
+  "loading": "Loading options…",
+  "loadError": "Could not load options.",
+  "retry": "Try again",
+  "clear": "Clear",
+  "reset": "Reset",
+  "addFilter": "Add Filter…",
+  "noFiltersLeft": "Every filter is already applied",
+  "display": "Display",
+  "columns": "Columns",
+  "editField": "Filter by {field}",
+  "editOperator": "Condition for {field}",
+  "editValue": "Value for {field}: {value}",
+  "remove": "Remove {field} filter"
+}

@@ -1,0 +1,75 @@
+{
+  "title": "WhatsApp inbox",
+  "subtitle": "Conversations customers started on your store's number.",
+  "pickAThread": "Pick a conversation to read it.",
+  "backToList": "All conversations",
+  "searchPlaceholder": "Search by phone or message…",
+  "unread": "Unread",
+  "noSearchResults": "No conversations match your search.",
+  "empty": {
+    "title": "No conversations yet",
+    "body": "When a customer messages your store's WhatsApp number, the conversation appears here — whether or not the assistant answers it."
+  },
+  "thread": {
+    "viaWhatsApp": "via WhatsApp",
+    "viaContactForm": "via Contact Form",
+    "viaTelegram": "via Telegram",
+    "notFound": "That conversation is not here any more.",
+    "assistantPaused": "Assistant paused",
+    "answeredByAi": "Answered by the assistant"
+  },
+  "voice": {
+    "customer": "Customer",
+    "ai": "AI assistant",
+    "vendor": "You"
+  },
+  "delivery": {
+    "sending": "Sending…",
+    "sendingHint": "Your reply is queued and will be emailed shortly.",
+    "sent": "Sent",
+    "sentHint": "Handed to the mail server. Delivery is not confirmed.",
+    "unsent": "Not sent yet",
+    "unsentHint": "This reply has not been emailed yet. If it stays like this, send it again."
+  },
+  "reply": {
+    "placeholder": "Write a reply…",
+    "send": "Send",
+    "takesOver": "Replying pauses the assistant on this conversation, so it will not answer over you.",
+    "queued": "Reply queued — it will arrive shortly",
+    "failed": "Could not send the reply",
+    "contactFormHint": "Sent by email from Zaydak in your store's name. If the customer answers, it goes to <addr>{email}</addr>, not to this inbox.",
+    "contactFormUnverified": "This address is not verified yet. Check it is spelled right, or the customer's answer will reach someone else.",
+    "contactFormNeedsSender": "To reply by email, add a sender email in notification settings. Customers' answers go to that address.",
+    "contactFormSettingsLink": "Open notification settings",
+    "emailQueued": "Email queued — it will be sent shortly"
+  },
+  "resume": {
+    "action": "Resume assistant",
+    "done": "The assistant will answer this conversation again",
+    "failed": "Could not resume the assistant"
+  },
+  "block": {
+    "action": "Stop AI replies",
+    "badge": "AI stopped",
+    "done": "The assistant will not answer this contact.",
+    "failed": "Could not stop the assistant"
+  },
+  "unblock": {
+    "action": "Resume AI replies",
+    "done": "The assistant will answer this contact again.",
+    "failed": "Could not resume the assistant"
+  },
+  "flag": {
+    "badge": "Hitting limits",
+    "prompt": "This visitor keeps hitting the reply limit. You can stop the assistant answering them.",
+    "reason": {
+      "rate": "Sending very fast",
+      "share": "Using a lot of your allowance",
+      "unproductive": "Long chat, nothing looked up"
+    }
+  },
+  "clearSearch": "Clear search",
+  "orders": {
+    "label": "Orders from this chat"
+  }
+}

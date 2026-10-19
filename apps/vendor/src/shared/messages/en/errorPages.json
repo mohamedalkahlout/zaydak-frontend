@@ -1,0 +1,23 @@
+{
+  "boundary": {
+    "title": "Something went wrong",
+    "unknown": "Unknown error — open DevTools › Console for details.",
+    "digest": "digest: {digest}",
+    "tryAgain": "Try again"
+  },
+  "failedToLoad": {
+    "customers": "Failed to load customers",
+    "products": "Failed to load products",
+    "segments": "Failed to load segments"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "body": "The page you're looking for doesn't exist or may have been moved. Check the URL or head back to your dashboard.",
+    "goBack": "Go back",
+    "dashboard": "Dashboard"
+  },
+  "storeNotFound": {
+    "body": "We couldn't find the page you're looking for. It may have been moved, renamed, or never existed.",
+    "dashboardHome": "Dashboard home"
+  }
+}

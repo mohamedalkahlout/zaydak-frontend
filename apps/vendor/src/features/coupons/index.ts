@@ -1,0 +1,6 @@
+export { CouponsTable } from "./components/list/coupons-table"
+export { EditCouponView } from "./components/edit/edit-coupon-view"
+export { AmountOffOrderCouponForm } from "./components/new/forms/amount-off-order-form"
+export { AmountOffProductsCouponForm } from "./components/new/forms/amount-off-products-form"
+export { BuyXGetYCouponForm } from "./components/new/forms/bogo-form"
+export { FreeShippingCouponForm } from "./components/new/forms/free-shipping-form"

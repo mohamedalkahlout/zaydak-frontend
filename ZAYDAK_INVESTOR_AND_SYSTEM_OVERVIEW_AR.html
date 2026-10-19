@@ -1,0 +1,1659 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>زايدك (Zaydak) — الملف الاستثماري والتقني الشامل</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"></script>
+  <style>
+    @page {
+      size: A4;
+      margin: 14mm 12mm 14mm 12mm;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    body {
+      font-family: 'Cairo', 'Tajawal', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      color: #1e293b;
+      background-color: #ffffff;
+      line-height: 1.6;
+      font-size: 10pt;
+      margin: 0;
+      padding: 0;
+      direction: rtl;
+      text-align: right;
+    }
+
+    /* Cover Page */
+    .cover-page {
+      page-break-after: always;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 88vh;
+      padding: 40px 30px;
+      border: 2px solid #0f172a;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      margin-bottom: 25px;
+    }
+
+    .cover-badge-group {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 22px;
+      flex-wrap: wrap;
+    }
+
+    .cover-badge {
+      display: inline-block;
+      background-color: #0f172a;
+      color: #ffffff;
+      font-size: 8.5pt;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 9999px;
+      letter-spacing: 0.5px;
+    }
+
+    .cover-badge-saudi {
+      background: linear-gradient(90deg, #059669, #10b981);
+      color: #ffffff;
+    }
+
+    .cover-title {
+      font-size: 34pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0 0 8px 0;
+      line-height: 1.2;
+    }
+
+    .cover-subtitle {
+      font-size: 15pt;
+      font-weight: 700;
+      color: #059669;
+      margin: 0 0 20px 0;
+      line-height: 1.4;
+    }
+
+    .cover-desc {
+      font-size: 10.5pt;
+      color: #475569;
+      max-width: 680px;
+      line-height: 1.7;
+      margin-bottom: 30px;
+    }
+
+    .cover-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-top: 15px;
+      margin-bottom: 30px;
+    }
+
+    .stat-card {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      padding: 14px 10px;
+      text-align: center;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    .stat-number {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0f172a;
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .stat-label {
+      font-size: 8pt;
+      font-weight: 600;
+      color: #64748b;
+    }
+
+    .cover-footer {
+      border-top: 1px solid #cbd5e1;
+      padding-top: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 8.5pt;
+      color: #64748b;
+      margin-top: auto;
+    }
+
+    /* Headings */
+    h1 {
+      font-size: 17pt;
+      font-weight: 800;
+      color: #0f172a;
+      border-bottom: 2px solid #0f172a;
+      padding-bottom: 8px;
+      margin-top: 32px;
+      margin-bottom: 16px;
+      page-break-after: avoid;
+    }
+
+    h2 {
+      font-size: 13pt;
+      font-weight: 800;
+      color: #1e293b;
+      border-right: 4px solid #059669;
+      padding-right: 12px;
+      margin-top: 24px;
+      margin-bottom: 12px;
+      page-break-after: avoid;
+    }
+
+    h3 {
+      font-size: 11pt;
+      font-weight: 700;
+      color: #334155;
+      margin-top: 18px;
+      margin-bottom: 10px;
+      page-break-after: avoid;
+    }
+
+    p {
+      margin-top: 0;
+      margin-bottom: 11px;
+      text-align: justify;
+    }
+
+    ul, ol {
+      margin-top: 0;
+      margin-bottom: 12px;
+      padding-right: 22px;
+    }
+
+    li {
+      margin-bottom: 5px;
+    }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 8.5pt;
+      page-break-inside: avoid;
+      background: #ffffff;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #cbd5e1;
+    }
+
+    thead tr {
+      background-color: #0f172a;
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    th {
+      padding: 9px 12px;
+      text-align: right;
+      border: 1px solid #334155;
+      font-size: 8pt;
+    }
+
+    td {
+      padding: 7px 12px;
+      border: 1px solid #e2e8f0;
+      vertical-align: top;
+    }
+
+    tbody tr:nth-child(even) {
+      background-color: #f8fafc;
+    }
+
+    /* Custom Visual Cards Base */
+    .custom-card {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin: 18px 0;
+      page-break-inside: avoid;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
+    }
+
+    .card-header, .chart-header, .roadmap-header {
+      margin-bottom: 14px;
+      border-bottom: 1px solid #f1f5f9;
+      padding-bottom: 8px;
+    }
+
+    .card-badge, .chart-badge {
+      display: inline-block;
+      font-size: 7.5pt;
+      font-weight: 700;
+      background: #e0f2fe;
+      color: #0369a1;
+      padding: 3px 10px;
+      border-radius: 9999px;
+      margin-bottom: 5px;
+    }
+
+    .card-title, .chart-title {
+      font-size: 11pt;
+      font-weight: 800;
+      color: #0f172a;
+      margin: 0;
+    }
+
+    /* 1. Omnichannel Card */
+    .omni-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr 1fr;
+      gap: 12px;
+    }
+
+    .col-badge {
+      font-size: 8pt;
+      font-weight: 700;
+      color: #475569;
+      margin-bottom: 8px;
+      text-align: center;
+      background: #f1f5f9;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+
+    .channels-col, .core-col, .saudi-col {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .channel-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 8px 10px;
+      font-size: 7.5pt;
+      line-height: 1.4;
+    }
+
+    .channel-card strong {
+      display: block;
+      color: #0f172a;
+      font-size: 8pt;
+      margin-bottom: 2px;
+    }
+
+    .ig-card { border-right: 3px solid #e1306c; }
+    .wa-card { border-right: 3px solid #25d366; }
+    .web-card { border-right: 3px solid #0284c7; }
+
+    .core-box {
+      background: #0f172a;
+      color: #f8fafc;
+      border-radius: 8px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      height: 100%;
+    }
+
+    .core-item strong {
+      display: block;
+      color: #38bdf8;
+      font-size: 8pt;
+      margin-bottom: 2px;
+    }
+
+    .core-item span {
+      font-size: 7.5pt;
+      color: #cbd5e1;
+      line-height: 1.3;
+      display: block;
+    }
+
+    .saudi-box {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .saudi-pill {
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      color: #065f46;
+      border-radius: 6px;
+      padding: 6px 8px;
+      font-size: 7.5pt;
+      font-weight: 700;
+    }
+
+    /* 2. Market Drivers Card */
+    .drivers-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .driver-col {
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 7.5pt;
+    }
+
+    .catalyst { background: #f0fdf4; border: 1px solid #bbf7d0; }
+    .bottleneck { background: #fef2f2; border: 1px solid #fecaca; }
+    .solution { background: #eff6ff; border: 1px solid #bfdbfe; }
+
+    .d-header {
+      font-weight: 800;
+      font-size: 8.5pt;
+      margin-bottom: 6px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .catalyst .d-header { color: #166534; }
+    .bottleneck .d-header { color: #991b1b; }
+    .solution .d-header { color: #1e40af; }
+
+    .driver-col ul {
+      padding-right: 14px;
+      margin: 0;
+    }
+
+    .driver-col li {
+      margin-bottom: 4px;
+      line-height: 1.4;
+    }
+
+    /* 3. Instagram Steps Grid */
+    .ig-steps-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .ig-step {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 10px 12px;
+      position: relative;
+    }
+
+    .step-badge {
+      font-size: 7pt;
+      font-weight: 800;
+      color: #e1306c;
+      background: #fdf2f8;
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-bottom: 4px;
+    }
+
+    .step-title {
+      font-size: 8.5pt;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 3px;
+    }
+
+    .step-desc {
+      font-size: 7.5pt;
+      color: #475569;
+      line-height: 1.4;
+    }
+
+    /* 4. Conversational Split */
+    .conv-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .conv-side {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 12px;
+    }
+
+    .side-header {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 8.5pt;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 8px;
+    }
+
+    .chat-bubble {
+      padding: 7px 10px;
+      border-radius: 8px;
+      font-size: 7.5pt;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .user-bubble {
+      background: #e2e8f0;
+      color: #1e293b;
+      border-top-right-radius: 0;
+    }
+
+    .bot-bubble {
+      background: #059669;
+      color: #ffffff;
+      border-top-left-radius: 0;
+    }
+
+    .side-features {
+      margin-top: 8px;
+      font-size: 7pt;
+      color: #64748b;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    /* 5. Monorepo Tiers */
+    .mono-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .mono-tier {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 8px 12px;
+    }
+
+    .tier-label {
+      font-size: 8pt;
+      font-weight: 800;
+      color: #059669;
+      margin-bottom: 4px;
+    }
+
+    .tier-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tier-chip {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      padding: 4px 8px;
+      font-size: 7.5pt;
+      color: #334155;
+    }
+
+    /* 6. AI Surfaces Grid */
+    .surfaces-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .surface-box {
+      border-radius: 8px;
+      padding: 10px 12px;
+      border: 1px solid #e2e8f0;
+      background: #ffffff;
+    }
+
+    .s-badge {
+      font-size: 7pt;
+      font-weight: 800;
+      color: #0284c7;
+      background: #f0f9ff;
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-bottom: 3px;
+    }
+
+    .s-title {
+      font-size: 8.5pt;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 2px;
+    }
+
+    .s-meta {
+      font-size: 7pt;
+      font-weight: 700;
+      color: #059669;
+      margin-bottom: 4px;
+    }
+
+    .s-desc {
+      font-size: 7.5pt;
+      color: #475569;
+      line-height: 1.4;
+    }
+
+    /* 7. Revenue Grid */
+    .rev-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .rev-col {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .rev-icon {
+      font-size: 16pt;
+      margin-bottom: 4px;
+    }
+
+    .rev-title {
+      font-size: 8pt;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 4px;
+    }
+
+    .rev-desc {
+      font-size: 7pt;
+      color: #64748b;
+      line-height: 1.35;
+    }
+
+    /* Chart Bars & Roadmap */
+    .chart-bars {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .chart-row {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .row-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 8.5pt;
+      font-weight: 700;
+      color: #334155;
+    }
+
+    .row-pct {
+      color: #0f172a;
+      font-weight: 800;
+    }
+
+    .bar-track {
+      width: 100%;
+      height: 9px;
+      background: #f1f5f9;
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 9999px;
+    }
+
+    .timeline-phases {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .phase-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 8px 10px;
+      background: #f8fafc;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .phase-number {
+      background: #0f172a;
+      color: #ffffff;
+      font-weight: 900;
+      font-size: 10pt;
+      padding: 4px 10px;
+      border-radius: 6px;
+      min-width: 34px;
+      text-align: center;
+    }
+
+    .phase-body { flex: 1; }
+    .phase-title {
+      font-size: 9pt;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 2px;
+    }
+
+    .phase-duration {
+      font-size: 7.5pt;
+      font-weight: 700;
+      color: #059669;
+      margin-bottom: 3px;
+    }
+
+    .phase-desc {
+      font-size: 8pt;
+      color: #475569;
+      line-height: 1.4;
+    }
+
+    /* Security Layers Grid */
+    .layers-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+
+    .layer-step {
+      display: flex;
+      gap: 8px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 8px;
+      align-items: center;
+    }
+
+    .layer-num {
+      background: #059669;
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 9pt;
+      width: 26px;
+      height: 26px;
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .layer-content {
+      display: flex;
+      flex-direction: column;
+      font-size: 7.5pt;
+      line-height: 1.35;
+    }
+
+    .layer-content strong {
+      font-size: 8pt;
+      color: #0f172a;
+      margin-bottom: 1px;
+    }
+
+    /* Code Blocks */
+    .code-block {
+      background-color: #0f172a;
+      color: #e2e8f0;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-family: 'Consolas', 'Courier New', monospace;
+      font-size: 8pt;
+      direction: ltr;
+      text-align: left;
+      overflow-x: auto;
+      margin: 14px 0;
+      page-break-inside: avoid;
+    }
+
+    /* Callout & Quotes */
+    .callout {
+      border-right: 4px solid #059669;
+      background-color: #f0fdf4;
+      padding: 10px 14px;
+      border-radius: 6px;
+      margin: 12px 0;
+      font-size: 8.5pt;
+      page-break-inside: avoid;
+    }
+
+    .callout-warning {
+      border-right-color: #d97706;
+      background-color: #fffbeb;
+    }
+
+    .callout-important {
+      border-right-color: #dc2626;
+      background-color: #fef2f2;
+    }
+
+    .callout-note {
+      border-right-color: #2563eb;
+      background-color: #eff6ff;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e2e8f0;
+      margin: 20px 0;
+    }
+
+    strong {
+      color: #0f172a;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cover Page -->
+  <div class="cover-page">
+    <div class="cover-badge-group">
+      <span class="cover-badge">وثيقة استثمارية سرية — مخصصة للمستثمرين والصناديق الجريئة</span>
+      <span class="cover-badge cover-badge-saudi">🇸🇦 مخصصة للسوق السعودي — متوافقة مع رؤية 2030</span>
+    </div>
+    <div class="cover-title">زايدك (Zaydak)</div>
+    <div class="cover-subtitle">منظومة التجارة التفاعلية والاجتماعية الشاملة (Social & Conversational Commerce)</div>
+    <div class="cover-desc">
+      منصة تجارة سحابية متعددة المستأجرين مهندسة من الصفر للسوق السعودي والخليجي — تجمع في عقل مركزي موحد بين أتمتة إنستغرام الذكية (المنشورات، الريلز، والرسائل الخاصة DMs)، وإدارة المتجر بالكامل ومساعد الشراء عبر واتساب، مع متجر ويب فائق السرعة وتوافق تام مع البنية التحتية السعودية (مدى، Apple Pay، العنوان الوطني السعودي، ومجمع الشحن OTO).
+    </div>
+
+    <div class="cover-grid">
+      <div class="stat-card">
+        <span class="stat-number">450+</span>
+        <span class="stat-label">قدرة تشغيلية مبنية</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">9,802</span>
+        <span class="stat-label">اختبار برمجي آلي ناجح</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">3 قنوات</span>
+        <span class="stat-label">إنستغرام • واتساب • تيليجرام</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">~70</span>
+        <span class="stat-label">أداة ذكاء اصطناعي للتاجر</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">80+</span>
+        <span class="stat-label">موديول في الواجهة الخلفية</span>
+      </div>
+    </div>
+
+    <div class="cover-footer">
+      <div><strong>النطاق:</strong> مراجعة معمارية وتجارية وهندسية مدققة للكود المصدري لعام 2026</div>
+      <div><strong>التاريخ:</strong> أكتوبر 2026</div>
+    </div>
+  </div>
+
+  <!-- Document Body -->
+  <div class="document-content">
+    <h1>زايدك (Zaydak) — الملف الاستثماري والتقني الشامل لمنظومة التجارة التفاعلية والاجتماعية</h1>
+<div class="callout callout-note"><strong>وثيقة استثمارية وتقنية سرية موجهة للمستثمرين الملائكيين، صناديق رأس المال الجريء (VCs)، والشركاء الاستراتيجيين في المملكة العربية السعودية والخليج العربي.</strong>  
+<strong>تاريخ التحديث:</strong> أكتوبر 2026  
+<strong>طبيعة الوثيقة:</strong> دراسة تقنية وتجارية ومعمارية معمقة مبنية بنسبة 100% على فحص الكود المصدري الفعلي، سجلات الاختبارات الآلية (9,800+ اختبار)، والمقاييس التشغيلية للمنصة.</div><hr>
+<h2>فهرس المحتويات التنفيذي</h2>
+<ol>
+<li><a href="#1-%D8%A7%D9%84%D9%85%D9%84%D8%AE%D8%B5-%D8%A7%D9%84%D8%AA%D9%86%D9%81%D9%8A%D8%B0%D9%8A-%D9%88%D9%81%D8%B1%D8%B5%D8%A9-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%AB%D9%85%D8%A7%D8%B1--%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%AD%D9%88%D8%A7%D8%B0">الملخص التنفيذي وفرصة الاستثمار / الاستحواذ</a></li>
+<li><a href="#2-%D8%B3%D9%88%D9%82-%D8%A7%D9%84%D8%AA%D8%AC%D8%A7%D8%B1%D8%A9-%D8%A7%D9%84%D8%A5%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A%D8%A9-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A-%D9%88%D8%B1%D8%A4%D9%8A%D8%A9-%D8%A7%D9%84%D9%85%D9%85%D9%84%D9%83%D8%A9-2030">سوق التجارة الإلكترونية السعودي ورؤية المملكة 2030</a></li>
+<li><a href="#3-%D8%A7%D9%84%D8%AC%D9%85%D9%87%D9%88%D8%B1-%D8%A7%D9%84%D9%85%D8%B3%D8%AA%D9%87%D8%AF%D9%81-%D9%88%D8%B4%D8%B1%D8%A7%D8%A6%D8%AD-%D8%A7%D9%84%D8%B9%D9%85%D9%84%D8%A7%D8%A1-%D9%81%D9%8A-%D8%A7%D9%84%D9%85%D9%85%D9%84%D9%83%D8%A9-%D9%88%D8%A7%D9%84%D8%AE%D9%84%D9%8A%D8%AC">الجمهور المستهدف وشرائح العملاء في المملكة والخليج</a></li>
+<li><a href="#4-%D9%82%D9%86%D8%A7%D8%A9-%D8%A5%D9%86%D8%B3%D8%AA%D8%BA%D8%B1%D8%A7%D9%85-instagram-commerce-via-zernio--%D8%A7%D9%84%D8%A3%D8%AA%D9%85%D8%AA%D8%A9-%D9%88%D8%A7%D9%84%D8%B0%D9%83%D8%A7%D8%A1-%D8%A7%D9%84%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%8A-%D8%A7%D9%84%D8%B4%D8%A7%D9%85%D9%84">قناة إنستغرام (Instagram Commerce via Zernio) — الأتمتة والذكاء الاصطناعي الشامل</a></li>
+<li><a href="#5-%D8%A7%D9%84%D9%85%D8%B3%D8%A7%D8%B9%D8%AF-%D8%A7%D9%84%D8%AA%D9%81%D8%A7%D8%B9%D9%84%D9%8A-%D8%B9%D8%A8%D8%B1-%D9%88%D8%A7%D8%AA%D8%B3%D8%A7%D8%A8-%D9%88%D8%AA%D9%8A%D9%84%D9%8A%D8%AC%D8%B1%D8%A7%D9%85-conversational-commerce">المساعد التفاعلي عبر واتساب وتيليجرام (Conversational Commerce)</a></li>
+<li><a href="#6-%D8%A7%D9%84%D9%85%D9%84%D8%A7%D8%A1%D9%85%D8%A9-%D8%A7%D9%84%D8%AA%D8%A7%D9%85%D8%A9-%D9%84%D9%84%D8%A8%D9%8A%D8%A6%D8%A9-%D8%A7%D9%84%D8%AA%D8%B4%D8%BA%D9%8A%D9%84%D9%8A%D8%A9-%D9%88%D8%A7%D9%84%D9%86%D8%B8%D8%A7%D9%85%D9%8A%D8%A9-%D9%81%D9%8A-%D8%A7%D9%84%D9%85%D9%85%D9%84%D9%83%D8%A9-%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9">الملاءمة التامة للبيئة التشغيلية والنظامية في المملكة العربية السعودية</a></li>
+<li><a href="#7-%D8%A7%D9%84%D9%87%D9%86%D8%AF%D8%B3%D8%A9-%D8%A7%D9%84%D9%85%D8%B9%D9%85%D8%A7%D8%B1%D9%8A%D8%A9-%D9%84%D9%84%D9%86%D8%B8%D8%A7%D9%85-%D9%88%D8%A7%D9%84%D8%A8%D9%86%D9%8A%D8%A9-%D8%A7%D9%84%D8%A8%D8%B1%D9%85%D8%AC%D9%8A%D8%A9-%D8%A7%D9%84%D8%AD%D8%AF%D9%8A%D8%AB%D8%A9">الهندسة المعمارية للنظام والبنية البرمجية الحديثة</a></li>
+<li><a href="#8-%D8%A7%D9%84%D8%B0%D9%83%D8%A7%D8%A1-%D8%A7%D9%84%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%8A-%D9%81%D9%8A-%D8%A7%D9%84%D9%85%D9%86%D8%B5%D8%A9--%D8%AA%D9%81%D8%B5%D9%8A%D9%84-%D9%85%D8%B9%D9%85%D8%A7%D8%B1%D9%8A-%D9%84%D8%A3%D8%B3%D8%B7%D8%AD-%D8%A7%D9%84%D8%B9%D9%85%D9%84-%D8%A7%D9%84%D8%A3%D8%B1%D8%A8%D8%B9%D8%A9">الذكاء الاصطناعي في المنصة — تفصيل معماري لأسطح العمل الأربعة</a></li>
+<li><a href="#9-%D8%A3%D9%85%D8%A7%D9%86-%D8%A7%D9%84%D8%B0%D9%83%D8%A7%D8%A1-%D8%A7%D9%84%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%8A-%D9%88%D8%A3%D8%B7%D8%B1-%D8%A7%D9%84%D8%AD%D9%85%D8%A7%D9%8A%D8%A9-%D8%A7%D9%84%D9%85%D8%B4%D8%AF%D8%AF%D8%A9-the-6-layer-security-framework">أمان الذكاء الاصطناعي وأطر الحماية المشددة (The 6-Layer Security Framework)</a></li>
+<li><a href="#10-%D8%A7%D9%84%D9%86%D9%85%D9%88%D8%B0%D8%AC-%D8%A7%D9%84%D9%85%D8%A7%D9%84%D9%8A-%D8%A7%D9%82%D8%AA%D8%B5%D8%A7%D8%AF%D9%8A%D8%A7%D8%AA-%D8%A7%D9%84%D9%88%D8%AD%D8%AF%D8%A9-%D9%88%D8%AA%D9%88%D9%82%D8%B9%D8%A7%D8%AA-%D8%A7%D9%84%D9%86%D9%85%D9%88-unit-economics--projections">النموذج المالي، اقتصاديات الوحدة، وتوقعات النمو (Unit Economics &amp; Projections)</a></li>
+<li><a href="#11-%D8%A7%D9%84%D9%85%D9%82%D8%A7%D8%B1%D9%86%D8%A9-%D8%A7%D9%84%D8%AA%D9%86%D8%A7%D9%81%D8%B3%D9%8A%D8%A9-%D8%A7%D9%84%D8%B4%D8%A7%D9%85%D9%84%D8%A9-%D9%85%D8%B9-%D8%AD%D9%84%D9%88%D9%84-%D8%A7%D9%84%D8%B3%D9%88%D9%82-%D8%A7%D9%84%D9%82%D8%A7%D8%A6%D9%85%D8%A9-%D8%B3%D9%84%D8%A9-%D8%B2%D8%AF-%D9%88%D8%B4%D9%88%D8%A8%D9%8A%D9%81%D8%A7%D9%8A">المقارنة التنافسية الشاملة مع حلول السوق القائمة (سلة، زد، وشوبيفاي)</a></li>
+<li><a href="#12-%D8%AC%D8%A7%D9%87%D8%B2%D9%8A%D8%A9-%D8%A7%D9%84%D9%86%D8%B8%D8%A7%D9%85-%D9%85%D9%82%D8%A7%D9%8A%D9%8A%D8%B3-%D8%A7%D9%84%D8%AC%D9%88%D8%AF%D8%A9-%D9%88%D8%AE%D8%A7%D8%B1%D8%B7%D8%A9-%D8%B7%D8%B1%D9%8A%D9%82-%D8%A7%D9%84%D8%A5%D8%B7%D9%84%D8%A7%D9%82-%D8%A7%D9%84%D8%AA%D8%AC%D8%A7%D8%B1%D9%8A">جاهزية النظام، مقاييس الجودة، وخارطة طريق الإطلاق التجاري</a></li>
+<li><a href="#13-%D8%A3%D8%B7%D8%B1%D9%88%D8%AD%D8%A9-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%AB%D9%85%D8%A7%D8%B1-%D8%A3%D9%88%D8%AC%D9%87-%D8%A7%D9%84%D8%B5%D8%B1%D9%81-%D9%88%D8%B3%D9%8A%D9%86%D8%A7%D8%B1%D9%8A%D9%88%D9%87%D8%A7%D8%AA-%D8%A7%D9%84%D8%AA%D8%AE%D8%A7%D8%B1%D8%AC-%D9%84%D9%84%D9%85%D8%B3%D8%AA%D8%AB%D9%85%D8%B1-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A">أطروحة الاستثمار، أوجه الصرف، وسيناريوهات التخارج للمستثمر السعودي</a></li>
+</ol>
+<hr>
+<h2>1. الملخص التنفيذي وفرصة الاستثمار / الاستحواذ</h2>
+<p>منصة <strong>زايدك (Zaydak)</strong> هي منظومة تجارة سحابية متعددة المستأجرين (Enterprise Multi-Tenant Social &amp; Conversational Commerce SaaS) صُممت وهُندست من الصفر لتواكب التحول الجذري في سلوك المستهلك والتاجر في <strong>المملكة العربية السعودية ودول مجلس التعاون الخليجي</strong>.</p>
+<p>تتجاوز المنصة النموذج التقليدي للمتاجر الإلكترونية (Web-First / Storefront-Only) الذي تتبناه المنصات السائدة (مثل Shopify، سلة، وزد)، لتقدم نموذجاً مبتكراً وموحداً يرتكز على <strong>التجارة الاجتماعية والتفاعلية عبر المحادثات الذكية (Conversational &amp; Social Commerce)</strong>:</p>
+
+    <div class="custom-card visual-arch-card">
+      <div class="card-header">
+        <span class="card-badge">المعمارية الموحدة</span>
+        <h4 class="card-title">منظومة القنوات الموحدة والعقل المركزي لمنصة زايدك</h4>
+      </div>
+      <div class="omni-grid">
+        <div class="omni-col channels-col">
+          <div class="col-badge">قنوات الاستحواذ والتفاعل</div>
+          <div class="channel-card ig-card">
+            <strong>📸 إنستغرام (Instagram)</strong>
+            <span>المنشورات، الريلز، والرسائل الخاصة DMs مع ربط الوسائط بالمنتجات.</span>
+          </div>
+          <div class="channel-card wa-card">
+            <strong>💬 واتساب (WhatsApp)</strong>
+            <span>رقم المتجر المباشر عبر رمز QR وإدارة المتجر وبناء السلة التفاعلية.</span>
+          </div>
+          <div class="channel-card web-card">
+            <strong>🌐 متجر الويب (Storefront)</strong>
+            <span>واجهة المتجر العامة بـ Next.js 16، 6 قوالب حصرية، ونطاق مخصص.</span>
+          </div>
+        </div>
+        <div class="omni-col core-col">
+          <div class="col-badge">العقل المركزي الموحد (Zaydak Brain)</div>
+          <div class="core-box">
+            <div class="core-item">
+              <strong>🤖 مساعد العملاء الموحد (CustomerBotService)</strong>
+              <span>كتالوج مشترك، فحص مخزون لحظي، وفهم اللهجة الخليجية عبر كافة القنوات.</span>
+            </div>
+            <div class="core-item">
+              <strong>⚡ وكيل التاجر الذكي (Vendor Sidekick - LangGraph)</strong>
+              <span>~70 أداة لإدارة الكتالوج، الأسعار، المخزون، والتقارير المالية برسالة جوال.</span>
+            </div>
+            <div class="core-item">
+              <strong>📊 النواة المؤسسية (NestJS Core API + Prisma 7)</strong>
+              <span>دفتر أستاذ مالي بالهللات، إدارة مستودعات متعددة، وعزل صارم للمستأجرين.</span>
+            </div>
+          </div>
+        </div>
+        <div class="omni-col saudi-col">
+          <div class="col-badge">البنية السعودية المدمجة</div>
+          <div class="saudi-box">
+            <div class="saudi-pill">💳 مدى & Apple Pay (ميسر / بي موب)</div>
+            <div class="saudi-pill">📍 العنوان الوطني السعودي ورمز المبنى</div>
+            <div class="saudi-pill">🚚 الشحن المجمّع OTO (سمسا، أرامكس، سبل)</div>
+            <div class="saudi-pill">🏦 فحص الآيبان السعودي (mod-97)</div>
+            <div class="saudi-pill">🧾 دفتر مالي متوافق مع الفوترة (ZATCA)</div>
+          </div>
+        </div>
+      </div>
+    </div><h3>جوهر الابتكار التشغيلي:</h3>
+<ol>
+<li><strong>قناة إنستغرام الذكية المتكاملة (Instagram Commerce):</strong> أتمتة حية للرد على تعليقات المنشورات ومقاطع الريلز (Reels) عبر رد عام، رسالة خاصة (DM)، أو كليهما؛ مع ربط كل منشور بمنتج فعلي من الكتالوج (<code>shop_instagram_media_mappings</code>)، وتوليد روابط دفع فورية وسلسة في الخاص.</li>
+<li><strong>إدارة المتجر بالكامل عبر واتساب وتيليجرام (Merchant Sidekick):</strong> التاجر السعودي يدير عملياته الحيوية (إضافة منتجات، تعديل أسعار، متابعة مخزون الفروع، الاستعلام عن الأرباح والمبيعات) برسالة نصية أو صوتية على واتساب هاتفه مباشرة عبر محرك يضم <strong>~70 أداة برمجية مسجلة</strong>.</li>
+<li><strong>مساعد العميل الذكي وبناء السلة التفاعلية (Customer Bot):</strong> العميل يتحدث بلهجته العامية عبر واتساب المتجر أو إنستغرام، فيفهم المساعد طلبه، يتحقق من المخزون، يضيف المنتجات للسلة، ويزوده برابط سحري مشفر لصفحة الدفع الآمنة دون أي تعقيد.</li>
+<li><strong>تكامل كامل مع البنية السعودية:</strong> دعم فوري للعنوان الوطني، الدفع بالبطاقات ومدى، دفتر أستاذ محاسبي صارم بالهللات، والربط اللوجستي مع شركات الشحن عبر OTO.</li>
+</ol>
+<h3>القيمة السوقية والأصول البرمجية للنظام (IP Assets)</h3>
+<p>تم تطوير المنصة وفق أعلى المعايير الهندسية لعام 2026 دون أي ديون تقنية (Zero Legacy Debt):</p>
+<ul>
+<li><strong>أكثر من 450 قدرة تشغيلية</strong> موثقة ومبنية في الكود المصدري.</li>
+<li><strong>أكثر من 80 موديول برمجي</strong> في الواجهة الخلفية تغطي أدق تفاصيل التجارة والمحاسبة والمخزون والشحن والذكاء الاصطناعي.</li>
+<li><strong>9,802 اختبار برمجي آلي (Automated Tests)</strong> تغطي كافة سيناريوهات الأعمال بنجاح تام.</li>
+<li><strong>بنية برمجية فائقة الحداثة (Monorepo):</strong> Next.js 16 (App Router)، React 19، Apollo Client 4، NestJS 10، Prisma 7، Redis BullMQ، و PostgreSQL + pgvector.</li>
+</ul>
+<div class="callout callout-important">
+<strong>خيارات العرض الاستثماري للمستثمر السعودي:</strong>
+- <strong>خيار الاستثمار التمويلي (Equity Seed Round):</strong> ضخ استثمار رأسمالي لتغطية تكاليف الإطلاق التجاري في السوق السعودي (بوابات الدفع، تراخيص البنك المركزي، الحملات التسويقية والاستحواذ على أول 2,500 تاجر).
+- <strong>خيار الاستحواذ على الملكية الفكرية والتقنية (Full IP / Tech Acquisition):</strong> شراء قاعدة الكود وحقوق النظام بالكامل، مما يوفر على المشتري ما لا يقل عن <strong>18-24 شهراً من التطوير الهندسي الشاق</strong> وتكلفة تأسيس تقدر بـ <strong>1.5 إلى 2 مليون ريال سعودي</strong> لبناء منصة بهذا النضج والاستقرار من الصفر.</div><hr>
+<h2>2. سوق التجارة الإلكترونية السعودي ورؤية المملكة 2030</h2>
+<h3>1. مؤشرات السوق السعودي والفرصة الهائلة بالأرقام</h3>
+<p>يشهد قطاع التجارة الإلكترونية في المملكة العربية السعودية نمواً غير مسبوق، مدفوعاً ببرامج التحول الوطني ومستهدفات <strong>رؤية المملكة 2030</strong>:</p>
+<ul>
+<li><strong>حجم السوق (GMV):</strong> تجاوزت مبيعات التجارة الإلكترونية في السعودية <strong>60 مليار ريال سعودي سنوياً</strong>، بمعدل نمو سنوي مركب (CAGR) يتجاوز <strong>18%</strong>، مع توقعات بالوصول إلى <strong>100+ مليار ريال بحلول عام 2030</strong>.</li>
+<li><strong>المدفوعات الرقمية:</strong> حققت المملكة هدفها الاستراتيجي بتجاوز <strong>70% من المعاملات غير النقدية (Cashless Transactions)</strong>، حيث تسيطر شبكة &quot;مدى&quot; و Apple Pay على الحصة العظمى من عمليات الشراء اليومية.</li>
+<li><strong>القوة الشرائية والتفاعل الرقمي:</strong> يُعد المستهلك السعودي من أعلى المستهلكين إنفاقاً عبر الهواتف الذكية عالمياً، حيث يُنجز <strong>أكثر من 82% من طلبات التجارة الإلكترونية عبر الجوال</strong>.</li>
+</ul>
+
+    <div class="custom-card market-drivers-card">
+      <div class="card-header">
+        <span class="card-badge">تحليل السوق والفرصة</span>
+        <h4 class="card-title">مقارنة واقع السوق السعودي: الفجوة القائمة مقابل حل زايدك</h4>
+      </div>
+      <div class="drivers-grid">
+        <div class="driver-col catalyst">
+          <div class="d-header">🇸🇦 محركات السوق ورؤية 2030</div>
+          <ul>
+            <li><strong>سوق يتجاوز 60 مليار ريال:</strong> نمو سنوي مركب 18% باتجاه 100+ مليار بحلول 2030.</li>
+            <li><strong>مجتمع غير نقدي:</strong> 70%+ من المشتريات عبر مدى و Apple Pay.</li>
+            <li><strong>أعلى كثافة استخدام عالمياً:</strong> 85% من المشترين يتواصلون عبر واتساب وإنستغرام أثناء الشراء.</li>
+            <li><strong>مستهدف المنشآت الصغيرة:</strong> رفع مساهمة المنشآت الصغيرة والمتوسطة لـ 35% من الناتج المحلي.</li>
+          </ul>
+        </div>
+        <div class="driver-col bottleneck">
+          <div class="d-header">⚠️ فجوة المنصات التقليدية (سلة / زد)</div>
+          <ul>
+            <li><strong>فصل المتجر عن السوشال ميديا:</strong> إجبار الزبون على الخروج وفتح روابط خارجية معقدة.</li>
+            <li><strong>إرهاق الردود اليدوية:</strong> التاجر يقضي 5 ساعات يومياً في نسخ ولصق الأسعار في الشات.</li>
+            <li><strong>ضياع 40% من المبيعات:</strong> تأخر الرد في إنستغرام وواتساب يؤدي لانسحاب العميل فوراً.</li>
+            <li><strong>تكاليف إضافات باهظة:</strong> كل أداة تتطلب تطبيقاً خارجياً باشتراك مستقل.</li>
+          </ul>
+        </div>
+        <div class="driver-col solution">
+          <div class="d-header">✅ حل زايدك الثوري المدمج</div>
+          <ul>
+            <li><strong>أتمتة إنستغرام الحية:</strong> رد فوري على المنشورات والريلز وإرسال رابط المنتج في الـ DM.</li>
+            <li><strong>إدارة كاملة من الجوال:</strong> تعديل الأسعار، متابعة المخزون، والتقارير عبر واتساب التاجر.</li>
+            <li><strong>بناء السلة في الشات:</strong> تحويل المحادثة لطلب فوري برابط دفع سحري صالح 15 دقيقة.</li>
+            <li><strong>جاهزية سعودية كاملة:</strong> دعم مدى، العنوان الوطني، وشحن OTO في صلب الكود.</li>
+          </ul>
+        </div>
+      </div>
+    </div><h3>2. معضلة &quot;تشتت التاجر السعودي&quot; وضياع 40% من المبيعات</h3>
+<p>تعتمد الغالبية العظمى من المتاجر السعودية المستقلة، العلامات التجارية الصاعدة (D2C Brands)، الأسر المنتجة، وتجار وثائق العمل الحر على <strong>إنستغرام كواجهة اكتشاف أولى، وعلى واتساب كقناة تأكيد وتواصل</strong>:</p>
+<ul>
+<li><strong>المعاناة اليومية:</strong> ينشر التاجر منتجه على إنستغرام، فتنهال التعليقات: <em>&quot;بكم العطر؟&quot;، &quot;هل الفستان متوفر مقاس L؟&quot;، &quot;كم التوصيل للرياض؟&quot;</em>.</li>
+<li><strong>التكلفة والضرر:</strong> يضطر التاجر لقضاء 4 إلى 6 ساعات يومياً في نسخ ولصق الردود يدوياً، أو توظيف موظفي خدمة عملاء بتكلفة تتجاوز 4,000 ريال شهرياً لكل موظف.</li>
+<li><strong>ضياع المبيعات:</strong> إذا تأخر الرد لأكثر من 15 دقيقة، يتراجع اهتمام الزبون ويشتري من منافس آخر. تشير الدراسات إلى أن <strong>40% من مبيعات السوشال ميديا في الخليج تضيع بسبب بطء الرد البشري</strong>.</li>
+<li><strong>أين تكمن فجوة المنصات التقليدية؟</strong> منصات مثل &quot;سلة&quot; أو &quot;زد&quot; أو &quot;Shopify&quot; تطلب من التاجر وضع رابط في البايو والطلب من الزبون الخروج من إنستغرام، وتصفح موقع ويب طويل، وإنشاء حساب وتذكر كلمة مرور! هذه الخطوات تؤدي إلى هبوط نسبة التحويل (Conversion Rate) إلى أقل من 1.5%.</li>
+</ul>
+<div class="callout callout-note"><strong>حل زايدك الثوري:</strong>  
+يجلب المتجر إلى حيث يتواجد الزبون! الزبون يعلّق على ريل في إنستغرام -> يصله الرد برابط المنتج المباشر على الخاص في 3 ثوانٍ -> يفتح الرابط ليجد السلة معبأة ويدفع بـ Apple Pay في ثوانٍ معدودة.</div><hr>
+<h2>3. الجمهور المستهدف وشرائح العملاء في المملكة والخليج</h2>
+<p>تمت هندسة المنصة لخدمة 5 شرائح استراتيجية ذات قدرة شرائية عالية، مما يمنح النظام حجماً سوقياً متاحاً (TAM) ضخماً للغاية:</p>
+
+    <div class="custom-card custom-chart-card">
+      <div class="chart-header">
+        <span class="chart-badge">تحليل السوق والشرائح</span>
+        <h4 class="chart-title">الشرائح المستهدفة في سوق التجارة الإلكترونية السعودي والخليجي</h4>
+      </div>
+      <div class="chart-bars">
+        <div class="chart-row">
+          <div class="row-meta">
+            <span class="row-label">تجار السوشال ميديا، إنستغرام وواتساب (بدون نظام أتمتة)</span>
+            <span class="row-pct">45%</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width: 45%; background: linear-gradient(90deg, #059669, #10b981);"></div></div>
+        </div>
+        <div class="chart-row">
+          <div class="row-meta">
+            <span class="row-label">تجار المنصات التقليدية (سلة / زد / شوبيفاي)</span>
+            <span class="row-pct">25%</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width: 25%; background: linear-gradient(90deg, #0284c7, #38bdf8);"></div></div>
+        </div>
+        <div class="chart-row">
+          <div class="row-meta">
+            <span class="row-label">التجار الناشئون وأصحاب وثائق العمل الحر والأسر المنتجة</span>
+            <span class="row-pct">15%</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width: 15%; background: linear-gradient(90deg, #8b5cf6, #a78bfa);"></div></div>
+        </div>
+        <div class="chart-row">
+          <div class="row-meta">
+            <span class="row-label">العلامات التجارية والشركات المتوسطة (Multi-Warehouse)</span>
+            <span class="row-pct">15%</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width: 15%; background: linear-gradient(90deg, #f59e0b, #fbbf24);"></div></div>
+        </div>
+      </div>
+    </div><h3>1. تجار إنستغرام وتيك توك والسوشال ميديا (القطاع الأكبر — 45%)</h3>
+<ul>
+<li><strong>الأنشطة:</strong> العطور والبخور، الأزياء والعبايات، الإكسسوارات والمجوهرات، مستحضرات التجميل والعناية، الهدايا، والمقاهي المتخصصة.</li>
+<li><strong>الحجم:</strong> مئات الآلاف من المتاجر النشطة يومياً في السعودية والخليج بدون حل تقني متكامل يجمع السوشال ميديا بنظام المخزون.</li>
+<li><strong>القيمة المضافة:</strong> تحويل حساب إنستغرام إلى ماكينة بيع مؤتمتة تعمل 24/7 دون أي تدخل يدوي في الردود الروتينية.</li>
+</ul>
+<h3>2. التجار الناقلون من منصات سلة، زد، وشوبيفاي (25%)</h3>
+<ul>
+<li><strong>الدافع:</strong> إرهاق الاشتراكات والرسوم المرتفعة، الحاجة لشراء تطبيقات خارجية باهظة لكل ميزة، وعدم وجود أتمتة أصلية لواتساب وإنستغرام في قلب المنصة.</li>
+<li><strong>القيمة المضافة:</strong> نقل الكتالوج بضغطة زر واحدة عبر أداة استيراد Shopify CSV المدمجة، والحصول على وكيل ذكاء اصطناعي تفاعلي يدير المتجر بالكامل.</li>
+</ul>
+<h3>3. رواد الأعمال الجدد، الأسر المنتجة، وأصحاب وثائق العمل الحر (15%)</h3>
+<ul>
+<li><strong>الحاجة:</strong> إطلاق سريع بدون تعقيدات بيروقراطية، دون الحاجة لحاسوب أو معرفة تقنية.</li>
+<li><strong>القيمة المضافة:</strong> تسجيل فوري بالهاتف عبر رمز OTP، متجر مؤثث من اليوم الأول بسياسات تجارية سعودية جاهزة وهوية متناسقة، وإدارة كاملة عبر تطبيق واتساب الجوال.</li>
+</ul>
+<h3>4. الشركات والعلامات التجارية المتوسطة (Multi-Warehouse Retailers — 15%)</h3>
+<ul>
+<li><strong>الحاجة:</strong> فروع ومستودعات متعددة (الرياض، جدة، الشرقية)، حركة تحويل مخزون مستمرة، تتبع لوجستي دقيق ومحاسبة صارمة بالهللات.</li>
+<li><strong>القيمة المضافة:</strong> محرك مخزون متعدد المواقع، أوامر توريد وتحويل، دفتر أستاذ مالي Append-Only يمنع التلاعب المالي، وربط رسمي مع مجمع الشحن OTO.</li>
+</ul>
+<h3>5. المتسوق السعودي والخليجي (المشتري النهائي)</h3>
+<ul>
+<li>تجربة شراء فائقة الراحة: تصفح المنتجات باللهجة المحلية، الحصول على إجابات دقيقة لأسئلة المقاس والتوفر، سلة شراء برابط سحري بنقرة واحدة، ودعم فوري للدفع عند الاستلام والحوالات البنكية ومدى.</li>
+</ul>
+<hr>
+<h2>4. قناة إنستغرام (Instagram Commerce via Zernio) — الأتمتة والذكاء الاصطناعي الشامل</h2>
+<p>تُمثل قناة إنستغرام في نظام زايدك <strong>الميزة الاستراتيجية الأقوى</strong> لمخاطبة السوق السعودي. تم بناء هذا الموديول هندسياً في مجلد <code>back-end/src/instagram/</code> بالاعتماد على مزود <strong>Zernio</strong> الرائد، مما يمنح المنصة تفوقاً استثنائياً.</p>
+<h3>1. المعمارية التقنية لربط إنستغرام (Instagram OAuth Architecture)</h3>
+<ul>
+<li><strong>بدون تعقيدات Meta App Review:</strong> بدلاً من مطالبة التاجر بإنشاء تطبيق فيسبوك للمطورين والحصول على موافقات أمنية معقدة لشهور، يتصل التاجر عبر Zernio OAuth (Instagram Login) بنقرة زر واحدة لحسابه التجاري (Business / Creator).</li>
+<li><strong>عزل أمني تام للمستأجرين:</strong> يُنشئ النظام ملفاً خارجياً مخصصاً لكل متجر (<code>externalId = shopId</code>) وتخزين المعرفات فقط؛ لا يحتفظ أي طرف باعتمادات سرية خطرة.</li>
+<li><strong>ربط أحادي صارم (One Instagram Account per Shop):</strong> يمنع النظام البرمجي ربط حساب إنستغرام واحد بأكثر من متجر عبر التحقق الصارم من <code>instagram_user_id</code>، مع حماية العمليات برمز تحقق HMAC-SHA256 موقع ومشفر.</li>
+</ul>
+
+    <div class="custom-card ig-flow-card">
+      <div class="card-header">
+        <span class="card-badge">معمارية إنستغرام المتطورة</span>
+        <h4 class="card-title">دورة حياة التجارة التفاعلية عبر إنستغرام (Zernio OAuth & AI Automation)</h4>
+      </div>
+      <div class="ig-steps-grid">
+        <div class="ig-step">
+          <div class="step-badge">المرحلة 01</div>
+          <div class="step-title">ربط OAuth رسمي بنقرة واحدة</div>
+          <div class="step-desc">التاجر يربط حسابه التجاري (Business/Creator) عبر Instagram Login دون الحاجة لإنشاء Meta App أو مراجعات أمنية معقدة. يتم عزل المعرفات بحماية مشفرة.</div>
+        </div>
+        <div class="ig-step">
+          <div class="step-badge">المرحلة 02</div>
+          <div class="step-title">معالجة الأحداث الحية وطوابير BullMQ</div>
+          <div class="step-desc">استقبال أحداث التعليقات على المنشورات والريلز ورسائل DMs فورياً عبر Webhook موقّع بـ HMAC-SHA256، مع منع التكرار (Deduplication) التام في الذاكرة.</div>
+        </div>
+        <div class="ig-step">
+          <div class="step-badge">المرحلة 03</div>
+          <div class="step-title">ربط المنشورات بالمنتجات (Media-to-Product)</div>
+          <div class="step-desc">استدعاء <code>CustomerBotService</code> بقناة إنستغرام؛ حيث يفهم النظام المنتج المعني في الصورة أو الريل بدقة (السعر، المخزون، والخيارات) دون أي تخمين أو هلوسة.</div>
+        </div>
+        <div class="ig-step">
+          <div class="step-badge">المرحلة 04</div>
+          <div class="step-title">التنفيذ المزدوج والتدخل البشري</div>
+          <div class="step-desc">رد عام على التعليق لزيادة التفاعل + رسالة خاصة فورية برابط الشراء المباشر. إذا كتب موظف المتجر رداً يدوياً، يتوقف الذكاء الاصطناعي تلقائياً لمنع التداخل.</div>
+        </div>
+      </div>
+    </div><h3>2. محرك الرد الذكي على المنشورات والريلز (Post &amp; Reel Comment Automation)</h3>
+<p>عندما يعلق أي متابع على صورة منتج أو مقطع ريل في إنستغرام، يتدخل النظام وفق سيناريوهات قابلة للتخصيص الكامل من التاجر:</p>
+<ol>
+<li><strong>الرد العام (Public Reply):</strong> كتابة رد عام يثني على العميل ويجيب على الاستفسار لرفع معدل تفاعل المنشور (Engagement Rate) أمام خوارزميات إنستغرام.</li>
+<li><strong>الرد الخاص (Private DM Reply):</strong> إرسال رسالة خاصة فورية ومباشرة لحساب العميل تتضمن تفاصيل المنتج، صوره، ورابط الشراء السريع، مستفيداً من نافذة المراسلة الممتدة لـ 7 أيام للمنشورات.</li>
+<li><strong>الوضع المزدوج الذكي (Dual Mode):</strong> كتابة رد عام في التعليقات: <em>&quot;أهلاً بك! تم إرسال كافة التفاصيل ورابط الطلب المباشر إلى رسائلك الخاصة 📩&quot;</em>، وإرسال تفاصيل المنتج والخصم فورياً في الـ DM.</li>
+<li><strong>تطبيع وفلترة الكلمات المفتاحية باللغة العربية (Arabic Keyword Normalization):</strong><ul>
+<li>يدعم النظام تفعيل الردود الذكية عند ورود كلمات شراء شائعة بالسعودية والخليج: <code>السعر</code>، <code>بكم</code>، <code>كم السعر</code>، <code>متوفر</code>، <code>المقاس</code>، <code>الرياض</code>، <code>توصيل</code>، <code>كود خصم</code>، مع تنظيف وتطبيع الهمزات والتاء المربوطة والأحرف المكررة (<code>بكمممم</code> -&gt; <code>بكم</code>).</li>
+</ul>
+</li>
+</ol>
+<h3>3. ابتكار ربط المنشورات بالمنتجات (Media-to-Product Mapping)</h3>
+<p>أحد أقوى الابتكارات الحصرية في نظام زايدك في جدول <code>shop_instagram_media_mappings</code>:</p>
+<ul>
+<li>يمكن للتاجر في لوحة التحكم اختيار منشور أو مقطع ريل وربطه بمنتج محدد من الكتالوج.</li>
+<li>عندما يعلق الزبون على ذلك المنشور، يسترجع المساعد الذكي سياق المنتج بدقة: الاسم الفعلي، الخيارات المتوفرة (المقاسات والألوان)، السعر الحالي بالريال، حالة المخزون، ورابط الشراء المباشر.</li>
+<li>النتيجة: <strong>صفر هلوسة في الردود</strong>؛ فالذكاء الاصطناعي لا يخمّن الأسعار بل يستخرجها من واقع قاعدة البيانات الحقيقية.</li>
+</ul>
+<h3>4. المساعد الذكي للرسائل الخاصة (Instagram DM Assistant)</h3>
+<ul>
+<li>يعمل على قناة <code>channel: &#39;instagram&#39;</code> بنفس العقل البرمجي المركزي الذي يدير واتساب وتيليجرام.</li>
+<li>يتعرف على أسئلة العميل الشائعة (مواعيد العمل، الشحن لمدن المملكة، سياسات الاسترجاع، طرق الدفع).</li>
+<li><strong>توليد روابط الشراء المباشرة:</strong> نظراً لأن سياسات إنستغرام تمنع مشاركة رقم الهاتف الموثق في المحادثة، يقوم المساعد بتوليد رابط فوري ذكي لصفحة المنتج أو سلة الشراء الجاهزة، لينتقل العميل ويتم الشراء بنقرة واحدة.</li>
+</ul>
+<h3>5. التدخل البشري السلس والذكي (Human Takeover)</h3>
+<ul>
+<li>إذا قرر التاجر أو موظف المبيعات الرد يدوياً على محادثة الزبون — سواء من داخل صندوق الوارد الموحد في زايدك أو عبر تطبيق إنستغرام الرسمي على هاتفه — <strong>يتعرف النظام على الرد فورياً ويوقف الذكاء الاصطناعي مؤقتاً على هذه المحادثة (Auto-Pause)</strong>، مما يمنع أي تداخل بين ردود الموظف وردود الروبوت.</li>
+</ul>
+<h3>6. الامتثال لنافذة المراسلة الرسمية (Meta 24-Hour Messaging Window)</h3>
+<ul>
+<li>يلتزم النظام بنظام الإرسال الصارم لـ Meta؛ حيث يسجل تاريخ آخر رسالة واردة من الزبون (<code>last_inbound_at</code>).</li>
+<li>يمتنع النظام عن إرسال رسائل ترويجية خارج نافذة الـ 24 ساعة لحماية حساب التاجر من الحظر، مع إعطاء تنبيه واضح في لوحة التحكم.</li>
+</ul>
+<h3>7. لوحة تحليلات وإحصائيات إنستغرام المباشرة</h3>
+<ul>
+<li>استعراض آخر <strong>25 منشوراً حياً</strong> للمتجر في لوحة التحكم مع روابط المنتجات المقترنة بها.</li>
+<li>لوحة مقاييس تشغيلية تعرض إحصائيات 30 يوماً من سجل التسليم: إجمالي الرسائل الواردة، المحادثات المكتملة آلياً، والتعليقات المعالجة بنجاح.</li>
+</ul>
+<hr>
+<h2>5. المساعد التفاعلي عبر واتساب وتيليجرام (Conversational Commerce)</h2>
+
+    <div class="custom-card conv-flow-card">
+      <div class="card-header">
+        <span class="card-badge">تجارة المحادثات الفائقة</span>
+        <h4 class="card-title">دورة العمل التفاعلية عبر تطبيق واتساب (للتاجر والعميل)</h4>
+      </div>
+      <div class="conv-split">
+        <div class="conv-side merchant-side">
+          <div class="side-header">
+            <span class="side-icon">📱</span>
+            <strong>مسار التاجر: الإدارة والتحليل عبر واتساب</strong>
+          </div>
+          <div class="chat-bubble user-bubble">"ارفع سعر عطر مسك الورد 10% وأعطني تقرير أرباح اليوم"</div>
+          <div class="chat-bubble bot-bubble">"تمت معاينة الأسعار: سيتم رفع السعر لـ 165 ر.س. أرباح اليوم الصافية بلغت 4,820 ر.س من 28 طلباً ناجحاً."</div>
+          <div class="side-features">
+            <span>• ~70 أداة إدارة في LangGraph</span>
+            <span>• تشغيل تجريبي وموافقة قبل التعديل</span>
+            <span>• استعلام مالي ومخزوني فوري</span>
+          </div>
+        </div>
+        <div class="conv-side customer-side">
+          <div class="side-header">
+            <span class="side-icon">🛍️</span>
+            <strong>مسار العميل: التسوق وبناء السلة برابط سحري</strong>
+          </div>
+          <div class="chat-bubble user-bubble">"أريد عباية حرير مقاس 54 مع التوصيل لحي الياسمين بالرياض"</div>
+          <div class="chat-bubble bot-bubble">"أهلاً بك! المقاس متوفر. تم تجهيز سلتك مع عنوانك الوطني: اضغط هنا للدفع الآمن بـ Apple Pay (صالح 15 دقيقة)."</div>
+          <div class="side-features">
+            <span>• فحص لحظي للمخزون الحقيقي</span>
+            <span>• حل العنوان الوطني السعودي تلقائياً</span>
+            <span>• دفع سحري مشفر بضغطة زر واحدة</span>
+          </div>
+        </div>
+      </div>
+    </div><h3>1. مساعد التاجر الذكي (Vendor Sidekick) — إدارة الأعمال من الجوال</h3>
+<p>لا يحتاج التاجر للجلوس أمام شاشة حاسوب لإدارة متجره؛ فالمساعد الذكي مزود بـ <strong>~70 أداة برمجية متخصصة</strong> مبنية بإطار <strong>LangGraph StateGraph</strong>:</p>
+<ul>
+<li><strong>إدارة الكتالوج:</strong> إضافة منتج بالصورة والوصف، تعديل الأسعار، وإدارة المتغيرات.</li>
+<li><strong>التعديلات الجماعية (Bulk Operations):</strong> <em>&quot;ارفع أسعار قسم النظارات 15%&quot;</em> — ينفذ النظام مسحاً شاملاً ويطلب موافقة التاجر قبل الاعتماد.</li>
+<li><strong>التحليلات والمحاسبة (23 أداة تحليلية):</strong> استعلام لحظي عن أرباح اليوم، السلات المتروكة، تقرير الأداء المالي، وأكثر المنتجات مبيعاً.</li>
+<li><strong>إدارة المخزون والتوريد:</strong> تعديل كميات المستودعات، إصدار أوامر تحويل بين الفروع، ومتابعة النواقص.</li>
+</ul>
+<h3>2. مساعد المتجر للعملاء (Customer Bot) — بائع آلي خبير</h3>
+<ul>
+<li>يعمل على <strong>رقم واتساب المتجر الخاص</strong> عبر محرك Baileys / Evolution API المستضاف ذاتياً (الربط بمسح رمز QR في 30 ثانية بدون أي اشتراطات معقدة من Meta).</li>
+<li>يتحدث بالعربية الفصحى أو اللهجة العامية الخليجية، ويفهم مرادفات السلع بدقة.</li>
+<li><strong>بناء السلة التفاعلية (Magic Cart Flow):</strong>
+الزبون يطلب المنتج في الشات -&gt; يضيفه المساعد للسلة -&gt; يرسل له رابط دفع مشفر ومخصص بنظام SHA-256 صالح لمدة 15 دقيقة -&gt; يفتح العميل الرابط ليجد عنوانه وسلته بانتظاره، ويدفع بـ Apple Pay أو مدى بلمسة واحدة.</li>
+</ul>
+<hr>
+<h2>6. الملاءمة التامة للبيئة التشغيلية والنظامية في المملكة العربية السعودية</h2>
+<p>تم بناء النظام ليكون مواطناً رقمياً متكاملاً مع البنية التحتية والتشريعية في المملكة العربية السعودية:</p>
+<table>
+<thead>
+<tr>
+<th>المجال التشغيلي</th>
+<th>الواقع في المنصات العالمية والتقليدية</th>
+<th>الحل الأصيل المدمج في نظام زايدك</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>العنوان الوطني السعودي</strong></td>
+<td>قوالب عناوين أمريكية تطلب Street و Zip Code وتسبب ضياع 20% من الشحنات.</td>
+<td><strong>دعم أصلي للعنوان الوطني ورمز المبنى (4 أحرف و4 أرقام)</strong> مع فك الترميز المكاني وحفظه في سجل العميل.</td>
+</tr>
+<tr>
+<td><strong>وسائل الدفع السعودية</strong></td>
+<td>الاعتماد على بطاقات الائتمان فقط، أو إضافات طرف ثالث مكلفة لمدى وآبل باي.</td>
+<td><strong>واجهة مهيأة للربط المباشر مع بوابات الدفع السعودية المرخصة (ميسر / بي موب)</strong> لدعم مدى و Apple Pay بنسبة قبول تفوق 95%.</td>
+</tr>
+<tr>
+<td><strong>الحوالات البنكية المحلية</strong></td>
+<td>إدخال رقم حساب يدوي دون أي فحص وتكرار أخطاء التحويل.</td>
+<td><strong>فحص خوارزمي تلقائي لرقم الـ IBAN البنكي السعودي بخوارزمية mod-97</strong> المعتمدة من البنك المركزي (SAMA) وتجميد الحساب على الطلب.</td>
+</tr>
+<tr>
+<td><strong>الشحن والخدمات اللوجستية</strong></td>
+<td>عقود شحن منفصلة وبوالص يدوية تستنزف وقت التاجر.</td>
+<td><strong>ربط مباشر ومدمج مع OTO مجمع الشحن السعودي</strong> لإصدار بوالص الشحن والتتبع مع سمسا، أرامكس، سبل، و DHL بعقد التاجر الخاص.</td>
+</tr>
+<tr>
+<td><strong>الدفع عند الاستلام (COD)</strong></td>
+<td>تسجيل مالي غير دقيق يسبب عجزاً وتعارضاً في تسوية حسابات التوصيل.</td>
+<td><strong>توزيع مالي ذكي لمبالغ الدفع عند الاستلام على الطرود المشحونة جزئياً</strong>، ومتابعة التسوية في دفتر الأستاذ.</td>
+</tr>
+<tr>
+<td><strong>الامتثال المحاسبي والضريبي</strong></td>
+<td>أخطاء تقريب الكسور العشرية في ضريبة القيمة المضافة 15%.</td>
+<td><strong>نظام مالي صارم بالهللات (Integer Cents)</strong> ودفتر أستاذ مزدوج غير قابل للتعديل (Append-Only Ledger) جاهز للفوترة الإلكترونية (ZATCA).</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>7. الهندسة المعمارية للنظام والبنية البرمجية الحديثة</h2>
+<p>تعتمد المنصة على بنية مؤسسية حديثة للغاية منظمة بنمط <strong>Turborepo Monorepo</strong> فائق السرعة، تعزل الواجهات الأمامية عن منطق الأعمال مع مشاركة كاملة لمكتبات التصميم والقواعد المشتركة.</p>
+
+    <div class="custom-card mono-arch-card">
+      <div class="card-header">
+        <span class="card-badge">البنية الهندسية 2026</span>
+        <h4 class="card-title">هندسة النظام البرمجية (Turborepo Monorepo Architecture)</h4>
+      </div>
+      <div class="mono-grid">
+        <div class="mono-tier">
+          <div class="tier-label">1. تطبيقات الواجهة الأمامية (Frontend Apps)</div>
+          <div class="tier-items">
+            <div class="tier-chip"><strong>apps/vendor:</strong> لوحة التاجر (Next.js 16 • React 19 • شريط الحفظ السياقي • ثنائي اللغة)</div>
+            <div class="tier-chip"><strong>apps/admin:</strong> لوحة الإدارة (Next.js 16 • إدارة الاشتراكات وهامش ربح الـ AI بالهللة)</div>
+            <div class="tier-chip"><strong>apps/storefront:</strong> متجر الويب (Next.js 16 • React Server Components • 6 قوالب حصرية)</div>
+          </div>
+        </div>
+        <div class="mono-tier">
+          <div class="tier-label">2. الحزم والمكتبات المشتركة (Shared Packages)</div>
+          <div class="tier-items">
+            <div class="tier-chip"><strong>packages/ui (@repo/ui):</strong> 38 مكون تصميمي متطور وموحد التصميم</div>
+            <div class="tier-chip"><strong>packages/storefront-templates:</strong> 6 قوالب متاجر متفاعلة بالكامل</div>
+          </div>
+        </div>
+        <div class="mono-tier">
+          <div class="tier-label">3. الواجهة الخلفية والنواة البرمجية (Backend Standalone)</div>
+          <div class="tier-items">
+            <div class="tier-chip"><strong>NestJS 10 Core:</strong> ~80 موديول برمجي متكامل يغطي أدق عمليات التجارة</div>
+            <div class="tier-chip"><strong>GraphQL Code-First (Apollo 5):</strong> واجهة بيانات سريعة وموثقة بالكامل</div>
+            <div class="tier-chip"><strong>Prisma 7 ORM & LangGraph:</strong> محرك البيانات ووكلاء الذكاء الاصطناعي</div>
+          </div>
+        </div>
+        <div class="mono-tier">
+          <div class="tier-label">4. طبقة البيانات والبنية السحابية (Data & Cloud Tier)</div>
+          <div class="tier-items">
+            <div class="tier-chip"><strong>PostgreSQL + pgvector:</strong> قاعدة البيانات والبحث الدلالي باللغة الطبيعية</div>
+            <div class="tier-chip"><strong>Redis + BullMQ:</strong> إدارة الطوابير، الأحداث، والمصادقة المؤقتة للأمان</div>
+            <div class="tier-chip"><strong>BunnyCDN / S3:</strong> تسريع وتخزين الوسائط والصور الرقمية</div>
+          </div>
+        </div>
+      </div>
+    </div><h3>تفاصيل الحزم البرمجية:</h3>
+<ol>
+<li><strong>الواجهة الخلفية (<code>back-end/</code>):</strong><ul>
+<li>مبنية بإطار <strong>NestJS 10</strong> مع <strong>GraphQL (Apollo 5)</strong> بنهج Code-First قوي وموثق بـ 194 ملف توثيق داخلي.</li>
+<li>قاعدة البيانات: <strong>PostgreSQL</strong> مع ملحق <strong>pgvector</strong> لدعم البحث الدلالي باللغة الطبيعية عن المنتجات.</li>
+<li>الطوابير والأداء: <strong>Redis</strong> و <strong>BullMQ</strong> لمعالجة أحداث الويب هوك غير المتزامنة لإنستغرام، واتساب، ورسائل البريد.</li>
+</ul>
+</li>
+<li><strong>لوحة تحكم التاجر (<code>apps/vendor/</code>):</strong><ul>
+<li>مبنية بـ <strong>Next.js 16</strong> مع <strong>React 19</strong> وأحدث ميزات React Compiler.</li>
+<li>إدارة الحالة: <strong>Zustand</strong> و <strong>Apollo Client 4</strong>.</li>
+<li>دعم التدويل الكامل: نظام <strong>next-intl</strong> بدعم ثنائي متطابق (عربي وإنجليزي) لأكثر من 4,300 رسالة مترجمة بدقة.</li>
+</ul>
+</li>
+<li><strong>متجر العملاء العام (<code>apps/storefront/</code>):</strong><ul>
+<li>يعتمد أحدث معمارية لمكونات الخادم <strong>React Server Components (RSC)</strong> لسرعة تحميل فائقة ودعم مثالي للـ SEO.</li>
+<li>دعم التوجيه المزدوج: نطاق المنصة الموحد (<code>zaydak.com/{shopSlug}</code>)، النطاقات الفرعية (<code>{shopSlug}.zaydak.com</code>)، والنطاقات المخصصة للتاجر (<code>brand.com</code>) مع شهادات SSL آلية.</li>
+<li>6 قوالب حصرية راقية (<code>doughn</code>, <code>drip</code>, <code>rail</code>, <code>hullo</code>, <code>personne</code>, <code>jurat</code>).</li>
+</ul>
+</li>
+<li><strong>لوحة إدارة المنصة (<code>apps/admin/</code>):</strong><ul>
+<li>غرفة التحكم لمالك ومشغل المنصة لمتابعة المؤشرات، الاشتراكات، طلبات السحب، وهوامش ربح الذكاء الاصطناعي بدقة الهللة.</li>
+<li>تشفير متقدم للاعتمادات والمفاتيح الخارجية بتقنية <strong>AES-256-GCM</strong>.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2>8. الذكاء الاصطناعي في المنصة — تفصيل معماري لأسطح العمل الأربعة</h2>
+<p>لا يقتصر الذكاء الاصطناعي في زايدك على واجهة محادثة بسيطة، بل يشمل <strong>4 أسطح عمل مستقلة تماماً ومتباينة الصلاحيات والأمان</strong>:</p>
+
+    <div class="custom-card ai-surfaces-card">
+      <div class="card-header">
+        <span class="card-badge">تعدد أسطح الذكاء الاصطناعي</span>
+        <h4 class="card-title">أسطح الذكاء الاصطناعي الأربعة المتمايزة في نظام زايدك</h4>
+      </div>
+      <div class="surfaces-grid">
+        <div class="surface-box s1">
+          <div class="s-badge">السطح 01</div>
+          <div class="s-title">مساعد التاجر الذكي (Vendor Sidekick)</div>
+          <div class="s-meta">واتساب • تيليجرام • لوحة التحكم</div>
+          <div class="s-desc">~70 أداة في LangGraph StateGraph. السطح الوحيد المصرح له بتعديل بيانات المتجر، إدارة الأسعار، المخزون، والعمليات الجماعية مع نقاط توقف للموافقة البشرية.</div>
+        </div>
+        <div class="surface-box s2">
+          <div class="s-badge">السطح 02</div>
+          <div class="s-title">مساعد العملاء الموحد (Customer Bot)</div>
+          <div class="s-meta">واتساب • إنستغرام • تيليجرام</div>
+          <div class="s-desc">13 أداة لبناء السلة التفاعلية، حل العنوان الوطني السعودي، الردود الذكية على تعليقات المنشورات والريلز، وتوليد روابط الشراء السريعة المشفرة.</div>
+        </div>
+        <div class="surface-box s3">
+          <div class="s-badge">السطح 03</div>
+          <div class="s-title">مساعد متجر الويب (Storefront Assistant)</div>
+          <div class="s-meta">المتجر الإلكتروني العام (RSC)</div>
+          <div class="s-desc">نافذة تفاعلية في متجر الويب تشارك نفس الكتالوج الموحد، مع 11 أداة متخصصة لخدمة الزبون المسجل (تتبع الشحنات، إعادة الطلب، وقوائم الأمنيات).</div>
+        </div>
+        <div class="surface-box s4">
+          <div class="s-badge">السطح 04</div>
+          <div class="s-title">استوديو وسائط الـ AI (Media Studio)</div>
+          <div class="s-meta">لوحة تحكم التاجر</div>
+          <div class="s-desc">توليد جلسات تصوير افتراضية، تفريغ الصور، رفع الدقة، وقوالب المناسبات السعودية (اليوم الوطني، رمضان، الأعياد) مع توليد أوصاف Alt Text دقيقة للـ SEO.</div>
+        </div>
+      </div>
+    </div><h3>1. مساعد التاجر الذكي (Vendor Sidekick)</h3>
+<ul>
+<li>مبني بالكامل على إطار <strong>LangGraph StateGraph</strong> مع حفظ نقاط الاستعادة (Checkpoints) في قاعدة البيانات.</li>
+<li>يضم <strong>~70 أداة مسجلة</strong> موزعة على:<ul>
+<li>قراءة الكتالوج (10 أدوات): استعلام عن المنتجات، النواقص، سجل حركة المخزون.</li>
+<li>الكتابة في الكتالوج (15 أداة): إنشاء وتعديل وحذف المنتجات، الكوبونات، والتصنيفات.</li>
+<li>التعديلات الجماعية (4 أدوات): تحديث أسعار جماعي، تصدير واستيراد CSV.</li>
+<li>التحليلات والمحاسبة (23 أداة): هوامش الربح، قمع التحويل، السلات المتروكة، وتوقعات الإيرادات.</li>
+<li>المخزون والتوريد: تحويل بين الفروع وتعديل الأرصدة.</li>
+<li>الطلبات والتتبع (6 أدوات): متابعة الشحنات، طلبات الاسترجاع، ورصيد التاجر القابل للسحب.</li>
+<li>التسويق وصناعة المحتوى (8 أدوات): توليد الأوصاف التسويقية والترجمة الفورية.</li>
+</ul>
+</li>
+</ul>
+<h3>2. مساعد المتجر للعملاء (Customer Bot)</h3>
+<ul>
+<li>المحرك الموحد العامل على <strong>واتساب، إنستغرام، وتيليجرام</strong>.</li>
+<li>الأدوات الأساسية (13 أداة): البحث الذكي في الكتالوج، حل العنوان الوطني، بناء السلة التفاعلية، استعراض الكوبونات والعروض الفلاشية، وشرح سياسات الاسترجاع وتصعيد المحادثة للبشر.</li>
+</ul>
+<h3>3. مساعد المتجر على الويب (Storefront Assistant)</h3>
+<ul>
+<li>نافذة تفاعلية في متجر الويب تتيح للزبون المسجل تتبع طلباته السابقة، إعادة طلب شحنة بنقرة واحدة، استعراض قائمة أمنياته ونقاط ولائه.</li>
+</ul>
+<h3>4. استوديو وسائط الذكاء الاصطناعي (AI Media Studio)</h3>
+<ul>
+<li>جلسات تصوير افتراضية للمنتجات بنقرة واحدة.</li>
+<li>قوالب المناسبات السعودية والخليجية: إعدادات جاهزة لأجواء اليوم الوطني، يوم التأسيس، شهر رمضان، وعيدي الفطر والأضحى.</li>
+<li>أدوات تفريغ الصور (Background Removal)، رفع الدقة (Upscaling)، والتوصيف الذكي لمحركات البحث (Alt Text).</li>
+</ul>
+<hr>
+<h2>9. أمان الذكاء الاصطناعي وأطر الحماية المشددة (The 6-Layer Security Framework)</h2>
+<p>في التجارة الإلكترونية، يمثل الخطأ في اتخاذ القرارات أو تسريب الأسعار أو التلاعب بقواعد البيانات مخاطرة لا يمكن قبولها. يطبق نظام زايدك <strong>إطار حماية معماري من 6 طبقات صلبة لا يمكن اختراقها بواسطة هندسة الأوامر (Prompt Injections)</strong>:</p>
+<div class="mermaid-box"><pre class="mermaid">flowchart TD
+    Req["أمر التاجر أو رسالة الزبون"] --> L1["الطبقة 1: عزل الهوية والنطاق الصارم<br/>ترويسة X-SHOP والتحقق المشفر من الملكية"]
+    L1 --> L2["الطبقة 2: بوابات الصلاحية والباقة<br/>التحقق من أحقية المتجر في استخدام الأداة"]
+    L2 --> L3["الطبقة 3: فلترة القنوات<br/>استبعاد العمليات الحساسة من واتساب وإنستغرام"]
+    L3 --> L4["الطبقة 4: نقاط التوقف البشرية في وقت التشغيل<br/>تعليق دورة التنفيذ في LangGraph لطلب تأكيد بشري صريح"]
+    L4 --> L5["الطبقة 5: الحذف بمصادقة مرحلية<br/>إصدار توكن أحادي الاستخدام في Redis صالح لـ 60 ثانية"]
+    L5 --> L6["الطبقة 6: وساطة النماذج<br/>تعبئة نموذج الحفظ ليضغط التاجر زر الاعتماد بيده"]
+    L6 --> Exec["التنفيذ البرمجي النهائي في قاعدة البيانات"]</pre></div><h3>تفصيل طبقات الحماية الست:</h3>
+<ol>
+<li><strong>الهوية والنطاق الصارم (Identity &amp; Scope):</strong> لا يستخلص النموذج معرف المتجر من سياق المحادثة إطلاقاً؛ بل يُمرر حصرياً عبر ترويسة <code>X-SHOP</code> المشفرة وحراس النظام (<code>ShopOwnershipGuard</code>).</li>
+<li><strong>رخصة الباقة (Plan Entitlements):</strong> فحص صلاحية الأداة برمجياً بحسب باقة اشتراك المتجر قبل استدعائها.</li>
+<li><strong>قيود القنوات (Channel Policies):</strong> قوائم بيضاء تمنع استدعاء أدوات الملفات الضخمة أو العمليات المالية الحساسة عبر قنوات التواصل السريعة.</li>
+<li><strong>نقاط التوقف والموافقة البشرية في وقت التشغيل (Approval Interrupts):</strong><ul>
+<li>في العمليات الكبرى (مثل تعديل أسعار 200 منتج)، <strong>يعلّق محرك LangGraph التنفيذ برمجياً في الذاكرة</strong>.</li>
+<li>يرسل النظام للتاجر تفاصيل التشغيل التجريبي: <em>&quot;سيتم رفع أسعار 84 منتجاً في قسم العطور، هل تؤكد؟ أرسل 1 للتأكيد أو 2 للإلغاء&quot;</em>. لا يمكن لأي تلاعب لغوي تجاوز هذا الحظر البرمجي.</li>
+</ul>
+</li>
+<li><strong>الحذف بمصادقة مرحلية (Two-Phase Deletion):</strong> حذف أي منتج أو تصنيف يتطلب إصدار رمز مؤقت مشفر في <strong>Redis لمدة 60 ثانية</strong>؛ وإذا لم يتم التأكيد يسقط الطلب فوراً.</li>
+<li><strong>وساطة النماذج (Form Mediation):</strong> عند إنشاء أو تعديل منتجات من اللوحة، يجهز المساعد البيانات في نموذج جاهز (Prefilled Form) ليكون ضغط زر الحفظ البشري هو الموافقة النهائية.</li>
+<li><strong>صمامات منع تسريب التكاليف (Anti-Leak Traps):</strong> استعلامات الكتالوج التي يستخدمها مساعد العملاء تستخدم دوال تسقط حقل سعر التكلفة (<code>cost_per_item_cents</code>) برمجياً؛ فحتى لو سأل الزبون المساعد: <em>&quot;كم تكلفة هذا المنتج على صاحب المتجر؟&quot;</em>، لا يمتلك المساعد حقل التكلفة في الذاكرة إطلاقاً!</li>
+</ol>
+<hr>
+<h2>10. النموذج المالي، اقتصاديات الوحدة، وتوقعات النمو (Unit Economics &amp; Projections)</h2>
+<p>صُمم النظام بنموذج إيرادات ثلاثي الأبعاد بالريال السعودي يضمن تدفقات نقدية متكررة وهوامش ربح تصاعدية:</p>
+
+    <div class="custom-card revenue-card">
+      <div class="card-header">
+        <span class="card-badge">النموذج المالي ثلاثي الأبعاد</span>
+        <h4 class="card-title">محركات الإيرادات والتدفقات النقدية المتكررة للمنصة</h4>
+      </div>
+      <div class="rev-grid">
+        <div class="rev-col">
+          <div class="rev-icon">💼</div>
+          <div class="rev-title">1. اشتراكات SaaS متكررة (MRR / ARR)</div>
+          <div class="rev-desc">5 باقات متدرجة مسعرة بالريال السعودي (من المجانية وحتى باقة بلس بـ 4,999 ر.س/شهرياً) توفر دخلاً متكرراً مستقراً مع ميزة الدفع السنوي (10 أشهر).</div>
+        </div>
+        <div class="rev-col">
+          <div class="rev-icon">📈</div>
+          <div class="rev-title">2. عمولة مبيعات المنصة (Take Rate)</div>
+          <div class="rev-desc">نسبة عمولة مبرمجة في صميم مسار الدفع (1.5% إلى 2.5% من إجمالي مبيعات التجار GMV) تُقتطع لحظياً وآلياً قبل إيداع مستحقات التاجر للسحب.</div>
+        </div>
+        <div class="rev-col">
+          <div class="rev-icon">⚡</div>
+          <div class="rev-title">3. هوامش استهلاك الـ AI والوسائط</div>
+          <div class="rev-desc">تتبع تكلفة كل استدعاء ذكاء اصطناعي بالهللة والسنت وتسجيله في دفتر أستاذ التكلفة، وإعادة بيع باقات الردود الإضافية وتوليد الصور بهامش ربح صافٍ للمنصة 40-60%.</div>
+        </div>
+      </div>
+    </div><h3>1. باقات الاشتراك الشهري والسنوي (بالريال السعودي)</h3>
+<table>
+<thead>
+<tr>
+<th>الباقة</th>
+<th>السعر الشهري</th>
+<th>السعر السنوي</th>
+<th>أبرز القدرات والخصائص</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>المجانية (Free)</strong></td>
+<td>0 ر.س</td>
+<td>0 ر.س</td>
+<td>متجر أساسي، كتالوج محدود، 200 استعلام ذكاء اصطناعي تجريبي.</td>
+</tr>
+<tr>
+<td><strong>الأساسية (Basic)</strong></td>
+<td>99 ر.س</td>
+<td>990 ر.س</td>
+<td>ربط واتساب أو إنستغرام، 500 رد آلي شهرياً، إدارة الكتالوج الأساسية.</td>
+</tr>
+<tr>
+<td><strong>النمو (Grow)</strong></td>
+<td>299 ر.س</td>
+<td>2,990 ر.س</td>
+<td><strong>ربط واتساب وإنستغرام معاً</strong>، 2,000 رد آلي، 23 أداة تحليلات، مخزون متعدد المستودعات.</td>
+</tr>
+<tr>
+<td><strong>المتقدمة (Advanced)</strong></td>
+<td>999 ر.س</td>
+<td>9,990 ر.س</td>
+<td>أتمتة كاملة لتعليقات إنستغرام وريلز، تعديلات جماعية، استوديو صور الـ AI، 10,000 رد، نطاق خاص.</td>
+</tr>
+<tr>
+<td><strong>بلس (Plus / Enterprise)</strong></td>
+<td>4,999 ر.س</td>
+<td>49,990 ر.س</td>
+<td>استهلاك AI غير محدود، دعم مخصص على مدار الساعة، إدارة فروع وسلاسل إمداد كبرى.</td>
+</tr>
+</tbody></table>
+<h3>2. اقتصاديات الوحدة للمتجر الواحد (Unit Economics)</h3>
+<ul>
+<li><strong>متوسط الإيراد لكل متجر (ARPU):</strong> يقدر بـ <strong>380 ريال سعودي شهرياً</strong> (مزيج بين باقة النمو والباقة الأساسية مع العمولات).</li>
+<li><strong>تكلفة الاستحواذ على التاجر (CAC):</strong> تقدر بـ <strong>400 ريال سعودي</strong> عبر الحملات الرقمية الموجهة لتجار إنستغرام وسناب شات في السعودية.</li>
+<li><strong>القيمة الدائمة للتاجر (LTV):</strong> بافتراض متوسط بقاء التاجر لمدة 20 شهراً:<br>$$\text{LTV} = 380 \text{ ر.س} \times 20 = 7,600 \text{ ر.س}$$</li>
+<li><strong>نسبة العائد إلى تكلفة الاستحواذ (LTV / CAC Ratio):</strong><br>$$\frac{7,600}{400} = 19\text{x}$$<br><em>(أي نسبة تتجاوز 4x في شركات الـ SaaS تُعد مؤشراً استثمارياً استثنائياً؛ ويرجع ذلك لاعتماد التاجر اليومي الكامل على المنصة في محادثات بيعه مما يجعل معدل الإلغاء Churn Rate منخفضاً للغاية).</em></li>
+</ul>
+<h3>3. التوقعات المالية للسنوات الثلاث الأولى (Financial Projections)</h3>
+<table>
+<thead>
+<tr>
+<th>المؤشر المالي</th>
+<th>السنة الأولى (Y1)</th>
+<th>السنة الثانية (Y2)</th>
+<th>السنة الثالثة (Y3)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>عدد المتاجر النشطة (Active Merchants)</strong></td>
+<td>500 متجر</td>
+<td>2,500 متجر</td>
+<td>7,500 متجر</td>
+</tr>
+<tr>
+<td><strong>إجمالي حجم المبيعات المعالجة (GMV)</strong></td>
+<td>45 مليون ر.س</td>
+<td>280 مليون ر.س</td>
+<td>1.1 مليار ر.س</td>
+</tr>
+<tr>
+<td><strong>إيراد الاشتراكات السنوية (ARR)</strong></td>
+<td>2.1 مليون ر.س</td>
+<td>11.4 مليون ر.س</td>
+<td>34.2 مليون ر.س</td>
+</tr>
+<tr>
+<td><strong>إيراد عمولات المبيعات (Take Rate @ 1.5%)</strong></td>
+<td>675 ألف ر.س</td>
+<td>4.2 مليون ر.س</td>
+<td>16.5 مليون ر.س</td>
+</tr>
+<tr>
+<td><strong>إجمالي الإيرادات السنوية للمنصة</strong></td>
+<td><strong>2.77 مليون ر.س</strong></td>
+<td><strong>15.6 مليون ر.س</strong></td>
+<td><strong>50.7 مليون ر.س</strong></td>
+</tr>
+<tr>
+<td><strong>صافي هامش الربح التشغيلي المتوقع</strong></td>
+<td>35%</td>
+<td>58%</td>
+<td>68%</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>11. المقارنة التنافسية الشاملة مع حلول السوق القائمة (سلة، زد، وشوبيفاي)</h2>
+<table>
+<thead>
+<tr>
+<th>وجه المقارنة</th>
+<th>منصة شوبيفاي (Shopify)</th>
+<th>منصة سلة (Salla)</th>
+<th>منصة زد (Zid)</th>
+<th><strong>منظومة زايدك (Zaydak)</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>إدارة المتجر بالكامل عبر المحادثة</strong></td>
+<td>غير متاح</td>
+<td>غير متاح</td>
+<td>غير متاح</td>
+<td><strong>أصيل ومدمج بالكامل (~70 أداة في واتساب)</strong></td>
+</tr>
+<tr>
+<td><strong>أتمتة إنستغرام الذكية (المنشورات والريلز)</strong></td>
+<td>تتطلب تطبيقات خارجية معقدة</td>
+<td>تتطلب اشتراكات مكلفة في أدوات أجنبية</td>
+<td>غير مدمجة أصلياً</td>
+<td><strong>مدمجة بالكامل مع ربط المنشور بالمنتج مباشرة</strong></td>
+</tr>
+<tr>
+<td><strong>بناء السلة والشراء داخل المحادثة</strong></td>
+<td>غير مدعوم أصلياً</td>
+<td>إضافات محدودة وباهظة</td>
+<td>إضافات محدودة</td>
+<td><strong>أصيل ومدمج بروابط دفع سحرية مشفرة</strong></td>
+</tr>
+<tr>
+<td><strong>ربط واتساب بدون تعقيدات Meta Cloud</strong></td>
+<td>لا (يتطلب حساب Meta رسمي)</td>
+<td>يتطلب باقات خاصة ورسوم رسائل</td>
+<td>يتطلب إعدادات معقدة</td>
+<td><strong>نعم (بمسح رمز QR فوري في 30 ثانية)</strong></td>
+</tr>
+<tr>
+<td><strong>التدخل البشري التلقائي (Human Takeover)</strong></td>
+<td>غير متوفر</td>
+<td>غير متوفر</td>
+<td>غير متوفر</td>
+<td><strong>مدمج (يتوقف الذكاء الاصطناعي عند رد الموظف)</strong></td>
+</tr>
+<tr>
+<td><strong>نقاط التوقف البشرية للـ AI (Interrupts)</strong></td>
+<td>غير متوفر</td>
+<td>غير متوفر</td>
+<td>غير متوفر</td>
+<td><strong>نعم (مدمج في محرك LangGraph)</strong></td>
+</tr>
+<tr>
+<td><strong>الدعم الأصلي للعنوان الوطني السعودي</strong></td>
+<td>إضافات غير دقيقة</td>
+<td>مدعوم في المتجر التقليدي</td>
+<td>مدعوم في المتجر التقليدي</td>
+<td><strong>مدعوم في صميم الشات، المتجر، وعمليات الشحن</strong></td>
+</tr>
+<tr>
+<td><strong>التحقق من IBAN البنوك السعودية</strong></td>
+<td>إدخال نصي عادي</td>
+<td>مدعوم محلياً</td>
+<td>مدعوم محلياً</td>
+<td><strong>فحص خوارزمي mod-97 وتجميد حساب على الطلب</strong></td>
+</tr>
+<tr>
+<td><strong>حداثة التقنيات وخفة الكود (Tech Stack)</strong></td>
+<td>كود ضخم متراكم</td>
+<td>خليط من أطر تقليدية</td>
+<td>أطر تقليدية</td>
+<td><strong>Next.js 16 + React 19 + NestJS + GraphQL</strong></td>
+</tr>
+</tbody></table>
+<hr>
+<h2>12. جاهزية النظام، مقاييس الجودة، وخارطة طريق الإطلاق التجاري</h2>
+<h3>1. نتائج الفحص والاختبارات البرمجية الفعلية</h3>
+<p>خضعت قاعدة الكود لتدقيق هندسي شامل وتحقق آلي صارم:</p>
+<ul>
+<li><strong>اختبارات الواجهة الخلفية (<code>back-end/</code>):</strong> 6,880 اختباراً ناجحاً بنسبة 100% (Jest).</li>
+<li><strong>اختبارات لوحة التاجر (<code>apps/vendor/</code>):</strong> 1,573 اختباراً ناجحاً بنسبة 100% (Vitest).</li>
+<li><strong>اختبارات المتجر العام (<code>apps/storefront/</code>):</strong> 718 اختباراً ناجحاً بنسبة 100% (Vitest).</li>
+<li><strong>اختبارات لوحة الإدارة وحزمة التصميم:</strong> 623 اختباراً ناجحاً بنسبة 100%.</li>
+<li><strong>المجموع الإجمالي للاختبارات الآلية:</strong> <strong>9,802 اختبار برمجي آلي ناجح</strong>.</li>
+<li><strong>فحص الأنماط والأنواع (TypeScript <code>tsc --noEmit</code>):</strong> نظيف تماماً وخالٍ من الأخطاء عبر كافة التطبيقات والحزم.</li>
+</ul>
+<h3>2. خارطة طريق الإطلاق التجاري والتشغيلي (10 أسابيع)</h3>
+
+    <div class="custom-card custom-roadmap-card">
+      <div class="roadmap-header">
+        <span class="chart-badge">خطة العمل والتشغيل</span>
+        <h4 class="chart-title">خطة الإطلاق التجاري والتشغيلي في السوق السعودي (10 أسابيع)</h4>
+      </div>
+      <div class="timeline-phases">
+        <div class="phase-item">
+          <div class="phase-number">01</div>
+          <div class="phase-body">
+            <div class="phase-title">بوابات الدفع السعودية (مدى وآبل باي)</div>
+            <div class="phase-duration">الأسابيع 1 - 3 (21 يوم)</div>
+            <div class="phase-desc">ربط بوابات الدفع المحلية مثل Moyasar أو Paymob لتفعيل شبكة "مدى" و Apple Pay وتفعيل اقتطاع عمولة المنصة المبرمجة.</div>
+          </div>
+        </div>
+        <div class="phase-item">
+          <div class="phase-number">02</div>
+          <div class="phase-body">
+            <div class="phase-title">البنية التحتية والتهيئة السحابية للإنتاج</div>
+            <div class="phase-duration">الأسابيع 2 - 4 (14 يوم)</div>
+            <div class="phase-desc">تفعيل اشتراك Redis الإنتاجي، ضبط خوادم الواجهة الخلفية، تدوير المفاتيح وتفعيل مزود رسائل SMS والبريد المعتمد في السعودية.</div>
+          </div>
+        </div>
+        <div class="phase-item">
+          <div class="phase-number">03</div>
+          <div class="phase-body">
+            <div class="phase-title">الإطلاق التجريبي المحروس (Closed Beta)</div>
+            <div class="phase-duration">الأسابيع 5 - 7 (14 يوم)</div>
+            <div class="phase-desc">تشغيل 20 متجراً سعودياً حقيقياً مختاراً بعناية لمراقبة استهلاك المساعد الذكي وخدمات الشحن والمدفوعات على أرض الواقع.</div>
+          </div>
+        </div>
+        <div class="phase-item">
+          <div class="phase-number">04</div>
+          <div class="phase-body">
+            <div class="phase-title">الإطلاق التجاري الكامل وحملة التسويق</div>
+            <div class="phase-duration">الأسابيع 8 - 10 (14 يوم)</div>
+            <div class="phase-desc">فتح التسجيل العام للتجار، تدشين الحملات الإعلانية الموجهة لتجار إنستغرام وواتساب، وبدء تحصيل الاشتراكات والعمولات.</div>
+          </div>
+        </div>
+      </div>
+    </div><ol>
+<li><strong>الأسابيع 1 - 3: استكمال ربط بوابة دفع سعودية (مدى وآبل باي):</strong><ul>
+<li>ربط بوابة دفع محلية معتمدة (مثل <strong>Moyasar</strong> أو <strong>Paymob</strong>) لدعم شبكة &quot;مدى&quot; والبطاقات المحلية (منطق الدفع مجرد ومهيأ في الكود).</li>
+</ul>
+</li>
+<li><strong>الأسابيع 2 - 4: البنية السحابية للإنتاج:</strong><ul>
+<li>ضبط خوادم الإنتاج والـ Redis المدار، وتفعيل مزود رسائل SMS السعودي المعتمد للتحقق من أرقام الجوال.</li>
+</ul>
+</li>
+<li><strong>الأسابيع 5 - 7: الإطلاق التجريبي المحروس (Closed Beta):</strong><ul>
+<li>تشغيل <strong>20 متجراً سعودياً مختاراً بعناية</strong> (متاجر عطور وعبايات على إنستغرام) لاختبار استهلاك الذكاء الاصطناعي وتدفق الطلبات على أرض الواقع.</li>
+</ul>
+</li>
+<li><strong>الأسابيع 8 - 10: الإطلاق التجاري الكامل وتدشين الحملات التسويقية:</strong><ul>
+<li>فتح التسجيل العام، إطلاق الحملات التسويقية الرقمية، وتفعيل اشتراكات التجار وعمولات المبيعات.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2>13. أطروحة الاستثمار، أوجه الصرف، وسيناريوهات التخارج للمستثمر السعودي</h2>
+<h3>للمستثمر الشريك (Equity Seed Round):</h3>
+<ul>
+<li><strong>تخطي أصعب مخاطر الاستثمار الملائكي:</strong> تم بناء المنتج واختباره وتجهيزه هندسياً بنسبة 100%؛ رأس المال لن يُحرق في تجارب تطويرية مجهولة بل سيوجه مباشرة للنمو واقتناص الحصة السوقية.</li>
+<li><strong>أوجه صرف أموال الجولة المقترحة:</strong><ul>
+<li>40% للتسويق الموجه والاستحواذ على التجار في المدن الرئيسية (الرياض، جدة، المنطقة الشرقية).</li>
+<li>25% لتشغيل البنية التحتية، خوادم الإنتاج، واستهلاك نماذج الذكاء الاصطناعي.</li>
+<li>20% لفريق المبيعات والدعم الفني ونجاح التجار (Merchant Success) في السعودية.</li>
+<li>15% للاحتياط التشغيلي والتراخيص القانونية والمصرفية.</li>
+</ul>
+</li>
+</ul>
+<h3>للمشتري المستحوذ على الملكية الفكرية والتقنية (IP Acquisition):</h3>
+<ul>
+<li><strong>توفير مالي وزمني كاسح:</strong> بناء منصة بهذا العمق المعماري (80+ موديول، محرك LangGraph، موديول إنستغرام، محرك واتساب، نظام مالي بالهللات، 9,802 اختبار) يتطلب فريقاً هندسياً من 6 إلى 8 مهندسين برمجيات متقدمين لمدة 18 إلى 24 شهراً، بتكلفة رواتب وتأسيس لا تقل عن <strong>1.5 إلى 2 مليون ريال سعودي</strong>.</li>
+<li><strong>ملكية فكرية عصرية ونظيفة (Clean Modern IP):</strong> أحدث تقنيات عام 2026 بدون أي ديون برمجية متراكمة.</li>
+</ul>
+<h3>سيناريوهات التخارج الواعدة للمستثمر السعودي (Exit Strategies):</h3>
+<ol>
+<li><strong>الإدراج في السوق المالي السعودي الموازي (نمو - Nomu):</strong> التوسع السريع في قاعدة التجار وتحقيق إيرادات سنوية متكررة (ARR) تؤهل المنصة للإدراج العام المباشر خلال 3 إلى 5 سنوات.</li>
+<li><strong>الاستحواذ الاستراتيجي من كبرى شركات التقنية والاتصالات والتوصيل:</strong><ul>
+<li><strong>شركات الاتصالات والمدفوعات (مثل STC / STC Pay):</strong> لتعزيز حلول التجار والمنشآت الصغيرة والمتوسطة.</li>
+<li><strong>عمالقة التوصيل والتجارة السريعة (مثل جاهز Jahez أو هنقرستيشن):</strong> لدمج التجارة الاجتماعية في منظوماتها.</li>
+<li><strong>منصات التجارة الإقليمية (سلة Salla أو زد Zid):</strong> لضم تقنية المحادثات والذكاء الاصطناعي الثورية لحصتها السوقية بدلاً من منافستها.</li>
+<li><strong>شركات التقنية المالية وخدمات الشراء الآن والدفع لاحقاً (تمارا Tamara أو تابي Tabby):</strong> لامتلاك قناة مبيعات مباشرة لعملائها.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<div class="callout callout-note"><strong>الخلاصة الاستثمارية:</strong>  
+تُمثل منصة <strong>زايدك (Zaydak)</strong> فرصة استثمارية استثنائية ونادرة تجمع بين <strong>أصل تقني ناضج ومتطور بنسبة 100%</strong>، و<strong>سوق سعودي متنامٍ ومليء بالسيولة</strong> يبحث عن حلول حقيقية للتجارة الاجتماعية والتفاعلية عبر إنستغرام وواتساب. الاستثمار في المنصة أو الاستحواذ عليها يُمثل وضع اليد على مستقبل تجارة التجزئة في المنطقة.</div>
+  </div>
+
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'neutral',
+      fontFamily: 'Cairo, sans-serif',
+      flowchart: { curve: 'basis' }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "welcome": "Welcome back",
+  "welcomeBack": "Welcome back, {name}",
+  "subtitle": "Choose a store or create a new one",
+  "searchPlaceholder": "Search stores",
+  "createStore": "Create new store",
+  "empty": "You have no stores yet",
+  "noMatches": "No stores match this search",
+  "pending": "Pending approval",
+  "suspended": "Suspended",
+  "accountMenu": "Account menu",
+  "hint": {
+    "name": "Name your store",
+    "handle": "Choose a handle",
+    "nameTitle": "Still called “{name}” — rename it in Settings › General",
+    "handleTitle": "The handle was generated — pick one in Settings › Domains"
+  },
+  "filter": {
+    "label": "Filter stores",
+    "all": "All",
+    "active": "Active",
+    "inactive": "Inactive"
+  }
+}

@@ -1,0 +1,147 @@
+{
+  "detail": {
+    "fileName": "File name",
+    "altText": "Alt text",
+    "altPlaceholder": "Describe this file for accessibility and SEO",
+    "notUsed": "Not used",
+    "unsavedChanges": "Unsaved changes",
+    "nameRequired": "File name can't be empty.",
+    "usedIn": "Used in",
+    "referencedBy": "Referenced by",
+    "copyLink": "Copy link",
+    "download": "Download",
+    "size": "Size",
+    "type": "Type",
+    "added": "Added",
+    "delete": "Delete",
+    "suggestAi": "Suggest with AI",
+    "productsCount": "{count, plural, =0 {Not used} one {1 product} other {# products}}",
+    "confirmDelete": "Are you sure you want to delete \"{name}\"? This action cannot be undone."
+  },
+  "toolbar": {
+    "all": "All",
+    "images": "Images",
+    "videos": "Videos",
+    "pdfs": "PDFs",
+    "searchPlaceholder": "Search and filter",
+    "toGridView": "Switch to grid view",
+    "toListView": "Switch to list view",
+    "gridView": "Grid view",
+    "listView": "List view"
+  },
+  "list": {
+    "selectAll": "Select all files",
+    "dateAdded": "Date added",
+    "size": "Size",
+    "prevPage": "Previous page",
+    "nextPage": "Next page",
+    "fileName": "File name",
+    "altText": "Alt text",
+    "noAltText": "No alt text",
+    "selectFile": "Select {name}",
+    "openFile": "Open {name}",
+    "actions": "Actions"
+  },
+  "bulk": {
+    "clearSelection": "Clear selection",
+    "selectAllOnPage": "Select all on page",
+    "deselectAll": "Deselect all",
+    "selected": "{count, plural, one {1 selected} other {# selected}}",
+    "showAllSelected": "Show all selected",
+    "deleteFiles": "{count, plural, one {Delete file} other {Delete files}}",
+    "confirmDelete": "Are you sure you want to delete {count, plural, one {this file} other {these # files}}? This action cannot be undone.",
+    "enhance": "{count, plural, one {Enhance image} other {Enhance # images}}",
+    "enhanceCapped": "Only the first {count} can be enhanced at once"
+  },
+  "rowActions": {
+    "enhance": "Enhance with AI",
+    "enhanceNamed": "Enhance {name} with AI",
+    "replace": "Replace file",
+    "replaceNamed": "Replace {name}",
+    "copyLink": "Copy link",
+    "copyLinkNamed": "Copy link for {name}",
+    "download": "Download",
+    "downloadNamed": "Download {name}"
+  },
+  "empty": {
+    "noMatch": "No files match your filters",
+    "uploadFirst": "Upload your first file",
+    "tryDifferent": "Try a different search or clear the filters.",
+    "clearFilters": "Clear filters",
+    "dragHint": "Drag and drop, or upload images, videos and PDFs to use across your store. Files can be up to 10 MB each."
+  },
+  "fromUrl": {
+    "title": "Upload from URL",
+    "description": "Paste a direct link to an image file. We'll fetch it and add it to your library.",
+    "upload": "Upload",
+    "failed": "Could not upload from that URL.",
+    "cancel": "Cancel"
+  },
+  "unavailable": {
+    "fallbackName": "File",
+    "notImage": "This file can't be edited",
+    "notFound": "File not found",
+    "notImageHint": "The editor works on images. Open this file from the Files list to see its details instead.",
+    "notFoundHint": "It may have been deleted, or the link may be wrong.",
+    "filesLabel": "Files",
+    "backToFiles": "Back to files"
+  },
+  "toast": {
+    "updated": "File updated",
+    "saveFailed": "Could not save the file.",
+    "linkCopied": "Link copied",
+    "copyFailed": "Could not copy link",
+    "altFailed": "Could not generate alt text",
+    "deleted": "File deleted",
+    "deleteFailed": "Could not delete the file",
+    "filesDeleted": "Files deleted",
+    "deleteFilesFailed": "Could not delete files",
+    "replaced": "File replaced",
+    "replaceFailed": "Could not replace file",
+    "uploaded": "File uploaded",
+    "uploadedCount": "{count, plural, one {1 file uploaded} other {# files uploaded}}"
+  },
+  "header": {
+    "title": "Files",
+    "aiStudio": "AI Studio",
+    "uploadFromUrl": "Upload from URL",
+    "uploadFiles": "Upload files"
+  },
+  "page": {
+    "dropToUpload": "Drop files to upload",
+    "showing": "Showing",
+    "of": "of",
+    "filesCount": "{count, plural, one {file} other {files}}",
+    "learnMore": "Learn more about",
+    "filesLink": "files"
+  },
+  "sort": {
+    "date-desc": "Date added (newest)",
+    "date-asc": "Date added (oldest)",
+    "name-asc": "File name (A–Z)",
+    "name-desc": "File name (Z–A)",
+    "size-desc": "Size (largest)",
+    "size-asc": "Size (smallest)"
+  },
+  "sizeRange": {
+    "label": "File size range",
+    "sm": "Under 1 MB",
+    "md": "1–5 MB",
+    "lg": "Over 5 MB"
+  },
+  "errors": {
+    "noShop": "You must be signed in with an active shop.",
+    "replaceFailed": "Replace failed ({status}).",
+    "replaceNetwork": "Network error during replace. Please try again.",
+    "uploadFailed": "Upload failed ({status}).",
+    "uploadNetwork": "Network error during upload. Please try again."
+  },
+  "studioSource": {
+    "importFailed": "Could not import from that link.",
+    "importUnreadable": "Imported, but the studio couldn't read it back. Pick it from your library.",
+    "fallbackName": "Image"
+  },
+  "grid": {
+    "uploading": "Uploading…"
+  }
+}

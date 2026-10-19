@@ -1,0 +1,322 @@
+{
+  "list": {
+    "title": "الطلبات",
+    "viewDrafts": "عرض المسودات",
+    "moreActions": "المزيد من الإجراءات",
+    "exportOrders": "تصدير الطلبات",
+    "exportFailed": "تعذّر تصدير الطلبات",
+    "exportTryAgain": "حاول مرة أخرى بعد قليل.",
+    "exportTruncated": "تم تصدير أول {count, number} طلب",
+    "exportTruncatedBody": "هناك طلبات أخرى تطابق عوامل التصفية. ضيّق التصفية لتصدير الباقي.",
+    "printPackingSlips": "طباعة قسائم التعبئة",
+    "importCsv": "استيراد CSV",
+    "createOrder": "إنشاء طلب",
+    "emptyTitle": "ستظهر طلباتك هنا",
+    "emptyBody": "ستظهر هنا الطلبات التي يضعها عملاؤك بعد أن تبدأ بقبول المدفوعات. اختر خطة لفتح صفحة الدفع.",
+    "selectPlan": "اختر خطة",
+    "learnMore": "تعرّف أكثر على الطلبات",
+    "noMatching": "لا توجد طلبات مطابقة",
+    "noMatchingBody": "جرّب مسح عوامل التصفية أو البحث برقم تتبع مختلف.",
+    "searchPlaceholder": "ابحث برقم التتبّع أو اسم العميل",
+    "selected": "{count, plural, zero {لم يُحدَّد أي طلب} one {طلب واحد محدَّد} two {طلبان محدَّدان} few {# طلبات محدَّدة} many {# طلبًا محدَّدًا} other {# طلب محدَّد}}",
+    "clearSelection": "إلغاء التحديد",
+    "showing": "عرض الطلبات <b>{from}</b>–<b>{to}</b> من أصل <b>{total}</b>"
+  },
+  "edit": {
+    "evenExchange": "استبدال متكافئ — لا تغيير على إجمالي الطلب.",
+    "success": "تم تحديث الطلب بنجاح",
+    "failed": "تعذّر تحديث الطلب",
+    "title": "تعديل الطلب #{number}",
+    "description": "عدّل بنود الطلب أو كمياتها أو رسوم الشحن. يتحدّث الفرق المالي ومستويات المخزون فورًا.",
+    "itemsHeading": "عناصر الطلب ({count})",
+    "addItem": "إضافة عنصر",
+    "empty": "لا توجد عناصر في هذا الطلب. أضف عنصرًا واحدًا على الأقل للمتابعة.",
+    "newBadge": "جديد",
+    "each": "{price} للقطعة",
+    "alreadyShipped": "(شُحن منها {count})",
+    "decrease": "إنقاص الكمية",
+    "increase": "زيادة الكمية",
+    "remove": "إزالة {name}",
+    "removeItem": "إزالة العنصر",
+    "deliveryFeeLabel": "رسوم التوصيل ({currency})",
+    "originalFee": "الرسوم الأصلية: {amount}",
+    "reason": "سبب التعديل (اختياري)",
+    "reasonPlaceholder": "مثلًا: طلب العميل إزالة أحد البنود",
+    "impact": "الأثر المالي",
+    "original": "الأصلي: {amount}",
+    "newSubtotal": "المجموع الفرعي الجديد",
+    "discount": "الخصم",
+    "estimatedTax": "الضريبة التقديرية",
+    "deliveryFee": "رسوم التوصيل",
+    "newTotal": "إجمالي الطلب الجديد",
+    "additionalCharge": "مبلغ إضافي: +{amount}",
+    "additionalChargeBody": "على العميل دفع مبلغ إضافي. سيرتفع إجمالي المستحق إلى {amount}.",
+    "refundDue": "استرداد مستحق: {amount}",
+    "refundDueBody": "انخفض إجمالي الطلب. يمكن ردّ هذا الفرق إلى العميل.",
+    "saving": "جارٍ التحديث…",
+    "save": "حفظ التغييرات"
+  },
+  "filter": {
+    "order_status": "الحالة",
+    "payment_status": "الدفع",
+    "channel": "القناة",
+    "created": "التاريخ"
+  },
+  "orderStatus": {
+    "order-pending": "قيد الانتظار",
+    "order-processing": "قيد المعالجة",
+    "order-at-local-facility": "في المركز",
+    "order-out-for-delivery": "خرج للتوصيل",
+    "order-completed": "مكتمل",
+    "order-cancelled": "ملغي",
+    "order-refunded": "مُسترد",
+    "order-failed": "فاشل"
+  },
+  "paymentStatus": {
+    "payment-pending": "قيد الانتظار",
+    "payment-processing": "قيد المعالجة",
+    "payment-success": "مدفوع",
+    "payment-completed": "مدفوع",
+    "payment-failed": "فاشل",
+    "payment-reversal": "معكوس",
+    "payment-refunded": "مُسترد",
+    "payment-cash-on-delivery": "الدفع عند الاستلام",
+    "payment-cash": "نقدًا",
+    "payment-wallet": "المحفظة",
+    "payment-awaiting-for-approval": "بانتظار الموافقة",
+    "payment-mismatch": "بحاجة إلى استرداد"
+  },
+  "settle": {
+    "markAsPaid": "تعليم كمدفوع",
+    "title": "تعليم هذا الطلب كمدفوع؟",
+    "description": "لا تفعل ذلك إلا بعد استلامك {amount} مقابل هذا الطلب. ستتغير حالة الدفع إلى مدفوع، ولا توجد في لوحة التحكم طريقة للتراجع عن ذلك.",
+    "confirm": "تعليم كمدفوع",
+    "cancel": "إلغاء",
+    "saving": "جارٍ الحفظ…",
+    "success": "تم تعليم الطلب كمدفوع",
+    "failed": "تعذّر تعليم الطلب كمدفوع",
+    "dueDate": "موعد استحقاق الدفع"
+  },
+  "placedVia": {
+    "whatsapp_assistant": "طلب عبر واتساب من خلال مساعدك",
+    "telegram_assistant": "طلب عبر تيليجرام من خلال مساعدك"
+  },
+  "columns": {
+    "order": "الطلب",
+    "date": "التاريخ",
+    "customer": "العميل",
+    "total": "الإجمالي",
+    "payment": "الدفع",
+    "status": "الحالة",
+    "items": "العناصر",
+    "guest": "زائر",
+    "selectAll": "تحديد الكل",
+    "selectOrder": "تحديد {number}"
+  },
+  "rowActions": {
+    "label": "إجراءات الصف",
+    "viewDetails": "عرض التفاصيل",
+    "updateStatus": "تحديث الحالة",
+    "cancelOrder": "إلغاء الطلب"
+  },
+  "detail": {
+    "backToOrders": "العودة إلى الطلبات",
+    "title": "الطلب #{number}",
+    "placed": "تاريخ الطلب: {date}",
+    "total": "الإجمالي: {amount}"
+  },
+  "fulfillmentStatus": {
+    "unfulfilled": "غير مُنفَّذ",
+    "partial": "مُنفَّذ جزئيًا",
+    "fulfilled": "مُنفَّذ"
+  },
+  "financialStatus": {
+    "pending": "الدفع قيد الانتظار",
+    "authorized": "مُصرَّح به",
+    "paid": "مدفوع",
+    "partially_refunded": "مُسترد جزئيًا",
+    "refunded": "مُسترد",
+    "voided": "مُلغى"
+  },
+  "statusActions": {
+    "marked": "تم تغيير الحالة إلى {status}",
+    "failed": "تعذّر تحديث الحالة",
+    "terminal": "حالة هذا الطلب: {status} — لا يمكن نقله إلى حالة أخرى.",
+    "updating": "جارٍ التحديث…",
+    "updateStatus": "تحديث الحالة",
+    "markAs": "تغيير الحالة إلى {status}",
+    "cancel": {
+      "title": "إلغاء الطلب {tracking}؟",
+      "description": "يُغلق الطلب ولا يمكن إعادة فتحه.",
+      "effectStock": "تعود عناصره إلى المخزون المتاح للبيع، ويُرَدّ للعميل أي كوبون أو رصيد متجر استخدمه.",
+      "effectCustomer": "يُبلَّغ العميل بإلغاء الطلب.",
+      "cardPaid": "دُفع هذا الطلب بالبطاقة. إلغاؤه لا يُعيد المبلغ للعميل — استرد الطلب بدلًا من ذلك، وهو ما يُغلقه.",
+      "keep": "إبقاء الطلب",
+      "confirm": "إلغاء الطلب",
+      "cancelling": "جارٍ الإلغاء…"
+    }
+  },
+  "itemsCard": {
+    "title": "العناصر",
+    "editOrder": "تعديل الطلب",
+    "sheinSource": "شي إن {amount} {currency}",
+    "sheinNote": "توفر شي إن وسعره قد يتغيران بعد تثبيت هذا الطلب."
+  },
+  "fulfillmentCard": {
+    "title": "التنفيذ",
+    "fulfillItems": "تنفيذ العناصر",
+    "remaining": "بانتظار الشحن: {count, plural, zero {لا عناصر} one {عنصر واحد} two {عنصران} few {# عناصر} many {# عنصرًا} other {# عنصر}}.",
+    "remainingBlocked": "بانتظار الشحن: {count, plural, zero {لا عناصر} one {عنصر واحد} two {عنصران} few {# عناصر} many {# عنصرًا} other {# عنصر}} — لم يعد بالإمكان تنفيذ هذا الطلب.",
+    "allShipped": "شُحنت كل عناصر هذا الطلب.",
+    "shipped": "{count, plural, zero {لم يُشحن أي عنصر} one {شُحن عنصر واحد} two {شُحن عنصران} few {شُحنت # عناصر} many {شُحن # عنصرًا} other {شُحن # عنصر}}",
+    "shippedCancelled": "{count, plural, zero {لم يُشحن أي عنصر} one {شُحن عنصر واحد} two {شُحن عنصران} few {شُحنت # عناصر} many {شُحن # عنصرًا} other {شُحن # عنصر}} (ملغاة)"
+  },
+  "fulfillDialog": {
+    "success": "تم تعليم العناصر كمُنفَّذة",
+    "failed": "تعذّر تنفيذ الطلب",
+    "title": "تنفيذ العناصر",
+    "description": "شحن هذه القطع يُخرجها من المخزون. أضف بيانات التتبّع الآن، أو اتركها فارغة واشحن بدونها.",
+    "trackingNumber": "رقم التتبّع",
+    "carrier": "الناقل",
+    "trackingUrl": "رابط التتبّع",
+    "submitting": "جارٍ التنفيذ…",
+    "submit": "تنفيذ {count, plural, zero {# عنصر} one {عنصر واحد} two {عنصرين} few {# عناصر} many {# عنصرًا} other {# عنصر}}",
+    "lineRemaining": "المتبقي للتنفيذ: {remaining} من {ordered}",
+    "quantityLabel": "الكمية المراد تنفيذها من {name}"
+  },
+  "refunds": {
+    "title": "المبالغ المستردة والإلغاءات",
+    "refundItems": "استرداد عناصر",
+    "empty": "لا توجد مبالغ مستردة على هذا الطلب.",
+    "partialRefund": "استرداد جزئي",
+    "refund": "استرداد",
+    "approve": "موافقة",
+    "reject": "رفض",
+    "rejecting": "جارٍ الرفض…",
+    "cancellation": "الإلغاء",
+    "amount": "المبلغ: {amount}",
+    "tax": "الضريبة: {amount}",
+    "deliveryFee": "رسوم التوصيل: {amount}",
+    "status": {
+      "pending": "قيد الانتظار",
+      "approved": "موافق عليه",
+      "rejected": "مرفوض",
+      "processing": "قيد المعالجة",
+      "refunded": "مُسترد"
+    },
+    "approveTitle": "استرداد {amount}؟",
+    "approveDescription": "لا يمكن التراجع عن ذلك.",
+    "effectMoney": "يُعاد المبلغ إلى العميل عبر طريقة الدفع الأصلية.",
+    "effectBalance": "يُخصم المبلغ نفسه من رصيد متجرك.",
+    "effectRestock": "تعود العناصر المحدّدة لإعادة التخزين إلى المخزون.",
+    "effectCoupon": "يصبح أي كوبون استُخدم على هذه العناصر قابلًا للاستخدام مجددًا.",
+    "approving": "جارٍ الاسترداد…",
+    "approveRefund": "الموافقة على الاسترداد",
+    "approved": "تمت الموافقة على الاسترداد",
+    "approveFailed": "تعذّرت الموافقة على الاسترداد",
+    "rejected": "رُفض الاسترداد",
+    "rejectFailed": "تعذّر رفض الاسترداد"
+  },
+  "unappliedPayments": {
+    "title": "دفعات لم تُطبَّق على هذا الطلب",
+    "reason": {
+      "paid_after_close": "دُفعت بعد إغلاق الطلب",
+      "amount_mismatch": "دُفع مبلغ مختلف",
+      "duplicate_charge": "دُفعت مرة ثانية",
+      "other": "لم تُطبَّق على هذا الطلب"
+    },
+    "body": {
+      "paid_after_close": "دفع العميل {amount} بالبطاقة في {date}، بعد إغلاق هذا الطلب. لم تُطبَّق الدفعة، لذلك يبقى الطلب مغلقًا.",
+      "amount_mismatch": "دفع العميل {amount} بالبطاقة في {date}، لكن إجمالي الطلب {total}. لم تُطبَّق الدفعة ولم يُعلَّم الطلب كمدفوع.",
+      "duplicate_charge": "دفع العميل {amount} بالبطاقة في {date}، بعد أن دُفع هذا الطلب من قبل. طُبّقت الدفعة الأولى فقط، وهذه الدفعة زائدة.",
+      "other": "دفع العميل {amount} بالبطاقة في {date}. لم تُطبَّق الدفعة على هذا الطلب."
+    },
+    "balanceNote": "لا يشمل رصيد متجرك هذه الدفعات. وإذا اعترض العميل على إحداها لدى بنكه بدلًا من ذلك، يُحجز المبلغ من رصيدك.",
+    "closeFirst": "ألغِ الطلب أولًا، ثم استرد هذه الدفعة.",
+    "refund": "استرداد {amount}",
+    "checkAgain": "تحقّق مجددًا",
+    "checking": "جارٍ التحقق…",
+    "confirmTitle": "استرداد {amount} إلى العميل؟",
+    "confirmDescription": "يُعاد المبلغ إلى البطاقة التي دفع بها العميل. لا يمكن التراجع عن ذلك.",
+    "effectOrder": "لا يتغيّر الطلب: تبقى حالته وإجماليه وعناصره كما هي.",
+    "effectBalance": "لا يتأثر رصيد متجرك.",
+    "effectCustomer": "قد يستغرق ظهور المبلغ في كشف حساب العميل بضعة أيام عمل.",
+    "confirm": "استرداد الدفعة",
+    "refunding": "جارٍ الاسترداد…",
+    "status": {
+      "requested": "أُرسل الاسترداد — بانتظار تأكيد مزوّد الدفع.",
+      "pending": "استرداد {amount} في طريقه إلى العميل.",
+      "succeeded": "استُرد {amount} في {date}.",
+      "failed": "تعذّرت آخر محاولة استرداد: {reason}"
+    },
+    "error": {
+      "charge_disputed": "اعترض العميل على هذه الدفعة لدى بنكه، ولا يمكن استردادها ما دام الاعتراض مفتوحًا.",
+      "amount_too_large": "استُرد جزء من هذه الدفعة خارج لوحة التحكم.",
+      "unconfirmed": "لم يُجب مزوّد الدفع في الوقت المحدد. تحقّق مجددًا بعد دقيقة.",
+      "charge_already_refunded": "يفيد مزوّد الدفع بأن هذه الدفعة استُردت كاملةً من قبل، لكن ليس من هنا. لم يُرسَل شيء؛ تحقّق مما إذا كان العميل ما زال مستحقًا لهذا المبلغ قبل استرداده مجددًا.",
+      "generic": "رفضه مزوّد الدفع. أعد المحاولة لاحقًا."
+    },
+    "refusal": {
+      "ORDER_STILL_OPEN": "ألغِ الطلب أولًا، ثم استرد هذه الدفعة.",
+      "REFUND_IN_PROGRESS": "يجري إرسال استرداد لهذه الدفعة الآن. تحقّق مجددًا بعد لحظات.",
+      "NOT_UNAPPLIED": "طُبّقت هذه الدفعة على الطلب. استرد عناصره بدلًا من ذلك.",
+      "NO_PAYMENT_REFERENCE": "لا يملك مزوّد الدفع سجلًا لهذه الدفعة، لذا لا يمكن استردادها من هنا.",
+      "generic": "لم يكتمل الطلب. تُظهر البطاقة أين وصل الاسترداد، وإعادة المحاولة لا تسترد المبلغ مرتين."
+    },
+    "loadFailed": "تعذّر تحميل الدفعات التي لم تُطبَّق على هذا الطلب.",
+    "retry": "أعد المحاولة",
+    "success": "تم استرداد الدفعة",
+    "sent": "أُرسل الاسترداد",
+    "failed": "تعذّر استرداد الدفعة"
+  },
+  "refundDialog": {
+    "requested": "تم طلب الاسترداد",
+    "requestedBody": "وافق عليه أدناه لتحويل المبلغ.",
+    "failed": "تعذّر إنشاء الاسترداد",
+    "title": "استرداد عناصر",
+    "description": "يُنشئ هذا استردادًا قيد الانتظار. لن تتحرك أي أموال حتى توافق عليه.",
+    "note": "ملاحظة (اختيارية)",
+    "notePlaceholder": "تظهر في سجل الاسترداد.",
+    "estimated": "الاسترداد التقديري",
+    "estimateNote": "هذا تقدير. يُحسب المبلغ النهائي عند إنشاء الاسترداد — ويشمل حصة كل بند من خصم الطلب وضريبته.",
+    "creating": "جارٍ الإنشاء…",
+    "submit": "طلب استرداد {count, plural, zero {# عنصر} one {عنصر واحد} two {عنصرين} few {# عناصر} many {# عنصرًا} other {# عنصر}}",
+    "lineMeta": "الكمية المطلوبة {ordered} · {price} للقطعة",
+    "quantityLabel": "الكمية المراد استردادها من {name}",
+    "reasonPlaceholder": "السبب (اختياري)",
+    "reasonLabel": "سبب استرداد {name}",
+    "restock": "أعد هذه القطع إلى المخزون عند الموافقة على الاسترداد"
+  },
+  "summary": {
+    "heading": "ملخص الدفع",
+    "subtotal": "المجموع الفرعي",
+    "discounts": "الخصومات",
+    "tax": "الضريبة",
+    "shipping": "الشحن",
+    "shippingVia": "الشحن · {method}",
+    "customFee": "رسوم مخصّصة",
+    "total": "الإجمالي",
+    "paid": "المدفوع",
+    "paymentMethod": "طريقة الدفع",
+    "paymentStatus": "حالة الدفع"
+  },
+  "customerCard": {
+    "title": "العميل",
+    "guest": "زائر",
+    "guestCheckout": "إتمام الشراء كزائر",
+    "email": "البريد الإلكتروني",
+    "phone": "الهاتف",
+    "language": "اللغة"
+  },
+  "addressesCard": {
+    "title": "العناوين",
+    "shipping": "عنوان الشحن",
+    "billing": "عنوان الفوترة",
+    "billingSame": "عنوان الفوترة مطابق لعنوان الشحن.",
+    "deliveryWindow": "موعد التوصيل: {time}",
+    "notProvided": "غير متوفر"
+  },
+  "couponsCard": {
+    "title": "الكوبونات"
+  }
+}

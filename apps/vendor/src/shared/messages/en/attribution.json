@@ -1,0 +1,39 @@
+{
+  "title": "Attribution",
+  "subtitle": "See which channels and campaigns drive your sales.",
+  "revenueByGroup": "Revenue by source",
+  "breakdown": "Breakdown",
+  "revenue": "Revenue",
+  "orders": "Orders",
+  "aov": "Avg order value",
+  "newCustomers": "New customers",
+  "returningCustomers": "Returning customers",
+  "cac": "CAC",
+  "roas": "ROAS",
+  "total": "Total",
+  "none": "(none)",
+  "manageAdSpend": "Manage ad spend",
+  "cacHint": "CAC and ROAS use your ad-spend entries — add or edit them from Manage ad spend.",
+  "negativeHint": "Revenue below zero means refunds settled in this period, for orders placed before it, outweighed that group's sales. ROAS is shown only where revenue is above zero.",
+  "dimensions": {
+    "CHANNEL": "Channel",
+    "SOURCE": "Source",
+    "MEDIUM": "Medium",
+    "CAMPAIGN": "Campaign"
+  },
+  "models": {
+    "LAST_TOUCH": "Last touch",
+    "FIRST_TOUCH": "First touch"
+  },
+  "channels": {
+    "DIRECT": "Direct",
+    "ORGANIC_SEARCH": "Organic search",
+    "PAID_SEARCH": "Paid search",
+    "SOCIAL": "Social",
+    "PAID_SOCIAL": "Paid social",
+    "EMAIL": "Email",
+    "REFERRAL": "Referral",
+    "AFFILIATE": "Affiliate",
+    "OTHER": "Other"
+  }
+}

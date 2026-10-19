@@ -1,0 +1,166 @@
+{
+  "title": "Analytics",
+  "subtitle": "Sales, orders, and customer performance for your store.",
+  "compare": "Compare",
+  "lastRefreshed": "Last refreshed: {time}",
+  "moreActions": "More actions",
+  "refresh": "Refresh",
+  "newExploration": "New exploration",
+  "empty": "No data for this date range",
+  "comparison": {
+    "aria": "Comparison period",
+    "none": "No comparison",
+    "previous": "Previous period"
+  },
+  "currency": {
+    "aria": "Report currency",
+    "hint": "Reports are shown in your store's currency."
+  },
+  "ranges": {
+    "today": "Today",
+    "last_7_days": "Last 7 days",
+    "last_30_days": "Last 30 days",
+    "last_90_days": "Last 90 days",
+    "this_month": "This month",
+    "this_year": "This year",
+    "yesterday": "Yesterday",
+    "last_month": "Last month",
+    "custom": "Custom"
+  },
+  "dateFilter": {
+    "apply": "Apply",
+    "cancel": "Cancel",
+    "customRange": "Custom range",
+    "aria": "Date range"
+  },
+  "targets": {
+    "button": "Try targets",
+    "add": "Create target",
+    "suggested": "Suggested targets",
+    "viewAll": "View all targets",
+    "title": "Targets"
+  },
+  "insights": {
+    "title": "Insights",
+    "dismiss": "Dismiss",
+    "dismissFailed": "Could not dismiss the insight"
+  },
+  "kpi": {
+    "totalSales": "Total sales",
+    "orders": "Orders",
+    "fulfilled": "Orders fulfilled",
+    "avgOrderValue": "Average order value",
+    "returningRate": "Returning customer rate"
+  },
+  "chart": {
+    "title": "Total sales over time",
+    "current": "Current",
+    "previous": "Previous"
+  },
+  "aovChart": {
+    "title": "Average order value over time"
+  },
+  "viewReport": "View report",
+  "sellThrough": {
+    "title": "Products by sell-through rate",
+    "soldLeft": "{sold} sold · {left} left"
+  },
+  "cohorts": {
+    "title": "Customer cohort analysis",
+    "cohort": "Cohort",
+    "size": "Size"
+  },
+  "topCustomers": {
+    "title": "Top customers",
+    "orders": "{count} orders",
+    "guest": "Customer"
+  },
+  "channels": {
+    "title": "Sales by traffic source",
+    "orders": "{count} orders"
+  },
+  "salesChannels": {
+    "title": "Sales by channel",
+    "subtitle": "Where orders were placed: your online store, your chat assistants, or by you from a draft.",
+    "measure": {
+      "aria": "Show figures as",
+      "sales": "Sales",
+      "orders": "Orders"
+    },
+    "headline": {
+      "leader": "<mark>{channel}</mark> brought <strong>{share}</strong> of your {measure, select, sales {sales} other {orders}} in this period",
+      "all": "All of your {measure, select, sales {sales} other {orders}} in this period came from <mark>{channel}</mark>",
+      "none": "No {measure, select, sales {sales} other {orders}} in this period yet"
+    },
+    "ribbon": "Share of {measure, select, sales {sales} other {orders}} by channel: {shares}",
+    "ribbonItem": "{channel} {share}",
+    "share": "{share} of {measure, select, sales {sales} other {orders}}",
+    "shareBelow": "under {share}",
+    "orders": "{count, plural, one {# order} other {# orders}}",
+    "customers": "{count, plural, one {# customer} other {# customers}}",
+    "aov": "AOV {amount}",
+    "salesAmount": "{amount} in sales",
+    "notConnected": "Not connected",
+    "connect": {
+      "TELEGRAM": "Connect Telegram",
+      "WHATSAPP": "Connect WhatsApp"
+    },
+    "drafts": "Open draft orders",
+    "chart": {
+      "title": "Channel mix over time",
+      "total": "Total",
+      "table": "{measure, select, sales {Sales} other {Orders}} by channel for each period",
+      "period": "Period"
+    },
+    "empty": "No orders in this period. Orders from your online store, your chat assistants and your manual orders are split here by channel.",
+    "error": {
+      "title": "Sales by channel could not be loaded",
+      "body": "Try again in a few minutes.",
+      "retry": "Try again"
+    }
+  },
+  "breakdown": {
+    "title": "Total sales breakdown",
+    "gross_sales_cents": "Gross sales",
+    "discounts_cents": "Discounts",
+    "returns_cents": "Returns",
+    "net_sales_cents": "Net sales",
+    "shipping_cents": "Shipping charges",
+    "taxes_cents": "Taxes",
+    "total_sales_cents": "Total sales",
+    "return_fees_cents": "Return fees kept",
+    "cogs_cents": "Cost of goods",
+    "gross_profit_cents": "Gross profit",
+    "fees_cents": "Payment fees",
+    "net_profit_cents": "Net profit",
+    "margin": "Net margin",
+    "estimatedNote": "Profit is estimated — {count} units missing cost"
+  },
+  "topProducts": {
+    "title": "Total sales by product",
+    "ordersCount": "{count} orders"
+  },
+  "ordersByStatus": {
+    "title": "Orders by status"
+  },
+  "status": {
+    "pending": "Pending",
+    "processing": "Processing",
+    "at_local_facility": "At local facility",
+    "out_for_delivery": "Out for delivery",
+    "completed": "Completed",
+    "cancelled": "Cancelled",
+    "refunded": "Refunded",
+    "failed": "Failed"
+  },
+  "lowStock": {
+    "title": "Low stock",
+    "empty": "All products are well stocked",
+    "left": "{count} left"
+  },
+  "categorySales": {
+    "title": "Sales by category",
+    "sold": "{count} sold"
+  },
+  "export": "Export CSV"
+}

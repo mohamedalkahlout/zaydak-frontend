@@ -1,0 +1,126 @@
+/* The street: a long scroll track with a pinned stage. Two planes zoom inside it:
+   the street (the shop front, 1536 x 1024 plate units) and, behind its glass, the
+   interior photo. street-scene.ts writes every transform from the scroll position;
+   each plane is laid out at its smallest on-screen size through CSS zoom on its
+   body and only ever scales up. */
+
+.hero { position: relative; height: 640vh; height: 640svh; background: #0b0806; }
+
+/* a swipe flings, so phones get a shorter track; street-scene.ts paces the story to match */
+@media (hover: none) and (pointer: coarse) {
+  .hero { height: 567.5vh; height: 567.5svh; }
+}
+
+.stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; background: #0b0806; contain: layout paint; }
+
+.interiorWindow { position: absolute; left: 0; top: 0; width: 100%; height: 100%; overflow: hidden; }
+.interior { position: absolute; left: 0; top: 0; width: 2304px; height: 1536px; transform-origin: 0 0; will-change: transform; }
+.interiorBody { position: absolute; left: 0; top: 0; width: 2304px; height: 1536px; }
+.interiorPhoto { display: block; width: 100%; height: 100%; max-width: none; }
+.interiorTint,
+.interiorFade { position: absolute; inset: 0; pointer-events: none; opacity: 0; }
+.interiorTint { background: linear-gradient(180deg, rgba(34, 18, 8, .72), rgba(52, 26, 8, .5)); }
+.interiorFade { background: var(--cream); }
+
+.loaves { position: absolute; inset: 0; }
+/* each basket clips its bread at the front rim; the bread gets its own layer only once it flies */
+.basket { position: absolute; top: 0; }
+.basketShadow { position: absolute; height: 26px; border-radius: 50%; background: radial-gradient(closest-side, rgba(70, 40, 15, .45), transparent); }
+.bread { position: absolute; left: 0; top: 0; display: block; max-width: none; transform-origin: 50% 50%; }
+.bread[data-flying] { will-change: transform; }
+
+.steam { position: absolute; inset: 0; pointer-events: none; opacity: 0; }
+.puff { position: absolute; display: block; width: 10%; height: auto; max-width: none; opacity: .55; animation: puff 7s linear infinite; }
+.puff1 { left: 21%; top: 12%; animation-delay: -1s; }
+.puff2 { left: 36.5%; top: 30%; animation-delay: -3.4s; }
+.puff3 { left: 53%; top: 12%; width: 9%; animation-delay: -5.2s; }
+@keyframes puff {
+  0% { transform: translateY(12%) scale(.92); opacity: 0; }
+  20% { opacity: .55; }
+  80% { opacity: .35; }
+  100% { transform: translateY(-16%) scale(1.08); opacity: 0; }
+}
+
+.street { position: absolute; left: 0; top: 0; width: 1536px; height: 1024px; transform-origin: 0 0; will-change: transform, opacity; }
+.streetBody { position: absolute; left: 0; top: 0; width: 1536px; height: 1024px; }
+.streetBody > * { position: absolute; }
+.streetBody[data-dawning] .plateDay,
+.streetBody[data-dawning] .extDay { will-change: opacity; }
+.streetBody img { display: block; max-width: none; user-select: none; -webkit-user-drag: none; }
+
+/* sky above and road below the photo, for screens taller than it */
+.ext { left: -3000px; width: 7536px; height: 3000px; }
+.extSky { top: -2999px; background: linear-gradient(to top, #0d1a35, #081228 40%, #050b1b); }
+.extRoad { top: 1023px; background: #2d211b; }
+.extDay { position: absolute; inset: 0; opacity: 0; }
+.extSky .extDay { background: linear-gradient(to top, #8fb1d1, #7aa3cb 40%, #6a93c0); }
+.extRoad .extDay { background: #4e3d3a; }
+
+.plate { left: 0; top: 0; width: 1536px; height: 1024px; }
+.plateDay { opacity: 0; }
+.frame { left: 409px; top: 402px; width: 716px; height: 365px; }
+.door { left: 683px; top: 410px; width: 152px; height: 355px; perspective: 700px; }
+.doorLeaf { position: absolute; inset: 0; transform-origin: 100% 50%; will-change: transform; }
+.doorLeaf img { position: absolute; inset: 0; width: 100%; height: 100%; }
+.doorDay { opacity: 0; }
+.spill { left: 0; top: 767px; width: 1536px; height: 143px; opacity: 0; }
+
+/* the shutter: one strip per run of slats, so it rolls into the drum strip by strip */
+.shutter { left: 409px; top: 401px; width: 716px; height: 366px; overflow: hidden; }
+.shutter::after { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 16px; background: linear-gradient(rgba(0, 0, 0, .6), transparent); pointer-events: none; }
+.slat { position: absolute; left: 0; width: 716px; overflow: hidden; background-image: var(--doughn-shutter, url(../art/shutter.webp)); background-repeat: no-repeat; background-size: 716px 365px; transform-origin: 0 0; will-change: transform; backface-visibility: hidden; }
+/* lamplight leaking under the bottom bar as it lifts */
+.slatLast::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 7px; background: linear-gradient(transparent, rgba(255, 176, 90, .75)); opacity: var(--rim, 0); }
+.paint { position: absolute; left: 0; width: 716px; height: 365px; display: grid; align-content: center; justify-items: center; text-align: center; color: var(--paint); pointer-events: none; backface-visibility: hidden; -webkit-font-smoothing: antialiased; }
+.paintBig { font-family: var(--f-display); font-size: 70px; line-height: .92; letter-spacing: -.01em; opacity: .93; text-transform: lowercase; }
+.paintBig span { display: block; }
+.paintSmall { margin-top: 18px; font-family: var(--f-dot); font-weight: 800; font-size: 21px; line-height: 1.5; letter-spacing: .02em; opacity: .85; }
+.paintBig:lang(ar) { font-size: 78px; line-height: 1.02; }
+.paintSmall:lang(ar) { font-family: var(--f-arabic); font-weight: 600; line-height: 1.7; }
+
+/* the halo sign: a dark face over an orange glow at night, cream letters by day */
+.sign { left: 392px; top: 238px; width: 754px; height: 98px; display: grid; place-items: center; }
+.sign > span { grid-area: 1 / 1; font-size: 82px; line-height: 1; padding-bottom: 6px; }
+.signGlow { color: #ffc070; text-shadow: 0 0 5px #ffb45c, 0 0 18px rgba(255, 150, 50, .95), 0 0 46px rgba(242, 120, 30, .75); }
+.signGlow i { font-style: normal; opacity: 0; }
+.signFace { color: #24150c; }
+.signDay { color: #f1e3c8; opacity: 0; }
+
+/* words over the street */
+.heroUi { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
+.heroUi > * { pointer-events: auto; }
+.heroCta { position: absolute; left: var(--gutter); bottom: max(26px, env(safe-area-inset-bottom)); max-width: 430px; will-change: transform; }
+.heroCta:dir(rtl) { left: auto; right: var(--gutter); }
+.heroSub { margin: 0 0 14px; font-size: 16px; line-height: 1.45; color: rgba(245, 238, 227, .86); }
+.heroBtns { display: flex; flex-wrap: wrap; gap: 10px; }
+.cue { position: absolute; left: 0; top: 0; display: flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; background: rgba(8, 10, 16, .66); color: var(--flour); font-size: 14px; font-weight: 600; text-transform: lowercase; white-space: nowrap; pointer-events: none; will-change: transform, opacity; }
+.cueArrow { position: relative; width: 10px; height: 14px; animation: nudge 1.6s var(--ease) infinite; }
+.cueArrow::before { content: ""; position: absolute; left: 4px; top: 2px; width: 2px; height: 12px; background: currentColor; border-radius: 2px; }
+.cueArrow::after { content: ""; position: absolute; left: 1px; top: 1px; width: 6px; height: 6px; border-left: 2px solid currentColor; border-top: 2px solid currentColor; transform: rotate(45deg); }
+@keyframes nudge {
+  0%, 100% { transform: translateY(2px); }
+  50% { transform: translateY(-3px); }
+}
+
+/* captions: written by captions.tsx */
+.captions { position: absolute; right: var(--gutter); bottom: max(30px, env(safe-area-inset-bottom)); width: min(360px, 78vw); height: 120px; margin: 0; padding: 0; list-style: none; pointer-events: none; }
+.captions:dir(rtl) { right: auto; left: var(--gutter); }
+.cap { position: absolute; left: 0; right: 0; bottom: 0; opacity: 0; }
+.capTime { display: block; font-family: var(--f-dot); font-weight: 800; font-size: 34px; line-height: 1; color: var(--sodium); direction: ltr; }
+.capTime:dir(rtl) { text-align: right; }
+.capLine { display: block; margin-top: 8px; font-size: 19px; line-height: 1.3; font-weight: 600; color: var(--flour); }
+
+@media (max-width: 640px) {
+  .heroCta,
+  .heroCta:dir(rtl) { left: 16px; right: 16px; max-width: none; }
+  .heroSub { font-size: 15px; }
+  .captions,
+  .captions:dir(rtl) { left: 16px; right: 16px; width: auto; }
+  .capTime { font-size: 28px; }
+  .capLine { font-size: 17px; }
+}
+
+/* reduced motion: a still street at first light */
+[data-rm] .hero { height: 100vh; height: 100svh; }
+[data-rm] .puff,
+[data-rm] .cueArrow { animation: none; }

@@ -1,0 +1,165 @@
+.root {
+  --milk: #f6eee4;
+  --paper: #fffbf4;
+  --bean: #2e201a;
+  --mocha: #5a3d30;
+  --latte: #8e7566;
+  --butter: #f3dc8c;
+  --cherry: #d8412f;
+  --hand: var(--hullo-hand), system-ui, sans-serif;
+  --ui: var(--hullo-ui), system-ui, sans-serif;
+  --mono: var(--hullo-mono), ui-monospace, monospace;
+  --ease: cubic-bezier(.16, 1, .3, 1);
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 20% 0%, #fff 0 18%, transparent 19%),
+    var(--milk);
+  color: var(--bean);
+  font-family: var(--ui);
+}
+
+.root,
+.root *,
+.root *::before,
+.root *::after { box-sizing: border-box; }
+
+.root ::selection { background: var(--butter); color: var(--bean); }
+.root :focus-visible { outline: 2px solid var(--cherry); outline-offset: 3px; }
+.root input,
+.root textarea { caret-color: var(--cherry); }
+
+.bar {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 28px clamp(16px, 4vw, 48px) 0;
+}
+
+.wordmark {
+  font-family: var(--hand);
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  color: var(--mocha);
+  text-decoration: none;
+  letter-spacing: -0.03em;
+}
+
+.back { color: var(--mocha); font-weight: 600; text-decoration: none; }
+
+.ticket {
+  width: min(440px, calc(100% - 28px));
+  margin: 22px auto 48px;
+  padding: 22px 22px 18px;
+  background: var(--paper);
+  color: var(--bean);
+  box-shadow: 0 16px 28px rgba(58, 34, 24, .16);
+  clip-path: inset(0 0 100% 0);
+  animation: print 1.05s var(--ease) forwards;
+}
+
+.ticket::before {
+  content: "";
+  display: block;
+  height: 10px;
+  margin: -22px -22px 16px;
+  background:
+    radial-gradient(circle at 8px 10px, transparent 6px, var(--paper) 7px) 0 0 / 16px 10px repeat-x,
+    var(--milk);
+}
+
+@keyframes print {
+  to { clip-path: inset(0 0 0 0); }
+}
+
+.display {
+  margin: 0 0 8px;
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.lines { margin: 0 0 12px; padding: 0; list-style: none; font-family: var(--mono); font-size: 13px; }
+.lines li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 4px 0;
+}
+
+.fields :global(.tpl-stack) { display: flex; flex-direction: column; gap: 12px; }
+.fields :global(.tpl-row) { display: flex; flex-wrap: wrap; gap: 8px 14px; }
+.fields :global(.tpl-label) { display: block; margin-bottom: 2px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; }
+.fields :global(.tpl-error),
+.fields :global(.tpl-warn) { margin: 0; color: var(--cherry); font-size: 13px; }
+.fields :global(.tpl-note) { margin: 0; color: var(--latte); font-size: 13px; }
+
+.fields input,
+.fields textarea,
+.fields select {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px dashed var(--latte);
+  border-radius: 0;
+  background: transparent;
+  color: var(--bean);
+  font-family: var(--mono);
+  font-size: 14px;
+  padding: 8px 0;
+}
+
+.fields :global(.tpl-pay) {
+  border: 0;
+  background: transparent;
+  color: var(--latte);
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 6px 0;
+  margin-inline-end: 12px;
+}
+
+.fields :global(.tpl-pay[aria-pressed="true"]) { color: var(--cherry); }
+
+.money { margin: 12px 0 0; font-family: var(--mono); font-size: 13px; }
+.money div { display: flex; justify-content: space-between; gap: 12px; padding: 2px 0; }
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  font-family: var(--mono);
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.total[data-pending="true"] { opacity: .5; }
+
+.place {
+  width: 100%;
+  margin-top: 16px;
+  height: 48px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--mocha);
+  color: #fff6ea;
+  font-family: var(--hand);
+  font-size: 22px;
+  cursor: pointer;
+  position: sticky;
+  bottom: 12px;
+  transition: background-color .45s var(--ease);
+}
+
+.place:hover:not(:disabled) { background: var(--cherry); }
+.place:disabled { opacity: .45; cursor: default; }
+
+.empty { font-family: var(--hand); font-size: 2rem; line-height: 1.1; }
+.empty a { display: inline-block; margin-top: 12px; color: var(--cherry); font-family: var(--ui); font-size: 15px; font-weight: 700; }
+.notice { margin-top: 8px; color: var(--latte); font-family: var(--mono); font-size: 12px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ticket { animation: none; clip-path: none; }
+  .place { transition: none; }
+}

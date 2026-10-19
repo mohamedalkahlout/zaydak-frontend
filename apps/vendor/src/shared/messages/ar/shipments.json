@@ -1,0 +1,80 @@
+{
+  "title": "الشحنات",
+  "unknownLocation": "موقع غير معروف",
+  "unitCount": "{count, plural, one {قطعة واحدة} other {# قطع}}",
+  "createShipment": "إنشاء شحنة",
+  "noShipmentYet": "لم يُشحن شيء من هنا بعد.",
+  "unlinkedTitle": "شحنات غير مرتبطة بتنفيذ",
+  "providerManual": "توصيل المتجر",
+  "providerUnknown": "الناقل غير مسجّل",
+  "boxCount": "{count, plural, one {صندوق واحد} other {# صناديق}}",
+  "label": "الملصق",
+  "cost": "تكلفة الناقل",
+  "costUnknown": "غير مسجّلة",
+  "historyCount": "{count, plural, one {تحديث تتبّع واحد} other {# تحديثات تتبّع}}",
+  "refresh": "تحديث",
+  "refreshed": "تم تحديث التتبّع",
+  "refreshFailed": "تعذّر تحديث التتبّع",
+  "cancel": "إلغاء",
+  "cancelled": "أُلغيت الشحنة",
+  "cancelFailed": "تعذّر إلغاء الشحنة",
+  "status": {
+    "pending": "قيد الانتظار",
+    "processing": "قيد التجهيز",
+    "shipped": "شُحنت",
+    "delivered": "سُلّمت",
+    "cancelled": "أُلغيت",
+    "in_transit": "في الطريق",
+    "picked_up": "استُلمت"
+  },
+  "source": {
+    "provider": "من الناقل",
+    "manual": "أُدخلت يدويًّا",
+    "system": "تلقائي"
+  },
+  "costSource": {
+    "provider": "من الناقل",
+    "manual": "أُدخلت يدويًّا"
+  },
+  "economics": {
+    "charged": "دفع العميل",
+    "cost": "تكلفة الناقل",
+    "subsidy": "تحمّله المتجر",
+    "margin": "ربح المتجر",
+    "unknown": "غير مسجّلة",
+    "partial": "بعض شحنات هذا الطلب بلا تكلفة مسجّلة، فالأرقام غير مكتملة."
+  },
+  "costDialog": {
+    "title": "تكلفة الناقل",
+    "description": "ما دفعته فعلًا لشحن هذه. يعمل سواء وصّلها ناقل أو وصّلتها بنفسك — أدخل ما كلّفك السائق.",
+    "amount": "المبلغ",
+    "zeroNote": "اتركه فارغًا إن لم تصل الفاتورة. الصفر يعني أنها لم تكلّف شيئًا فعلًا — وهما مختلفان.",
+    "save": "حفظ",
+    "saved": "حُفظت التكلفة",
+    "failed": "تعذّر حفظ التكلفة",
+    "cancel": "إلغاء"
+  },
+  "createDialog": {
+    "title": "إنشاء شحنة",
+    "description": "تحجز شحنة لهذا التنفيذ — أي القطع الخارجة من موقع واحد.",
+    "tracking": "رقم التتبّع",
+    "trackingPlaceholder": "اختياري",
+    "trackingHint": "إن حجزها ناقل، فرقم تتبّعه هو ما يحلّ محلّ أي رقم تُدخله هنا.",
+    "carrier": "اسم الناقل",
+    "carrierPlaceholder": "مثلًا: سائقك",
+    "carrierHint": "يُستخدم فقط حين توصّل الطلب بنفسك. الحجز عبر ناقل يأخذ اسمه من المزوّد.",
+    "packages": "الطرود",
+    "addBox": "إضافة صندوق",
+    "noPackagesHint": "لا صناديق مضافة — سيُحجز طرد واحد بلا قياسات.",
+    "box": {
+      "weight": "الوزن (غم)",
+      "length": "الطول (مم)",
+      "width": "العرض (مم)",
+      "height": "الارتفاع (مم)"
+    },
+    "create": "إنشاء",
+    "created": "أُنشئت الشحنة",
+    "failed": "تعذّر إنشاء الشحنة",
+    "cancel": "إلغاء"
+  }
+}

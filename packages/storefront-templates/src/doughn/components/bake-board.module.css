@@ -1,0 +1,96 @@
+/* The bake board. It slides up over the end of the street: its first screen is
+   see-through, so the stage (faded to cream by then) stays visible behind it while
+   the loaves fly into their cards. */
+
+.board { position: relative; z-index: 3; margin-top: -100vh; margin-top: -100svh; color: var(--ink);
+  background: linear-gradient(to bottom, transparent 0, transparent 100vh, var(--cream) 100vh);
+  background: linear-gradient(to bottom, transparent 0, transparent 100svh, var(--cream) 100svh);
+  padding: clamp(96px, 11vh, 130px) var(--gutter) clamp(70px, 8vw, 110px); }
+
+.head { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 16px 60px; align-items: end; max-width: 1240px; margin: 0 auto 30px; }
+.head > .eyebrowRow { grid-column: 1 / -1; }
+.title { margin: 0; font-family: var(--f-display); font-weight: 400; font-size: clamp(38px, 4.6vw, 70px); line-height: .98; letter-spacing: -.01em; text-transform: lowercase; }
+.title:lang(ar) { line-height: 1.2; }
+
+.peek { display: grid; gap: 10px; padding: 16px 20px; border-radius: 22px; background: rgba(255, 255, 255, .42); }
+.peekNow { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.peekLabel { font-size: 14px; color: rgba(31, 22, 17, .62); text-transform: lowercase; }
+.peekTime { font-family: var(--f-dot); font-weight: 800; font-size: 40px; line-height: 1; color: var(--ember); direction: ltr; }
+.peekCtl { display: grid; gap: 6px; font-size: 14px; color: rgba(31, 22, 17, .62); }
+.range { -webkit-appearance: none; appearance: none; width: 100%; height: 28px; margin: 0; background: transparent; direction: ltr; }
+.range::-webkit-slider-runnable-track { height: 4px; border-radius: 4px; background: linear-gradient(90deg, #22314f, #f0772b 22%, #f2c68a 45%, #d9c29c); }
+.range::-moz-range-track { height: 4px; border-radius: 4px; background: linear-gradient(90deg, #22314f, #f0772b 22%, #f2c68a 45%, #d9c29c); }
+.range::-webkit-slider-thumb { -webkit-appearance: none; width: 22px; height: 22px; margin-top: -9px; border-radius: 50%; background: var(--ink); box-shadow: 0 0 0 4px rgba(240, 119, 43, .35); }
+.range::-moz-range-thumb { width: 22px; height: 22px; border: 0; border-radius: 50%; background: var(--ink); box-shadow: 0 0 0 4px rgba(240, 119, 43, .35); }
+.peekReset { justify-self: start; padding: 0; border: 0; background: none; font-family: inherit; font-size: 13px; color: rgba(31, 22, 17, .62); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; visibility: hidden; }
+.peek[data-peeking] .peekReset { visibility: visible; }
+
+.cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; max-width: 1240px; margin: 0 auto; padding: 0; list-style: none; }
+.card { position: relative; display: flex; flex-direction: column; gap: 8px; min-width: 0; padding: 14px 18px 18px; border-radius: 28px; background: rgba(255, 255, 255, .5); transition: transform .5s var(--ease), background-color .3s; }
+.card:hover { transform: translateY(-4px); background: rgba(255, 255, 255, .72); }
+.slot { position: relative; height: 150px; display: grid; place-items: center; }
+/* the 88% is CARD_BREAD_MAX_WIDTH in scene/geometry.ts: the scene works out where each loaf lands from it */
+.cBread { display: block; width: auto; height: auto; max-width: 88%; max-height: 138px; opacity: 0; transition: transform .5s var(--ease); }
+.board[data-landed] .cBread { opacity: 1; }
+.card:hover .cBread { transform: translateY(-5px) rotate(-3deg) scale(1.04); }
+.cSteam { position: absolute; left: 32%; bottom: 36%; display: block; width: 36%; height: auto; max-width: none; opacity: 0; pointer-events: none; }
+.board[data-landed] .card[data-s="warm"] .cSteam,
+.board[data-landed] .card[data-s="oven"] .cSteam { animation: rise 3.6s linear infinite; }
+.board[data-landed] .card[data-s="warm"] .cSteam2 { left: 44%; animation-delay: -1.8s; }
+@keyframes rise {
+  0% { transform: translateY(20%) scale(.9); opacity: 0; }
+  30% { opacity: .5; }
+  100% { transform: translateY(-40%) scale(1.1); opacity: 0; }
+}
+
+.cTop { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.cTime { font-family: var(--f-dot); font-weight: 800; font-size: 26px; line-height: 1; direction: ltr; }
+.cName { margin: 2px 0 0; font-family: var(--f-display); font-weight: 400; font-size: 25px; line-height: 1.05; text-transform: lowercase; }
+.cName:lang(ar) { font-size: 27px; line-height: 1.3; }
+.cAlt { display: block; margin-top: 3px; font-family: var(--f-body); font-size: 13px; font-weight: 600; color: rgba(31, 22, 17, .55); text-transform: none; }
+.cNote { flex: 1; margin: 0; font-size: 14px; line-height: 1.45; color: rgba(31, 22, 17, .72); }
+.cAgain { font-size: 12px; color: rgba(31, 22, 17, .55); }
+
+.chip { display: inline-flex; align-items: center; gap: 6px; height: 26px; padding: 0 10px; border-radius: 999px; font-size: 12px; font-weight: 700; white-space: nowrap; text-transform: lowercase; box-shadow: inset 0 0 0 1px rgba(31, 22, 17, .2); color: rgba(31, 22, 17, .6); }
+.chip::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; opacity: .7; }
+.card[data-s="warm"] .chip { background: var(--ember); color: #fff8ef; box-shadow: none; }
+.card[data-s="oven"] .chip { color: #c2501a; box-shadow: inset 0 0 0 1.5px var(--ember); }
+.card[data-s="oven"] .chip::before { opacity: 1; animation: blink 1s steps(1) infinite; }
+.card[data-s="fresh"] .chip { color: var(--crust); box-shadow: inset 0 0 0 1px rgba(156, 79, 30, .45); }
+@keyframes blink {
+  50% { opacity: .15; }
+}
+
+.cBuy { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 4px; }
+.cPrice { font-family: var(--f-dot); font-weight: 800; font-size: 20px; direction: ltr; }
+.add { height: 38px; padding: 0 16px; border: 0; border-radius: 999px; background: var(--ink); color: var(--flour); font-family: inherit; font-size: 14px; font-weight: 700; text-transform: lowercase; white-space: nowrap; cursor: pointer; transition: background-color .3s, color .3s, transform .35s var(--ease); }
+.add:hover { background: var(--ember); color: var(--soot); transform: translateY(-2px); }
+.add[data-in-bag] { background: rgba(31, 22, 17, .1); color: var(--ink); }
+.foot { max-width: 1240px; margin: 22px auto 0; font-size: 14px; color: rgba(31, 22, 17, .6); }
+
+@media (max-width: 1080px) {
+  .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 900px) {
+  .head { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .cards { gap: 10px; }
+  .card { gap: 6px; padding: 10px 12px 14px; border-radius: 22px; }
+  .slot { height: 96px; }
+  .cBread { max-height: 88px; }
+  .cTime { font-size: 20px; }
+  .chip { height: 22px; padding: 0 8px; font-size: 11px; }
+  .cName { font-size: 19px; }
+  .cNote,
+  .cAgain { display: none; }
+  .cPrice { font-size: 16px; }
+  .add { height: 34px; padding: 0 12px; font-size: 13px; }
+  .cBuy { flex-wrap: wrap; }
+}
+
+[data-rm] .board { margin-top: 0; background: var(--cream); }
+[data-rm] .cBread { opacity: 1; }
+[data-rm] .cSteam { animation: none; }

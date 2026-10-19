@@ -1,0 +1,14 @@
+{
+  "names": {
+    "ONLINE_STORE": "Online store",
+    "TELEGRAM": "Telegram",
+    "WHATSAPP": "WhatsApp",
+    "DRAFT_ORDER": "Manual orders"
+  },
+  "descriptions": {
+    "ONLINE_STORE": "Orders customers placed on your storefront",
+    "TELEGRAM": "Orders your assistant took in your Telegram bot",
+    "WHATSAPP": "Orders your assistant took on WhatsApp",
+    "DRAFT_ORDER": "Orders you created from a draft in the dashboard"
+  }
+}

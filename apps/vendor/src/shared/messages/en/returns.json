@@ -1,0 +1,49 @@
+{
+  "title": "Returns",
+  "subtitle": "Requests from customers to send items back.",
+  "searchPlaceholder": "Search returns",
+  "emptyTitle": "No returns yet",
+  "emptyBody": "When a customer asks to send something back, the request lands here. Approve it, mark the goods received, and the refund is issued automatically — less your restocking fee.",
+  "noReason": "No reason",
+  "noMatches": "No returns match.",
+  "viewOrder": "View order",
+  "views": {
+    "all": "All",
+    "requested": "Requested",
+    "approved": "Approved",
+    "in_transit": "In transit",
+    "received": "Received",
+    "closed": "Closed",
+    "rejected": "Rejected"
+  },
+  "columns": {
+    "return": "Return",
+    "order": "Order",
+    "reason": "Reason",
+    "status": "Status",
+    "items": "Items",
+    "restockingFee": "Restocking fee",
+    "requested": "Requested",
+    "actions": "Actions"
+  },
+  "actions": {
+    "requested": "Reopen",
+    "approved": "Approve return",
+    "in_transit": "Mark in transit",
+    "received": "Mark received and refund",
+    "closed": "Close return",
+    "rejected": "Reject return"
+  },
+  "statusActions": {
+    "failed": "Could not update the return",
+    "updating": "Updating…",
+    "update": "Update",
+    "confirmTitle": "Mark the goods as received?",
+    "confirmDescription": "This cannot be undone.",
+    "effectRefund": "A refund is issued to the customer, less your restocking fee.",
+    "effectBalance": "Your shop balance is debited by the refunded amount.",
+    "effectRestock": "Lines marked for restock go back into inventory.",
+    "refunding": "Refunding…",
+    "receiveAndRefund": "Receive and refund"
+  }
+}

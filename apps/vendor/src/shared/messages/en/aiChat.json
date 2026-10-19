@@ -1,0 +1,892 @@
+{
+  "title": "AI assistant",
+  "newConversation": "New conversation",
+  "expand": "Expand",
+  "collapse": "Collapse",
+  "close": "Close",
+  "howCanIHelp": "How can I help?",
+  "placeholder": "Ask anything...",
+  "send": "Send",
+  "attach": "Attach",
+  "voice": "Voice",
+  "preview": "Preview",
+  "loadingConversation": "Loading conversation...",
+  "jumpToLatest": "Jump to latest",
+  "transcript": "Conversation",
+  "replyInProgress": "Still replying",
+  "processing": "Processing...",
+  "running": "running...",
+  "resize": "Resize panel",
+  "errorGeneric": "Something went wrong. Try again.",
+  "errorNetwork": "Could not reach the assistant. Check your connection.",
+  "errorRateLimit": "You've reached the AI chat limit — try again later.",
+  "errorBudget": "Chat is temporarily unavailable — please try again tomorrow.",
+  "errorConversationMissing": "This conversation is no longer available. Starting a new one.",
+  "greeting": {
+    "morning": "Good morning",
+    "afternoon": "Good afternoon",
+    "evening": "Good evening",
+    "night": "Hello",
+    "withName": "{greeting}, {name}"
+  },
+  "suggestions": {
+    "whatsNew": "What's new?",
+    "draftProduct": "Draft a product description",
+    "summarizeOrders": "Summarize today's orders"
+  },
+  "approval": {
+    "title": "Approval needed",
+    "prompt": "This changes your store. Approve to run it, or reject and nothing happens.",
+    "approve": "Approve",
+    "reject": "Reject",
+    "approved": "Approved",
+    "rejected": "Rejected",
+    "waiting": "Waiting for approval.",
+    "affected": "{count, plural, one {# product} other {# products}} affected.",
+    "noPreview": "The exact effect can't be previewed before running.",
+    "previewFailed": "The preview couldn't be computed.",
+    "expired": "That approval is no longer pending — nothing changed. Ask again to redo it.",
+    "tools": {
+      "bulk_update_price": "Change prices in bulk",
+      "bulk_update_tags": "Change tags in bulk",
+      "import_products_csv": "Import products from CSV",
+      "set_inventory": "Set stock level",
+      "transfer_inventory": "Move stock between locations"
+    }
+  },
+  "mention": {
+    "addReference": "Add a reference",
+    "noMatches": "No matches",
+    "loadFailed": "Couldn't load these",
+    "back": "Back",
+    "navigate": "navigate",
+    "open": "open",
+    "select": "select",
+    "close": "close",
+    "categories": {
+      "product": "Products",
+      "collection": "Collections",
+      "order": "Orders",
+      "customer": "Customers",
+      "coupon": "Coupons"
+    },
+    "collectionHint": "Collection",
+    "unnamed": "Unnamed",
+    "announce": "{token}, {category}"
+  },
+  "composer": {
+    "remove": "Remove",
+    "attachImage": "Attach image",
+    "voiceInput": "Voice input",
+    "stopRecording": "Stop recording",
+    "listening": "Listening...",
+    "stop": "Stop",
+    "copy": "Copy",
+    "regenerate": "Regenerate"
+  },
+  "page": {
+    "subtitle": "Store management assistant",
+    "dropImages": "Drop images here",
+    "dropImagesHint": "They'll upload and attach",
+    "export": "Export",
+    "newShort": "New",
+    "findPlaceholder": "Find in this conversation...",
+    "findPrevious": "Previous",
+    "findNext": "Next",
+    "welcome": "Hello {name}, how can I help?",
+    "welcomeAnonymous": "Hello, how can I help?",
+    "welcomeBody": "Ask about your shop, pull insights, or draft a new product/collection.",
+    "thinking": "Thinking...",
+    "inputPlaceholder": "Ask about your shop, or @ to mention a product...",
+    "categories": {
+      "create": "Create",
+      "insights": "Insights",
+      "inventory": "Inventory"
+    },
+    "quickActions": {
+      "stats": "Stats",
+      "lowStock": "Low stock",
+      "topSellers": "Top sellers",
+      "newProduct": "New product"
+    }
+  },
+  "panel": {
+    "menu": {
+      "files": "Files",
+      "upload": "Upload from device",
+      "target": "Target",
+      "mention": "Mention",
+      "skills": "Skills",
+      "generateApp": "Generate app",
+      "apps": "Apps"
+    }
+  },
+  "conversations": {
+    "newChat": "New chat",
+    "untitled": "Untitled chat",
+    "empty": "No saved conversations yet.",
+    "noMatches": "No matches for your search"
+  },
+  "sidebar": {
+    "trigger": "Conversations",
+    "title": "Past conversations",
+    "loading": "Loading...",
+    "select": "Select",
+    "tabActive": "Active",
+    "tabArchived": "Archived",
+    "searchPlaceholder": "Search titles + messages...",
+    "copyLinkPrompt": "Copy the link:",
+    "titlePlaceholder": "Conversation title",
+    "messageCount": "{count, plural, one {# message} other {# messages}}",
+    "linkCopied": "✓ Link copied",
+    "restore": "Restore",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "rename": "Rename",
+    "share": "Share",
+    "shareExpired": "expired",
+    "shareDaysLeft": "{days}d left",
+    "shareActive": "shared",
+    "pinProtected": "PIN protected",
+    "ttlNever": "Never",
+    "ttlDay": "24h",
+    "ttlWeek": "7d",
+    "ttlMonth": "30d",
+    "protectWithPin": "Protect with PIN",
+    "pinPlaceholder": "PIN",
+    "pinTooShort": "PIN must be at least 4 characters",
+    "removePin": "Remove PIN protection (if any)",
+    "selectedCount": "{count} selected",
+    "bulkPin": "Pin",
+    "bulkUnpin": "Unpin"
+  },
+  "search": {
+    "title": "Conversations",
+    "description": "Search your conversations or start a new one",
+    "placeholder": "Search conversations...",
+    "current": "Current",
+    "hintNavigate": "Navigate",
+    "hintOpen": "Open",
+    "groups": {
+      "results": "Results",
+      "today": "Today",
+      "yesterday": "Yesterday",
+      "week": "Previous 7 days",
+      "older": "Older"
+    }
+  },
+  "briefing": {
+    "greeting": {
+      "morning": "Good morning",
+      "afternoon": "Good afternoon",
+      "evening": "Good evening",
+      "night": "Hi"
+    },
+    "subtitle": "Your shop at a glance today",
+    "outOfStock": "{count, plural, one {# product out of stock} other {# products out of stock}}",
+    "pendingRefunds": "{count, plural, one {# refund request awaiting you} other {# refund requests awaiting you}}",
+    "ordersToday": "Orders today",
+    "revenueToday": "Revenue today",
+    "lowStock": "Low stock",
+    "newCustomers": "New customers"
+  },
+  "weekly": {
+    "title": "Last 7 full days",
+    "analyze": "Analyze →",
+    "revenue": "Revenue",
+    "orders": "Orders",
+    "ordersValue": "{count, plural, one {# order} other {# orders}}",
+    "prior": "Prior: {value}",
+    "priorWeek": "(prior week)"
+  },
+  "taskPlan": {
+    "stepOf": "Step {current} of {total}",
+    "working": "working",
+    "waiting": "waiting on you",
+    "title": "To-dos"
+  },
+  "export": {
+    "defaultTitle": "Sidekick conversation",
+    "exported": "Exported {date}",
+    "user": "User",
+    "assistant": "Assistant",
+    "toolCalls": "Tool calls",
+    "ok": "ok",
+    "failed": "failed"
+  },
+  "filledMark": {
+    "label": "Filled by Sidekick"
+  },
+  "liveFormChip": {
+    "new": {
+      "product_create": "New product",
+      "coupon_create": "New coupon",
+      "collection_create": "New collection"
+    },
+    "editing": "Editing: <title>{name}</title>",
+    "editingUnnamed": {
+      "product_edit": "Editing a product",
+      "coupon_edit": "Editing a coupon"
+    },
+    "hint": "Sidekick can see this form and change it for you. Nothing is saved until you press Save."
+  },
+  "upload": {
+    "notSignedIn": "You must be logged in with an active shop to upload.",
+    "failedStatus": "Upload failed ({status}).",
+    "noUrl": "Upload succeeded but no URL was returned.",
+    "failed": "Upload failed."
+  },
+  "voiceInput": {
+    "notSupported": "Voice input is not supported in this browser.",
+    "failed": "Voice input failed.",
+    "startFailed": "Could not start mic."
+  },
+  "agent": {
+    "loadHistoryFailed": "Failed to load history.",
+    "notSignedIn": "Not signed in or no active shop.",
+    "requestFailed": "Stream request failed ({status}).",
+    "noBody": "Stream has no body.",
+    "stoppedEarly": "The assistant stopped replying before it finished.",
+    "connectionDropped": "The connection to the assistant dropped."
+  },
+  "toolLog": {
+    "tools": {
+      "list_collections": {
+        "running": "Searching collections",
+        "done": "Reviewed collections",
+        "doneCount": "Collections: {count}"
+      },
+      "create_collection": {
+        "running": "Preparing a new collection",
+        "done": "Drafted the collection form"
+      },
+      "list_system_categories": {
+        "running": "Matching the category",
+        "done": "Suggested categories",
+        "doneCount": "Category matches: {count}",
+        "matched": "Matched: {name}",
+        "none": "No category matched"
+      },
+      "create_product": {
+        "running": "Preparing a new product",
+        "done": "Drafted the product form",
+        "askedLocation": "Asked which warehouse"
+      },
+      "search_products": {
+        "running": "Searching products",
+        "done": "Searched products",
+        "doneCount": "Found products: {count}"
+      },
+      "get_product": {
+        "running": "Opening the product",
+        "done": "Fetched the product"
+      },
+      "update_product": {
+        "running": "Preparing product changes",
+        "done": "Staged product changes"
+      },
+      "patch_form": {
+        "running": "Updating the open form",
+        "done": "Updated the open form"
+      },
+      "prepare_delete_product": {
+        "running": "Checking before delete",
+        "done": "Awaiting delete confirmation"
+      },
+      "delete_product": {
+        "running": "Deleting the product",
+        "done": "Deleted the product"
+      },
+      "get_shop_stats": {
+        "running": "Pulling shop stats",
+        "done": "Pulled shop stats"
+      },
+      "get_low_stock_products": {
+        "running": "Checking stock levels",
+        "done": "Checked stock",
+        "doneCount": "Low stock: {count}"
+      },
+      "get_top_products": {
+        "running": "Ranking top sellers",
+        "done": "Pulled top sellers"
+      },
+      "get_yearly_sales": {
+        "running": "Pulling yearly sales",
+        "done": "Pulled yearly sales"
+      },
+      "get_category_sales": {
+        "running": "Pulling category sales",
+        "done": "Pulled category sales"
+      },
+      "get_custom_range_stats": {
+        "running": "Pulling range stats",
+        "done": "Pulled range stats"
+      },
+      "list_inventory_locations": {
+        "running": "Checking the warehouses",
+        "done": "Reviewed the warehouses",
+        "doneCount": "Warehouses: {count}"
+      },
+      "set_inventory": {
+        "running": "Updating inventory",
+        "done": "Updated inventory"
+      },
+      "inventory_history": {
+        "running": "Fetching inventory history",
+        "done": "Fetched inventory history"
+      },
+      "transfer_inventory": {
+        "running": "Transferring inventory",
+        "done": "Transferred inventory"
+      },
+      "bulk_update_price": {
+        "running": "Updating prices",
+        "done": "Updated prices"
+      },
+      "bulk_update_tags": {
+        "running": "Updating tags",
+        "done": "Updated tags"
+      },
+      "export_products_csv": {
+        "running": "Exporting products",
+        "done": "Exported products (CSV)"
+      },
+      "import_products_csv": {
+        "running": "Importing products",
+        "done": "Imported products (CSV)"
+      },
+      "update_collection": {
+        "running": "Updating the collection",
+        "done": "Updated the collection"
+      },
+      "prepare_delete_collection": {
+        "running": "Checking before delete",
+        "done": "Awaiting delete confirmation"
+      },
+      "delete_collection": {
+        "running": "Deleting the collection",
+        "done": "Deleted the collection"
+      },
+      "add_product_to_collection": {
+        "running": "Adding product to collection",
+        "done": "Added to collection"
+      },
+      "remove_product_from_collection": {
+        "running": "Removing from collection",
+        "done": "Removed from collection"
+      },
+      "list_coupons": {
+        "running": "Searching coupons",
+        "done": "Reviewed coupons",
+        "doneCount": "Coupons: {count}"
+      },
+      "get_coupon": {
+        "running": "Opening the coupon",
+        "done": "Fetched the coupon"
+      },
+      "create_coupon": {
+        "running": "Preparing a coupon",
+        "done": "Drafted the coupon form"
+      },
+      "update_coupon": {
+        "running": "Preparing coupon changes",
+        "done": "Staged coupon changes"
+      },
+      "prepare_delete_coupon": {
+        "running": "Checking before delete",
+        "done": "Awaiting delete confirmation"
+      },
+      "delete_coupon": {
+        "running": "Deleting the coupon",
+        "done": "Deleted the coupon"
+      },
+      "generate_product_image": {
+        "running": "Generating product images",
+        "done": "Started generating images"
+      },
+      "set_task_plan": {
+        "running": "Planning the steps",
+        "done": "Updated the plan"
+      },
+      "get_orders": {
+        "running": "Reading orders",
+        "done": "Read orders",
+        "doneCount": "{count, plural, one {Found # order} other {Found # orders}}"
+      },
+      "get_order": {
+        "running": "Opening the order",
+        "done": "Read the order"
+      },
+      "get_shipments": {
+        "running": "Checking shipments",
+        "done": "Checked shipments"
+      },
+      "get_refund_requests": {
+        "running": "Reviewing refund requests",
+        "done": "Reviewed refunds",
+        "doneCount": "{count, plural, one {# refund waiting} other {# refunds waiting}}"
+      },
+      "get_fulfillment_speed": {
+        "running": "Measuring shipping speed",
+        "done": "Measured shipping speed"
+      },
+      "get_shop_balance": {
+        "running": "Reading the balance",
+        "done": "Read the balance"
+      },
+      "get_daily_digest": {
+        "running": "Summarising the last 24h",
+        "done": "Summarised the last 24h"
+      },
+      "get_conversion_funnel": {
+        "running": "Working out conversion",
+        "done": "Worked out conversion"
+      },
+      "get_peak_hours": {
+        "running": "Finding peak hours",
+        "done": "Found peak hours"
+      },
+      "get_product_trends": {
+        "running": "Spotting trends",
+        "done": "Spotted trends"
+      },
+      "get_product_performance": {
+        "running": "Scoring product performance",
+        "done": "Scored product performance"
+      },
+      "get_store_health": {
+        "running": "Checking store health",
+        "done": "Checked store health"
+      },
+      "get_profit_breakdown": {
+        "running": "Working out profit",
+        "done": "Worked out profit"
+      },
+      "get_revenue_forecast": {
+        "running": "Projecting revenue",
+        "done": "Projected revenue"
+      },
+      "get_review_summary": {
+        "running": "Reading reviews",
+        "done": "Read reviews",
+        "doneCount": "{count, plural, one {Read # review} other {Read # reviews}}"
+      },
+      "get_abandoned_carts": {
+        "running": "Checking abandoned carts",
+        "done": "Checked carts",
+        "doneCount": "{count, plural, one {# abandoned cart} other {# abandoned carts}}"
+      },
+      "get_wishlist_demand": {
+        "running": "Reading wishlists",
+        "done": "Read wishlists"
+      },
+      "get_stock_forecast": {
+        "running": "Forecasting stock",
+        "done": "Forecast stock"
+      },
+      "get_return_rates": {
+        "running": "Analysing returns",
+        "done": "Analysed returns"
+      },
+      "get_customer_segments": {
+        "running": "Segmenting customers",
+        "done": "Segmented customers"
+      },
+      "get_customer_questions": {
+        "running": "Reading customer questions",
+        "done": "Read questions",
+        "doneCount": "{count, plural, one {# question} other {# questions}}"
+      },
+      "get_price_suggestions": {
+        "running": "Reviewing pricing",
+        "done": "Reviewed pricing"
+      },
+      "get_bundle_suggestions": {
+        "running": "Looking for bundles",
+        "done": "Suggested bundles"
+      },
+      "compare_products": {
+        "running": "Comparing products",
+        "done": "Compared products",
+        "doneCount": "{count, plural, one {Compared # product} other {Compared # products}}"
+      },
+      "get_flash_sales": {
+        "running": "Reading flash sales",
+        "done": "Read flash sales"
+      },
+      "suggest_campaign": {
+        "running": "Planning a campaign",
+        "done": "Suggested a campaign"
+      },
+      "suggest_notification": {
+        "running": "Suggesting a customer message",
+        "done": "Suggested a message"
+      },
+      "generate_product_description": {
+        "running": "Writing a description",
+        "done": "Drafted a description"
+      },
+      "generate_product_seo": {
+        "running": "Writing SEO metadata",
+        "done": "Drafted SEO metadata"
+      },
+      "translate_product_content": {
+        "running": "Translating the product",
+        "done": "Drafted a translation"
+      },
+      "generate_faq": {
+        "running": "Writing an FAQ",
+        "done": "Drafted an FAQ"
+      },
+      "draft_review_reply": {
+        "running": "Drafting a review reply",
+        "done": "Drafted a reply"
+      },
+      "create_tag": {
+        "running": "Creating a tag",
+        "created": "Created the tag",
+        "existed": "Tag already existed"
+      }
+    },
+    "generic": {
+      "running": "Working",
+      "done": "Done"
+    },
+    "failed": "This step didn't go through",
+    "formAlreadyOpen": "The form is already open on your screen",
+    "repeated": "the same lookup, repeated",
+    "phases": {
+      "tags": "Creating tags",
+      "validating": "Checking rows",
+      "validated": "Rows checked",
+      "importing": "Importing products",
+      "imported": "Products imported",
+      "matching": "Finding products",
+      "matched": "Products found",
+      "applying": "Applying prices",
+      "applied": "Prices applied",
+      "previewed": "Preview ready",
+      "enqueuing": "Starting generation",
+      "enqueued": "Generation queued"
+    }
+  },
+  "toolCards": {
+    "generic": {
+      "tool": "Tool: <code>{name}</code>"
+    },
+    "error": {
+      "title": "Operation failed",
+      "unknown": "Unknown error"
+    },
+    "productStatus": {
+      "DRAFT": "Draft",
+      "PUBLISH": "Active",
+      "UNLISTED": "Unlisted"
+    },
+    "productType": {
+      "SIMPLE": "Simple",
+      "VARIABLE": "With options",
+      "DIGITAL": "Digital",
+      "SERVICE": "Service"
+    },
+    "collectionType": {
+      "MANUAL": "Manual",
+      "AUTOMATED": "Automated"
+    },
+    "collectionsList": {
+      "title": "Searched collections",
+      "empty": "No matching collections found",
+      "items": "{count, plural, one {# item} other {# items}}"
+    },
+    "collectionCreated": {
+      "title": "Created collection"
+    },
+    "collectionUpdated": {
+      "title": "Collection updated"
+    },
+    "collectionDeleted": {
+      "title": "Collection deleted",
+      "body": "Moved to trash. Products were not deleted — only the grouping was removed."
+    },
+    "collectionMembership": {
+      "attached": "Product added to collection",
+      "detached": "Product removed from collection",
+      "count": "{count, plural, one {# product in collection} other {# products in collection}}"
+    },
+    "productList": {
+      "title": "Search results",
+      "empty": "No matching products",
+      "quantity": "qty: {count}"
+    },
+    "productDetails": {
+      "title": "Product details",
+      "price": "Price",
+      "sale": "Sale",
+      "stock": "Stock",
+      "type": "Type",
+      "sku": "SKU",
+      "version": "Version"
+    },
+    "productCreated": {
+      "title": "Created product",
+      "quantity": "Quantity",
+      "type": "Type",
+      "slug": "Slug"
+    },
+    "productUpdated": {
+      "title": "Updated product",
+      "stock": "Stock: {count}"
+    },
+    "productDeleted": {
+      "title": "Product deleted",
+      "body": "Moved to trash. You can restore it from the dashboard.",
+      "id": "id: {id}"
+    },
+    "salesStats": {
+      "sales": "Sales",
+      "orders": "Orders",
+      "placedOf": "of {placed} placed",
+      "averageOrder": "Average order",
+      "afterReturns": "After {amount} in returns",
+      "byChannel": "Sales by channel",
+      "channelOrders": "{count, plural, one {# order} other {# orders}}",
+      "share": "{value}%",
+      "basis": "Sales count every order placed in the period except cancelled and failed ones, minus settled refunds.",
+      "legacyNote": "From an earlier version of Sidekick: revenue here counts completed orders only."
+    },
+    "shopStats": {
+      "title": "Shop stats",
+      "period": {
+        "today": "Today",
+        "weekly": "Last 7 days",
+        "monthly": "Last 30 days",
+        "yearly": "This year"
+      },
+      "totalRevenue": "Lifetime revenue",
+      "todayRevenue": "Today's revenue",
+      "totalOrders": "Lifetime orders",
+      "newCustomers": "New customers",
+      "newCustomers30d": "New customers (30 days)",
+      "lifetime": "All time: {sales} · {orders, plural, one {# order} other {# orders}}",
+      "byStatus": "Orders by status",
+      "status": {
+        "pending": "Pending",
+        "processing": "Processing",
+        "completed": "Completed",
+        "cancelled": "Cancelled",
+        "refunded": "Refunded",
+        "failed": "Failed",
+        "at_local_facility": "At facility",
+        "out_for_delivery": "Out for delivery"
+      }
+    },
+    "lowStock": {
+      "title": "Low stock",
+      "threshold": "{count, plural, one {Threshold: # unit} other {Threshold: # units}}",
+      "empty": "Nothing below the threshold",
+      "left": "{count} left"
+    },
+    "topProducts": {
+      "title": "Top sellers",
+      "empty": "No sales yet",
+      "orders": "{count, plural, one {# order} other {# orders}}",
+      "allTime": "All time",
+      "since": "Since {date}",
+      "until": "Through {date}",
+      "range": "{start} – {end}",
+      "emptyInRange": "No sales in these days"
+    },
+    "yearlySales": {
+      "title": "{year} Sales",
+      "total": "Total: <strong>{amount}</strong>"
+    },
+    "categorySales": {
+      "title": "Sales by category",
+      "empty": "No data",
+      "sold": "{count} sold",
+      "products": "{count, plural, one {# product} other {# products}}"
+    },
+    "customRange": {
+      "title": "Range stats",
+      "since": "Since {date}",
+      "range": "{start} – {end}",
+      "revenue": "Revenue (completed orders)",
+      "totalOrders": "Total orders",
+      "completed": "Completed",
+      "cancelled": "Cancelled",
+      "failed": "Failed"
+    },
+    "coupons": {
+      "type": {
+        "amount_off_order": "Order discount",
+        "amount_off_products": "Product discount",
+        "free_shipping": "Free shipping",
+        "buy_x_get_y": "Buy X get Y"
+      },
+      "freeShipping": "Free",
+      "status": {
+        "active": "Active",
+        "scheduled": "Scheduled",
+        "expired": "Expired"
+      },
+      "automatic": "Automatic",
+      "listTitle": "Your coupons",
+      "min": "min {amount}",
+      "used": "{usage} used",
+      "details": {
+        "type": "Type",
+        "discount": "Discount",
+        "rule": "Rule",
+        "ruleValue": "Buy {buy} get {get}",
+        "minCart": "Min cart",
+        "maxDiscount": "Max discount",
+        "usage": "Usage",
+        "starts": "Starts",
+        "expires": "Expires",
+        "combines": "Combines",
+        "exclusive": "Exclusive (no stacking)"
+      },
+      "deleted": "Coupon deleted"
+    },
+    "saveReceipt": {
+      "open": "{entity, select, product {Open the product} collection {Open the collection} coupon {Open the coupon} other {Open}}"
+    },
+    "inventoryLocations": {
+      "title": "Warehouses",
+      "empty": "No warehouses set up",
+      "default": "default",
+      "off": "off",
+      "notOnline": "does not fulfil online orders",
+      "committed": "{count} committed"
+    },
+    "categoryMatch": {
+      "title": "Suggested categories",
+      "bestMatch": "Best match",
+      "use": "Use",
+      "noMatchQuery": "No category matched \"{query}\"",
+      "noMatch": "No category matched",
+      "showMore": "Show {count} more"
+    },
+    "turnError": {
+      "platformTitle": "The assistant is paused",
+      "planQuotaTitle": "You've used this period's allowance",
+      "rateLimitedTitle": "Too many questions at once",
+      "genericTitle": "The reply didn't finish",
+      "retry": "Try again",
+      "viewPlan": "View plan",
+      "platformNote": "The platform team has been notified — nothing is needed from you.",
+      "rateLimitNote": "The limit clears on its own within the hour."
+    },
+    "navigateToForm": {
+      "title": {
+        "product_create": "Draft ready to create",
+        "product_edit": "Suggested edit",
+        "collection_create": "Collection ready to create",
+        "coupon_create": "Coupon ready to create",
+        "coupon_edit": "Suggested coupon edit",
+        "store_import": "Store import running"
+      },
+      "description": {
+        "product_create": "Open the form to review the details and create it.",
+        "product_edit": "The changes are applied on top of the current values — open the edit page and review before saving.",
+        "collection_create": "Open the collection form to review it.",
+        "coupon_create": "Open the coupon form to review the details before saving.",
+        "coupon_edit": "The changes are applied on top of the current values — open the coupon edit page and review before saving.",
+        "store_import": "The scan runs in the background and has written nothing. Open it to follow along and approve the numbers."
+      },
+      "openImport": "Open the import",
+      "openEdit": "Open edit page now",
+      "openForm": "Open form now",
+      "alreadyOpen": "This form is already open on your screen. Ask for changes here in the chat, or save or discard it before opening this draft.",
+      "summary": {
+        "warehouse": "Warehouse",
+        "name": "Name",
+        "slug": "Slug",
+        "price": "Price",
+        "salePrice": "Sale price",
+        "quantity": "Quantity",
+        "status": "Status",
+        "sku": "SKU",
+        "code": "Code",
+        "discount": "Discount",
+        "freeShipping": "Free shipping",
+        "buyGet": "Buy {buy} get {get}"
+      }
+    },
+    "formPatch": {
+      "title": "Changed on the open form",
+      "footer": "Nothing is saved until you press Save on the form.",
+      "stale": "The form was closed before this arrived, so nothing changed.",
+      "on": "On",
+      "off": "Off",
+      "updated": "Changed",
+      "values": {
+        "methodCode": "Discount code",
+        "methodAutomatic": "Automatic",
+        "percentage": "Percentage",
+        "fixedAmount": "Fixed amount",
+        "none": "None",
+        "minimumAmount": "Purchase amount",
+        "minimumQuantity": "Quantity of items",
+        "percentOff": "Percent off",
+        "amountOff": "Amount off",
+        "free": "Free"
+      },
+      "fields": {
+        "name": "Name",
+        "description": "Description",
+        "price": "Price",
+        "salePrice": "Sale price",
+        "costPerItem": "Cost per item",
+        "quantity": "Quantity",
+        "sku": "SKU",
+        "barcode": "Barcode",
+        "status": "Status",
+        "trackQuantity": "Track quantity",
+        "continueSelling": "Sell when out of stock",
+        "requiresShipping": "Requires shipping",
+        "weight": "Weight (g)",
+        "category": "Category",
+        "seoTitle": "SEO title",
+        "seoDescription": "SEO description",
+        "slug": "URL handle",
+        "code": "Code",
+        "method": "Method",
+        "valueType": "Value type",
+        "amount": "Discount value",
+        "maxDiscount": "Max discount",
+        "minimumMode": "Minimum requirement",
+        "minimumCartAmount": "Minimum purchase amount",
+        "minimumQuantity": "Minimum quantity of items",
+        "limitUses": "Limit total uses",
+        "maxUses": "Max uses",
+        "limitOnePerCustomer": "One use per customer",
+        "isExclusive": "Cannot combine with other discounts",
+        "allowProduct": "Combines with product discounts",
+        "allowOrder": "Combines with order discounts",
+        "allowShipping": "Combines with shipping discounts",
+        "activeFromDate": "Start date",
+        "activeFromTime": "Start time",
+        "setEndDate": "Set end date",
+        "expireAtDate": "End date",
+        "expireAtTime": "End time",
+        "campaignTag": "Campaign tag",
+        "priority": "Priority",
+        "excludeShippingRates": "Limit shipping rates",
+        "maxShippingRate": "Maximum shipping rate",
+        "buyQuantity": "Customer buys",
+        "getQuantity": "Customer gets",
+        "getDiscountMode": "Discount on what they get",
+        "getDiscountPercent": "Percent off",
+        "getDiscountAmount": "Amount off each"
+      }
+    },
+    "aiImage": {
+      "title": "AI images",
+      "failed": "Image generation failed.",
+      "moderated": "No safe image was returned. Try a different prompt.",
+      "addHint": "Open a product's media to add the ones you like.",
+      "generating": "Generating…"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "title": "Customer insights",
+  "subtitle": "Retention, lifetime value, and your best customers.",
+  "kpi": {
+    "totalCustomers": "Total customers",
+    "repeatRate": "Repeat rate",
+    "avgLtv": "Avg lifetime value",
+    "avgOrders": "Avg orders / customer",
+    "newCustomers": "New customers",
+    "returningCustomers": "Returning customers",
+    "activeCustomers": "Active customers",
+    "windowRevenue": "Revenue",
+    "lifetime": "All time",
+    "window": "This period",
+    "perCustomer": "All time",
+    "repeatHint": "{count} repeat customers"
+  },
+  "cohorts": {
+    "title": "Cohort retention",
+    "subtitle": "Share of each month's new customers who ordered again in later months.",
+    "cohort": "Cohort",
+    "size": "Size",
+    "empty": "Not enough order history to build cohorts yet."
+  },
+  "top": {
+    "title": "Top customers",
+    "customer": "Customer",
+    "orders": "Orders",
+    "spent": "Spent",
+    "unknown": "Unknown",
+    "empty": "No customers yet."
+  }
+}

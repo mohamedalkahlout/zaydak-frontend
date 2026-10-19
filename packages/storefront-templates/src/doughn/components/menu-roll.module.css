@@ -1,0 +1,14 @@
+/* The menu: a sheet of kraft paper rolling down from a tube. */
+
+.menu { position: fixed; inset: 0; z-index: 90; }
+.paper { position: absolute; left: 0; right: 0; top: 0; min-height: min(560px, 82svh); padding: 110px var(--gutter) 60px; background: var(--kraft) url(../art/grain.png); color: #2b1d12; box-shadow: 0 30px 60px rgba(0, 0, 0, .35); clip-path: inset(0 0 100% 0); }
+.links { display: grid; gap: 4px; }
+.links a,
+.links button { justify-self: start; padding: 0; border: 0; background: none; font-family: var(--f-display); font-size: clamp(40px, 7vw, 84px); line-height: 1.08; color: #2b1d12; text-decoration: none; text-transform: lowercase; cursor: pointer; }
+.links a:hover,
+.links button:hover { color: var(--crust); }
+.note { margin: 26px 0 0; font-family: var(--f-dot); font-weight: 800; font-size: 15px; }
+.note:lang(ar) { font-family: var(--f-body); font-weight: 600; }
+.paper .close { position: absolute; top: 18px; right: var(--gutter); background: rgba(43, 29, 18, .12); color: #2b1d12; }
+.paper .close:dir(rtl) { right: auto; left: var(--gutter); }
+.tube { position: absolute; left: -10px; right: -10px; top: 0; height: 36px; border-radius: 18px; background: linear-gradient(#6d4a2a, #d8b687 38%, #a57b4d 70%, #5b3d22); box-shadow: 0 10px 20px rgba(0, 0, 0, .35); transform: translate3d(0, -18px, 0); }

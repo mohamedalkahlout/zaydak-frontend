@@ -1,0 +1,322 @@
+{
+  "list": {
+    "title": "Orders",
+    "viewDrafts": "View drafts",
+    "moreActions": "More actions",
+    "exportOrders": "Export orders",
+    "exportFailed": "Could not export orders",
+    "exportTryAgain": "Try again in a moment.",
+    "exportTruncated": "Exported the first {count, number} orders",
+    "exportTruncatedBody": "More orders match these filters. Narrow them to export the rest.",
+    "printPackingSlips": "Print packing slips",
+    "importCsv": "Import CSV",
+    "createOrder": "Create order",
+    "emptyTitle": "Your orders will show here",
+    "emptyBody": "Orders placed by your customers will appear here once you start accepting payments. Pick a plan to unlock checkout.",
+    "selectPlan": "Select plan",
+    "learnMore": "Learn more about orders",
+    "noMatching": "No matching orders",
+    "noMatchingBody": "Try clearing filters or searching by a different tracking number.",
+    "searchPlaceholder": "Search by tracking or customer",
+    "selected": "{count} selected",
+    "clearSelection": "Clear selection",
+    "showing": "Showing <b>{from}</b>–<b>{to}</b> of <b>{total}</b> orders"
+  },
+  "edit": {
+    "evenExchange": "Even exchange — no change to the order’s total amount.",
+    "success": "Order updated successfully",
+    "failed": "Could not update the order",
+    "title": "Edit Order #{number}",
+    "description": "Adjust line items, change quantities, or update shipping fee. Financial deltas and inventory levels update in real-time.",
+    "itemsHeading": "Items in Order ({count})",
+    "addItem": "Add item",
+    "empty": "No items in this order. Add at least one item to continue.",
+    "newBadge": "New",
+    "each": "{price} each",
+    "alreadyShipped": "({count} already shipped)",
+    "decrease": "Decrease quantity",
+    "increase": "Increase quantity",
+    "remove": "Remove {name}",
+    "removeItem": "Remove item",
+    "deliveryFeeLabel": "Delivery Fee ({currency})",
+    "originalFee": "Original fee: {amount}",
+    "reason": "Reason for editing (Optional)",
+    "reasonPlaceholder": "e.g. Customer requested line removal",
+    "impact": "Financial Impact",
+    "original": "Original: {amount}",
+    "newSubtotal": "New Subtotal",
+    "discount": "Discount",
+    "estimatedTax": "Estimated Tax",
+    "deliveryFee": "Delivery Fee",
+    "newTotal": "New Order Total",
+    "additionalCharge": "Additional charge: +{amount}",
+    "additionalChargeBody": "The customer owes additional payment. Total balance will increase to {amount}.",
+    "refundDue": "Refund due: {amount}",
+    "refundDueBody": "The order total has decreased. This difference is available for customer refund.",
+    "saving": "Updating...",
+    "save": "Save changes"
+  },
+  "filter": {
+    "order_status": "Status",
+    "payment_status": "Payment",
+    "channel": "Channel",
+    "created": "Date"
+  },
+  "orderStatus": {
+    "order-pending": "Pending",
+    "order-processing": "Processing",
+    "order-at-local-facility": "At facility",
+    "order-out-for-delivery": "Out for delivery",
+    "order-completed": "Completed",
+    "order-cancelled": "Cancelled",
+    "order-refunded": "Refunded",
+    "order-failed": "Failed"
+  },
+  "paymentStatus": {
+    "payment-pending": "Pending",
+    "payment-processing": "Processing",
+    "payment-success": "Paid",
+    "payment-completed": "Paid",
+    "payment-failed": "Failed",
+    "payment-reversal": "Reversed",
+    "payment-refunded": "Refunded",
+    "payment-cash-on-delivery": "COD",
+    "payment-cash": "Cash",
+    "payment-wallet": "Wallet",
+    "payment-awaiting-for-approval": "Awaiting approval",
+    "payment-mismatch": "Refund needed"
+  },
+  "settle": {
+    "markAsPaid": "Mark as paid",
+    "title": "Mark this order as paid?",
+    "description": "Do this only once you have received {amount} for this order. Its payment status changes to Paid, and the dashboard has no action to undo it.",
+    "confirm": "Mark as paid",
+    "cancel": "Cancel",
+    "saving": "Saving…",
+    "success": "Order marked as paid",
+    "failed": "Could not mark the order as paid",
+    "dueDate": "Payment due"
+  },
+  "placedVia": {
+    "whatsapp_assistant": "Placed on WhatsApp by your assistant",
+    "telegram_assistant": "Placed on Telegram by your assistant"
+  },
+  "columns": {
+    "order": "Order",
+    "date": "Date",
+    "customer": "Customer",
+    "total": "Total",
+    "payment": "Payment",
+    "status": "Status",
+    "items": "Items",
+    "guest": "Guest",
+    "selectAll": "Select all",
+    "selectOrder": "Select {number}"
+  },
+  "rowActions": {
+    "label": "Row actions",
+    "viewDetails": "View details",
+    "updateStatus": "Update status",
+    "cancelOrder": "Cancel order"
+  },
+  "detail": {
+    "backToOrders": "Back to orders",
+    "title": "Order #{number}",
+    "placed": "Placed {date}",
+    "total": "Total {amount}"
+  },
+  "fulfillmentStatus": {
+    "unfulfilled": "Unfulfilled",
+    "partial": "Partially fulfilled",
+    "fulfilled": "Fulfilled"
+  },
+  "financialStatus": {
+    "pending": "Payment pending",
+    "authorized": "Authorized",
+    "paid": "Paid",
+    "partially_refunded": "Partially refunded",
+    "refunded": "Refunded",
+    "voided": "Voided"
+  },
+  "statusActions": {
+    "marked": "Marked as {status}",
+    "failed": "Could not update status",
+    "terminal": "This order is {status} — no further transitions.",
+    "updating": "Updating…",
+    "updateStatus": "Update status",
+    "markAs": "Mark as {status}",
+    "cancel": {
+      "title": "Cancel order {tracking}?",
+      "description": "The order closes and cannot be reopened.",
+      "effectStock": "Its items go back on sale, and any coupon or store credit it used is returned to the customer.",
+      "effectCustomer": "The customer is told the order was cancelled.",
+      "cardPaid": "This order was paid by card. Cancelling it would not return the payment — refund the order instead, which closes it.",
+      "keep": "Keep order",
+      "confirm": "Cancel order",
+      "cancelling": "Cancelling…"
+    }
+  },
+  "itemsCard": {
+    "title": "Items",
+    "editOrder": "Edit order",
+    "sheinSource": "Shein {amount} {currency}",
+    "sheinNote": "Shein availability and price can change after this order is placed."
+  },
+  "fulfillmentCard": {
+    "title": "Fulfillment",
+    "fulfillItems": "Fulfill items",
+    "remaining": "{count, plural, one {# item} other {# items}} still to ship.",
+    "remainingBlocked": "{count, plural, one {# item} other {# items}} still to ship — this order can no longer be fulfilled.",
+    "allShipped": "Every item on this order has shipped.",
+    "shipped": "{count, plural, one {# item} other {# items}} shipped",
+    "shippedCancelled": "{count, plural, one {# item} other {# items}} shipped (cancelled)"
+  },
+  "fulfillDialog": {
+    "success": "Items marked as fulfilled",
+    "failed": "Could not fulfill the order",
+    "title": "Fulfill items",
+    "description": "Shipping these units moves them out of stock. Add tracking now, or leave it blank and ship without it.",
+    "trackingNumber": "Tracking number",
+    "carrier": "Carrier",
+    "trackingUrl": "Tracking URL",
+    "submitting": "Fulfilling…",
+    "submit": "Fulfill {count, plural, one {# item} other {# items}}",
+    "lineRemaining": "{remaining} of {ordered} left to fulfill",
+    "quantityLabel": "Quantity to fulfill for {name}"
+  },
+  "refunds": {
+    "title": "Refunds & cancellations",
+    "refundItems": "Refund items",
+    "empty": "No refunds on this order.",
+    "partialRefund": "Partial refund",
+    "refund": "Refund",
+    "approve": "Approve",
+    "reject": "Reject",
+    "rejecting": "Rejecting…",
+    "cancellation": "Cancellation",
+    "amount": "Amount: {amount}",
+    "tax": "Tax: {amount}",
+    "deliveryFee": "Delivery fee: {amount}",
+    "status": {
+      "pending": "pending",
+      "approved": "approved",
+      "rejected": "rejected",
+      "processing": "processing",
+      "refunded": "refunded"
+    },
+    "approveTitle": "Refund {amount}?",
+    "approveDescription": "This cannot be undone.",
+    "effectMoney": "The money is returned to the customer through the original payment method.",
+    "effectBalance": "Your shop balance is debited by the same amount.",
+    "effectRestock": "Items marked for restock go back into inventory.",
+    "effectCoupon": "Any coupon used on those items becomes usable again.",
+    "approving": "Refunding…",
+    "approveRefund": "Approve refund",
+    "approved": "Refund approved",
+    "approveFailed": "Could not approve the refund",
+    "rejected": "Refund rejected",
+    "rejectFailed": "Could not reject the refund"
+  },
+  "unappliedPayments": {
+    "title": "Payments not applied to this order",
+    "reason": {
+      "paid_after_close": "Paid after the order was closed",
+      "amount_mismatch": "Paid a different amount",
+      "duplicate_charge": "Paid a second time",
+      "other": "Not applied to this order"
+    },
+    "body": {
+      "paid_after_close": "The customer paid {amount} by card on {date}, after this order was closed. The payment was not applied, so the order stays closed.",
+      "amount_mismatch": "The customer paid {amount} by card on {date}, but the order total is {total}. The payment was not applied and the order was not marked paid.",
+      "duplicate_charge": "The customer paid {amount} by card on {date}, after this order had already been paid. Only the first payment was applied; this one is extra.",
+      "other": "The customer paid {amount} by card on {date}. The payment was not applied to this order."
+    },
+    "balanceNote": "Your shop balance does not include these payments. If a customer disputes one with their bank instead, the amount is held from your balance.",
+    "closeFirst": "Cancel the order first, then refund this payment.",
+    "refund": "Refund {amount}",
+    "checkAgain": "Check again",
+    "checking": "Checking…",
+    "confirmTitle": "Refund {amount} to the customer?",
+    "confirmDescription": "The money goes back to the card the customer paid with. This cannot be undone.",
+    "effectOrder": "The order does not change: its status, total and items stay as they are.",
+    "effectBalance": "Your shop balance is not affected.",
+    "effectCustomer": "It may take a few business days to appear on the customer’s statement.",
+    "confirm": "Refund payment",
+    "refunding": "Refunding…",
+    "status": {
+      "requested": "Refund sent — waiting for the payment provider to confirm it.",
+      "pending": "The refund of {amount} is on its way to the customer.",
+      "succeeded": "Refunded {amount} on {date}.",
+      "failed": "The last refund attempt failed: {reason}"
+    },
+    "error": {
+      "charge_disputed": "the customer has disputed this payment with their bank, and it cannot be refunded while the dispute is open.",
+      "amount_too_large": "part of this payment was already refunded outside the dashboard.",
+      "unconfirmed": "The payment provider did not answer in time. Check again in a minute.",
+      "charge_already_refunded": "the payment provider reports this payment as already refunded in full, but not from here. Nothing was sent; check whether the customer is still owed this amount before refunding again.",
+      "generic": "the payment provider refused it. Try again later."
+    },
+    "refusal": {
+      "ORDER_STILL_OPEN": "Cancel the order first, then refund this payment.",
+      "REFUND_IN_PROGRESS": "A refund of this payment is being sent right now. Check again in a moment.",
+      "NOT_UNAPPLIED": "This payment was applied to the order. Refund its items instead.",
+      "NO_PAYMENT_REFERENCE": "The payment provider has no record of this payment, so it cannot be refunded here.",
+      "generic": "The request did not complete. The card shows where the refund stands, and trying again never refunds twice."
+    },
+    "loadFailed": "Could not load the payments that were not applied to this order.",
+    "retry": "Try again",
+    "success": "Payment refunded",
+    "sent": "Refund sent",
+    "failed": "Could not refund the payment"
+  },
+  "refundDialog": {
+    "requested": "Refund requested",
+    "requestedBody": "Approve it below to move the money.",
+    "failed": "Could not create the refund",
+    "title": "Refund items",
+    "description": "This creates a pending refund. No money moves until you approve it.",
+    "note": "Note (optional)",
+    "notePlaceholder": "Visible on the refund record.",
+    "estimated": "Estimated refund",
+    "estimateNote": "An estimate. The final amount is calculated when the refund is created — it carries each line's share of the order's discount and tax.",
+    "creating": "Creating…",
+    "submit": "Request refund for {count, plural, one {# item} other {# items}}",
+    "lineMeta": "{ordered} ordered · {price} each",
+    "quantityLabel": "Quantity to refund for {name}",
+    "reasonPlaceholder": "Reason (optional)",
+    "reasonLabel": "Refund reason for {name}",
+    "restock": "Restock these units when the refund is approved"
+  },
+  "summary": {
+    "heading": "Payment summary",
+    "subtotal": "Subtotal",
+    "discounts": "Discounts",
+    "tax": "Tax",
+    "shipping": "Shipping",
+    "shippingVia": "Shipping · {method}",
+    "customFee": "Custom fee",
+    "total": "Total",
+    "paid": "Paid",
+    "paymentMethod": "Payment method",
+    "paymentStatus": "Payment status"
+  },
+  "customerCard": {
+    "title": "Customer",
+    "guest": "Guest",
+    "guestCheckout": "Guest checkout",
+    "email": "Email",
+    "phone": "Phone",
+    "language": "Language"
+  },
+  "addressesCard": {
+    "title": "Addresses",
+    "shipping": "Shipping",
+    "billing": "Billing",
+    "billingSame": "Billing address matches shipping.",
+    "deliveryWindow": "Delivery window: {time}",
+    "notProvided": "Not provided"
+  },
+  "couponsCard": {
+    "title": "Coupons"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "search": "بحث",
+  "discard": "تجاهل",
+  "saving": "جارٍ الحفظ...",
+  "retry": "إعادة المحاولة",
+  "save": "حفظ",
+  "pendingApproval": "في انتظار الموافقة",
+  "createStore": "إنشاء متجر",
+  "changePassword": "تغيير كلمة المرور",
+  "logOut": "تسجيل الخروج",
+  "loggedOut": "تم تسجيل الخروج",
+  "aiAssistant": "المساعد الذكي",
+  "aiAssistantUnread": "المساعد الذكي، رد جديد",
+  "darkMode": "الوضع الداكن",
+  "lightMode": "الوضع الفاتح",
+  "theme": "المظهر",
+  "language": "اللغة",
+  "home": "الرئيسية"
+}

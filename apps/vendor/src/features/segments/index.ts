@@ -1,0 +1,5 @@
+export { SegmentsTable } from "./components/segments-table"
+export { SegmentEditor } from "./components/segment-editor"
+export { SegmentDetail } from "./components/segment-detail"
+export { SegmentInsights } from "./components/insights/segment-insights"
+export { SegmentTabs } from "./components/segment-tabs"
